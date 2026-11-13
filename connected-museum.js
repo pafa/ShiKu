@@ -155,8 +155,8 @@ export function mountBuilding(host,halls,events) {
   function warmRooms(point,force=false){
     if(!force&&Math.hypot(point.x-lastWarmX,point.z-lastWarmZ)<1.5)return;
     lastWarmX=point.x;lastWarmZ=point.z;
-    // Eighteen metres gives a walking visitor several seconds of lead time.
-    // Nearby rooms across a doorway use the same radius as the current room.
+    // From a doorway the whole hall is in view. Elsewhere request nearby prints
+    // eighteen metres ahead so they are ready at normal walking speed.
     for(const room of rooms){
       room.group.visible=Math.abs(room.plan.centerZ-point.z)<40;
       if(!room.group.visible)continue;
