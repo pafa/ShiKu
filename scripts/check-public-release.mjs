@@ -127,6 +127,19 @@ async function runtime(base){
   const get=(p,opts={})=>fetch(new URL(p,base),{...opts,signal:AbortSignal.timeout(6000)});
   const post=(p,data,token)=>get('api/'+p,{method:'POST',headers:{Origin:base.origin,'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:JSON.stringify(data)});
   const response=await get('/');assert(response.ok);assert((await response.text()).includes('石窟'));
+  for (const path of ['/', '/walk-study.html', '/real-viewer/', '/real-viewer/relief.html']) {
+    const page = await get(path);
+    assert.equal(page.status, 200);
+    const policy = page.headers.get('content-security-policy') || '';
+    assert.match(policy, /(?:^|;\s*)frame-ancestors 'self'(?:;|$)/);
+    const scripts = policy.split(';').map(value => value.trim()).find(value => value.startsWith('script-src '));
+    assert(scripts && !scripts.includes("'unsafe-inline'") && !scripts.includes("'unsafe-eval'"));
+    for (const [, attributes, contents] of (await page.text()).matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+      if (/\bsrc\s*=/i.test(attributes)) continue;
+      const digest = createHash('sha256').update(contents).digest('base64');
+      assert(scripts.includes("'sha256-" + digest + "'"), path + ' 缺少内联脚本或 import map 对应的 CSP 授权');
+    }
+  }
   const room=await (await get('api/room')).json();
   assert.equal(room.capacity,50);assert.equal(room.occupancy,0);assert.deepEqual(room.lanUrls,[]);
   const sound=await get('assets/walk/voices/mogao-158--threshold.mp3?v=cn-guide-2',{headers:{Range:'bytes=0-255'}});
@@ -144,7 +157,7 @@ async function browserAudit(base,allowed) {
   const assets=new Set();
   try{
     for(const [id,visitor,button] of [['longmen-1280','heng','#stroll-sound'],['mogao-285','qing','#cave-audio']]){
-      const ctx=await browser.newContext({viewport:{width:1150,height:800},reducedMotion:'reduce',serviceWorkers:'block'});
+      const ctx=await browser.newContext({viewport:{width:visitor==='qing'?390:1150,height:800},reducedMotion:'reduce',serviceWorkers:'block'});
       try{
         const page=await ctx.newPage(),runtimeErrors=new Set();
         page.setDefaultTimeout(35000);
@@ -161,6 +174,12 @@ async function browserAudit(base,allowed) {
           if(mediaExt.test(k)){assets.add(k);if(!allowed.has(k))runtimeErrors.add('自动请求未经登记的媒体 '+k);}
         });
         await page.addInitScript(()=>{const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.testGuide=this;return play.call(this);};});
+        // Keep a required texture pending: the page must not expose half a scene.
+        let releaseTexture;
+        const pendingTexture=new Promise(resolve=>{releaseTexture=resolve;});
+        await page.route('**/assets/museum/garden/autumn-forest.webp',async route=>{
+          await pendingTexture;await route.continue();
+        });
         await page.goto(new URL('?cave='+id,base).href);
         await page.locator('#open-registration').click();
         await page.locator('#guest-looks label').filter({has:page.locator('input[value="'+visitor+'"]')}).click();
@@ -175,6 +194,15 @@ async function browserAudit(base,allowed) {
         }
         await page.getByRole('button',{name:'选用此形象'}).click();
         await page.locator('#guest-name').fill('公开版验收');await page.locator('#join-room').click();
+        try{
+          await page.waitForFunction(()=>!document.querySelector('#visit-cover').hidden&&document.querySelector('#cover-progress').value>=38&&document.querySelector('#cover-title').textContent==='步入展馆');
+          assert(await page.locator('#visit-cover').isVisible());
+          assert(await page.locator('#museum').evaluate(node=>node.inert));
+          assert(!await page.locator('#world canvas').isVisible());
+        }finally{releaseTexture();}
+        await page.waitForFunction(()=>document.querySelector('#visit-cover').hidden&&!document.querySelector('#museum').inert);
+        assert.equal(await page.locator('#cover-progress').evaluate(el=>el.value),100);
+
         await page.locator('#world canvas').first().waitFor();
         await page.locator(button).click();
         await page.waitForFunction(()=>window.testGuide?.currentTime>0.3);

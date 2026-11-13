@@ -46,7 +46,7 @@ function pageTexture(step,number){
   const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=4;return texture;
 }
 
-export function makeEditorialDisplays(plan,hall,sharedImages,manager,invalidate){
+export function makeEditorialDisplays(plan,hall,sharedImages,manager,invalidate,deferPhoto){
   const group=new T.Group(),parts=new Map(),targets=[],obstacles=[];
   const bronze=new T.MeshStandardMaterial({color:'#9b815e',metalness:.57,roughness:.47});
   const black=new T.MeshStandardMaterial({color:'#39332c',metalness:.26,roughness:.7});
@@ -108,8 +108,10 @@ export function makeEditorialDisplays(plan,hall,sharedImages,manager,invalidate)
       left.material.map=tex;left.material.needsUpdate=true;left.visible=true;
     }
     if(src){
-      if(!sharedImages.has(src))sharedImages.set(src,sourceLoader.loadAsync(src));
-      sharedImages.get(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=8;const ratio=t.image.width/t.image.height;left.scale.set(Math.min(1,ratio*.84/.86),Math.min(1,.86/(.84*ratio)),1);left.material.map=t;left.material.needsUpdate=true;left.visible=true;invalidate();}).catch(()=>{});
+      deferPhoto(cx,cz,()=>{
+        if(!sharedImages.has(src))sharedImages.set(src,sourceLoader.loadAsync(src));
+        sharedImages.get(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=8;const ratio=t.image.width/t.image.height;left.scale.set(Math.min(1,ratio*.84/.86),Math.min(1,.86/(.84*ratio)),1);left.material.map=t;left.material.needsUpdate=true;left.visible=true;invalidate();}).catch(()=>{});
+      });
     }
     box(glass,cx,1.106,cz,2.30,.018,1.12);
     for(const s of [-1,1]){

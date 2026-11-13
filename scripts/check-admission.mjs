@@ -5,6 +5,7 @@ import { randomUUID } from 'node:crypto';
 import { once } from 'node:events';
 import { createMuseumServer } from '../server/museum.mjs';
 import { createAdmission } from '../server/admission.mjs';
+import { roomAt } from '../building-plan.js';
 
 const profile = name => ({ name, avatarId: 'qing', rosterVersion: 2, admissionKey: randomUUID() });
 
@@ -92,6 +93,12 @@ await withMuseum({}, async ({ room, mapSnapshot, join, status, cancel, leave, po
     .map(x => ({ ...x, position: queued(x.result) })).sort((a, b) => a.position.ahead - b.position.ahead);
   assert.equal(inside.length, 50);
   assert.equal(line.length, 8);
+  const arrivalsById=inside.map(({session})=>session.visitors.find(person=>person.id===session.selfId));
+  assert.equal(new Set(arrivalsById.map(roomAt)).size,9);
+  for(const [i,a] of arrivalsById.entries()){
+    assert(roomAt(a)>=0);
+    for(const b of arrivalsById.slice(0,i))assert(Math.hypot(a.x-b.x,a.z-b.z)>=1.25);
+  }
   assert.equal(new Set(inside.map(x => x.session.selfId)).size, 50);
   assert.equal(new Set(line.map(x => x.position.ticket)).size, 8);
   assert.deepEqual(line.map(x => x.position.ahead), [0,1,2,3,4,5,6,7]);

@@ -36,7 +36,9 @@ function furnitureShadow() {
 }
 
 export function mountBuilding(host,halls,events) {
-  const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+  let renderer;
+  try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});}
+  catch(cause){const error=new Error('此设备未能启动三维展馆。',{cause});error.name='WebGLUnavailable';throw error;}
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.55));
   renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -77,11 +79,11 @@ export function mountBuilding(host,halls,events) {
   const invalidate=()=>{dirtyUntil=performance.now()+1000;};
   const focusOriginal=nearbyOriginal(renderer,invalidate);
   let loading=false;
-  const loaded=[];
+  const loaded=[];let firstView=true,initialAssetError=false;
   const manager=new THREE.LoadingManager(()=>{
     loading=false;invalidate();for(const finish of loaded.splice(0))finish();
-  },invalidate);
-  manager.onStart=()=>{loading=true;};
+  },(_url,done,total)=>{invalidate();if(firstView)events.onLoadProgress?.('objects',done,total);},()=>{if(firstView)initialAssetError=true;});
+  manager.onStart=(_url,done,total)=>{loading=true;if(firstView)events.onLoadProgress?.('objects',done,total);};
   const whenLoaded=()=>loading?new Promise(resolve=>loaded.push(resolve)):Promise.resolve();
   const textures=loadSurfaces(new THREE.TextureLoader(manager),manager,scene,renderer);
   new THREE.TextureLoader(manager).load('assets/museum/garden/autumn-forest.webp',texture=>{
@@ -93,14 +95,20 @@ export function mountBuilding(host,halls,events) {
   const atrium=buildAtrium(allPlans,textures);scene.add(atrium.group);
   const obstacles=atrium.obstacles.map(b=>worldBox(b)),sharedImages=new Map();
   const rooms=allPlans.map(plan=>{
-    const structure=buildPavilion(plan,textures,halls[plan.index].scenes,{manager,sharedImages,invalidate}),group=new THREE.Group();
+    // Keep the hall and its exhibits in the scene for navigation and picking.
+    // Fetch full photographic textures as a visitor comes within viewing distance.
+    const pendingPhotos=[];
+    const deferPhoto=(localX,localZ,load)=>pendingPhotos.push({
+      x:plan.centerX+localX,z:plan.centerZ+localZ,load
+    });
+    const structure=buildPavilion(plan,textures,halls[plan.index].scenes,{manager,sharedImages,invalidate,deferPhoto}),group=new THREE.Group();
     group.name='展馆 · '+plan.name;group.position.set(plan.centerX,0,plan.centerZ);
     applyGalleryFinishes(plan,structure.group,halls[plan.index].scenes.length,textures);
-    const editorial=makeEditorialDisplays(plan,halls[plan.index],sharedImages,manager,invalidate);
+    const editorial=makeEditorialDisplays(plan,halls[plan.index],sharedImages,manager,invalidate,deferPhoto);
     group.add(structure.group,editorial.group);scene.add(group);
     obstacles.push(...editorial.obstacles.map(b=>worldBox(b,plan)));
     obstacles.push(...structure.obstacles.map(b=>worldBox(b,plan)));
-    return {plan,group,structure:structure.group,featureTargets:[...(structure.targets||[]),...editorial.targets],art:null};
+    return {plan,group,pendingPhotos,deferPhoto,structure:structure.group,featureTargets:[...(structure.targets||[]),...editorial.targets],art:null};
   });
   // A short indirect shadow anchors furnishings even in the shade of a solid roof.
   const ambientGeometry=new THREE.PlaneGeometry(1,1);
@@ -131,10 +139,10 @@ export function mountBuilding(host,halls,events) {
   let yaw=-1.38,pitch=.038,arm=4.05,eyes=false,snapCamera=true,drag=null,autoFace=false,destination=null;
   let observationLens=null;
   let thumbForward=0,thumbSide=0;
-  let zone=-2,near=null,lastMap=0,lastWarm=Infinity;
+  let zone=-2,near=null,lastMap=0,lastWarmX=Infinity,lastWarmZ=Infinity;
   const getArt=room=>{
     if(!room.art){
-      room.art=mountArt(room.plan,halls[room.plan.index].scenes,textures,manager,sharedImages,invalidate);
+      room.art=mountArt(room.plan,halls[room.plan.index].scenes,textures,manager,sharedImages,invalidate,room.deferPhoto);
       room.group.add(room.art.group);
       for(const mesh of room.featureTargets){
         if(mesh.userData.manuscriptId){room.art.targets.push(mesh);continue;}
@@ -144,11 +152,25 @@ export function mountBuilding(host,halls,events) {
     }
     return room.art;
   };
-  function warmRooms(z,force=false){
-    if(!force&&Math.abs(lastWarm-z)<3)return;lastWarm=z;
+  function warmRooms(point,force=false){
+    if(!force&&Math.hypot(point.x-lastWarmX,point.z-lastWarmZ)<1.5)return;
+    lastWarmX=point.x;lastWarmZ=point.z;
+    // Eighteen metres gives a walking visitor several seconds of lead time.
+    // Nearby rooms across a doorway use the same radius as the current room.
     for(const room of rooms){
-      room.group.visible=Math.abs(room.plan.centerZ-z)<40;
-      if(room.group.visible)getArt(room);
+      room.group.visible=Math.abs(room.plan.centerZ-point.z)<40;
+      if(!room.group.visible)continue;
+      getArt(room);
+      const plan=room.plan;
+      const inHall=Math.abs(point.x-plan.centerX)<=plan.halfWidth&&Math.abs(point.z-plan.centerZ)<=plan.halfDepth;
+      const doorway=threshold(plan);
+      const arriving=inHall||Math.hypot(point.x-doorway.x,point.z-doorway.z)<=5;
+      for(let i=room.pendingPhotos.length-1;i>=0;i--){
+        const photo=room.pendingPhotos[i];
+        if(!arriving&&Math.hypot(photo.x-point.x,photo.z-point.z)>18)continue;
+        room.pendingPhotos.splice(i,1);
+        photo.load();
+      }
     }
   }
   function resize(){
@@ -324,7 +346,7 @@ export function mountBuilding(host,halls,events) {
     }
     if(!paused)focusOriginal(c ? rockWorld.printAt(c,activeDetail) : found && rooms[zone]?.art?.prints.get(found.index));
     if(near!==found){near=found;events.onNear?.(near);}
-    warmRooms(p.z);rockWorld.warm(p,zone,activeCave);
+    warmRooms(p);rockWorld.warm(p,zone,activeCave);
   }
   function cameraArm(p,angle,tilt){
     const {x,z}=p,s=Math.sin(angle),c=Math.cos(angle);
@@ -368,7 +390,7 @@ export function mountBuilding(host,halls,events) {
   }
   function place(p,angle){
     stroll.stop();stop();walker.reset(p.x,p.z,-angle);yaw=angle;pitch=.016;snapCamera=true;
-    bodyPose();visitor.reset();warmRooms(walker.state.z,true);updateZone();updateCamera(1);invalidate();
+    bodyPose();visitor.reset();warmRooms(walker.state,true);updateZone();updateCamera(1);invalidate();
     events.onPosition?.({...walker.state},yaw,true);
   }
   function enter(index=0){
@@ -573,8 +595,18 @@ export function mountBuilding(host,halls,events) {
     place(events.startingPose,-events.startingPose.heading);
   }else enter(0);
   frame=requestAnimationFrame(tick);
-  Promise.all([visitor.ready,rockWorld.prepare(initialCave||wings[0].caves[0])])
-    .then(whenLoaded).then(()=>{if(!stopped){invalidate();events.onReady?.();}});
+  // The atrium does not need a cave scan. Wait only for the actual opening view.
+  Promise.all([visitor.ready,initialCave?rockWorld.prepare(initialCave):true]).then(async ([person,cave])=>{
+    await whenLoaded();
+    if(!person||cave===false||initialAssetError)throw Error('首景素材未载齐');
+    if(stopped)return;
+    firstView=false;invalidate();events.onLoadProgress?.('frame');
+    await new Promise(requestAnimationFrame);
+    if(stopped)return;
+    renderer.render(scene,camera);
+    await new Promise(requestAnimationFrame);
+    if(!stopped)events.onReady?.();
+  }).catch(()=>{if(!stopped)events.onInitialError?.();});
   return {setPresence:guests.accept,setLens(v){if(observationLens!==v){observationLens=v;resize();}},setExperience:rockWorld.setExperience,enter,visit,walkVisit,walkInto,walkCave,enterCave,leaveCave,lookAtDetail:(i)=>{if(activeCave)lookAtDetail(activeCave,i);},stop,setView(value){
       if(stroll.state.id&&!!value!==eyes){stroll.pause();restoreEyes=null;}
       view(value);

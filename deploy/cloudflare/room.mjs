@@ -1,6 +1,7 @@
 // One named SQLite Durable Object owns all admissions and present visitors.
 // SQL mutations between awaits are atomic. Stream controllers and trail history
 // are deliberately ephemeral; live seats and FIFO registration survive eviction.
+import {chooseGalleryArrival} from '../../server/arrival-points.mjs';
 import {legacyVisitorId, resolveVisitorId} from '../../visitor-roster.js';
 
 const capacity = 50, queueLimit = 500, requestLimit = 8192, trailLimit = 180;
@@ -132,7 +133,7 @@ export class MuseumRoom {
       cancel: () => this.drop(row.pid,peer)
     }, {highWaterMark:1024*1024,size:chunk=>chunk.byteLength});
     if(!this.heartbeat && this.peers.size) {
-      this.heartbeat = setInterval(()=>this.broadcast({type:'pulse'}),6000);
+      this.heartbeat = setInterval(()=>this.broadcast({type:'pulse',occupancy:this.seated()}),6000);
     }
     return new Response(body,{headers:{'Content-Type':'application/x-ndjson','Cache-Control':'no-store, no-transform','X-Content-Type-Options':'nosniff'}});
   }
@@ -181,14 +182,7 @@ export class MuseumRoom {
   }
   choosePose() {
     const others=this.sql.exec('SELECT * FROM registration WHERE admitted IS NOT NULL').toArray().map(r=>this.runtime(r));
-    let best=null, bestGap=-1;
-    for(const z of [8.2,6.7,9.7,5.2,11.2,3.7,12.7,2.2,1])for(const x of [-.65,.65,-1.95,1.95,0]) {
-      const gap=Math.min(Infinity,...others.map(p=>Math.hypot(p.x-x,p.z-z)));
-      const pose={x,z,heading:x<0?-.59:.59};
-      if(gap>=1.25)return pose;
-      if(gap>bestGap){best=pose;bestGap=gap;}
-    }
-    return best;
+    return chooseGalleryArrival(others);
   }
   resolve(row,now) {
     if(!row.pid) {
@@ -292,7 +286,10 @@ export class MuseumRoom {
         const row=this.one('SELECT * FROM registration WHERE token=?',token);
         if(!row||row.expires<=now)throw failure(401,'入馆会话已过期。');
         if(path==='stream')response=this.stream(row,now);
-        else if(path==='pulse'){this.confirm(row,now);response=json({});}
+        else if(path==='pulse'){
+          this.confirm(row,now);
+          response=json(body.snapshot === true ? {visitors:this.snapshot(row.legacy)} : {});
+        }
         else if(path==='update')response=this.move(row,body,now);
         else if(path==='leave'){this.retire(row,now);response=json({});}
         else throw failure(404,'接口不存在。');

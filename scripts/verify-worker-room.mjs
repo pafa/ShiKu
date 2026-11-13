@@ -1,6 +1,7 @@
 // End-to-end Worker + SQLite DO in workerd, including a new process over the same local storage.
 // Set MINIFLARE_MODULE and ESBUILD_MODULE to installed, pinned packages if not in node_modules.
 import assert from 'node:assert/strict';
+import {roomAt} from '../building-plan.js';
 import {createRequire} from 'node:module';
 import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -26,7 +27,12 @@ try{
  const initial=await (await get('/api/room')).json();assert.deepEqual([initial.capacity,initial.occupancy,initial.waiting],[50,0,0]);
  const inputs=Array.from({length:52},(_,i)=>({name:'公开验收'+i,avatarId:i%2?'heng':'qing',rosterVersion:2,admissionKey:crypto.randomUUID()}));
  const joined=await Promise.all(inputs.slice(0,50).map(b=>request('join',b,null,201)));
+ const positions=joined.map(p=>p.visitors.find(v=>v.id===p.selfId));
+ assert.equal(new Set(positions.map(roomAt)).size,9,'all nine galleries received arrivals');
+ for(const [i,p] of positions.entries())for(const other of positions.slice(0,i))assert(Math.hypot(other.x-p.x,other.z-p.z)>=1.25);
  await Promise.all(joined.map(p=>request('pulse',{},p.token)));
+ const finite=await request('pulse',{snapshot:true},joined[1].token);
+ assert.equal(finite.visitors.length,50);assert(finite.visitors.every(p=>!p.token&&!p.ticket));
  const q1=await request('join',inputs[50],null,202),q2=await request('join',inputs[51],null,202);assert.deepEqual([q1.ahead,q2.ahead],[0,1]);
  const res=await post('stream',{},joined[1].token);assert.equal(res.status,200);const reader=res.body.getReader();
  assert.match(new TextDecoder().decode((await abortRead(reader.read())).value),/"type":"snapshot"/);

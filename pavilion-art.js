@@ -43,7 +43,7 @@ function fitting(color,metalness=0) {
   return new THREE.MeshStandardMaterial({color,metalness,roughness:metalness?.48:.79});
 }
 
-export function mountArt(plan,entries,textures,manager,sharedImages,invalidate){
+export function mountArt(plan,entries,textures,manager,sharedImages,invalidate,deferPhoto){
   const group=new THREE.Group(),targets=[],batches=new Map(),prints=new Map();
   let reliefExhibit=null;
   const stations=wallStations(plan,entries.length);
@@ -62,7 +62,7 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate){
     const work=entries[index],y=1.92;
     station.y=y;station.hallIndex=plan.index;
     if(work.id==='longmen-met-35146'){
-      reliefExhibit=attachMetStation(group,station,manager,sharedImages,invalidate);
+      reliefExhibit=attachMetStation(group,station,manager,sharedImages,invalidate,deferPhoto);
       targets.push(...reliefExhibit.targets);
       continue;
     }
@@ -95,17 +95,19 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate){
     }
     if(src){
       image.userData.originalPhoto=src;prints.set(index,image);
-      if(!sharedImages.has(src)){
-        const loading=new THREE.TextureLoader(manager).loadAsync(src).then(t=>{
-          t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t;
-        });
-        sharedImages.set(src,loading);
-      }
-      sharedImages.get(src).then(t=>{
-        const ratio=t.image.width/t.image.height;
-        image.scale.set(Math.min(1,ratio*h/w),Math.min(1,w/(h*ratio)),1);
-        image.material.map=t;image.material.needsUpdate=true;image.visible=true;invalidate();
-      }).catch(()=>{image.visible=false;});
+      deferPhoto(x,z,()=>{
+        if(!sharedImages.has(src)){
+          const loading=new THREE.TextureLoader(manager).loadAsync(src).then(t=>{
+            t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t;
+          });
+          sharedImages.set(src,loading);
+        }
+        sharedImages.get(src).then(t=>{
+          const ratio=t.image.width/t.image.height;
+          image.scale.set(Math.min(1,ratio*h/w),Math.min(1,w/(h*ratio)),1);
+          image.material.map=t;image.material.needsUpdate=true;image.visible=true;invalidate();
+        }).catch(()=>{image.visible=false;});
+      });
     }
     const textWidth=Math.min(w*.83,1.58),textHeight=textWidth*120/768;
     const label=new THREE.Mesh(new THREE.PlaneGeometry(textWidth,textHeight),new THREE.MeshBasicMaterial({map:caption(work),toneMapped:false}));

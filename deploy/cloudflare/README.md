@@ -2,11 +2,13 @@
 
 公开站点使用 Cloudflare Workers、Workers Static Assets 和一个 SQLite-backed Durable Object。目标域名为 `shiku.xiaoha.org`。Worker 固定名为 `shiku`，`ASSETS` 提供静态文件，`SHIKU_ROOM` 绑定导出的 `MuseumRoom`，固定房间名为 `museum-public-v1`，`VERSION` 提供版本标识。沿用同一账号、Worker、命名空间和房间名，访客才能进入同一间容纳 50 人的房间。多人状态由房间自身的持久化逻辑保存。本方案不依赖 VPS、R2、D1 或外部数据库。[配置](wrangler.json) · [SQLite Durable Objects](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/)
 
+PR 会在只读 CI 中对锁定的部署工具执行 `npm audit --package-lock-only --include=dev --audit-level=high`。遇到 high 或 critical 公告时，核对涉及的依赖和修复版本，在临时目录更新锁文件，重跑 SQLite 重启测试和 Wrangler dry-run。若输出为 registry 网络错误，重试后仍失败应记录为本次核验失败，恢复连接再运行。Miniflare 和 esbuild 使用锁定 Wrangler 所依赖的相同版本，使独立房间测试和实际打包使用同一套工具。展馆源码随包提供的 Three.js 版本及来源见[采集与依赖说明](../../real-viewer/PROVENANCE.md)。
+
 ## 本地准备
 
 1. 解压已审阅的公开候选，进入包含 `SHA256SUMS`、`assets/credits.json` 的根目录。开发工作树不适合作为上传目录。保存发布包摘要、提交或本地候选标识和审核时间。
 2. 在同一候选根目录执行下列命令。先检查干净的包，再从已核验文件生成 `deploy/cloudflare/dist/assets`。将命令输出中的清单哈希、素材数、最大文件大小与 `deploy/cloudflare/dist/receipt.json` 一并记入记录。单个静态文件须在 25 MiB 限额以内。[静态资源限额](https://developers.cloudflare.com/workers/platform/limits/#static-assets)
-3. 以下示例中的 `wrangler` 均指已安装且锁定的 **4.127.1**。运行 `wrangler --version` 核对版本。将工具安装在候选目录以外，避免依赖或环境文件被带进候选。在本机配置 `WRANGLER_SEND_METRICS=false` 可关闭 CLI 使用统计。
+3. 以下示例中的 `wrangler` 均指已安装且锁定的 **4.161.0**。运行 `wrangler --version` 核对版本。将工具安装在候选目录以外，避免依赖或环境文件被带进候选。在本机配置 `WRANGLER_SEND_METRICS=false` 可关闭 CLI 使用统计。
 
 ```sh
 node scripts/check-public-release.mjs --dir .
@@ -33,7 +35,7 @@ wrangler dev --local --ip 127.0.0.1 --port 8787 --var PUBLIC_ORIGIN:http://127.0
 
 ## 首次建立 Worker 和房间
 
-首次发布和正式域名绑定是两次外部变更。先确认具体账号、Worker、许可清单哈希、发布包 SHA-256、`v1` 迁移和无公开入口的部署范围。Wrangler 4.127.1 首次创建 Worker 或应用待执行的 DO 迁移时必须用 `deploy`。该命令产生版本并立即部署到 100%，不支持把这次迁移做成待批准的 `versions upload`。执行前要确认同名 Worker 没有既存路由，候选配置为 `workers_dev: false`、`preview_urls: false`、`routes: []`，且绑定中的 `new_sqlite_classes` 仅含所需类。[DO 迁移与版本限制](https://developers.cloudflare.com/durable-objects/deployments/durable-object-gradual-deployments/)
+首次发布和正式域名绑定是两次外部变更。先确认具体账号、Worker、许可清单哈希、发布包 SHA-256、`v1` 迁移和无公开入口的部署范围。首次创建 Worker 或应用待执行的 DO 迁移时必须用 `deploy`。该命令产生版本并立即部署到 100%，不支持把这次迁移做成待批准的 `versions upload`。执行前要确认同名 Worker 没有既存路由，候选配置为 `workers_dev: false`、`preview_urls: false`、`routes: []`，且绑定中的 `new_sqlite_classes` 仅含所需类。[DO 迁移与版本限制](https://developers.cloudflare.com/durable-objects/deployments/durable-object-gradual-deployments/)
 
 ```sh
 wrangler deploy --config deploy/cloudflare/wrangler.json

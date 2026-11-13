@@ -108,7 +108,7 @@ export function buildCaveWorld(scene,textures,manager,invalidate,report){
     invalidate();
   }
   return {warm,project,signs,setExperience,
-    prepare:c=>prepare(byId.get(c.id)),
+    async prepare(c){const slot=byId.get(c.id);await prepare(slot);return slot.ready;},
     printAt(c,index){
       return byId.get(c.id)?.detailPrints?.[index];
     },

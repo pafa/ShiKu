@@ -1,3 +1,4 @@
+import {sceneProgress,sceneActive} from './loading-screen.js';
 import * as editions from './assets/authentic/detail-images.js';
 import {walkCompanion} from './walk-companion.js';
 import {experienceRooms} from './experience-room.js';
@@ -26,7 +27,7 @@ let currentStop=-1,physicalCave=null,physicalTerrace=-1,webglUnavailable=false;
 const remembered=routes.map(()=>0),mapPosition=livePlan($('#live-plan'));
 let accountStatus=null;
 const atlas=createRoomAtlas({
-  onOpen:()=>hall?.setPaused(true),
+  onOpen:()=>{hall?.setPaused(true);void presence.refreshMap();},
   onClose:()=>hall?.setPaused(sheet.open||detail.open),
   onStructure:()=>panels.map()
 });
@@ -300,22 +301,32 @@ function openNamedEntry(){
   const mode=params.get('catalog');
   if(['art','register','ms'].includes(mode))collection.open({mode,medium:['scan','record','photo'].includes(params.get('medium'))?params.get('medium'):'',preset:['new','treasures','scripture'].includes(params.get('pick'))?params.get('pick'):'',siteId:sites.find(s=>s.id===params.get('site'))?.id||'',hallId:mode==='art'&&room>=0?routes[room].id:'',q:(params.get('q')||'').slice(0,120)});
 }
+let finishInitial;
+export const initialScene=new Promise(resolve=>{finishInitial=resolve;});
+export function stopInitialScene(){hall?.destroy();hall=null;}
+export function openInitialView(){if(!sheet.open)openNamedEntry();}
 draw(false);
 try{
   const {mountBuilding}=await import('./connected-museum.js');
   const params=new URLSearchParams(location.search),initialCave=caveById.get(params.get('structure'))||caveById.get(params.get('experience'))||caveById.get(params.get('cave'));
   const initialDetail=initialCave?Math.max(0,initialCave.details.findIndex(d=>d.id===(params.has('experience')&&initialCave.experience?initialCave.experience.stages[parseStage(initialCave,params)].detail:params.get('detail')))):0;
-  hall=mountBuilding($('#world'),routes,{initialVisitor:visitorId,initialCave,initialDetail,startingPose:selfRecord(),
+  if(!sceneActive())throw Error('入馆已取消');
+  sceneProgress('building');
+  hall=mountBuilding($('#world'),routes,{onLoadProgress:sceneProgress,onInitialError:()=>finishInitial('failed'),initialVisitor:visitorId,initialCave,initialDetail,startingPose:selfRecord(),
     onCave:(c,t)=>{currentStop=-1;physicalCave=c;physicalTerrace=t;caveUI.enter(c,t);experiences.enter(c);passage.enter(c);locationLabel();},
     onCaveDetail:(c,i)=>{currentStop=i;caveUI.updateDetail(c,i);experiences.observe(c,i);passage.observe(c,i);},onStroll:passage.progress,isStrollNarrating:passage.isNarrating,onCaveMarkers:caveUI.projection,onCaveDoor:(id,i)=>caveUI.go(id,i),onCaveError:caveUI.error,
-    onManuscript:id=>collection.read(id),onReady:()=>{sceneReady=true;$('#load').hidden=true;panels.refreshVisitor();if(!sheet.open)openNamedEntry();},onSelect:s=>move(s.hallIndex,s.index,false),onNear:setNear,onZone:locationChanged,onJourney:journey,onPosition:positionChanged,onVisitorPose:p=>presence.move(p),onView:viewUI});
+    onManuscript:id=>collection.read(id),onReady:()=>{sceneReady=true;panels.refreshVisitor();finishInitial('ready');},onSelect:s=>move(s.hallIndex,s.index,false),onNear:setNear,onZone:locationChanged,onJourney:journey,onPosition:positionChanged,onVisitorPose:p=>presence.move(p),onView:viewUI});
   observeVisit(applyPresence);
   panels.refreshVisitor();
-  if(params.get('panel')==='visitors')openNamedEntry();
+
 
 }catch(err){
-  sceneReady=true;webglUnavailable=true;document.querySelector('[data-action=intoEx]').textContent='读此窟窟志 ↗';
-  $('#load').hidden=true;$('#walk-link').hidden=true;$('#live-plan').hidden=true;$('#cave-passage').hidden=true;
-  $('#world').append(el('p','fallback','此设备未能启动三维展馆。可通过「时代展馆」选作品和阅读故事。'));
-  console.warn('三维建筑不可用',err);observeVisit(applyPresence);draw(true);openNamedEntry();
+  if(sceneActive()&&err.name==='WebGLUnavailable'){
+    sceneReady=true;webglUnavailable=true;document.querySelector('[data-action=intoEx]').textContent='读此窟窟志 ↗';
+    $('#walk-link').hidden=true;$('#live-plan').hidden=true;$('#cave-passage').hidden=true;
+    $('#world').append(el('p','fallback','此设备未能启动三维展馆。可通过「时代展馆」选作品和阅读故事。'));
+    console.warn('三维建筑不可用',err);observeVisit(applyPresence);draw(true);finishInitial('catalogue');
+  }else{
+    finishInitial('failed');
+  }
 }

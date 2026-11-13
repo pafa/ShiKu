@@ -61,6 +61,7 @@ export function addPavilionFocus(plan,entries,group,materials,options={}) {
   if(!entries?.length)return [];
   const list=compositions(plan);if(!list.length)return [];
   const cache=options.sharedImages||new Map(),loader=new T.TextureLoader(options.manager),invalidate=options.invalidate||(()=>{});
+  const deferPhoto=options.deferPhoto??((x,z,load)=>load());
   const frames=new Map(),targets=[];
   function addGeometry(g,mat,pane){
     g.applyMatrix4(pane.matrix);if(!frames.has(mat))frames.set(mat,[]);frames.get(mat).push(g);
@@ -112,10 +113,12 @@ export function addPavilionFocus(plan,entries,group,materials,options={}) {
     const labelW=Math.min(2.15,Math.max(1.43,w*.80)),labelH=labelW*198/1152;
     const plaque=face(work.siteName+' '+work.number,labelW,labelH,0,-h/2-labelH/2-(type===3?.26:.145),.12,new T.MeshBasicMaterial({map:label(work,photo),toneMapped:false}));
     plaque.userData.stationIndex=k;
-    if(!cache.has(src))cache.set(src,loader.loadAsync(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t}));
-    cache.get(src).then(t=>{
-      const live=t.image.width/t.image.height;image.scale.set(Math.min(1,live/ar),Math.min(1,ar/live),1);mat.map=t;mat.needsUpdate=true;image.visible=true;invalidate();
-    }).catch(()=>{image.visible=false;invalidate()});
+    deferPhoto(pane.position.x,pane.position.z,()=>{
+      if(!cache.has(src))cache.set(src,loader.loadAsync(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t}));
+      cache.get(src).then(t=>{
+        const live=t.image.width/t.image.height;image.scale.set(Math.min(1,live/ar),Math.min(1,ar/live),1);mat.map=t;mat.needsUpdate=true;image.visible=true;invalidate();
+      }).catch(()=>{image.visible=false;invalidate()});
+    });
   }
   for(const [m,parts] of frames){const g=mergeGeometries(parts);parts.forEach(p=>p.dispose());const mesh=new T.Mesh(g,m);mesh.castShadow=true;mesh.receiveShadow=true;group.add(mesh)}
   return targets;

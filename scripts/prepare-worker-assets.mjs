@@ -3,6 +3,7 @@ import {readdir,readFile,writeFile,mkdir,lstat,realpath,mkdtemp,rename,rm,copyFi
 import {resolve,join,dirname,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {securityHeaders} from '../server/security-headers.mjs';
 const root=dirname(dirname(fileURLToPath(import.meta.url))), deploy=join(root,'deploy/cloudflare'),out=join(deploy,'dist');
 const sha=b=>createHash('sha256').update(b).digest('hex');
 let manifest;try{manifest=await readFile(join(root,'SHA256SUMS'),'utf8');await access(join(root,'assets/credits.json'));}catch{throw Error('请在全新导出的公开候选目录中执行，不能从内部工作区向 Workers 打包。');}
@@ -33,7 +34,8 @@ try{
     const dst=join(stage,'assets',p);await mkdir(dirname(dst),{recursive:true});await writeFile(dst,data);
     bytes+=data.length;max=Math.max(max,data.length);
   }
-  await writeFile(join(stage,'assets/_headers'),'/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n');
+  const headerLines = Object.entries(securityHeaders).map(([name, value]) => '  ' + name + ': ' + value);
+  await writeFile(join(stage,'assets/_headers'), ['/*', ...headerLines, ''].join('\n'));
   const id=sha(manifest);await writeFile(join(stage,'receipt.json'),JSON.stringify({publicManifest:id,files:paths.length+1,bytes,max},null,2)+'\n');
   try{await access(out);throw Error('dist 已存在，请重新使用干净的候选目录。');}catch(e){if(e.code!=='ENOENT')throw e;}
   await rename(stage,out);console.log(JSON.stringify({publicManifest:id,staticFiles:paths.length+1,bytes,max}));

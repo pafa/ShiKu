@@ -3,11 +3,26 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#241e18">
 <meta name="description" content="在一座由中庭连接的建筑里，步行穿过九座展厅，走进四大石窟的代表窟龛，靠近壁画与造像，读其故事。"><title>石窟｜中国石窟文化遗产探索</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='7' fill='%23342e27'/%3E%3Ctext x='24' y='37' text-anchor='middle' font-size='36' font-family='serif' fill='%23ebdbb5'%3E石%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="loading-screen.css"><link rel="preload" as="image" href="assets/welcome/grotto-panorama.webp" fetchpriority="high"><link rel="modulepreload" href="entry.js">
 <link rel="stylesheet" href="museum.css"><link rel="stylesheet" href="immersive.css"><link rel="stylesheet" href="cave-visit.css"><link rel="stylesheet" href="experiences.css"><link rel="stylesheet" href="walk-companion.css"><link rel="stylesheet" href="structure-desk.css">
-<script type="importmap">{"imports":{"three":"./real-viewer/vendor/three.module.min.js"}}</script><script defer src="immersive.js"></script><script type="module" src="entry.js"></script>
+<script type="importmap">{"imports":{"three":"./real-viewer/vendor/three.module.min.js"}}</script><script defer src="immersive.js"></script><script type="module" src="loading-screen.js"></script>
 <link rel="stylesheet" href="entry.css"><link rel="stylesheet" href="room-atlas.css">
 </head><body>
-<main id="arrival" aria-labelledby="arrival-title">
+<section id="visit-cover" aria-labelledby="cover-title" tabindex="-1">
+  <div class="cover-inner">
+    <div class="cover-label"><span class="cover-seal" aria-hidden="true">石<br>窟</span>中国石窟文化遗产探索</div>
+    <div class="cover-rule" aria-hidden="true"></div>
+    <p class="cover-kicker" id="cover-kicker">序厅　／　四大石窟</p>
+    <h1 id="cover-title">山门将启</h1>
+    <p id="cover-caption" role="status" aria-live="polite">正在展开石窟全景。</p>
+    <progress id="cover-progress" max="100" value="0" aria-label="展馆准备进度"></progress>
+    <div class="cover-meta"><span id="cover-step">迎宾全景</span><span id="cover-count" aria-hidden="true"></span></div>
+    <div id="cover-recovery" hidden><a href="" id="cover-retry">重新加载</a><a href="exhibition-guide.html">阅读展览图册 ↗</a></div>
+    <p class="cover-static-help">没有开始加载？<a href="">重新打开</a>，或<a href="exhibition-guide.html">阅读展览图册</a>。</p>
+    <noscript><p>三维展馆需要 JavaScript。也可以直接<a href="exhibition-guide.html">阅读展览图册</a>。</p></noscript>
+  </div>
+</section>
+<main id="arrival" hidden inert aria-labelledby="arrival-title">
   <img id="gate-landscape" class="arrival-art" src="assets/welcome/grotto-panorama.webp" alt="由中国四大石窟的造像、崖壁和栈道融成的山谷全景意象" fetchpriority="high">
   <div class="arrival-veil" aria-hidden="true"></div>
   <header class="arrival-mast">
@@ -63,7 +78,7 @@
 <main id="museum" hidden inert>
 <div id="world" aria-label="三维漫游展厅"></div><div class="shade"></div>
 <header class="mast"><button class="brand" data-action="home" aria-label="石窟首页">石窟</button><span class="byline">中国石窟文化遗产探索</span><nav class="menu" aria-label="主导航"><button data-action="routes">时代展馆</button><button class="experience-nav" data-action="experiences">体验馆</button><button data-action="collection">馆藏总目</button><button data-action="map">访客地图</button><button data-action="person" aria-haspopup="dialog" aria-controls="sheet">我的访客</button></nav></header>
-<p id="load" role="status">正在打开石窟博物馆…</p>
+
 <section id="trail" class="trail" aria-label="本馆策展主线" hidden>
 <div class="trail-head"><span class="trail-seal" aria-hidden="true">展</span><span class="trail-room"></span><button data-trail="fold" type="button" aria-label="收起策展主线">−</button></div>
 <h2 class="trail-title"></h2><p class="trail-copy"></p>

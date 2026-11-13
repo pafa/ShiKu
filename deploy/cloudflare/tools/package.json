@@ -4,8 +4,8 @@
   "private": true,
   "description": "Local development and verification tools for ShiKu's Cloudflare Worker",
   "devDependencies": {
-    "esbuild": "0.28.1",
-    "miniflare": "5.20260828.0-alpha",
-    "wrangler": "4.127.1"
+    "esbuild": "0.28.2",
+    "miniflare": "5.20261110.2-beta",
+    "wrangler": "4.161.0"
   }
 }

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {galleryArrivals,chooseGalleryArrival} from '../server/arrival-points.mjs';
 import {makeWalker} from '../walking.js';
 import {buildingFloor} from '../building-floor.js';
 import {plans,threshold,roomAt,wallStations} from '../building-plan.js';
@@ -8,6 +9,15 @@ import {treadHeight} from '../approach-stairs.js';
 const furniture=[{x0:-1,x1:1,z0:-14,z1:-13}];
 const floor=buildingFloor(furniture),walker=makeWalker(floor);
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
+// The entry aisle stays open to the door and faces deeper into its gallery.
+assert.equal(new Set(galleryArrivals.map(roomAt)).size,9);
+for(const arrival of galleryArrivals){
+  const gallery=plans[roomAt(arrival)];
+  assert(gallery&&floor.free(arrival)&&floor.clear(arrival,threshold(gallery,1.5)));
+  assert(Math.sign(-Math.sin(arrival.heading))===gallery.side);
+}
+const choices=new Set(Array.from({length:40},()=>chooseGalleryArrival([])));
+assert(choices.size>1,'an empty museum should not always use one position');
 for(const fps of [5,8,10,15,30,60,120]){
   walker.reset(0,6,0);
   let run=0,brake=0;

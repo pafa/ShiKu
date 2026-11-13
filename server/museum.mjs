@@ -8,6 +8,8 @@ import { networkInterfaces, hostname } from 'node:os';
 import { spawn } from 'node:child_process';
 import { legacyVisitorId, resolveVisitorId } from '../visitor-roster.js';
 import { createAdmission } from './admission.mjs';
+import { chooseGalleryArrival } from './arrival-points.mjs';
+import { securityHeaders } from './security-headers.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const site = createHash('sha256').update(root).digest('hex').slice(0,16);
@@ -67,13 +69,6 @@ function checkPose(pose) {
 function appearance(p, legacy=false) {
   const {id,name,avatarId,x,z,heading,trail}=p;
   return {id,name,avatarId:legacy?legacyVisitorId(avatarId):avatarId,x,z,heading,trail};
-}
-function startingPose(people) {
-  const candidates=[];
-  for(const z of [8.2,6.7,9.7,5.2,11.2,3.7,12.7,2.2,1])for(const x of [-.65,.65,-1.95,1.95,0]) candidates.push({x,z});
-  const near=p=>Math.min(Infinity,...Array.from(people.values(),v=>Math.hypot(v.x-p.x,v.z-p.z)));
-  const p=candidates.find(point=>near(point)>=1.25) || candidates.sort((a,b)=>near(b)-near(a))[0];
-  return {...p,heading:p.x<0?-.59:.59};
 }
 function publicAsset(path) {
   if (!path.startsWith('/')||path.includes('\\')||path.includes('\0'))return false;
@@ -143,7 +138,7 @@ export function createMuseumServer({disconnectMs=12000,heartbeatMs=6000,staleMs=
     }
   }
   function admit(profile, requestedPose, legacy) {
-    const pose = requestedPose ?? startingPose(people);
+    const pose = requestedPose ?? chooseGalleryArrival(people.values());
     const time = now();
     const person = {id:randomBytes(9).toString('hex'),token:randomBytes(24).toString('base64url'),
       ...profile,legacy,...pose,trail:[{x:pose.x,z:pose.z,break:true}],stream:null,
@@ -166,7 +161,7 @@ export function createMuseumServer({disconnectMs=12000,heartbeatMs=6000,staleMs=
   }
   const server=http.createServer(async(req,res)=>{
     try{
-      res.setHeader('X-Content-Type-Options','nosniff');
+      for (const [name, value] of Object.entries(securityHeaders)) res.setHeader(name, value);
       const authority = req.headers.host;
       const publicRequest = external !== null && authority === external.host;
       const base = publicRequest ? external.origin : 'http://' + authority;
@@ -205,7 +200,7 @@ export function createMuseumServer({disconnectMs=12000,heartbeatMs=6000,staleMs=
       p.lastSeen=now();
       if(url.pathname==='/api/pulse'){
         p.acknowledged=true;
-        return reply(res,200,{});
+        return reply(res,200,body.snapshot === true ? {visitors:snapshot(p.legacy)} : {});
       }
       if(url.pathname==='/api/stream'){
         p.acknowledged=true;p.stream?.end();p.stream=res;p.detachedAt=0;
@@ -255,8 +250,8 @@ export function createMuseumServer({disconnectMs=12000,heartbeatMs=6000,staleMs=
     admission.expire();
     for(const p of people.values()){
       if(now()-p.lastSeen>=staleMs)remove(p,p.lastSeen);
-      else if(p.stream)write(p.stream,{type:'pulse'});
-      else if(now()-p.detachedAt>=disconnectMs)remove(p,Math.max(p.detachedAt,p.lastSeen));
+      else if(p.stream)write(p.stream,{type:'pulse',occupancy:people.size});
+      else if(!p.acknowledged && now()-p.detachedAt>=disconnectMs)remove(p,Math.max(p.detachedAt,p.lastSeen));
     }
   },heartbeatMs);
   timer.unref();server.once('close',()=>clearInterval(timer));return server;

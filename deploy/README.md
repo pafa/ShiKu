@@ -11,7 +11,7 @@
 ```sh
 node scripts/check-https-proxy.mjs
 node scripts/check-admission.mjs
-node scripts/check-presence.mjs
+node scripts/check-presence-recovery.mjs
 ```
 
 第一个脚本使用当前目录的 Nginx 站点配置、临时证书和三个回环端口。它验证 HTTPS、域名及来源、健康接口、音轨分段下载、两名访客的地图更新和第 51 位访客的候位补位。演练结束后会关闭测试服务并删除临时证书。另两项独立检查本地模式的候位与多人行为。

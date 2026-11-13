@@ -26,7 +26,7 @@ function disposeDetached(root){
   });
   items.forEach(v=>v.dispose());
 }
-export function attachMetStation(group,station,manager,sharedImages,invalidate){
+export function attachMetStation(group,station,manager,sharedImages,invalidate,deferPhoto){
   const root=new T.Group(),targets=[];
   root.rotation.y=station.inwardZ===1?0:Math.PI;
   root.position.set(station.localX,station.y,station.localZ+station.inwardZ*.105);
@@ -51,17 +51,22 @@ export function attachMetStation(group,station,manager,sharedImages,invalidate){
   const pick=meshPlane(reliefWidth+.08,reliefHeight+.10,new T.MeshBasicMaterial({visible:false}),0,0,.145,root);
   pick.userData.exhibit=station;targets.push(pick);
   const photoUrl=new URL('./assets/authentic/scans/met-procession-reference.webp',import.meta.url).href;
-  if(!sharedImages.has(photoUrl)){
-      sharedImages.set(photoUrl,new T.TextureLoader(manager).loadAsync(photoUrl).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=6;return t}));
+  deferPhoto(station.localX,station.localZ,()=>{
+    if(!sharedImages.has(photoUrl)){
+      const loading=new T.TextureLoader(manager).loadAsync(photoUrl).then(texture=>{
+        texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=6;return texture;
+      });
+      sharedImages.set(photoUrl,loading);
     }
-  sharedImages.get(photoUrl).then(texture=>{
+    sharedImages.get(photoUrl).then(texture=>{
       if(disposed)return;
       const aspect=texture.image.width/texture.image.height;
       for(const [mesh,w,h] of [[poster,reliefWidth,reliefHeight],[side,.84,.63]]){
         mesh.scale.set(Math.min(1,aspect*h/w),Math.min(1,w/(aspect*h)),1);
       }
       material.map=texture;material.needsUpdate=true;poster.visible=!ready;side.visible=true;invalidate();
-  }).catch(()=>{});
+    }).catch(()=>{});
+  });
   function approach(x,z){
     if(disposed||busy||ready||performance.now()<retryAfter||Math.hypot(x-station.x,z-station.z)>13)return;
     busy=true;

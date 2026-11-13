@@ -1,3 +1,4 @@
+import {beginScene, waitForScene, sceneFailure, reveal} from './loading-screen.js';
 import {publicEdition} from './public-media.js';
 import {VISITORS,resolveVisitorId} from './visitor-roster.js';
 import {getPendingAdmission} from './presence-client.js';
@@ -107,11 +108,26 @@ form.onsubmit=async event=>{
     if(linkedLook){
       const url=new URL(location.href);url.searchParams.delete('look');url.searchParams.delete('walk');history.replaceState(history.state,'',url);
     }
-    registration.close();
-    queue.hide();
-    find('museum').hidden=false;find('museum').inert=false;find('arrival').hidden=true;
-    await import('./museum.js');
-    find('world').querySelector('canvas')?.focus({preventScroll:true});
+    const museum=find('museum');
+    beginScene(()=>connection?.presence.leave());
+    registration.close();queue.hide();find('arrival').hidden=true;
+    museum.hidden=false;museum.inert=true;
+    let app;
+    try{
+      const mode=await waitForScene(async()=>{
+        app=await import('./museum.js');
+        return app.initialScene;
+      });
+      if(mode==='failed')throw Error('场景未能完整载入。');
+      museum.inert=false;reveal();
+      find('world').querySelector('canvas')?.focus({preventScroll:true});
+      app.openInitialView();
+    }catch{
+      museum.inert=true;museum.hidden=true;
+      app?.stopInitialScene();
+      sceneFailure();
+      void connection?.presence.leave();
+    }
   }catch(error){
     if(attempt!==admissionAttempt)return;
     connection?.presence.leave();
@@ -121,5 +137,8 @@ form.onsubmit=async event=>{
   }
 };
 
-if(pending){openRegister();form.requestSubmit();}
-else if(linkedLook){openRegister();inspect.click();}
+export function activateEntry(){
+  if(pending){openRegister();form.requestSubmit();}
+  else if(linkedLook){openRegister();inspect.click();}
+}
+export function readyPortraits(){return Promise.all([...find('guest-looks').querySelectorAll('img')].map(img=>img.decode()));}
