@@ -1,0 +1,1 @@
+馆内木质构件使用 Amal Kumar 的实拍 Wood Planks（采集区域宽约 1.5 米）。色彩图、OpenGL 法线图、粗糙度图取自 Poly Haven 的 1K JPG 原件，核对原始文件 MD5 后转为 WebP。木构、展柜及家具均为当代展陈设计。[作者与原图](https://polyhaven.com/a/wood_planks) · [CC0 1.0](https://polyhaven.com/license)

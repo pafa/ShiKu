@@ -1,0 +1,46 @@
+{
+  "name": "shiku",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-08-28",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [],
+  "assets": {
+    "directory": "./dist/assets",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": [
+      "/api/*",
+      "/",
+      "/real-viewer",
+      "/real-viewer/",
+      "/assets/walk/voices/*"
+    ]
+  },
+  "vars": {
+    "PUBLIC_ORIGIN": "https://shiku.xiaoha.org"
+  },
+  "version_metadata": {
+    "binding": "VERSION"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SHIKU_ROOM",
+        "class_name": "MuseumRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "MuseumRoom"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": false
+  }
+}

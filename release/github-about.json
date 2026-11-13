@@ -1,0 +1,9 @@
+{
+  "name": "ShiKu",
+  "description": "石窟 ShiKu｜可共游的中国四大石窟 3D 数字展馆，沿着实物、壁画与普通话讲解探索莫高窟、麦积山、云冈和龙门。",
+  "topics": ["cultural-heritage", "digital-museum", "grottoes", "threejs", "webgl", "mandarin", "china"],
+  "intendedHomepage": "https://shiku.xiaoha.org",
+  "defaultBranch": "main",
+  "mergeMethod": "squash",
+  "autoDeploy": false
+}

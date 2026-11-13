@@ -1,0 +1,2024 @@
+{
+  "reference": {
+    "photo": "Met open-access photograph DP170138",
+    "source": "https://images.metmuseum.org/CRDImages/as/original/DP170138.jpg",
+    "originalSize": [
+      3919,
+      2941
+    ],
+    "referenceViewport": [
+      1280,
+      960
+    ],
+    "originalFileSha256": "a7f03cf870d270217da2380fcd3e1a56f1e1ea774f2fac82faae76012b7eb2ae",
+    "localFileSha256": "cb3d899301789fcb078b187656ca7ce8e9e1d99e8bb153f5486439ed8f59a6d3",
+    "localReferenceSize": [
+      1919,
+      1440
+    ]
+  },
+  "model": {
+    "meshes": [
+      {
+        "count": 99972,
+        "vertexCount": 58956,
+        "sha": [
+          "689d1c497d0a8fbff8481d59756706defb03fdfe4e78bc6803bfc2d41143c5c4",
+          "4a3795d1484dd0ba460d58908a3e2d4419b2dec94d0d6ad97b39771152e7ff9b",
+          "7dc93fb7ab30ac948dc04f498917cf25e8b0ceec5779f8d90d61e186cc824009",
+          "79b0404c62a6b3c18d57e512249ee6ef8befbf653448b7f3f9586d2f1960e9a6",
+          "29c1f885d5c4871fe12d327f0ce76a62bc415dd1868b54df097124aeb25f1f88"
+        ]
+      }
+    ],
+    "textures": [
+      {
+        "name": "",
+        "mime": "image/jpeg",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha": "b7ddcdc7cb39f1aa7bd224996d9bbf3ca9ca47fd06c5680572a1a18dceaa829f"
+      },
+      {
+        "name": "",
+        "mime": "image/jpeg",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha": "b47a9456afa5e5ead89cdc5226b65b135fc96bc67568ba41c53c7aeb76a54238"
+      }
+    ],
+    "textured": true,
+    "originalSha": "01ffe497a08a0e42611fbdbbec198feb5226482c1baeaad922ee92b2d18c0e16",
+    "deliveredSha": "a794d4ab3a1bee57ddc4ec75ba9c58aff3ea88fcccbdfd9060c6bf09ec7cfcce",
+    "deliveredBytes": 5598580
+  },
+  "camera": {
+    "eye": [
+      -0.01396900537601725,
+      -0.030930936765592172,
+      5.466838050961176
+    ],
+    "target": [
+      0.002223200463224462,
+      0.01809557638230476,
+      0.0
+    ],
+    "up": [
+      0.008081646167305029,
+      0.9999269194035647,
+      0.008991265056899515
+    ],
+    "fov": 33.0,
+    "light": [
+      0.75,
+      0.7,
+      0.8,
+      4.2,
+      0.28
+    ],
+    "convention": "Three.js original GLB world coordinates, Y up, target on z=0. Units are metres. 4:3 frame with no stretching. light values: local x,y,z, directional intensity, hemispheric intensity."
+  },
+  "bounds": {
+    "min": [
+      -1.9519679753562125,
+      -1.0335702618402798,
+      -0.051675769866676796
+    ],
+    "max": [
+      2.0204432107634496,
+      1.0851452057784223,
+      0.05404216028119945
+    ],
+    "size": [
+      3.972411186119662,
+      2.118715467618702,
+      0.10571793014787625
+    ],
+    "center": [
+      0.03423761770361855,
+      0.025787471969071274,
+      0.0011831952072613276
+    ]
+  },
+  "catalogSizeMetres": [
+    3.937,
+    2.083
+  ],
+  "registeredFrontalSilhouette": {
+    "iou": 0.9893,
+    "pessimisticIouWith4pxToleranceEachBoundary": 0.9391,
+    "photoMaskBounds": [
+      59,
+      168,
+      1185,
+      629
+    ],
+    "scanMaskBounds": [
+      60,
+      168,
+      1183,
+      627
+    ],
+    "method": "Texture-independent model alpha after camera fit vs largest connected colour/saturation foreground of the studio photograph, interior holes filled. No silhouette used to fit the camera."
+  },
+  "independentPointTest": {
+    "eligible": 640,
+    "trained": 484,
+    "heldOut": 156,
+    "medianPixelError": 0.61,
+    "within5px": 155,
+    "note": "A first registration was used only to get an approximate frontal view. On the matched-lit view we detected SIFT anew, selected reciprocal nearest-neighbour matches with Lowe ratio <0.72 in both directions, imposed no displacement threshold and sampled at >=12px spacing. At least one entire set of spatial cells was withheld from final PnP. Every match in those cells is counted, including possible outliers.",
+    "heldOutPositions": [
+      {
+        "referencePx": [
+          660.519,
+          500.356
+        ],
+        "worldPosition": [
+          0.07060343,
+          -0.0458103,
+          0.03146876
+        ],
+        "errorPx": 1.554
+      },
+      {
+        "referencePx": [
+          694.699,
+          228.481
+        ],
+        "worldPosition": [
+          0.19149999,
+          0.86485687,
+          0.02954376
+        ],
+        "errorPx": 1.042
+      },
+      {
+        "referencePx": [
+          653.383,
+          543.511
+        ],
+        "worldPosition": [
+          0.04508842,
+          -0.19522658,
+          0.03715281
+        ],
+        "errorPx": 0.053
+      },
+      {
+        "referencePx": [
+          683.219,
+          243.129
+        ],
+        "worldPosition": [
+          0.15520843,
+          0.81371033,
+          0.02869619
+        ],
+        "errorPx": 0.5
+      },
+      {
+        "referencePx": [
+          214.16,
+          649.596
+        ],
+        "worldPosition": [
+          -1.42805212,
+          -0.54162889,
+          0.0255511
+        ],
+        "errorPx": 0.937
+      },
+      {
+        "referencePx": [
+          1080.958,
+          239.906
+        ],
+        "worldPosition": [
+          1.49529342,
+          0.81232577,
+          0.01637678
+        ],
+        "errorPx": 0.872
+      },
+      {
+        "referencePx": [
+          1010.484,
+          686.449
+        ],
+        "worldPosition": [
+          1.23604253,
+          -0.67953118,
+          0.03138071
+        ],
+        "errorPx": 1.653
+      },
+      {
+        "referencePx": [
+          486.088,
+          582.394
+        ],
+        "worldPosition": [
+          -0.51848395,
+          -0.32208999,
+          0.02902556
+        ],
+        "errorPx": 0.577
+      },
+      {
+        "referencePx": [
+          1008.706,
+          670.546
+        ],
+        "worldPosition": [
+          1.2323757,
+          -0.63431184,
+          0.03093469
+        ],
+        "errorPx": 0.985
+      },
+      {
+        "referencePx": [
+          1000.185,
+          679.745
+        ],
+        "worldPosition": [
+          1.20241912,
+          -0.65837055,
+          0.03276364
+        ],
+        "errorPx": 1.051
+      },
+      {
+        "referencePx": [
+          1210.374,
+          465.479
+        ],
+        "worldPosition": [
+          1.91989425,
+          0.04634463,
+          0.02348311
+        ],
+        "errorPx": 1.466
+      },
+      {
+        "referencePx": [
+          657.146,
+          522.64
+        ],
+        "worldPosition": [
+          0.05691254,
+          -0.12441554,
+          0.03397819
+        ],
+        "errorPx": 0.578
+      },
+      {
+        "referencePx": [
+          689.514,
+          215.803
+        ],
+        "worldPosition": [
+          0.17533325,
+          0.90575406,
+          0.03119297
+        ],
+        "errorPx": 0.497
+      },
+      {
+        "referencePx": [
+          672.0,
+          261.951
+        ],
+        "worldPosition": [
+          0.11121417,
+          0.7544314,
+          0.02612744
+        ],
+        "errorPx": 1.856
+      },
+      {
+        "referencePx": [
+          838.612,
+          457.074
+        ],
+        "worldPosition": [
+          0.66479046,
+          0.09361388,
+          0.03709508
+        ],
+        "errorPx": 1.724
+      },
+      {
+        "referencePx": [
+          1007.424,
+          552.549
+        ],
+        "worldPosition": [
+          1.23343902,
+          -0.2277682,
+          0.01712629
+        ],
+        "errorPx": 2.615
+      },
+      {
+        "referencePx": [
+          209.479,
+          638.338
+        ],
+        "worldPosition": [
+          -1.44507236,
+          -0.50192299,
+          0.02637634
+        ],
+        "errorPx": 0.211
+      },
+      {
+        "referencePx": [
+          820.303,
+          337.926
+        ],
+        "worldPosition": [
+          0.61241689,
+          0.49241605,
+          0.02040276
+        ],
+        "errorPx": 0.406
+      },
+      {
+        "referencePx": [
+          698.921,
+          243.871
+        ],
+        "worldPosition": [
+          0.20619617,
+          0.81260011,
+          0.02823938
+        ],
+        "errorPx": 0.809
+      },
+      {
+        "referencePx": [
+          1006.972,
+          232.692
+        ],
+        "worldPosition": [
+          1.24430777,
+          0.84014518,
+          0.02642843
+        ],
+        "errorPx": 0.26
+      },
+      {
+        "referencePx": [
+          670.826,
+          688.212
+        ],
+        "worldPosition": [
+          0.09954531,
+          -0.67839359,
+          0.04723544
+        ],
+        "errorPx": 0.125
+      },
+      {
+        "referencePx": [
+          619.992,
+          546.358
+        ],
+        "worldPosition": [
+          -0.0663299,
+          -0.20231994,
+          0.04240837
+        ],
+        "errorPx": 0.452
+      },
+      {
+        "referencePx": [
+          455.06,
+          573.332
+        ],
+        "worldPosition": [
+          -0.62176674,
+          -0.28871857,
+          0.02947115
+        ],
+        "errorPx": 0.566
+      },
+      {
+        "referencePx": [
+          652.35,
+          692.476
+        ],
+        "worldPosition": [
+          0.03679746,
+          -0.6944477,
+          0.04705528
+        ],
+        "errorPx": 0.623
+      },
+      {
+        "referencePx": [
+          643.022,
+          658.352
+        ],
+        "worldPosition": [
+          0.00729251,
+          -0.5841367,
+          0.04661394
+        ],
+        "errorPx": 1.714
+      },
+      {
+        "referencePx": [
+          679.074,
+          228.432
+        ],
+        "worldPosition": [
+          0.14101294,
+          0.86211888,
+          0.03114966
+        ],
+        "errorPx": 0.236
+      },
+      {
+        "referencePx": [
+          815.829,
+          459.876
+        ],
+        "worldPosition": [
+          0.59183764,
+          0.08129681,
+          0.03871277
+        ],
+        "errorPx": 0.259
+      },
+      {
+        "referencePx": [
+          1096.259,
+          229.483
+        ],
+        "worldPosition": [
+          1.54622382,
+          0.84973645,
+          0.01495429
+        ],
+        "errorPx": 0.407
+      },
+      {
+        "referencePx": [
+          682.327,
+          684.519
+        ],
+        "worldPosition": [
+          0.13704815,
+          -0.66574493,
+          0.04906182
+        ],
+        "errorPx": 0.359
+      },
+      {
+        "referencePx": [
+          804.544,
+          707.58
+        ],
+        "worldPosition": [
+          0.54544336,
+          -0.7476186,
+          0.04737396
+        ],
+        "errorPx": 0.147
+      },
+      {
+        "referencePx": [
+          639.961,
+          548.492
+        ],
+        "worldPosition": [
+          0.0001005,
+          -0.20748765,
+          0.03789874
+        ],
+        "errorPx": 1.239
+      },
+      {
+        "referencePx": [
+          884.5,
+          575.765
+        ],
+        "worldPosition": [
+          0.81527572,
+          -0.30983571,
+          0.04607821
+        ],
+        "errorPx": 0.637
+      },
+      {
+        "referencePx": [
+          1058.616,
+          676.619
+        ],
+        "worldPosition": [
+          1.40006504,
+          -0.65307259,
+          0.03307672
+        ],
+        "errorPx": 0.124
+      },
+      {
+        "referencePx": [
+          473.384,
+          760.647
+        ],
+        "worldPosition": [
+          -0.5625564,
+          -0.9156945,
+          0.03508567
+        ],
+        "errorPx": 0.339
+      },
+      {
+        "referencePx": [
+          429.68,
+          768.143
+        ],
+        "worldPosition": [
+          -0.70886531,
+          -0.93910208,
+          0.03900465
+        ],
+        "errorPx": 0.233
+      },
+      {
+        "referencePx": [
+          289.737,
+          506.596
+        ],
+        "worldPosition": [
+          -1.17461007,
+          -0.06299175,
+          0.02818873
+        ],
+        "errorPx": 0.524
+      },
+      {
+        "referencePx": [
+          437.094,
+          741.361
+        ],
+        "worldPosition": [
+          -0.6819264,
+          -0.84870537,
+          0.03703686
+        ],
+        "errorPx": 0.855
+      },
+      {
+        "referencePx": [
+          657.479,
+          255.054
+        ],
+        "worldPosition": [
+          0.06444202,
+          0.7759571,
+          0.02631957
+        ],
+        "errorPx": 1.037
+      },
+      {
+        "referencePx": [
+          686.161,
+          256.837
+        ],
+        "worldPosition": [
+          0.16091894,
+          0.77104351,
+          0.02666442
+        ],
+        "errorPx": 1.454
+      },
+      {
+        "referencePx": [
+          1016.658,
+          654.868
+        ],
+        "worldPosition": [
+          1.26076013,
+          -0.58079067,
+          0.02575288
+        ],
+        "errorPx": 0.516
+      },
+      {
+        "referencePx": [
+          639.704,
+          519.395
+        ],
+        "worldPosition": [
+          -0.00054379,
+          -0.11828996,
+          0.03379788
+        ],
+        "errorPx": 1.216
+      },
+      {
+        "referencePx": [
+          234.338,
+          655.38
+        ],
+        "worldPosition": [
+          -1.36165574,
+          -0.56008926,
+          0.02849025
+        ],
+        "errorPx": 0.388
+      },
+      {
+        "referencePx": [
+          465.623,
+          738.988
+        ],
+        "worldPosition": [
+          -0.58895404,
+          -0.84435391,
+          0.03336778
+        ],
+        "errorPx": 0.111
+      },
+      {
+        "referencePx": [
+          858.208,
+          758.454
+        ],
+        "worldPosition": [
+          0.72397201,
+          -0.92006676,
+          0.03980106
+        ],
+        "errorPx": 0.196
+      },
+      {
+        "referencePx": [
+          873.658,
+          760.448
+        ],
+        "worldPosition": [
+          0.77499663,
+          -0.9261416,
+          0.0419204
+        ],
+        "errorPx": 0.273
+      },
+      {
+        "referencePx": [
+          1079.736,
+          693.106
+        ],
+        "worldPosition": [
+          1.46696358,
+          -0.70520465,
+          0.03626551
+        ],
+        "errorPx": 1.13
+      },
+      {
+        "referencePx": [
+          863.795,
+          593.904
+        ],
+        "worldPosition": [
+          0.74705904,
+          -0.36867172,
+          0.0458705
+        ],
+        "errorPx": 0.242
+      },
+      {
+        "referencePx": [
+          228.953,
+          542.414
+        ],
+        "worldPosition": [
+          -1.37904688,
+          -0.17791002,
+          0.02319997
+        ],
+        "errorPx": 0.749
+      },
+      {
+        "referencePx": [
+          1027.205,
+          773.272
+        ],
+        "worldPosition": [
+          1.29037255,
+          -0.97523113,
+          0.03658469
+        ],
+        "errorPx": 0.188
+      },
+      {
+        "referencePx": [
+          496.376,
+          589.507
+        ],
+        "worldPosition": [
+          -0.48250759,
+          -0.34484427,
+          0.02676246
+        ],
+        "errorPx": 0.222
+      },
+      {
+        "referencePx": [
+          264.598,
+          697.813
+        ],
+        "worldPosition": [
+          -1.25936341,
+          -0.70104487,
+          0.02962131
+        ],
+        "errorPx": 0.524
+      },
+      {
+        "referencePx": [
+          1017.723,
+          637.775
+        ],
+        "worldPosition": [
+          1.26791383,
+          -0.52550918,
+          0.03152053
+        ],
+        "errorPx": 1.548
+      },
+      {
+        "referencePx": [
+          601.232,
+          529.246
+        ],
+        "worldPosition": [
+          -0.12949378,
+          -0.14250386,
+          0.03840147
+        ],
+        "errorPx": 1.089
+      },
+      {
+        "referencePx": [
+          852.227,
+          468.44
+        ],
+        "worldPosition": [
+          0.71358197,
+          0.05227994,
+          0.03311178
+        ],
+        "errorPx": 0.499
+      },
+      {
+        "referencePx": [
+          1033.11,
+          350.216
+        ],
+        "worldPosition": [
+          1.32396663,
+          0.44441007,
+          0.02086645
+        ],
+        "errorPx": 1.427
+      },
+      {
+        "referencePx": [
+          466.471,
+          722.775
+        ],
+        "worldPosition": [
+          -0.58386345,
+          -0.78770745,
+          0.03316249
+        ],
+        "errorPx": 0.892
+      },
+      {
+        "referencePx": [
+          222.335,
+          631.904
+        ],
+        "worldPosition": [
+          -1.39985051,
+          -0.4799612,
+          0.02790152
+        ],
+        "errorPx": 0.538
+      },
+      {
+        "referencePx": [
+          421.879,
+          601.829
+        ],
+        "worldPosition": [
+          -0.73329093,
+          -0.38492029,
+          0.02013801
+        ],
+        "errorPx": 0.122
+      },
+      {
+        "referencePx": [
+          695.075,
+          551.518
+        ],
+        "worldPosition": [
+          0.18607802,
+          -0.2159311,
+          0.03518694
+        ],
+        "errorPx": 2.258
+      },
+      {
+        "referencePx": [
+          1038.013,
+          649.957
+        ],
+        "worldPosition": [
+          1.33165845,
+          -0.56537501,
+          0.02976977
+        ],
+        "errorPx": 0.738
+      },
+      {
+        "referencePx": [
+          807.935,
+          621.789
+        ],
+        "worldPosition": [
+          0.55800371,
+          -0.46003421,
+          0.04831404
+        ],
+        "errorPx": 0.507
+      },
+      {
+        "referencePx": [
+          1217.717,
+          452.04
+        ],
+        "worldPosition": [
+          1.94340242,
+          0.09335447,
+          0.02168874
+        ],
+        "errorPx": 1.269
+      },
+      {
+        "referencePx": [
+          899.543,
+          622.165
+        ],
+        "worldPosition": [
+          0.86861423,
+          -0.46583248,
+          0.04669081
+        ],
+        "errorPx": 0.825
+      },
+      {
+        "referencePx": [
+          845.567,
+          339.876
+        ],
+        "worldPosition": [
+          0.69764048,
+          0.48500464,
+          0.03007502
+        ],
+        "errorPx": 0.71
+      },
+      {
+        "referencePx": [
+          651.212,
+          272.75
+        ],
+        "worldPosition": [
+          0.04357578,
+          0.71796678,
+          0.02584642
+        ],
+        "errorPx": 1.231
+      },
+      {
+        "referencePx": [
+          1229.721,
+          743.626
+        ],
+        "worldPosition": [
+          1.96807245,
+          -0.8847076,
+          0.04379682
+        ],
+        "errorPx": 1.359
+      },
+      {
+        "referencePx": [
+          898.473,
+          595.797
+        ],
+        "worldPosition": [
+          0.86447791,
+          -0.37678836,
+          0.04365994
+        ],
+        "errorPx": 0.19
+      },
+      {
+        "referencePx": [
+          610.552,
+          415.051
+        ],
+        "worldPosition": [
+          -0.09589934,
+          0.2371782,
+          0.02531476
+        ],
+        "errorPx": 0.285
+      },
+      {
+        "referencePx": [
+          1206.116,
+          580.103
+        ],
+        "worldPosition": [
+          1.901011,
+          -0.33658372,
+          0.02811593
+        ],
+        "errorPx": 0.891
+      },
+      {
+        "referencePx": [
+          828.14,
+          423.637
+        ],
+        "worldPosition": [
+          0.63319599,
+          0.20453903,
+          0.03479278
+        ],
+        "errorPx": 0.951
+      },
+      {
+        "referencePx": [
+          842.086,
+          601.453
+        ],
+        "worldPosition": [
+          0.67374235,
+          -0.3915507,
+          0.04564436
+        ],
+        "errorPx": 0.781
+      },
+      {
+        "referencePx": [
+          472.712,
+          704.065
+        ],
+        "worldPosition": [
+          -0.55737287,
+          -0.73113477,
+          0.03952895
+        ],
+        "errorPx": 2.175
+      },
+      {
+        "referencePx": [
+          870.293,
+          469.8
+        ],
+        "worldPosition": [
+          0.77297035,
+          0.048545,
+          0.03742528
+        ],
+        "errorPx": 0.942
+      },
+      {
+        "referencePx": [
+          403.681,
+          594.194
+        ],
+        "worldPosition": [
+          -0.79347663,
+          -0.35736996,
+          0.02132529
+        ],
+        "errorPx": 0.554
+      },
+      {
+        "referencePx": [
+          237.336,
+          273.855
+        ],
+        "worldPosition": [
+          -1.3459279,
+          0.72092205,
+          0.01985552
+        ],
+        "errorPx": 0.377
+      },
+      {
+        "referencePx": [
+          1080.689,
+          664.964
+        ],
+        "worldPosition": [
+          1.47383298,
+          -0.61581056,
+          0.03172513
+        ],
+        "errorPx": 0.523
+      },
+      {
+        "referencePx": [
+          445.651,
+          706.315
+        ],
+        "worldPosition": [
+          -0.65457842,
+          -0.73327356,
+          0.03078716
+        ],
+        "errorPx": 0.514
+      },
+      {
+        "referencePx": [
+          1058.315,
+          658.103
+        ],
+        "worldPosition": [
+          1.40010377,
+          -0.59274679,
+          0.03028786
+        ],
+        "errorPx": 0.549
+      },
+      {
+        "referencePx": [
+          1036.22,
+          663.575
+        ],
+        "worldPosition": [
+          1.32545544,
+          -0.61103743,
+          0.02908583
+        ],
+        "errorPx": 0.726
+      },
+      {
+        "referencePx": [
+          808.923,
+          438.313
+        ],
+        "worldPosition": [
+          0.57046888,
+          0.1561747,
+          0.03770765
+        ],
+        "errorPx": 1.008
+      },
+      {
+        "referencePx": [
+          1093.198,
+          412.271
+        ],
+        "worldPosition": [
+          1.53174787,
+          0.23054197,
+          0.01239389
+        ],
+        "errorPx": 1.003
+      },
+      {
+        "referencePx": [
+          624.002,
+          694.325
+        ],
+        "worldPosition": [
+          -0.05587085,
+          -0.6929932,
+          0.04376058
+        ],
+        "errorPx": 1.637
+      },
+      {
+        "referencePx": [
+          227.324,
+          667.115
+        ],
+        "worldPosition": [
+          -1.38325285,
+          -0.60283414,
+          0.02902682
+        ],
+        "errorPx": 1.622
+      },
+      {
+        "referencePx": [
+          862.566,
+          569.677
+        ],
+        "worldPosition": [
+          0.74344514,
+          -0.28739496,
+          0.04402496
+        ],
+        "errorPx": 0.418
+      },
+      {
+        "referencePx": [
+          477.532,
+          747.265
+        ],
+        "worldPosition": [
+          -0.55081005,
+          -0.8759609,
+          0.03336067
+        ],
+        "errorPx": 1.198
+      },
+      {
+        "referencePx": [
+          622.022,
+          523.605
+        ],
+        "worldPosition": [
+          -0.05982063,
+          -0.12635256,
+          0.04059319
+        ],
+        "errorPx": 0.454
+      },
+      {
+        "referencePx": [
+          829.809,
+          591.71
+        ],
+        "worldPosition": [
+          0.63343833,
+          -0.35711918,
+          0.04818939
+        ],
+        "errorPx": 1.141
+      },
+      {
+        "referencePx": [
+          677.364,
+          658.173
+        ],
+        "worldPosition": [
+          0.12200871,
+          -0.57805294,
+          0.04679805
+        ],
+        "errorPx": 0.216
+      },
+      {
+        "referencePx": [
+          603.674,
+          512.948
+        ],
+        "worldPosition": [
+          -0.11882076,
+          -0.09144445,
+          0.03842278
+        ],
+        "errorPx": 0.488
+      },
+      {
+        "referencePx": [
+          1021.445,
+          238.425
+        ],
+        "worldPosition": [
+          1.29437654,
+          0.82167673,
+          0.0196973
+        ],
+        "errorPx": 0.258
+      },
+      {
+        "referencePx": [
+          287.497,
+          636.984
+        ],
+        "worldPosition": [
+          -1.1813396,
+          -0.49769174,
+          0.03035602
+        ],
+        "errorPx": 0.556
+      },
+      {
+        "referencePx": [
+          856.831,
+          319.053
+        ],
+        "worldPosition": [
+          0.73621179,
+          0.55417046,
+          0.02434586
+        ],
+        "errorPx": 0.303
+      },
+      {
+        "referencePx": [
+          1208.884,
+          722.098
+        ],
+        "worldPosition": [
+          1.90004852,
+          -0.81205255,
+          0.04042896
+        ],
+        "errorPx": 1.168
+      },
+      {
+        "referencePx": [
+          847.739,
+          748.063
+        ],
+        "worldPosition": [
+          0.68913349,
+          -0.88087051,
+          0.04525692
+        ],
+        "errorPx": 0.887
+      },
+      {
+        "referencePx": [
+          871.718,
+          337.854
+        ],
+        "worldPosition": [
+          0.78837367,
+          0.49151955,
+          0.01292374
+        ],
+        "errorPx": 0.5
+      },
+      {
+        "referencePx": [
+          800.438,
+          571.523
+        ],
+        "worldPosition": [
+          0.53529779,
+          -0.290831,
+          0.04728737
+        ],
+        "errorPx": 0.607
+      },
+      {
+        "referencePx": [
+          1065.736,
+          639.927
+        ],
+        "worldPosition": [
+          1.42713292,
+          -0.53210867,
+          0.03210867
+        ],
+        "errorPx": 0.788
+      },
+      {
+        "referencePx": [
+          206.695,
+          681.962
+        ],
+        "worldPosition": [
+          -1.45046017,
+          -0.64949767,
+          0.02639243
+        ],
+        "errorPx": 1.618
+      },
+      {
+        "referencePx": [
+          1206.445,
+          337.386
+        ],
+        "worldPosition": [
+          1.9122268,
+          0.48136919,
+          0.01912108
+        ],
+        "errorPx": 0.645
+      },
+      {
+        "referencePx": [
+          837.885,
+          440.461
+        ],
+        "worldPosition": [
+          0.66694213,
+          0.14648553,
+          0.03406356
+        ],
+        "errorPx": 0.423
+      },
+      {
+        "referencePx": [
+          698.33,
+          640.786
+        ],
+        "worldPosition": [
+          0.19409771,
+          -0.52171639,
+          0.04282417
+        ],
+        "errorPx": 0.38
+      },
+      {
+        "referencePx": [
+          1207.353,
+          598.026
+        ],
+        "worldPosition": [
+          1.9048273,
+          -0.39686386,
+          0.02610297
+        ],
+        "errorPx": 0.864
+      },
+      {
+        "referencePx": [
+          677.494,
+          670.911
+        ],
+        "worldPosition": [
+          0.123626,
+          -0.61926856,
+          0.0478345
+        ],
+        "errorPx": 0.718
+      },
+      {
+        "referencePx": [
+          217.738,
+          675.59
+        ],
+        "worldPosition": [
+          -1.41764446,
+          -0.62929456,
+          0.0274589
+        ],
+        "errorPx": 0.965
+      },
+      {
+        "referencePx": [
+          657.445,
+          237.444
+        ],
+        "worldPosition": [
+          0.06587018,
+          0.8347509,
+          0.02736288
+        ],
+        "errorPx": 0.748
+      },
+      {
+        "referencePx": [
+          1217.666,
+          710.902
+        ],
+        "worldPosition": [
+          1.93113126,
+          -0.77546754,
+          0.03976283
+        ],
+        "errorPx": 1.359
+      },
+      {
+        "referencePx": [
+          240.258,
+          694.684
+        ],
+        "worldPosition": [
+          -1.34422055,
+          -0.69600238,
+          0.02637376
+        ],
+        "errorPx": 1.595
+      },
+      {
+        "referencePx": [
+          459.232,
+          608.917
+        ],
+        "worldPosition": [
+          -0.60879111,
+          -0.40639269,
+          0.03132243
+        ],
+        "errorPx": 1.001
+      },
+      {
+        "referencePx": [
+          879.329,
+          749.399
+        ],
+        "worldPosition": [
+          0.79504906,
+          -0.88921228,
+          0.04447927
+        ],
+        "errorPx": 0.083
+      },
+      {
+        "referencePx": [
+          208.635,
+          374.976
+        ],
+        "worldPosition": [
+          -1.42108557,
+          0.37774296,
+          0.01861363
+        ],
+        "errorPx": 7.279
+      },
+      {
+        "referencePx": [
+          838.931,
+          731.671
+        ],
+        "worldPosition": [
+          0.66149389,
+          -0.8301406,
+          0.04561895
+        ],
+        "errorPx": 0.573
+      },
+      {
+        "referencePx": [
+          1053.511,
+          770.383
+        ],
+        "worldPosition": [
+          1.37767636,
+          -0.96787444,
+          0.04044189
+        ],
+        "errorPx": 0.844
+      },
+      {
+        "referencePx": [
+          255.623,
+          646.651
+        ],
+        "worldPosition": [
+          -1.28948614,
+          -0.52837324,
+          0.02253061
+        ],
+        "errorPx": 0.97
+      },
+      {
+        "referencePx": [
+          1085.311,
+          640.661
+        ],
+        "worldPosition": [
+          1.49218651,
+          -0.53355701,
+          0.03028147
+        ],
+        "errorPx": 0.188
+      },
+      {
+        "referencePx": [
+          886.312,
+          614.865
+        ],
+        "worldPosition": [
+          0.82258631,
+          -0.44078218,
+          0.04486231
+        ],
+        "errorPx": 0.217
+      },
+      {
+        "referencePx": [
+          1012.895,
+          403.325
+        ],
+        "worldPosition": [
+          1.2626742,
+          0.26651457,
+          0.00821521
+        ],
+        "errorPx": 0.256
+      },
+      {
+        "referencePx": [
+          1004.56,
+          636.458
+        ],
+        "worldPosition": [
+          1.22404267,
+          -0.52605519,
+          0.02887387
+        ],
+        "errorPx": 2.845
+      },
+      {
+        "referencePx": [
+          1077.27,
+          413.43
+        ],
+        "worldPosition": [
+          1.47727381,
+          0.23178836,
+          0.0096807
+        ],
+        "errorPx": 0.48
+      },
+      {
+        "referencePx": [
+          1024.618,
+          397.099
+        ],
+        "worldPosition": [
+          1.29820955,
+          0.28887787,
+          0.01255793
+        ],
+        "errorPx": 0.912
+      },
+      {
+        "referencePx": [
+          848.268,
+          290.892
+        ],
+        "worldPosition": [
+          0.70749388,
+          0.65302759,
+          0.01306892
+        ],
+        "errorPx": 1.123
+      },
+      {
+        "referencePx": [
+          87.534,
+          589.771
+        ],
+        "worldPosition": [
+          -1.85604043,
+          -0.33903323,
+          0.01724905
+        ],
+        "errorPx": 1.007
+      },
+      {
+        "referencePx": [
+          1015.456,
+          269.934
+        ],
+        "worldPosition": [
+          1.27427534,
+          0.71476845,
+          0.02621622
+        ],
+        "errorPx": 1.044
+      },
+      {
+        "referencePx": [
+          827.463,
+          473.097
+        ],
+        "worldPosition": [
+          0.63035479,
+          0.03518191,
+          0.03311077
+        ],
+        "errorPx": 0.316
+      },
+      {
+        "referencePx": [
+          1093.284,
+          657.652
+        ],
+        "worldPosition": [
+          1.51617589,
+          -0.5896039,
+          0.02997088
+        ],
+        "errorPx": 0.569
+      },
+      {
+        "referencePx": [
+          1075.01,
+          360.102
+        ],
+        "worldPosition": [
+          1.47095322,
+          0.40841633,
+          0.0155064
+        ],
+        "errorPx": 0.488
+      },
+      {
+        "referencePx": [
+          813.168,
+          754.18
+        ],
+        "worldPosition": [
+          0.57385157,
+          -0.90304876,
+          0.03983055
+        ],
+        "errorPx": 0.323
+      },
+      {
+        "referencePx": [
+          871.886,
+          708.827
+        ],
+        "worldPosition": [
+          0.77328065,
+          -0.75494604,
+          0.04861845
+        ],
+        "errorPx": 0.981
+      },
+      {
+        "referencePx": [
+          406.698,
+          750.116
+        ],
+        "worldPosition": [
+          -0.7857971,
+          -0.88011448,
+          0.03079892
+        ],
+        "errorPx": 0.18
+      },
+      {
+        "referencePx": [
+          605.861,
+          635.281
+        ],
+        "worldPosition": [
+          -0.11466585,
+          -0.49893949,
+          0.04526154
+        ],
+        "errorPx": 0.655
+      },
+      {
+        "referencePx": [
+          867.581,
+          617.693
+        ],
+        "worldPosition": [
+          0.75746414,
+          -0.44931713,
+          0.04796184
+        ],
+        "errorPx": 0.522
+      },
+      {
+        "referencePx": [
+          826.078,
+          742.415
+        ],
+        "worldPosition": [
+          0.6166561,
+          -0.86327911,
+          0.04472039
+        ],
+        "errorPx": 0.358
+      },
+      {
+        "referencePx": [
+          77.117,
+          336.223
+        ],
+        "worldPosition": [
+          -1.88667255,
+          0.51326397,
+          0.02105777
+        ],
+        "errorPx": 1.003
+      },
+      {
+        "referencePx": [
+          686.936,
+          393.215
+        ],
+        "worldPosition": [
+          0.160282,
+          0.31051914,
+          0.02519658
+        ],
+        "errorPx": 0.898
+      },
+      {
+        "referencePx": [
+          424.626,
+          707.435
+        ],
+        "worldPosition": [
+          -0.72548441,
+          -0.73507921,
+          0.03351499
+        ],
+        "errorPx": 0.809
+      },
+      {
+        "referencePx": [
+          842.211,
+          481.033
+        ],
+        "worldPosition": [
+          0.68006745,
+          0.00983314,
+          0.03920576
+        ],
+        "errorPx": 0.333
+      },
+      {
+        "referencePx": [
+          1205.265,
+          710.386
+        ],
+        "worldPosition": [
+          1.88841964,
+          -0.77237402,
+          0.03912699
+        ],
+        "errorPx": 0.994
+      },
+      {
+        "referencePx": [
+          283.268,
+          669.301
+        ],
+        "worldPosition": [
+          -1.19648948,
+          -0.60892672,
+          0.0332916
+        ],
+        "errorPx": 0.823
+      },
+      {
+        "referencePx": [
+          694.376,
+          410.389
+        ],
+        "worldPosition": [
+          0.18356372,
+          0.25275119,
+          0.02871893
+        ],
+        "errorPx": 1.203
+      },
+      {
+        "referencePx": [
+          474.325,
+          309.404
+        ],
+        "worldPosition": [
+          -0.55126337,
+          0.59784921,
+          0.01022574
+        ],
+        "errorPx": 0.147
+      },
+      {
+        "referencePx": [
+          1040.633,
+          691.893
+        ],
+        "worldPosition": [
+          1.33908186,
+          -0.70559013,
+          0.0337839
+        ],
+        "errorPx": 0.713
+      },
+      {
+        "referencePx": [
+          622.418,
+          367.535
+        ],
+        "worldPosition": [
+          -0.05544708,
+          0.39812865,
+          0.02559649
+        ],
+        "errorPx": 0.736
+      },
+      {
+        "referencePx": [
+          285.232,
+          418.514
+        ],
+        "worldPosition": [
+          -1.18679917,
+          0.23339117,
+          0.0213805
+        ],
+        "errorPx": 0.421
+      },
+      {
+        "referencePx": [
+          869.068,
+          723.713
+        ],
+        "worldPosition": [
+          0.76136948,
+          -0.80117558,
+          0.04809279
+        ],
+        "errorPx": 0.509
+      },
+      {
+        "referencePx": [
+          446.842,
+          332.803
+        ],
+        "worldPosition": [
+          -0.6452305,
+          0.51991412,
+          0.00658158
+        ],
+        "errorPx": 0.135
+      },
+      {
+        "referencePx": [
+          419.324,
+          732.768
+        ],
+        "worldPosition": [
+          -0.74394591,
+          -0.82035369,
+          0.03634198
+        ],
+        "errorPx": 0.541
+      },
+      {
+        "referencePx": [
+          1078.512,
+          506.215
+        ],
+        "worldPosition": [
+          1.47218536,
+          -0.08211234,
+          0.027888
+        ],
+        "errorPx": 0.607
+      },
+      {
+        "referencePx": [
+          1048.969,
+          391.791
+        ],
+        "worldPosition": [
+          1.38084585,
+          0.30183821,
+          0.02209209
+        ],
+        "errorPx": 0.522
+      },
+      {
+        "referencePx": [
+          1210.492,
+          323.519
+        ],
+        "worldPosition": [
+          1.92570398,
+          0.52636999,
+          0.02303781
+        ],
+        "errorPx": 0.846
+      },
+      {
+        "referencePx": [
+          424.295,
+          318.161
+        ],
+        "worldPosition": [
+          -0.72196992,
+          0.57071347,
+          0.00128779
+        ],
+        "errorPx": 0.267
+      },
+      {
+        "referencePx": [
+          838.186,
+          761.805
+        ],
+        "worldPosition": [
+          0.65733725,
+          -0.93049432,
+          0.04297967
+        ],
+        "errorPx": 0.231
+      },
+      {
+        "referencePx": [
+          845.517,
+          575.16
+        ],
+        "worldPosition": [
+          0.68343411,
+          -0.30522005,
+          0.0446012
+        ],
+        "errorPx": 1.136
+      },
+      {
+        "referencePx": [
+          1019.536,
+          251.967
+        ],
+        "worldPosition": [
+          1.28718432,
+          0.77588038,
+          0.02358403
+        ],
+        "errorPx": 0.482
+      },
+      {
+        "referencePx": [
+          603.083,
+          226.629
+        ],
+        "worldPosition": [
+          -0.1163461,
+          0.86994076,
+          0.0315731
+        ],
+        "errorPx": 0.413
+      },
+      {
+        "referencePx": [
+          1221.629,
+          303.052
+        ],
+        "worldPosition": [
+          1.96505869,
+          0.594947,
+          0.01842781
+        ],
+        "errorPx": 1.085
+      },
+      {
+        "referencePx": [
+          473.048,
+          567.797
+        ],
+        "worldPosition": [
+          -0.56043996,
+          -0.27108528,
+          0.02967879
+        ],
+        "errorPx": 0.307
+      },
+      {
+        "referencePx": [
+          249.109,
+          775.372
+        ],
+        "worldPosition": [
+          -1.31351452,
+          -0.96036027,
+          0.03356991
+        ],
+        "errorPx": 0.185
+      }
+    ]
+  },
+  "note": "Frontal two-dimensional agreement refers to the reassembled museum object. It does not measure every depth value or the original concave arrangement in the cave.",
+  "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 42707,
+    "accessionNumber": "35.146",
+    "objectAPI": "https://collectionapi.metmuseum.org/public/collection/v1/objects/42707",
+    "isPublicDomain": true,
+    "sourceAssetName": "3D-22937-001.usdz",
+    "productUuid": "1f14a35f-0eb5-4f5b-860d-b53a0786d8a7",
+    "description": "35.146 \nEmperor Xiaowen and his entourage worshipping the Buddha (Relief Panel: Limestone with traces of pigment , H. 82 in. (208.3 cm); W. 12 ft. 11 in. (393.7 cm))",
+    "modelBlobId": "f9bffc21-f135-45f8-ba10-f88f3fc81322.glb",
+    "hosts": "https://api.vntana.com/products/1f14a35f-0eb5-4f5b-860d-b53a0786d8a7/organizations/The-Metropolitan-Museum-of-Art/clients/masters",
+    "policy": "https://www.metmuseum.org/policies/image-resources"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "shiku-cloudflare-tools",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local development and verification tools for ShiKu's Cloudflare Worker",
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "miniflare": "5.20260828.0-alpha",
+    "wrangler": "4.127.1"
+  }
+}

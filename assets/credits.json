@@ -1,0 +1,3370 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "CATALOG.md",
+      "sha256": "b26d411fce2fe5a7e402357f96ec69c32322849d4ffa03c7372ebf3154abec2c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "exhibition-guide.html",
+      "changes": "原创展签与解读；机构馆藏著录、图像及引用沿用各自条款。"
+    },
+    {
+      "path": "assets/authentic/chambers/lm-ceiling.webp",
+      "sha256": "721d8f9f55ba7fdfa0e05b7dbb9d0b5d0c2f65e4e979a88cac6195396c95dc40",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Lianhua_(Lotus_Flower)_Grotto_Ceiling.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/lm-main.webp",
+      "sha256": "f0ecaf312c4ceffe66cff1bcb462d486b29c1d65df84c0b016e3665b3c8251f3",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Lianhua_(Lotus_Flower)_Grotto%2C_Main_Buddhist_Statue%2C_Northern_Wei.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/maiji-13-triad.webp",
+      "sha256": "9841864089034e92e8ff571357502ee4aeaf12046a1e1e5750033b90aef1d1c0",
+      "license": "CC BY 3.0",
+      "credit": "Anagoria",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-12-15_Maijishan_Grotten_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_anagoria_06.JPG",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/maiji-133-stele.webp",
+      "sha256": "935621c759fae6f7a9b25677bc1817eb97263a6bfa4dd324ef2446cc4016ab3b",
+      "license": "CC BY 4.0",
+      "credit": "Zejie Lin、Zhijun Li、Meizi Xie，《Religions》15(3)，图1",
+      "source": "https://doi.org/10.3390/rel15030254",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/maiji-4-roof.webp",
+      "sha256": "539d570abf38819c42d0a7509c4a1094f37c0c21a703fbdb2b6c97f0fa664dc3",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_004_(5).jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/yg-ceiling.webp",
+      "sha256": "b2465bfa5d4563b652b9bfc33a889b68d243092783fd2f3d5892060721d29b1c",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AA%9F%E5%89%8D%E6%AE%BF%E7%AA%9F%E9%A1%B6.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/yg-east.webp",
+      "sha256": "69521d73787b997d31b97cb0e2df832f6ce64b310f7e44ff83c2d86f4e4954c0",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AA%9F%E5%89%8D%E6%AE%BF%E5%8F%B3%E5%A3%81%E6%AD%A3%E9%9D%A2%E8%A7%86%E8%A7%92.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/yg-northoblique.webp",
+      "sha256": "f5e132fcecfef5bd4ae20f620abb820f3113545836f29d13668248125f87edfe",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AA%9F%E5%89%8D%E6%AE%BF%E6%AD%A3%E5%A3%81%E4%BE%A7%E9%9D%A2%E8%A7%86%E8%A7%92.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/chambers/yg-window.webp",
+      "sha256": "7f505f2d5cb6e4dce7ab3fea2aa692fa34f539f93f58396a292c4825ad0af94a",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AA%9F%E5%89%8D%E6%AE%BF%E6%AD%A3%E5%A3%81%E6%98%8E%E7%AA%97%E7%89%B9%E5%86%99.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/detail/328-kneeling-883a99.webp",
+      "sha256": "d43649f2b2f16b87f085b9e5566279e80d506c9dd75e25623b428efd41d617d6",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:Harvard_Art_Museums_Tang_Dynasty_Kneeling_Attendant_Bodhisattva_%E5%93%88%E4%BD%9B%E7%BE%8E%E6%9C%AF%E9%A6%86_%E8%8E%AB%E9%AB%98%E7%AA%9F%E5%94%90%E4%BB%A3%E4%BE%9B%E5%85%BB%E8%8F%A9%E8%90%A8%E5%83%8F.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/authentic/detail/37-1d0292.webp",
+      "sha256": "b17b0062517e097eabf36bb352d4fba54fb3c0899ea56115d8155a61f292731e",
+      "license": "CC BY-SA 2.0",
+      "credit": "shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%A6%E7%A7%AF%E5%B1%B1037%E7%AA%9F%E9%80%A0%E5%83%8F.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    },
+    {
+      "path": "assets/authentic/detail/cave-103-bb60be.webp",
+      "sha256": "a67ecfeb4ee001ba8385fc43c97b09c42ba2a07c404c07d9162170617acd230b",
+      "license": "Public domain",
+      "credit": "盛唐画工，姓名不详",
+      "source": "https://commons.wikimedia.org/wiki/File:Vimalakirti_debating_Manjusri,_Tang_Dynasty.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/authentic/detail/cave-16-377376.webp",
+      "sha256": "473e1d0faec9e0d61cc33cd66abdc35cd337a5434962b68941631ba4309898d6",
+      "license": "Public domain",
+      "credit": "Aurel Stein（斯坦因），1912年原刊图188，多伦多大学罗伯茨图书馆藏本",
+      "source": "https://archive.org/details/ruinsofdesertcat02stei/page/n240/mode/1up",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/authentic/detail/cma-head-35d602.webp",
+      "sha256": "6bf3cef95b6fa78fda2210d708ace6d4f6ac70a1da86415a1faee029af9d1257",
+      "license": "CC0 1.0",
+      "credit": "克利夫兰艺术博物馆",
+      "source": "https://clevelandart.org/art/1997.116",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/authentic/detail/guide-e291f7.webp",
+      "sha256": "2cbc7a51176c1d6db147e2b268fb8128fa5f88f5accd533e01b1152fab18478a",
+      "license": "Public domain",
+      "credit": "晚唐画工，姓名未详",
+      "source": "https://commons.wikimedia.org/wiki/File:Tang-4.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/authentic/detail/jing-3df966.webp",
+      "sha256": "7c4675e91979b1b10e40e2a665b85151164d42e94b03963368825ecbe30849ad",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Jingshan_Temple,_Ananda_%26_Bodhisattva.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/authentic/detail/met-procession-reference-98c08c.webp",
+      "sha256": "fff7a1559b92b361529e7c95ce75eaab9766f3966c45f2652dcb44d9c525516b",
+      "license": "CC0 1.0",
+      "credit": "大都会艺术博物馆",
+      "source": "https://www.metmuseum.org/art/collection/search/42707",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/authentic/detail/mj13-1c45d6.webp",
+      "sha256": "56c2ddd5ab8f5ec58b9483c1b75615b4855512ab9e9879c22cffa85e09c97a28",
+      "license": "CC BY-SA 4.0",
+      "credit": "颐园居",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave13,_East_Cliff_Buddha,_Maijishan_Cave_20260929.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/mj5-b4d621.webp",
+      "sha256": "490ea00b420e6481d366777b1bf35977f41532d52d563811be50a877cf617fc5",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_005.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "path": "assets/authentic/detail/qianxi-85d8b9.webp",
+      "sha256": "2907dfe98f338e2f11ce28eaaeb0e94b14d9d4dc44b90b8c677487d189377875",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Qianxi_Temple,_Seated_Buddha_%26_2_Attendant_Bodhisattvas.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/authentic/detail/rubbing-wei-eeddd8.webp",
+      "sha256": "a1e8a2f5784049bdf7a88f07736b2e7dffa9d859206a9ea311e8c957502c559d",
+      "license": "ColBase 利用条款（兼容 CC BY 4.0）",
+      "credit": "东京国立博物馆 · ColBase 国立文化财机构藏品综合检索系统",
+      "source": "https://colbase.nich.go.jp/collection_items/tnm/TB-670?locale=ja",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://colbase.nich.go.jp/pages/term"
+    },
+    {
+      "path": "assets/authentic/detail/y12-218da2.webp",
+      "sha256": "981e6e3752ec3d1038299f74b08e72301e126f8feea0ab6970f7974919753c10",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_146.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/y19-5ef27f.webp",
+      "sha256": "45d5968055925e6db28cfe5d4e7ddc8066799f0ba42d23bc588233a398a9d57b",
+      "license": "CC0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_19,_Yungang_Grottoes.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/authentic/detail/y3-0df446.webp",
+      "sha256": "09a1c5bbf0503450997ea0588e552fa28ead65c68b3f891ea1b999a7ec53acaf",
+      "license": "CC0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_3,_Yungang_Grottoes_03.2025.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/authentic/detail/y3-front-accfb6.webp",
+      "sha256": "6123ee8cce4ad1e811d47c352fdde9cd0b23bb675fba57b0ed2e42fa336628fb",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E4%B8%89%E7%AA%9F%E4%BD%9B%E6%AD%A3%E9%9D%A2%E7%89%B9%E5%86%99.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/authentic/detail/y6-7bef39.webp",
+      "sha256": "cf53799fecf7a72e74ac8324d1ab9a5a16c2639d85469dda0345f02457af9f1c",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_170.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/y8-6f077e.webp",
+      "sha256": "03e7cda717a9791587939d37468416d8d2329c6cf2aa9d8aa68e2e442f812f76",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_157.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg-ceiling-390e01.webp",
+      "sha256": "1f67671a5b7f0bd47a2e1d4b0159dbc18d49a774896d9c05601c36bb70dabcf1",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AA%9F%E5%89%8D%E6%AE%BF%E7%AA%9F%E9%A1%B6.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/authentic/detail/yg10-6f5c9d.webp",
+      "sha256": "eb78be05f3d1a16b55d239f6e24435dfa9de4ccc25db24d65660c3fe71808697",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC%E5%8D%81%E7%AA%9F_10.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg11-1b3907.webp",
+      "sha256": "c6c2d99ed73e6ba236d0329d83dd98b8be941c21c3e19ae2e58af1d9b14b30af",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC11%E7%AA%9F_03.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg14-cc393f.webp",
+      "sha256": "f6634b4d13cb8455a372c3db681a6af9f1bc504399d91e198296eb30459e8879",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC14%E7%AA%9F_01.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg17-286c5f.webp",
+      "sha256": "c4085268f5510a750f26dc7f153702f8a23cc94b3ba29c95b55f088e55372ef0",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC17%E7%AA%9F%E4%BB%B0%E8%A7%86%E8%A7%86%E8%A7%92.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg39-39f3f7.webp",
+      "sha256": "6351851f64dfd64c6cc3a7bbe1f5ebee461704795a3f32c21691a89ac75b927c",
+      "license": "CC BY-SA 4.0",
+      "credit": "Yumeto",
+      "source": "https://commons.wikimedia.org/wiki/File:20230609_Cave_39_of_Yungang_caves.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/authentic/detail/yg40-c91bff.webp",
+      "sha256": "2621f55952c95ed272c51cdcc9997b032caf114db2c1a54efa53552fd8403e73",
+      "license": "CC0",
+      "credit": "The Metropolitan Museum of Art",
+      "source": "https://commons.wikimedia.org/wiki/File:Head_of_a_bodhisattva_late_5th_century_Northern_Wei_dynasty_01.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/authentic/detail/yungang-18-5079e5.webp",
+      "sha256": "de3c8d5af6799cc5b0cdca544f00597aa810e969854f6fa7798211b63767edbe",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC18%E7%AA%9F%E7%AA%9F%E5%86%85%E6%99%AF.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/authentic/detail/yungang-20-f43c64.webp",
+      "sha256": "540db1a0a7bae13e13a8ef9516766102b29dc23d9e50b15b05d7005c9b44bcc3",
+      "license": "CC0 1.0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_20,_Yungang_Grottoes.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/authentic/gap-photos/longmen-2055-perzynski-34.webp",
+      "sha256": "01d0123cf9703bdadae9575a455e11286bda732718763ce6665b98b3dc646075",
+      "license": "公有领域 · 1920年版历史摄影",
+      "credit": "Friedrich Perzynski《Von Chinas Göttern》图34，1920年刊",
+      "source": "https://archive.org/details/vonchinasgotter00perz/page/n198/mode/1up",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/authentic/longmen-weimo-1913.webp",
+      "sha256": "b96e6dc17b2bc8115ebf47d3b97ce1b3569efb232906c07152edebef2eaf4e22",
+      "license": "公有领域 · 1920年原刊摄影",
+      "credit": "Friedrich Perzyński，《Von Chinas Göttern》，1920年，图27",
+      "source": "https://asia-archive.si.edu/object/F2001.7/",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-103-yu-19b.webp",
+      "sha256": "ef058d81484d919c7ee18aa5b13b292d925883a5995d46f343b6c0e4f961d07d",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19b",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-172-yu-19c.webp",
+      "sha256": "3a1b725517dffdd8646b28eb946b3bcf69f9f7a277ac92a8d3c10f84aabe364b",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19c",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-217-yu-19d.webp",
+      "sha256": "b6c9923797ccae1e7c840784779a956e8926cdded850e1a41a6d0de680849cac",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19d",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-23-yu-19a.webp",
+      "sha256": "ddfa2e4f7f18a196ba0f374ade551b9b81ee07a91e0ce0552caa6b020431a934",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19a",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-285-yu-4a.webp",
+      "sha256": "f3626345b45e97c91770c88a298f24c4f7329457d5c3a274a39484b9c23c6c03",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图4a",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/4",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-285-yu-4b.webp",
+      "sha256": "390244a32f8f4d45e107c7a1b678bf8890792bc7d7e7796df468a9ad1d6e42eb",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图4b",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/4",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-290-yu-4c.webp",
+      "sha256": "5dd3d35f4e7cd2750a470428f2f275b7dff97c817d71312829347e2ed9cd9b63",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图4c",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/4",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-320-yu-19e.webp",
+      "sha256": "2ddc315506716aba90da00fe43a8a5b5114a6e8fde6dc713c8b3639c060422e7",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19e",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao-321-yu-19f.webp",
+      "sha256": "1b2e37f1230cdc40e733a96624dca81ab65810459ae56595f5ce6fff02c543e7",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu 等，International Journal of Computer Vision，2022，图19f",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x/figures/19",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/mogao158/west-buddha.webp",
+      "sha256": "16f73125dd131a8a7c08ee92a08b7e65eeae625a7e681e62d45dffe726768ca1",
+      "license": "CC BY 4.0",
+      "credit": "Tianxiu Yu、Cong Lin、Shijie Zhang 等 / International Journal of Computer Vision（2022），图1a",
+      "source": "https://link.springer.com/article/10.1007/s11263-022-01665-x#Fig1",
+      "changes": "从论文图1取出完整子图a，裁除白边与编号，保留原彩色，转为WebP。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/authentic/scans/met-procession-audit.json",
+      "sha256": "4b4162f83ec9c4841cfd0102881016863527b3c949bba959cca4096beaed9cf4",
+      "license": "CC0 1.0",
+      "credit": "The Metropolitan Museum of Art, Fletcher Fund, 1935 (35.146)",
+      "source": "https://www.metmuseum.org/art/collection/search/42707",
+      "changes": "数据转为通用 GLB，照片缩放；详见同目录 SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/authentic/scans/met-procession-reference.webp",
+      "sha256": "cb3d899301789fcb078b187656ca7ce8e9e1d99e8bb153f5486439ed8f59a6d3",
+      "license": "CC0 1.0",
+      "credit": "The Metropolitan Museum of Art, Fletcher Fund, 1935 (35.146)",
+      "source": "https://www.metmuseum.org/art/collection/search/42707",
+      "changes": "数据转为通用 GLB，照片缩放；详见同目录 SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/authentic/scans/met-procession.glb",
+      "sha256": "a794d4ab3a1bee57ddc4ec75ba9c58aff3ea88fcccbdfd9060c6bf09ec7cfcce",
+      "license": "CC0 1.0",
+      "credit": "The Metropolitan Museum of Art, Fletcher Fund, 1935 (35.146)",
+      "source": "https://www.metmuseum.org/art/collection/search/42707",
+      "changes": "数据转为通用 GLB，照片缩放；详见同目录 SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/caves/east/moya-front.webp",
+      "sha256": "c1bc94581910bdf48823d1b296f90a28b64fd0b343658a149beac692ae40f907",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff%2C_Seated_Buddha_in_the_Middle.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/caves/east/wan-ceiling.webp",
+      "sha256": "3129fbdbdd29a0f0718e4d1061f27e40ff1c8b21925ffa8ff0239346481abdda",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Buddhas_Ceiling.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/caves/east/y3-front.webp",
+      "sha256": "59aa9548e64c730490a3d959f7d8e54711fd501d91d3752dbfdbdb1d3ed600d3",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC%E4%B8%89%E7%AA%9F%E4%BD%9B%E6%AD%A3%E9%9D%A2%E7%89%B9%E5%86%99.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/caves/mogao/61-benefactress.webp",
+      "sha256": "d89c22f0ab418600c6dded8249b67ccd86c3e883f2950c580893856c144b2cb8",
+      "license": "公有领域",
+      "credit": "五代画工",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Mogao_cave_Cao_donor_figures.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/collection-edition/east/ananda-detail.webp",
+      "sha256": "e6546b867fb33b1cba2a0923fe562ebaef38c9e4f4c2e65fb779f69ba73e1eda",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Ananda,_a_Disciple_of_Buddha.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/ananda-face-detail.webp",
+      "sha256": "c40133bc494b88e467825184a227c280506d7f82023baaec0900fbd64d58c765",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Head_of_Ananda.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/ananda-face.webp",
+      "sha256": "cde11ef7516a9326d17b4a84b4364f5b4a0561b1875b9ab9dba32052a8774657",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Head_of_Ananda.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/ananda.webp",
+      "sha256": "994d77eff814a110e18b264b9172bdfa12fd0cecaba97a2c7afbd5e42e16afb5",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Ananda,_a_Disciple_of_Buddha.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/arhats-2-detail.webp",
+      "sha256": "820d666ee16ae43daad2732d4c87794d4ff32786f979ab49e6eccb73fb660432",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-52.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/arhats-2.webp",
+      "sha256": "e8e03d0198cb3b0ea305f6eff54b4d4cbbd58dce27562d46ae6dafb45c4ce8c4",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-52.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/arhats-detail.webp",
+      "sha256": "02aa7090f4d6738689e1a30596e5c9f3564b083286328d1cc18042f1926119d4",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-53.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/arhats.webp",
+      "sha256": "cafc082216362cfdc60d18e9dc2568f7df8e384d100c6482a21a229ef9c708c8",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-53.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/attendant-detail.webp",
+      "sha256": "3de766d4ca49967527da97d5c200f1b1527f276b755b2d8a17987fe1a5667499",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff,_Attendant_Bodhisattva.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/attendant.webp",
+      "sha256": "7b62157e7cefabc75db061ae6b763a0124deed7e8b3d8c1deec9d84dcd863957",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff,_Attendant_Bodhisattva.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/crossed-detail.webp",
+      "sha256": "b09abb678411710ef4e4ca98bdcf02147fb1bd655a42aa51fe4b6eddcc46f948",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_98.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/crossed.webp",
+      "sha256": "57c5c7cc6652525a91fe4bb6bf0abb97f75190033a20df1773911f159b321cc8",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_98.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/deva-detail.webp",
+      "sha256": "9e134b6115a1d0a4ee9f482585c8e004410deba52c738c029bbe1b379f42b363",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_158.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/deva.webp",
+      "sha256": "c8d08e5dbb1d81102d22dc1f84dd773c1ad925f17ee39b62788c95cc3b0a30aa",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_158.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection-edition/east/guard-pair-detail.webp",
+      "sha256": "afe3b76774a7e9293ffcbe0f1f9312e9e4b72943c9af1d865426d5d3ce71f63a",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Heavenly_King_%26_Celestial_Guardian.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/guard-pair.webp",
+      "sha256": "e255205a35707086ef45d54eebaccff8bc857c73089d829e75c19199d0a5aaa6",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Heavenly_King_%26_Celestial_Guardian.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/holes-detail.webp",
+      "sha256": "0596a570e4f7252089b3c019afc3c0c24132e2df0f83afb24bd4e708188d2c6d",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Ananda,_a_Disciple_of_Buddha.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/holes.webp",
+      "sha256": "4f9a600f7a330be41ded126c307b04468756e6afe9cdf388659d06737503ab58",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Ananda,_a_Disciple_of_Buddha.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/niu-detail.webp",
+      "sha256": "fa08b39a6c5f7be6f75e9173fb98aa6536f23eaf0f8e17b62791610922077d32",
+      "license": "ColBase 利用规约（署名）",
+      "credit": "东京国立博物馆 · ColBase · TB-665 / E0053836",
+      "source": "https://colbase.nich.go.jp/collection_items/tnm/TB-665?locale=ja",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://colbase.nich.go.jp/pages/term"
+    },
+    {
+      "path": "assets/collection-edition/east/niu.webp",
+      "sha256": "4fca2da40b3b4791622e768806193023f6a882aa53e2184250e8b1cdcbc77804",
+      "license": "ColBase 利用规约（署名）",
+      "credit": "东京国立博物馆 · ColBase · TB-665 / E0053836",
+      "source": "https://colbase.nich.go.jp/collection_items/tnm/TB-665?locale=ja",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://colbase.nich.go.jp/pages/term"
+    },
+    {
+      "path": "assets/collection-edition/east/unfinished-detail.webp",
+      "sha256": "78bbce2cb6f7b96cd9330ba133ebface8dba24b018cc1e950d7e19a7926929a4",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff,_Buddha_on_the_Southern_Side.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/unfinished.webp",
+      "sha256": "0b53b275cc938e113d9b017b7056e553d6adb671e627bb471f0819a7c2c06419",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff,_Buddha_on_the_Southern_Side.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/yaksa-detail.webp",
+      "sha256": "8f3131dd6851b8e099a7ce1d3f43a52b19774ac0c9b0fd294765fe3390e45164",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_A_Yaksa_(Demon).jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/east/yaksa.webp",
+      "sha256": "824120975fe872020792d3e4dbc864c79f4d8ab9552b66b5df1a1fa06f21d899",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_A_Yaksa_(Demon).jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection-edition/maiji/4-yuxin-rubbing.webp",
+      "sha256": "ab08fb04f69af1ea4b9776b5148a6fa784b3a17de316f31f665642a5d6d233db",
+      "license": "CC BY-SA 4.0",
+      "credit": "KWUNGAM Haueng Chanem，2023年深圳南山博物馆展场摄影。裁去展柜边框，转为 WebP。",
+      "source": "https://commons.wikimedia.org/wiki/File:SZ_Shenzhen_%E5%8D%97%E5%B1%B1_Nanshan_%E5%8D%97%E9%A0%AD%E8%A1%97_Nantou_Street_%E6%B7%B1%E5%9C%B3%E5%8D%97%E5%B1%B1%E5%8D%9A%E7%89%A9%E9%A4%A8_Nanshan_Museum_%E5%B1%95%E8%A6%BD_exhibition_%E7%94%98%E8%82%83_Gansu_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_Maijishan_Grottoes_%E6%96%87%E7%89%A9%E4%BF%9D%E8%AD%B7%E6%AD%B7%E5%8F%B2_conservation_history_October_2023_R12S_112.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/mogao/devas.webp",
+      "sha256": "fee14d626ec7e3f8a166125bf8df8b90a37dffa7ef28a96821c45eb2931a9b7d",
+      "license": "公有领域 · 原壁画二维复制",
+      "credit": "早期敦煌画师；Commons 收录的原作图版",
+      "source": "https://commons.wikimedia.org/wiki/File:1_Devas._Dunhuang_mural._Cave_272%2C_Northern_Liang_dynasty..jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/mogao/orchestra.webp",
+      "sha256": "03fd9b1dc9f55ba3dc3793f6f1932c1529d432a51e7186fb6baa8fec58e32dea",
+      "license": "公有领域 · 原壁画二维复制",
+      "credit": "中唐敦煌画师；Commons 收录的原壁画复制",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Caves%2C_cave_159_musicians.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/cp5-sheet-detail.webp",
+      "sha256": "26cb757c2d9cc1f55074a90d48e8d7e4902d4e5e61fc4e4fb97008fcf819ac94",
+      "license": "CC0 · The Met Open Access",
+      "credit": "大都会艺术博物馆，CP5",
+      "source": "https://www.metmuseum.org/art/collection/search/63182",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/cp5-sheet.webp",
+      "sha256": "0f81900e06fec38b1bfc8789c99c663540a9162990b4551c828a3109429ffecd",
+      "license": "CC0 · The Met Open Access",
+      "credit": "大都会艺术博物馆，CP5",
+      "source": "https://www.metmuseum.org/art/collection/search/63182",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/p3965-image-detail.webp",
+      "sha256": "011e5c3d4f7c62f1a90162c05999564382ed5ac3ec40687dc3dc559d2a50d762",
+      "license": "公有领域 · 依原图署名",
+      "credit": "法国国家图书馆手稿部",
+      "source": "https://commons.wikimedia.org/wiki/File:Deux_images_xylographiques_de_Guan_yin._-_btv1b8300849t.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/p3965-image.webp",
+      "sha256": "61079044dcee5d705e8444f4eded0936f0b81dd8d322f0d7f816a66e9917b5b4",
+      "license": "公有领域 · 依原图署名",
+      "credit": "法国国家图书馆手稿部",
+      "source": "https://commons.wikimedia.org/wiki/File:Deux_images_xylographiques_de_Guan_yin._-_btv1b8300849t.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/p3965-pair-detail.webp",
+      "sha256": "bd054c52ae37ffa58359d49f1cccd19f08f2a3eb383151374a60c2c3aeb929b0",
+      "license": "公有领域 · 依原图署名",
+      "credit": "法国国家图书馆手稿部",
+      "source": "https://commons.wikimedia.org/wiki/File:Deux_images_xylographiques_de_Guan_yin._-_btv1b8300849t.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/p3965-pair.webp",
+      "sha256": "ae0d7aa92339b286136524180ead5b0a52ae181af0648aae609c0e48ae9eb087",
+      "license": "公有领域 · 依原图署名",
+      "credit": "法国国家图书馆手稿部",
+      "source": "https://commons.wikimedia.org/wiki/File:Deux_images_xylographiques_de_Guan_yin._-_btv1b8300849t.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p14-detail.webp",
+      "sha256": "649d31ee5403e81869f6b26ea03745c9dbabc5bd320b63d3736b8ec7b3a3e6d4",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p14.webp",
+      "sha256": "38d5a68f86bd94063a8a20cbfbdb9a60cc5092daeb1211730afa4b615af33482",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p44-detail.webp",
+      "sha256": "26845d42adcbeef3875e2c3f0de539e83357b6981cc595239ad5df357c1efc3b",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p44.webp",
+      "sha256": "825ca37af70ac1194641ecbf3f67368ffb55193a2b22a9b0898e0f0831812394",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p45-detail.webp",
+      "sha256": "3382fcec42f986b7344b5e0e56240de4a44732c03bbba637f0e411de4b5a92ff",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p45.webp",
+      "sha256": "636d3b04aca89233ef1d9c6c8b7d5a80b6000ff218457c6f5ce7e85aa2235024",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p46-detail.webp",
+      "sha256": "c51207959e1606ced05b992cca4fdc794e81c0fef2e66aedf8cdbde9ac1a4bf5",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s5458-p46.webp",
+      "sha256": "75fa635b2a6f05e6e188dc55c8bf82d76a627eca9be0e48cd9252c8ac4e4baba",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.5458.pdf",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s6728-roller-detail.webp",
+      "sha256": "9516c4cfe8470a785eef28436d67f3b97fce03fb4045defc94e2a77423a9e8a5",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.6728.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s6728-roller.webp",
+      "sha256": "012a07fcf2a762695fff74e4f8ccf7875b5caf2028069730871509673582a31b",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.6728.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s6728-text-detail.webp",
+      "sha256": "94fcc3634eef2dd565f57c811a5c25025d934944a7f247d16dd1956e30fbb25c",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.6728.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/scriptures/s6728-text.webp",
+      "sha256": "cec373caf3746ff82419b92034e30bb78e3851ac44700c6ce85acd229ba00f4d",
+      "license": "CC BY-SA 4.0",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.6728.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/wall-colour/deer-colour-detail.webp",
+      "sha256": "0f0bb98cf514082adb90b19247ddc75042f7a6a23897862b7df99ac001a5e337",
+      "license": "CC BY-SA 4.0",
+      "credit": "北魏画工；Ismoon 扫描《5000 ans d’art chinois》卷14，图230",
+      "source": "https://commons.wikimedia.org/wiki/File:Nine-colored_deer_jataka._Northern_Wei._Mogao_cave_257.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection-edition/wall-colour/deer-colour.webp",
+      "sha256": "1b2f64100031840a76883a1a7f20160584ba76849cf4506249d6039c877096e6",
+      "license": "CC BY-SA 4.0",
+      "credit": "北魏画工；Ismoon 扫描《5000 ans d’art chinois》卷14，图230",
+      "source": "https://commons.wikimedia.org/wiki/File:Nine-colored_deer_jataka._Northern_Wei._Mogao_cave_257.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/collection/documents/diamond-sutra-868.webp",
+      "sha256": "a32898e66ae38354eafe4425863bdeb1993ac8120e58abe1bc6f0e9881481fd6",
+      "license": "公有领域",
+      "credit": "大英图书馆／国际敦煌项目",
+      "source": "https://commons.wikimedia.org/wiki/File:Diamond_sutra.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Diamond_sutra.jpg#Licensing"
+    },
+    {
+      "path": "assets/collection/east/cma-head.webp",
+      "sha256": "02d85c769b92e0b0fd147734648f7121574e1513c3cd2f7a6c86c72208ad5bb4",
+      "license": "CC0 1.0",
+      "credit": "克利夫兰艺术博物馆",
+      "source": "https://clevelandart.org/art/1997.116",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/collection/east/empress.webp",
+      "sha256": "32be54c5af57f51b01a4d68f14a7092b1567c99875aceece5a51bf5a5434dbb6",
+      "license": "CC0",
+      "credit": "Daderot",
+      "source": "https://commons.wikimedia.org/wiki/File:Procession_of_the_Empress_as_Donor_with_Her_Court,_Chinese,_from_the_Binyang_Cave,_Longmen,_Henan_Province,_Norther_Wei_Dynasty,_about_522_-_Nelson-Atkins_Museum_of_Art_-_DSC09118.JPG",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection/east/hui.webp",
+      "sha256": "b7772f601a6b723eab8d509f3d7d6e9ce5d35884f53713b6be024b4b35f6f53e",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-14.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/jing.webp",
+      "sha256": "dc8be83bb64030e5e66567a3f23725bc3bdf5870d9258f607bbff3f91c40e8ce",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Jingshan_Temple,_Ananda_%26_Bodhisattva.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection/east/north.webp",
+      "sha256": "5fada65d7d28a0a6f05970c3e288e72882c770b4240c16c3bf54c58f91ff4cff",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Northern_Binyang_Cave_Main_Buddha_Statue_with_Bodhisattvas.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection/east/old.webp",
+      "sha256": "f82716a5a40192c10ab34693dec307a0788e0e25a43a0997d8da1ec703ea8e49",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Old_Dragon_Grotto,_Seated_Buddha_%26_Attendants,_Tang_Dynasty.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection/east/si-guanyin.webp",
+      "sha256": "44fe657b897bc96e1cce29d2db3fda502249fa6d657daa43a944886c1a5c24d2",
+      "license": "CC0 1.0",
+      "credit": "史密森尼国立亚洲艺术博物馆",
+      "source": "https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_F1913.71/",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/collection/east/yg1.webp",
+      "sha256": "cc6157bafba1d7f63cccc71587ee22ac0b9944a25004fd1e7c8fe1ffdc68781c",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC%E4%B8%80%E7%AA%9F_03.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg10.webp",
+      "sha256": "b1bd12ed3a894c85ce874dceb2acafc241f7641b081212970fdcdd2613aad547",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC%E5%8D%81%E7%AA%9F_10.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg11.webp",
+      "sha256": "12da526f78671afd58f2988d54589224b73f1f794f4390b65a2c6a75f027edd4",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC11%E7%AA%9F_03.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg14.webp",
+      "sha256": "1cedf90a1f6a6f3b802d0e881f6168926cbb30ff6dbf7cd00b4857ca31973e82",
+      "license": "CC BY-SA 4.0",
+      "credit": "Liuxingy",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E4%B9%8B%E7%AC%AC14%E7%AA%9F_01.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg15.webp",
+      "sha256": "d6284e18f47e0f315866f1a1a4ac4050468eb9c644166897a6e29e1423a703d1",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC15%E7%AA%9F%E6%AD%A3%E5%A3%81.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg16.webp",
+      "sha256": "1029c6ce82a22a0c3f6078eb9628b77f7cee83a292fc2e662730562d5b177bb6",
+      "license": "CC BY-SA 3.0",
+      "credit": "Zhangzhugang",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_Yungang_Shiku_2013.08.29_15-08-13.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "path": "assets/collection/east/yg17.webp",
+      "sha256": "f302c87d97271cceb34b1488ec3ca262b14e39d240a859d09a80713bd711eb86",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC17%E7%AA%9F%E4%BB%B0%E8%A7%86%E8%A7%86%E8%A7%92.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg2.webp",
+      "sha256": "c695b3156db82f864f312d3d16aa7201161ff4cc58f2fbfdc58b4102f56651c7",
+      "license": "CC BY-SA 4.0",
+      "credit": "Thebrainchamber1",
+      "source": "https://commons.wikimedia.org/wiki/File:Yungang_Grottoes_Cave_2_7.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg39.webp",
+      "sha256": "185fd08a9ea7ec572d66068cdf91009828720cea878a4200715889049a6dd05b",
+      "license": "CC BY-SA 4.0",
+      "credit": "Yumeto",
+      "source": "https://commons.wikimedia.org/wiki/File:20230609_Cave_39_of_Yungang_caves.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg4.webp",
+      "sha256": "f555bd6c6515be668d156f5b4d5c89d0460c837b81d64421e723b20e28baba95",
+      "license": "CC BY-SA 4.0",
+      "credit": "Thebrainchamber1",
+      "source": "https://commons.wikimedia.org/wiki/File:Yungang_Grottoes_Cave_4.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/east/yg40.webp",
+      "sha256": "ad811f6a0505c95d260d157a3de17385848dc4f9d223218d5eae7d7013179323",
+      "license": "CC0",
+      "credit": "The Metropolitan Museum of Art",
+      "source": "https://commons.wikimedia.org/wiki/File:Head_of_a_bodhisattva_late_5th_century_Northern_Wei_dynasty_01.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/collection/east/yg7.webp",
+      "sha256": "8228396f2d5e517d7bbc3a141e18872811f306c6d2078cf1022b893600227869",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC7%E7%AA%9F%E5%90%8E%E5%AE%A4%E7%AA%9F%E9%A1%B6.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/collection/maiji/37.jpg",
+      "sha256": "95cc9afdf75cd231d0608bacdf305a58f701ed667e0d0e47e748e458d1287c61",
+      "license": "CC BY-SA 2.0",
+      "credit": "shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%A6%E7%A7%AF%E5%B1%B1037%E7%AA%9F%E9%80%A0%E5%83%8F.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    },
+    {
+      "path": "assets/collection/maiji/48.jpg",
+      "sha256": "4280aecee9b0272c092cba635993f9ae74dec9384ce3d6cfd6817eae390dd401",
+      "license": "CC BY 4.0",
+      "credit": "Jiakun Wang、Miaoying Lv、Nan Song、Huan Zhang、Bokai Xu、Hui Zhang",
+      "source": "https://www.mdpi.com/2073-4352/15/4/339",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/collection/maiji/49.jpg",
+      "sha256": "fcd9138964d3f5ff3a0c3da545e83308ba376e6d6999faca448f66f2c1a3923a",
+      "license": "CC BY 4.0",
+      "credit": "Jiakun Wang、Miaoying Lv、Nan Song、Huan Zhang、Bokai Xu、Hui Zhang",
+      "source": "https://www.mdpi.com/2073-4352/15/4/339",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/collection/maiji/78.jpg",
+      "sha256": "1e15fcb4b7c5bc084e61b90ab9c82f43fe5d06feba3e4cc366fab17599d1c633",
+      "license": "CC BY 4.0",
+      "credit": "Jiakun Wang、Miaoying Lv、Nan Song、Huan Zhang、Bokai Xu、Hui Zhang",
+      "source": "https://www.mdpi.com/2073-4352/15/4/339",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/collection/manuscripts/index.json",
+      "sha256": "f73c6680ed89b4455b98a86fc8d6391fcad106e79af880162c2e8acb805ef556",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-20.json",
+      "sha256": "82014adec6fa1ced97b2f410aeba4813affd4cfc8692c4e605fda4c5d3a91b7c",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-21.json",
+      "sha256": "3f531a0ba269c7642d6f7f0566b65e2347fb5cc9a5f2e07fe1c6ea86a027acb6",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-22.json",
+      "sha256": "3abb10866878e5b513b2beb9669e5ec342c67f65fc62c4d03742e0235b53a5ea",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-23.json",
+      "sha256": "78d768fd26ac69ffdb42a30d241998bb8f992144ca061f17fb9c762f5be28310",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-24.json",
+      "sha256": "76a99af801d1e207dfbee685a9e75d859fff9cb41a1013e3a8fb5f21597bc636",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-25.json",
+      "sha256": "a1d46abbdcef44a46a39b5e0a1815f7c1b569391938fd8f8084e57824337e871",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-26.json",
+      "sha256": "9ef0e7c263b747a7e82727b19629fb59c673e5d4dfd92c349d08b0543bed89f4",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-27.json",
+      "sha256": "6f573fdee74ead6565143cc729dffb30e97e1efbbe635067c722f6e97e83c520",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-28.json",
+      "sha256": "b6da87df237e6df2b2572138ae1f6a35a36496f7c0f7dde683a128a361fa521d",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-29.json",
+      "sha256": "e9e7c47c5f4c336548b66f1f48ebb869a88237bc798da6b38172b4bd64d0905c",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-30.json",
+      "sha256": "7fe2358ed9e75416bbd23db154f9beb4f911781a1a5cc4ff9ab5c0c08a66be79",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-31.json",
+      "sha256": "a2ced1899b67ab75a048946f169524ca400b8bf8d6f2e6cb1ee061e70c4fe4f2",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-32.json",
+      "sha256": "57339a0bbfbcc3bf9d5e09a51a9d404c1e17162960a11cc3ae0c7628d9177f47",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-33.json",
+      "sha256": "f36f7c73e70232912e02af630adc6f31ed56892b420bc56533bc79325ea4e635",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-34.json",
+      "sha256": "27bf0f5071ad9c2effb607c7a31e5a1e5cf9cf63709f5e0b1c42fab3e6e56d1f",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-35.json",
+      "sha256": "994e13d54532d75925c42cb757a11a4defa0534d115f347036cdeac4cb3d13c3",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-36.json",
+      "sha256": "e630f72b9b00ce85c77593dff5f42b748f6abecb4b5f5f48f3965f2f1ef369e1",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-37.json",
+      "sha256": "d32668c3b6044108f4a103a79e3914b38b16bb28c2833edbcc943203e8e5ba30",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-38.json",
+      "sha256": "9f12610b08ccf0b89a006283e3d47dbf670f44cb09cb1cc6b3422fae2bfcaeab",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-39.json",
+      "sha256": "c2d35fbaa7b22eb10daf5dcdd13151eb2039169008b2e0368ce2de94d186cbdb",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-40.json",
+      "sha256": "3e52fd079ed47f5bac76b75c0916c06707671bb8f76ced49ad8c43affc7fc473",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-41.json",
+      "sha256": "89131560645dfafdaf5cefdc1ae8eb2b3f56cfa0f05d428d97c98c09b747318f",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-45.json",
+      "sha256": "e9dc67d520b10a65f9fca0fb3cdd3fecd1f51c2ea333b24b64be10210461aa46",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-46.json",
+      "sha256": "6895c79f00ffe9e79ee84de41e1fadf548d5cdd591ff00034070b49d8c7546b2",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-47.json",
+      "sha256": "55e19b5a5f81364e14e9d55e142023808379ba47cdc09fd8d4b3205983907ef9",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-48.json",
+      "sha256": "be9a927d1143a0e43a8c810c5232c1c20d30787610eddc16e7ba66bc7a8341ce",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-49.json",
+      "sha256": "586e31660598c354ee11417aaba493add0bf071009d818c365a26735ad40f499",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-50.json",
+      "sha256": "fd6c65d3fe97b026c6f42254d236f277cb6b4c5aa6b8c04a844e567d56259ea7",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-55.json",
+      "sha256": "e09d4dbd2ae05fe78c78ab6749fae5c50588a161307fbf419ceb62068c9efd99",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/manuscripts/records-60.json",
+      "sha256": "86c286ce9641a90c6e649a706d34e054872d9943964ba9aa4c59cb86a402e2dd",
+      "license": "Licence Ouverte / Open Licence",
+      "credit": "Bibliothèque nationale de France, Département des Manuscrits",
+      "source": "https://api.bnf.fr/fr/dumps-de-bnf-archives-et-manuscrits",
+      "changes": "2026-09 开放批次，筛选原编目并生成索引与分卷，保留馆藏号和链接。",
+      "licenseUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    },
+    {
+      "path": "assets/collection/mogao/cave-103.webp",
+      "sha256": "f5731727d4f529b545d0165d7af65d015da192352976865a2b9473face28610c",
+      "license": "Public domain",
+      "credit": "盛唐画工，姓名不详",
+      "source": "https://commons.wikimedia.org/wiki/File:Vimalakirti_debating_Manjusri,_Tang_Dynasty.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection/mogao/cave-16.webp",
+      "sha256": "d6e646dd03c3953e1cfb224abf5def73b6f4cab0addf5c32cb97711d3acfb658",
+      "license": "Public domain",
+      "credit": "Aurel Stein（斯坦因），1912年原刊图188，多伦多大学罗伯茨图书馆藏本",
+      "source": "https://archive.org/details/ruinsofdesertcat02stei/page/n240/mode/1up",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/collection/mogao/cave-323.webp",
+      "sha256": "20af143ad0c9765e471d3a9320609739de738a26e7abdf50684f36ce90dc736b",
+      "license": "CC BY-SA 2.0",
+      "credit": "Patrick Wang",
+      "source": "https://commons.wikimedia.org/wiki/File:Harvard_Art_Museum_Tang_Dynasty_Eight_Men_Ferrying_a_Statue_of_the_Buddha_Mural_%E5%93%88%E4%BD%9B%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%A6%86%E8%8E%AB%E9%AB%98%E7%AA%9F%E5%94%90%E4%BB%A3%E5%85%AB%E4%BA%BA%E8%88%B9%E8%BF%90%E4%B8%80%E5%B0%8A%E4%BD%9B%E5%83%8F.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+    },
+    {
+      "path": "assets/east/binyang.jpg",
+      "sha256": "7f4d35c898d6c06ad33832ce20ab3806f4087a5a42002b1e6992e387abe5023e",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Middle_Binyang_Cave_Ceiling.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/guyang.jpg",
+      "sha256": "aa8a7745357b013b2609461ea35f4d8660b52bea980ab4f2bc5898e76dd0bab8",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Guyang_Grotto_Relief_Carvings.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/kanjing.jpg",
+      "sha256": "d3b0d7084f72f841b9f8abbeeb43b5b5f1bb6bd11d289ae46d466df64be76fed",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Arhats_on_Wall_of_Grotto_of_Scripture_Reading_-_4.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/lianhua.jpg",
+      "sha256": "476a3a8440aaa77e711cc67be1c33abeda1e8fb46d3cd30cd0380f36d6cd65dc",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Lianhua_(Lotus_Flower)_Grotto_-_2.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/moya.jpg",
+      "sha256": "4927552dc260fe70f6e504a7e01c2f46b902df1556d8b1f84cb921c6664fcfa9",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Three_Buddhas_on_the_Cliff.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/qianxi.jpg",
+      "sha256": "2b15d31af764b3c44f06f5dc0736294655c144a4335f015723c4bdea359f0f4d",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Qianxi_Temple,_Seated_Buddha_%26_2_Attendant_Bodhisattvas.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/south.jpg",
+      "sha256": "c7bcf1a1d25dc4c31a0ce8ef6cb562a8b8c669263a924ffd7cf102276af90da5",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Southern_Binyang_Cave_Main_Buddha_with_Bodhisattvas.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/wanfo.jpg",
+      "sha256": "4406f6f90917b028a62af14b39aa29282dbb45257d4920c222733e73bda55b88",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Buddhas,_Lotus_Flowers_with_Seated_Bodhisattvas_1.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/y12.jpg",
+      "sha256": "22ce24644e9385739e9ea4fde8abbc46eb2d813a80b4819a3e4715171d926c0b",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_146.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/east/y13.jpg",
+      "sha256": "d6a7ffb05bf47d53e15e7fa22666b797a73348212c321053773e08f6dfdf740e",
+      "license": "CC BY-SA 3.0",
+      "credit": "Felix Andrews ( Floybix )",
+      "source": "https://commons.wikimedia.org/wiki/File:Large_and_small_statues_Yungang.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    {
+      "path": "assets/east/y19.jpg",
+      "sha256": "0526f93a5869ada759796757a078a62fc57e0bbe56d25bf424c3973e0d17a27f",
+      "license": "CC0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_19,_Yungang_Grottoes.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/y3.jpg",
+      "sha256": "8217ad485c3f8fa8dd8d5e882fba83fa3a132d1e7fe9a2302502e70a798b975c",
+      "license": "CC0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_3,_Yungang_Grottoes_03.2025.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/east/y5.jpg",
+      "sha256": "f85ad1e8757a868d3e71c285fa7efa9f0d874b7fde4438b86d5ebb7a637a6d59",
+      "license": "CC BY-SA 3.0",
+      "credit": "BabelStone",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_Yungang_Grottoes_gold-painted_Buddha_head.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "path": "assets/east/y6.jpg",
+      "sha256": "c83134112375296d2f7c620827604e402c2848e61eb25269fb383c4487227e22",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_170.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/east/y8.jpg",
+      "sha256": "ad3eb091de95c1160b42e35433b75ad3aa31295fbfa1ac2ab565ca9ed6358577",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_157.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/east/y9.jpg",
+      "sha256": "3a5344920f77b160e714a859dc2694ac7e3e316d1ae0ea7a49c1079885b583eb",
+      "license": "CC BY-SA 4.0",
+      "credit": "Thebrainchamber1",
+      "source": "https://commons.wikimedia.org/wiki/File:Yungang_Grottoes_Cave_9_1.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/east/yaofang.jpg",
+      "sha256": "4264d0350306b3da850879268044d08d00ff4dd59ff731fe2936bf44a81fa40a",
+      "license": "CC0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Medical_Prescriptions,_Main_Buddha_%26_Attendants.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "path": "assets/experience/east/rubbing-ma.webp",
+      "sha256": "3fcdc25e916215b1f21cb055081f53edc3f41b5afc2a6de4dc65346e95dc8dc9",
+      "license": "CC BY 4.0",
+      "credit": "国立故宫博物院（台北）",
+      "source": "https://digitalarchive.npm.gov.tw/Collection/Detail/36757?dep=P",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/experience/east/rubbing-shiping.webp",
+      "sha256": "4e1e9f5c61e5aa82962a3e350c706f4460b980da0ffc88f4125fab94450cc843",
+      "license": "CC BY 4.0",
+      "credit": "国立故宫博物院（台北）",
+      "source": "https://digitalarchive.npm.gov.tw/Collection/Detail/36755?dep=P",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/experience/east/rubbing-sun.webp",
+      "sha256": "973c7e1e483874ab200b86a7eb9a00f9848846e47836937d2ad5217829c22794",
+      "license": "CC BY 4.0",
+      "credit": "国立故宫博物院（台北）",
+      "source": "https://digitalarchive.npm.gov.tw/Collection/Detail/36756?dep=P",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/experience/east/rubbing-wei.webp",
+      "sha256": "66427f57fa0349fbbc6a45b48d2b169aecb0d366d6d41f7760450c7477f8d837",
+      "license": "ColBase 利用条款（兼容 CC BY 4.0）",
+      "credit": "东京国立博物馆 · ColBase 国立文化财机构藏品综合检索系统",
+      "source": "https://colbase.nich.go.jp/collection_items/tnm/TB-670?locale=ja",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://colbase.nich.go.jp/pages/term"
+    },
+    {
+      "path": "assets/experience/east/rubbing-yang.webp",
+      "sha256": "89bddd5bb161b4e96fbb7730f4bf559f696a3b13016f93cd8bb66153fa5bb275",
+      "license": "CC BY 4.0",
+      "credit": "国立故宫博物院（台北）",
+      "source": "https://digitalarchive.npm.gov.tw/Collection/Detail/19493?dep=P",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/experience/east/yungang-1907.webp",
+      "sha256": "d9901edc61de1e894689584e12596dee85c1fe7c95f3d1cbe79f424500a945bf",
+      "license": "Public domain",
+      "credit": "Édouard Chavannes（沙畹）",
+      "source": "https://commons.wikimedia.org/wiki/File:Yungang_Grottoes_1907.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/experience/maiji/printing-block.webp",
+      "sha256": "1b3f2e7020ad6152841008543fc8369286cfd9ba4b0953cc904ef972443d02ff",
+      "license": "CC BY-SA 4.0",
+      "credit": "KWUNGAM Haueng Chanem，2023年深圳南山博物馆展场摄影",
+      "source": "https://commons.wikimedia.org/wiki/File:SZ_Shenzhen_%E5%8D%97%E5%B1%B1_Nanshan_%E5%8D%97%E9%A0%AD%E8%A1%97_Nantou_Street_%E6%B7%B1%E5%9C%B3%E5%8D%97%E5%B1%B1%E5%8D%9A%E7%89%A9%E9%A4%A8_Nanshan_Museum_%E5%B1%95%E8%A6%BD_exhibition_%E7%94%98%E8%82%83_Gansu_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_Maijishan_Grottoes_%E6%9D%B1%E6%96%B9%E5%BE%AE%E7%AC%91_Oriental_Smile_October_2023_R12S_111.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/experience/maiji/stone-tower.webp",
+      "sha256": "7a9554090f92899f3ecaf408799c2948c4193dfed46fb2e2e32523f82874cfaa",
+      "license": "CC BY-SA 4.0",
+      "credit": "KWUNGAM Haueng Chanem，2023年深圳南山博物馆展场摄影",
+      "source": "https://commons.wikimedia.org/wiki/File:SZ_Shenzhen_%E5%8D%97%E5%B1%B1_Nanshan_%E5%8D%97%E9%A0%AD%E8%A1%97_Nantou_Street_%E6%B7%B1%E5%9C%B3%E5%8D%97%E5%B1%B1%E5%8D%9A%E7%89%A9%E9%A4%A8_Nanshan_Museum_%E5%B1%95%E8%A6%BD_exhibition_%E7%94%98%E8%82%83_Gansu_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_Maijishan_Grottoes_%E6%96%87%E7%89%A9%E4%BF%9D%E8%AD%B7%E6%AD%B7%E5%8F%B2_conservation_history_October_2023_R12S_215.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/experience/mogao/320-stein-north.webp",
+      "sha256": "6605e57816f93e8418b1f88727c4ce7b95c6458e576d3f9a7f95f2bfb879f2d5",
+      "license": "公有领域",
+      "credit": "Aurel Stein，《Serindia》卷二，1921年，图210",
+      "source": "https://archive.org/details/in.ernet.dli.2015.69620/page/n319/mode/1up",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/experience/mogao/328-kneeling.webp",
+      "sha256": "637dbb2416e403eb0df10e3391c46f93de3dc051ac7257b799629ad1dddbfc24",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:Harvard_Art_Museums_Tang_Dynasty_Kneeling_Attendant_Bodhisattva_%E5%93%88%E4%BD%9B%E7%BE%8E%E6%9C%AF%E9%A6%86_%E8%8E%AB%E9%AB%98%E7%AA%9F%E5%94%90%E4%BB%A3%E4%BE%9B%E5%85%BB%E8%8F%A9%E8%90%A8%E5%83%8F.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/experience/mogao/407-hare.webp",
+      "sha256": "fc828b0497ae1e34e98d8b8ac237d737091703f7208402272c0fb925de87c737",
+      "license": "CC BY 4.0",
+      "credit": "Jiarui Han，2025，图2",
+      "source": "https://drpress.org/ojs/index.php/hiaad/article/view/30663",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/experience/mogao/guide.webp",
+      "sha256": "880f064e13ec3dfbcf690516167881833b4738d77cef27784dde364b2caaefdc",
+      "license": "Public domain",
+      "credit": "晚唐画工，姓名未详",
+      "source": "https://commons.wikimedia.org/wiki/File:Tang-4.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/experience/mogao/sky-north.webp",
+      "sha256": "c10b5a03a3cca9c974938032b90b4e67f42cbeeaa6a106382a305b3be44c200f",
+      "license": "CC0",
+      "credit": "British Library",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Star_Chart_BLX273_OR8210S3326R2_8.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/experience/mogao/sky-scroll.webp",
+      "sha256": "e0ea90979187b86c779383046bba3e375784854df45b82ad474f3c0cddbf1f27",
+      "license": "公有领域",
+      "credit": "大英图书馆",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Star_Atlas_-_complete.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/experience/print/print.webp",
+      "sha256": "46ccb654876bf0fc94eba90807d83195356867af4aa8d92af5833a7ac33786bd",
+      "license": "CC0 1.0",
+      "credit": "大英图书馆",
+      "source": "https://commons.wikimedia.org/wiki/File:Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_(868)%2C_frontispiece_and_text_-_BL_Or._8210-P.2.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/museum/garden/autumn-forest.webp",
+      "sha256": "ba31dc021edd7a38939da115d247798fce64c01382da5d7ba20187aa81ccd13f",
+      "license": "CC0 1.0",
+      "credit": "Poly Haven",
+      "source": "https://polyhaven.com/a/autumn_forest_02",
+      "changes": "等比缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/chapel-day.hdr",
+      "sha256": "cd7436c6ba5d621247c2daaa070bcffb8d5dbd19e376401fd3268ff8be48bff6",
+      "license": "CC0 1.0",
+      "credit": "Dimitrios Savva, Jarod Guest",
+      "source": "https://polyhaven.com/a/chapel_day",
+      "changes": "环境光；摄影棚版缩放、中性调色。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/floor-color.webp",
+      "sha256": "db9d5fac53be2b156be851c17ae254e25d492240c0505e5610d8971ee1f8a606",
+      "license": "CC0 1.0",
+      "credit": "Rob Tuytel",
+      "source": "https://polyhaven.com/a/large_grey_tiles",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/floor-normal.webp",
+      "sha256": "06e0f6527659edc312cf7b880404923577c45ecc068a4ed14f4f04e232e43b59",
+      "license": "CC0 1.0",
+      "credit": "Rob Tuytel",
+      "source": "https://polyhaven.com/a/large_grey_tiles",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/floor-rough.webp",
+      "sha256": "43d3e6f7356a96b6ab5432db6d3779341b79f5ee79aabb536403bcfd7ca49ed1",
+      "license": "CC0 1.0",
+      "credit": "Rob Tuytel",
+      "source": "https://polyhaven.com/a/large_grey_tiles",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/wall-color.webp",
+      "sha256": "1f6d27c04a55ea4ef51fc364fa93e6c3fabc5ddcdca3c2c99a2c99add69b77ae",
+      "license": "CC0 1.0",
+      "credit": "Greg Zaal, Dario Barresi",
+      "source": "https://polyhaven.com/a/rock_face",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/wall-normal.webp",
+      "sha256": "8bb082fda4c7fc3b55a08a7a52db5ddc3a358881e9c4817ece63fc850d4ce29f",
+      "license": "CC0 1.0",
+      "credit": "Greg Zaal, Dario Barresi",
+      "source": "https://polyhaven.com/a/rock_face",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/museum/materials/wall-rough.webp",
+      "sha256": "7fdcd5f1bd759f99d65620634d9cf91e29e038df2aaadf858014269f4c2edb47",
+      "license": "CC0 1.0",
+      "credit": "Greg Zaal, Dario Barresi",
+      "source": "https://polyhaven.com/a/rock_face",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/pavilions/timber-color.webp",
+      "sha256": "014f132d0dc3ed868bd25a243ea952ce54f23fbca97baab8631d5fd0ee2ba9d8",
+      "license": "CC0 1.0",
+      "credit": "Amal Kumar",
+      "source": "https://polyhaven.com/a/wood_planks",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/pavilions/timber-normal.webp",
+      "sha256": "bb03fb46d15455e8eae0dbcd71415a278e8a199e11250bc31a0276a547ba10fe",
+      "license": "CC0 1.0",
+      "credit": "Amal Kumar",
+      "source": "https://polyhaven.com/a/wood_planks",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/pavilions/timber-rough.webp",
+      "sha256": "49686efa7cf343dd059d12b4f3d4f74f96453bef672951e3e2bb53b8b1f33957",
+      "license": "CC0 1.0",
+      "credit": "Amal Kumar",
+      "source": "https://polyhaven.com/a/wood_planks",
+      "changes": "缩放并转码。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/photo/longmen-fengxian.jpg",
+      "sha256": "b53844136cbcf2a4898fa5208e28be769197d9f70f45d2a731fbfd0c96c57954",
+      "license": "CC0 1.0",
+      "credit": "Rongcan Lu",
+      "source": "https://commons.wikimedia.org/wiki/File:Lushena_Buddha_statue_in_Longmen_Grottoes,_Luoyang.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/photo/maijishan-4.jpg",
+      "sha256": "a63b51d361b23e261de87122f96783901d94af2662e2a7c8e7bf0d1a08ec81d2",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_004.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    {
+      "path": "assets/photo/yungang-18.jpg",
+      "sha256": "84b14d1d71dacb5f8d0f0451a4aa2993c808a84209920ed7c1545adfe7c1dd2b",
+      "license": "CC BY-SA 4.0",
+      "credit": "Patrick20242023",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC18%E7%AA%9F%E7%AA%9F%E5%86%85%E6%99%AF.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/photo/yungang-20.jpg",
+      "sha256": "d0c9b2007aa0f6bf2e90e322561c60b7df6446f8c7812ef324388f4f8c3f9c81",
+      "license": "CC0 1.0",
+      "credit": "Dudva",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_20,_Yungang_Grottoes.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/card.webp",
+      "sha256": "e19668468a641107f3b075598c0909010336f97047b81900bda1b373b4911c13",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/gallery.glb",
+      "sha256": "8bfb3a65d74850ff7c934436bf1f920d78cd12aba9239d4e40ea7ec146c32b60",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/portrait.glb",
+      "sha256": "d896473aa46d105fd774fcf04dca448f64979cea3fa0a3e3355cdbee45a5e151",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/motion-study/kana-native.json",
+      "sha256": "47fd6ceaeb46d402e89bd9cb991bdce8d4eab18d84c5754e95f758075914de9c",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "原模型的步行骨骼抽样。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-fitted/qing/card.webp",
+      "sha256": "c5e21f05588475e1f6ff61292c29d074af468ce396b20ea0307c2a76e400d90c",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-natural/qing/reference.webp",
+      "sha256": "77425eb9e8eaffc23681d8eb2ee8b051bfe7ba0a1b5e0b138a54d91dddc0398b",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "从作者模型渲染四个角度。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-natural/studio-day.hdr",
+      "sha256": "21e1c6f23d4c3c6359e39164bcae1226699b761d1374b04a597dce5049c053f3",
+      "license": "CC0 1.0",
+      "credit": "Dimitrios Savva, Jarod Guest",
+      "source": "https://polyhaven.com/a/chapel_day",
+      "changes": "环境光；摄影棚版缩放、中性调色。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "path": "assets/visitors-trousers/qing/gallery.glb",
+      "sha256": "fdf5e35c6371838e55fdf90b9266e4b8cf8be9cd02917ed38fd004a27a0486ac",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-trousers/qing/portrait.glb",
+      "sha256": "c5b1b5ecf1e2b20df9084eafbbfba49bec9825bbd2c7caa943881dc98a6cd135",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-whole/motions/arm-walk.js",
+      "sha256": "6299285f34c6add153b5fa9d63d2c11e8b952d87beb8b5977b2dd88e808d8347",
+      "license": "CMU Mocap Database 署名与使用条件",
+      "credit": "Carnegie Mellon University Graphics Lab; NSF EIA-0196217",
+      "source": "https://mocap.cs.cmu.edu/",
+      "changes": "提取真实步态、骨架和运动参数；详见 assets/visitors-whole/motions/SOURCES.md。"
+    },
+    {
+      "path": "assets/visitors-whole/motions/cmu-layout.js",
+      "sha256": "64957042c3ae598ccfb2be38686e9044f127f48615635afa74ef7b15ad16beed",
+      "license": "CMU Mocap Database 署名与使用条件",
+      "credit": "Carnegie Mellon University Graphics Lab; NSF EIA-0196217",
+      "source": "https://mocap.cs.cmu.edu/",
+      "changes": "提取真实步态、骨架和运动参数；详见 assets/visitors-whole/motions/SOURCES.md。"
+    },
+    {
+      "path": "assets/visitors-whole/motions/cmu-poses.bin",
+      "sha256": "58f56da7f62d20d2d3b44b33e466c26236cad9876d8d3cd2819c62673da5b421",
+      "license": "CMU Mocap Database 署名与使用条件",
+      "credit": "Carnegie Mellon University Graphics Lab; NSF EIA-0196217",
+      "source": "https://mocap.cs.cmu.edu/",
+      "changes": "提取真实步态、骨架和运动参数；详见 assets/visitors-whole/motions/SOURCES.md。"
+    },
+    {
+      "path": "assets/visitors-whole/motions/optical-walk.js",
+      "sha256": "3bd11bbf518fc46803d46dd0f94fd395b092170ea7005ef6471e13dc09231c98",
+      "license": "CMU Mocap Database 署名与使用条件",
+      "credit": "Carnegie Mellon University Graphics Lab; NSF EIA-0196217",
+      "source": "https://mocap.cs.cmu.edu/",
+      "changes": "提取真实步态、骨架和运动参数；详见 assets/visitors-whole/motions/SOURCES.md。"
+    },
+    {
+      "path": "assets/walk/fengxian/approach.webp",
+      "sha256": "647300550f8667756b046ccbca3e1bdd165a494450319aa936afa6ea3251f2b8",
+      "license": "CC BY-SA 4.0",
+      "credit": "Zhangzhugang",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_Longmen_Shiku_2018.12.16_09-43-06.jpg",
+      "changes": "同幅西壁摄影的入口构图，缩放转码。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/walk/fengxian/north.webp",
+      "sha256": "c7f6a12da3036b9523834fe6708caf4a59d7dec96f612832fed396f91380e593",
+      "license": "CC BY-SA 4.0",
+      "credit": "G41rn8",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_2006_7-27.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/walk/fengxian/south.webp",
+      "sha256": "ac86b0661d889e0684fd5e40e2d084683a634adae12a32289cb6844a02e3b690",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Southern_Wall%2C_Fengxian_Temple%2C_Longmen_Grottoes_(10240301646).jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
+    },
+    {
+      "path": "assets/walk/fengxian/west.webp",
+      "sha256": "219d5f1ec36bef5c198da2b5efe1b0b4da2c36ac3be3c40e7b149a7bbd682f67",
+      "license": "CC BY-SA 4.0",
+      "credit": "Zhangzhugang",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_Longmen_Shiku_2018.12.16_09-43-06.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--approach.mp3",
+      "sha256": "7b93dd6435486c5af287fd6f347bd16aac10bbca9992975d46c2e8360f1938bd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--assembly.mp3",
+      "sha256": "9e6829c07b08ecfbca9c779e7a988b9e032e6de9839e977feb09a82a7b00574d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--attendants.mp3",
+      "sha256": "086a4aeab485dd200f4e3a834961545923961143698f8e13f03bc109db353fa7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--cornice.mp3",
+      "sha256": "8270cd683b4600b499bfd6ff8e90f2329d619c457963c054b0442263684a0e14",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--guardians.mp3",
+      "sha256": "8d82e7f8f21bd384a3aa74aa480d888ad5ac18908885e29305205aa05d51eee8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--pedestal.mp3",
+      "sha256": "038d2d69f5ca9132b6f1c62570a7e1c83264e0a8c8a4a11c5dabb2c437ce4ad3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1280--vairocana.mp3",
+      "sha256": "fed362ddfa2dbba3a85c94407bea501eb71c2b9f770e4f2aa69baccd0ceed2f3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1387--attendant.mp3",
+      "sha256": "e7c353bd2fed4a1932d99045f48861d30f66743fed4988fef89e1c10b5991e20",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1387--different-dates.mp3",
+      "sha256": "d522c2309a489b49cd4cf5a44c419601ab4d7d4998b8a5c43605db876faa304d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-1387--prescription.mp3",
+      "sha256": "b67a9d535a5cd141a19e77360f4bb48b8cdf508c99d1b75f4e7581134ba22051",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-435--mainsitting.mp3",
+      "sha256": "8cb6231ea47db6e79f1071070bf2f74357e7cad0c810f68b30b6d8f9ef816b7b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-435--side-sitting.mp3",
+      "sha256": "f1bc071e6a965ce793e824139a0b47f5b02654e39ca4e7948d8c3e9010837503",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-435--unworked.mp3",
+      "sha256": "1ab8cf887b68085a727790d3e1c16b5dd4d4073cc1926c9b45434b309d6c6d2c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-543--altar.mp3",
+      "sha256": "ff1b7a458acb6c867b650f34d68f55829432ded7d8b1fd542e37645c634fb472",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-543--ceiling.mp3",
+      "sha256": "7c422315a16b2444c6d4e650e1c834afcae81921837a123685679336abe65c61",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-543--lotus-tree.mp3",
+      "sha256": "3dbed94e65d94d4f8c21b8fc69259f4cdba91675bb60324d46e9fa8a2d807b24",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-543--thousand.mp3",
+      "sha256": "b5d452d4863ab1b77e40598b77b761bcff4e2e35d165dd351cf5c67456e15351",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-712--edge.mp3",
+      "sha256": "c27c0f462022a2c8a6b102099325d3aa535436f6e100324105fc0f1616958b30",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-712--flight.mp3",
+      "sha256": "120691c2d0ca30baece153fa43622eb7fedc16b2146e7203eea311f81205fb39",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-712--image.mp3",
+      "sha256": "8a1fada4abeeee6296f5b0cb237d638ec319e264add185b4f9634005127f272e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/longmen-712--petals.mp3",
+      "sha256": "679c51bbcaa6c013149fa1f51c4a6bad8e5dfc0c8289030921b7f54ba1b38189",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-120--ceiling.mp3",
+      "sha256": "0caede4e2e23da5542900b46ca892aac975b33d9a03c4dec323d08ab8ed2506e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-120--monk.mp3",
+      "sha256": "cd79aba830d9e0bdd666c5a4d8dd4d35f0003d146991cfb5591d166f43e6fddb",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-120--paint.mp3",
+      "sha256": "326ce036c436cbe66dc1ddf906ba023da8ea29ab49df6081fa7aa9313037dd29",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-120--three.mp3",
+      "sha256": "336b63f3d99e609f135b0f84581fa1a7f6c57db161c1c783c5c4fdb3c067b4b3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-13--core.mp3",
+      "sha256": "cd703a1648b96fbe06e79dac6c98e1c1fb3afc41052f8c4de90ab80f0ab94f74",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-13--face.mp3",
+      "sha256": "97c1c51fbe184703d8c5e046c86153ede22cc563be178819bac629a35356a0a4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-13--flanks.mp3",
+      "sha256": "4203bda4e261bdb057bfb3a473b4ab77390a2b7dbd92f3d77eba9cee1be15dcc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-13--silhouette.mp3",
+      "sha256": "077c2bb25e39546c5faa85a2802a2d60e1032e9db1a2019c0f3c818eb7814199",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--ceiling.mp3",
+      "sha256": "ca9bcf0980f8cdeba7b0a31db3bed4f815213c00bc8c5a0f6d6a79f681cc3789",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--crossed.mp3",
+      "sha256": "8f6cefe1def96ca4c0ec9390759386341467244728b9d08f8b8a8e86e8fc1396",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--lintel.mp3",
+      "sha256": "95efffd9e658c676ca8d1eb6b505d89b687ad787d2957b4e91966bfeb18d91fe",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--rahula.mp3",
+      "sha256": "6509d569dbcf06646d19f05841fce79c5be570ed006e40ae15eee53ed64e4167",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--stele.mp3",
+      "sha256": "e5410463de2afd3538b5bb58faea4f4dee98255813a6a57ff4e044afe4a687a6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-133--thousand.mp3",
+      "sha256": "5db35c988a55ce647aec58e224d94c64045c8b8b8b814f6a5ad2f00bf8737afc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-165--ceiling.mp3",
+      "sha256": "f3e0bd76088fb56760fdcde2fd5ac1ada7059901a602e0720671d8bdda8e87e0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-165--donor.mp3",
+      "sha256": "ef8fea595f26bb06c18bc92b5ce8ec23181ed9064f1e801a14916a0edc8739f0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-165--halo.mp3",
+      "sha256": "9d8ea9e1a47f5e201ff6b8fff3cf6b07f9a5249f17361a0fc14ca8a6bfb2f5f2",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-165--three.mp3",
+      "sha256": "1df08937391b8a918973de99bc2c749e4854caf84ef8fef90e735e8c7e812fe7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-4--beams.mp3",
+      "sha256": "56ce699a240e34b084902a99ee4728b4eb3dd48b46403976fed3728f402f7e91",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-4--coffers.mp3",
+      "sha256": "6d43f66b0b499895854c52b9ee93f7de67d56dd53cf0d066bd5c6623ef693a8e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-4--frieze.mp3",
+      "sha256": "7a5598a86d6498cb705fe8c2da56b0e165f323475d5a6829781677ef7d44d4be",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-4--hall.mp3",
+      "sha256": "ca3c82f7e2b64605136c7f841e8525ff875726c3d8ef6a7f62c076925b605a21",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-4--tent.mp3",
+      "sha256": "5c4308b4f09aab328750badc0f6676d3a71610770136c994645e10f3e3d30992",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-44--attendant.mp3",
+      "sha256": "cba1d63782d075f827e69216fed86fd8d314d624e45cb371fd09a04d763fecbd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-44--broken.mp3",
+      "sha256": "993551c3c4a01a5ef5cf1b5ec3a9d096cb928477495ec97df1f8232b84601e2b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-44--robe.mp3",
+      "sha256": "61b5ae05853183d2c5c558a640ed7b86f522db64013a0eaac6c74add5e967107",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-44--smile.mp3",
+      "sha256": "497747c4667c378e3f30f1326e78a674a5ea555881d4aeafbc4afd5bd1974259",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-59--break.mp3",
+      "sha256": "f612024aa9500f4f71384bf7487367dd033c13fcea2f99d148d5b18fd448c9c6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-59--ground.mp3",
+      "sha256": "3d6f5806521affd6603eab64cf22c88cb88c7195eacb7bec19819f1ffd6cb3bb",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-59--ink.mp3",
+      "sha256": "b272b4d1dd6b467b9e3c8c70531f89588113fe36a3d40218e34dff7d94e76604",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-9--arches.mp3",
+      "sha256": "9b29e1b63515bcf68f0d18ff8134ff976b50512a01e28858efff42469cbc7036",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-9--bridge.mp3",
+      "sha256": "ebf7d7b6ff43245f96d7df0c4bdfb92407c42bec29e7b619bcf40ae4f1f30c3a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-9--garuda.mp3",
+      "sha256": "d448d2418f8ebee72037b204cda843b6cc631b97fe0d4f1ab1c547218e3542dc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/maijishan-9--kasyapa.mp3",
+      "sha256": "0cf63d7266c028535f11a0e753be82a5dd517481551df880bd3768b86eba8c05",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-146--layers.mp3",
+      "sha256": "754563bc409eb88f5badca07641ddc3d2f4787e3dd19223f80b4e916d3646119",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-146--parents.mp3",
+      "sha256": "2940ce43eda6778efe0aae622c7739b8f12b610967d73c7b40093047700d3681",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-146--screen.mp3",
+      "sha256": "9459b9daace2c949b780694437712d77eed72c74262ab014c90c84f965ec335d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-146--sky.mp3",
+      "sha256": "3215f7e9c9065f38ecd3b8dcb2eea1248f06cff34c08162bb00d5c6653cdcaf9",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--assembly.mp3",
+      "sha256": "cf513210483ea082698c1d57c7702c9392282fd3d27c930ca4ac9c9d52edfc51",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--cheek.mp3",
+      "sha256": "fb78118f1beacf0271b875c8bb77ec6fde096efb4f48aa343349fd2ce56d7545",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--east.mp3",
+      "sha256": "f23ffb062d6fc563b2fe6862e3258f7eba6111aa03af2ce70a0868f433692441",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--folds.mp3",
+      "sha256": "39bc73d6b53d2eb3d5e9d717ff52d9b6e5df72f35886e3d35141193a5cdc5b8b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--guardians.mp3",
+      "sha256": "bb499394a96b286e7e6de0ef48e2a003068e0cd2a0c08661182fa96348028aa4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--kasyapa.mp3",
+      "sha256": "4e0844f9471ce00e4171a9f2ee5da94340dbd79e25ebb86ca37bc9de1374e60a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--royals.mp3",
+      "sha256": "db4cba2b43270ffb21331cbce22b0c8cb6f2512acfff0a996832306329413a32",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-158--threshold.mp3",
+      "sha256": "ca0ac0ca1c31533fdf14eb3ab63216106442913b0d62e1698deacde9cb7f2ca8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-217--diamond.mp3",
+      "sha256": "8a6ec98dddae0da7df3c8a9e7a46d0d7828ffc12636f829f6ad6852f65111fd4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-217--gate.mp3",
+      "sha256": "c8b31c25e45ed0c0b8df90e8f3de56db8618b97bac9c3c3b0ff94bba928cd011",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-217--monk.mp3",
+      "sha256": "7b38f61477e2d822221b3dcd7f5f2b1199141115215198f9f3ccf77c2b2c4281",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-217--paradise.mp3",
+      "sha256": "4f9b0d70049e414ee22143826e89c2c98c6f6eea414261bdac56ce1bc749ea29",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-249--asura.mp3",
+      "sha256": "1bed13cb739ad9fba576a001d6a078ae7e3a942c28f440074ee657b429a9eab0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-249--hunting.mp3",
+      "sha256": "6b8a40d4617500d51fc50131799ea0b097fba98cfe2d428f1d959a8953bfb9eb",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-249--wall.mp3",
+      "sha256": "4f6bc49b0b64a3525aada5dcacb0afca014fb8717e082cfe7833866309e82467",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-257--deer.mp3",
+      "sha256": "c2effad3e15fc59203abc566ec69e4fc7aaccf86b5928494c74277530f4b3ae7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-257--lost.mp3",
+      "sha256": "70d75bed8c7d1ef29d1c7bfe4884128b04e709258d4733cace3596b5c819cdda",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-257--pillar.mp3",
+      "sha256": "b1da973c115adc894f46f44309cb99b22fa360f36f8735c5003c736182345486",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-257--south.mp3",
+      "sha256": "f0b474782e8fc2a780fe4b6b88d94990d98dbfd90023baedd0bcdb3ad54c0d40",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-285--bandits.mp3",
+      "sha256": "dad499de7ad5be86f146b36ae1f96b9f29ac3120575d0be1abec19c312662796",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-285--cells.mp3",
+      "sha256": "a46260078a00b5e3f307823ce773bbc728a396db5744f6f2a3099119a0489cab",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-285--dated.mp3",
+      "sha256": "4c9b7ada2d8584c8b59cf3eddc8936e6c43dded79fa918d722e0771512c81f28",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-285--three.mp3",
+      "sha256": "7d458a273eba2a870ebd57cd5c34c552f44898a9e50e86019ec9fffef8797638",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-296--eyes.mp3",
+      "sha256": "73f29a699b53d235bde376a5874439b9f870dbd01384baceec90cfc5cc74f554",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-296--figure.mp3",
+      "sha256": "cd89185b8e5201034247e56a05f1e46ff5959f6326061f28a093b9bc4960d48d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-296--good.mp3",
+      "sha256": "72c77c7b8a1bd8f7ebc46c27f75eacaf8f2f811b5387fb86cb34b6defab4b73c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-296--sons.mp3",
+      "sha256": "80410345c7d18a42891f17f6f3e40d7d632a11aefef0ed40fe4f4d23fecb6f6b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-302--date.mp3",
+      "sha256": "00b9bd4ef060c0382f7a3756b5e761d04fbf38c7418bca6c2fe380c65dfc8775",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-302--heaven.mp3",
+      "sha256": "901249efedb1b79f86eb1b9c8443eb91eda6551ef83261e4bf834ffc145c1b23",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-302--tower.mp3",
+      "sha256": "8294b4fd7283f55714836f66de5ccfda361fdbba8ff71b2a099ed39e501b07e5",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-320--aureole.mp3",
+      "sha256": "f49a2d2423ccbc51f75e806b272e2e0a8eb34740385284e6d3391ebc2115b81a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-320--black-flight.mp3",
+      "sha256": "997d2089e1484119064fbed5edd295f673e76ed8f32f247b117ebb7f1fc2e4e6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-320--north-panel.mp3",
+      "sha256": "b84a0b0e5c6b94236c68ef81304eb144159bcff58a73b2af02423cd0772a9e6c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-320--peony.mp3",
+      "sha256": "3d7a9c779db9b185a69b562f7dc06e1797158f225ea1d93b04c569136f0de483",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-320--thousand.mp3",
+      "sha256": "2c209f7caf95794c03967689e1e80883025fc85623eb7a56eb9d612595de3e01",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-335--first.mp3",
+      "sha256": "ddff653e9b368154a0261ab56ae97569655944dbe6d14b8648e863735a70301e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-335--garden.mp3",
+      "sha256": "4b857df2bdf2945baf19a96d62771c9ce193835f1b024cc75c60bfb558bb5f00",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-335--later.mp3",
+      "sha256": "d9cb169bfd70697407652246cf549fb5eb1f8ed023bc1582f21af05a9f81b6bd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-335--meeting.mp3",
+      "sha256": "63db3f28622f59db69ff2e50406e1d938132ba30bd101a88f31c02e1fec6de30",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-401--donor.mp3",
+      "sha256": "0ee99a28218bbe370f020c6f29880e1981480df436429f784e2797afbd36b976",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-401--lotus.mp3",
+      "sha256": "cf40b547f37a98e756e7b1e65c6092e78493ff8f5be84ef4a268c31304fa9463",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-401--niche.mp3",
+      "sha256": "46ec47ae9362d625f5a0df3c1525d2f941a27216ecbcc274c0c5c4013b405c41",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-407--hares.mp3",
+      "sha256": "8908cb7e98a5bae6a4cb043274013bdf6fd0a6afc89d951ac8a1410b88d87196",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-407--petals.mp3",
+      "sha256": "9e4c28b07503fd435ce766353844324050578958166e105854a33692404dc58d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-407--recess.mp3",
+      "sha256": "6405bdf2fb4f850860838c10c71ab2df871b5f04730063eb374bc6289c05ac7b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-407--slopes.mp3",
+      "sha256": "1a8585eb3466022f6a302b1503397f13174acb4ec762750a3877f27106cf4c6d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-55--assembly.mp3",
+      "sha256": "ed2218b5ef0191da1b43bf73f81fd1ab54ed8ff44283f442e6a7d25ca84c2492",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-55--guard.mp3",
+      "sha256": "f6cbc67bc47d067122519984442314e1381606b5c40e7635405c0e932ae5e646",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-55--guardians.mp3",
+      "sha256": "8d4ba2f86bb4de908be11b0e2c7d12554f18f8688f0c96859ccc8d2fbfd0f89b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-55--mound.mp3",
+      "sha256": "6bd7fa4193fd9bfbe07b5f9f78736280d49ebca6c6bed002757b5ade2110f513",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-61--gate.mp3",
+      "sha256": "a707fb2fa59c38dcbc220dbce3dcce8a51b69db63fc4b74f813059c07c543849",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-61--missing.mp3",
+      "sha256": "99f100334e0a8bc409d4ee58cc510f0447f2f84c802898a38024df1d3c0b6886",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-61--princess.mp3",
+      "sha256": "81dd49793365c600f9295bddc7348e98309e9f46388ad8fae7820007a72af615",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-61--wutai.mp3",
+      "sha256": "91c4cccb64854f049a10f60a50e05d66147fb847e333f60ee9b41657bc5a6042",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-96--face.mp3",
+      "sha256": "fab93e0ca73c300fd0a9a5192edbeabe2b2a84361a81ecc988edd4308e42fdaf",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-96--lap.mp3",
+      "sha256": "3ccf69b4cb7254ab09d21b8969f381089599130fd73f692f9b96180090bfa922",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-96--timber.mp3",
+      "sha256": "57df11d2b711bc004d596da0adf8a63295371b3b2cdc84c3a5859265a6a1ef35",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-98--family.mp3",
+      "sha256": "4343b0cf17e233a2dd60ce7e5728d55fde52dc2d1bdbe3b8636c49f5ea4a7bbc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-98--khotan.mp3",
+      "sha256": "7a3edd15343b1ad135afb01f571aef8b670be6628008344ffd50762e74736bbc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-98--throne.mp3",
+      "sha256": "bd3a013e9f0a63454e10e904e0b496b30869ec6648f6d428f812fb0f7d2c5d56",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-98--west.mp3",
+      "sha256": "749e3a30d570c437d336a59c10fdbba4b3084dc08b1da7767c52603b27123ec0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-bl-or8210-p2--cut.mp3",
+      "sha256": "e4f9049c40185e69f0de19403645b810e8c1ed916ae85689883602af90329690",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-bl-or8210-p2--front.mp3",
+      "sha256": "5483e4f79f1c781dcb0cc4ab2431341a7ea24988a2de29a194638638052776e6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-bl-or8210-p2--pole.mp3",
+      "sha256": "327f4c173709b9e503698001d0aaeb0427442e0cb67a486ad9767d4e7cf62d10",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-bl-or8210-p2--sky.mp3",
+      "sha256": "d851ad9e5540633989695994e1fdd323f7e30cefc0a2b603d198a2c915eb5536",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/mogao-bl-or8210-p2--type.mp3",
+      "sha256": "339960ed05420ef31720fb9e98a492f313ae6309716239d7ebca12768a956d7c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-12--coffers.mp3",
+      "sha256": "dc9385f007347e7218f73753726c125d4c2cb9feb1065f198754e9e0d5d5313a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-12--eaves.mp3",
+      "sha256": "c0961c2b1b596d7176d3573e21398553acc604317e7f67630cbc01d42b1e9cd1",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-12--ensemble.mp3",
+      "sha256": "de0ff5f8166dd927096c6a331b79fcc29b9f6b5612e31f1843ecdad2e6f8f018",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-12--window.mp3",
+      "sha256": "16d84191e6a36a7b07b37d84f50408ef6d32db42063d7485873453325800a0d1",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-20--east.mp3",
+      "sha256": "acf103a4879ee08a565a0eba3b3c6edc009beaa7a6fc2cfdd23c99c9237487b8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-20--fracture.mp3",
+      "sha256": "938a92004d15701d7eb3c2cfc7cbd811fc64e18c4ea5abc3683e1ed21bea4312",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-20--robe.mp3",
+      "sha256": "1bc69632be723aee6967f88329c6aadab2676a03c5fa8a53ca91835ad425ce11",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-3--crown.mp3",
+      "sha256": "7f679593d6b24de1a667cfbfdbba5a09153549024c60ef9a1cff2c060bf4e41d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-3--tooling.mp3",
+      "sha256": "d3bc395b40a1ffb051d47529a62f8e10c21d8db677ca30a23c09dfd19e7c70f7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-3--triad.mp3",
+      "sha256": "965c0d012c3a854066755080f99a83150339e0817327bed519dc1b43571f5dac",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-6--birth.mp3",
+      "sha256": "231ead4389de29aa8cd0b07b09ef626e577f097038e503e6e27146d83367b4d6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-6--east.mp3",
+      "sha256": "ddb856d607286a20691be4b1aeeed271d262bb416cd0e61399755940c1f829f6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-6--eaves.mp3",
+      "sha256": "114b58bd09e04bf77d1a1b79677ac8017ef212dfebbe7c2cea2b27019e710f7c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/walk/voices/yungang-6--south.mp3",
+      "sha256": "5c1d33cc56b35f514f8002e923d5d12ef7de40f2f2fdd1be5bb48ce0c6060e7c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "assets/walk/voices/SOURCES.md",
+      "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
+    },
+    {
+      "path": "assets/welcome/grotto-panorama.webp",
+      "sha256": "4bc0e5b2de7ebe3db9b5e77f45f077daebc84cc59d6cca660eb962b45fee3cdc",
+      "license": "CC BY 4.0",
+      "credit": "ShiKu",
+      "source": "index.html",
+      "changes": "AI 生成的四大石窟意象合成，首页已标示；非遗产实景。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/west/mg401.jpg",
+      "sha256": "516766dd67307b9f8af3f7db0efba15812b967dcf3ac3fe9d98e8960821d459a",
+      "license": "Public domain",
+      "credit": "隋代画工，姓名不详",
+      "source": "https://commons.wikimedia.org/wiki/File:Offering_Bodhisattva_from_Cave_401,_Mogao_Caves,_Dunhuang.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/west/mg61.jpg",
+      "sha256": "87eb4531054f94b103cd7568ff9d54f214da4f20ac4839436fc2236115a2b16c",
+      "license": "Public domain",
+      "credit": "五代画工，姓名不详",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_61,_painting_of_Mount_Wutai_monasteries.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "path": "assets/west/mg96.jpg",
+      "sha256": "32d9fed626e20f25146f5620fa4c0e27b482378564b61d092bc0fc7aebf2a4bb",
+      "license": "CC BY 2.0",
+      "credit": "David Tansey",
+      "source": "https://commons.wikimedia.org/wiki/File:Great_Buddha,_Cave_96,_Mogao_Caves.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+    },
+    {
+      "path": "assets/west/mj127.jpg",
+      "sha256": "639ab24cbe832b613b4f16851266223b89783045542afe74b6897594801ff0cf",
+      "license": "CC BY 4.0",
+      "credit": "麦积山石窟艺术研究所供图，Zhang Yang，Art and Performance Letters 5(5)，图1",
+      "source": "https://doi.org/10.23977/artpl.2024.050502",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/west/mj13.jpg",
+      "sha256": "b3ccfdb1245ecc9e76549608457edf289d7334fad1e302cb026aa0dc41fb9c91",
+      "license": "CC BY-SA 4.0",
+      "credit": "颐园居",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave13,_East_Cliff_Buddha,_Maijishan_Cave_20260929.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "path": "assets/west/mj133.jpg",
+      "sha256": "ff49512246b6d9d4d85ede57bf404558adbd58875404cd5cdbfc42a90bb6b606",
+      "license": "CC BY 4.0",
+      "credit": "Li Jingjie 摄，Qiuhong Li，Religions 16(10)，图4b",
+      "source": "https://doi.org/10.3390/rel16101282",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/west/mj5.jpg",
+      "sha256": "14e416d7658d60ed14b49a33835067666c5e3fbce7de4fc0291ceb25d431e9b3",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_005.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "path": "assets/west/mj9.jpg",
+      "sha256": "df337dc6bdd2dc17157302106234b2755d317672ae82d39ca944726d0fdbc71b",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_009.jpg",
+      "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    {
+      "path": "exhibition-guide.html",
+      "sha256": "4be50e7c38ccdc884eb10faf9588ca3286b404002742e0f841ddf8110d2440bb",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "exhibition-guide.html",
+      "changes": "原创导览正文、编排与解读；第三方照片和引用按各件标注。"
+    },
+    {
+      "path": "exhibition-map.svg",
+      "sha256": "8d94c9652358163578287487056347e9bc816aef6bca136a42505ce63fe3e37e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "ShiKu",
+      "source": "exhibition-guide.html",
+      "changes": "九馆总平面与展位图。"
+    },
+    {
+      "path": "real-viewer/assets/yungang-20.glb",
+      "sha256": "8713e9efdea857bbeb42664ca19dfc3a49d48371e3c66e1973d45837c6e6a657",
+      "license": "CC BY 4.0",
+      "credit": "Di Luo 罗迪",
+      "source": "https://sketchfab.com/3d-models/yungang-cave-20-745ab213fd9d468e9646a99c60f1183e",
+      "changes": "局部扫描，原 GLB 未修改。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

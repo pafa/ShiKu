@@ -1,0 +1,28 @@
+*{box-sizing:border-box}
+html,body,main{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:radial-gradient(ellipse at 47% 46%,#58584a,#262c26 80%);color:#f2ead7;font-family:"Songti SC",serif}
+[hidden]{display:none!important}
+main{position:relative;isolation:isolate}
+header{position:absolute;z-index:2;left:0;right:0;top:0;display:flex;align-items:center;gap:20px;padding:14px 20px;pointer-events:none}
+header h1{font-size:18px;font-weight:500;margin:0;letter-spacing:.12em}
+header a{pointer-events:auto}
+a,button{color:#eee1c4;text-decoration:none;font:12px/1.4 system-ui,sans-serif}
+button,a{cursor:pointer}
+a:hover{text-decoration:underline}
+button:focus-visible,a:focus-visible,canvas:focus-visible{outline:2px solid #e7c47a;outline-offset:2px}
+#stage{position:absolute;inset:0}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+#photo{position:absolute;inset:6% 4% 13%;width:92%;height:81%;object-fit:contain;pointer-events:none}
+#status{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#282b25e8;padding:6px 12px;border:1px solid #988b6b;border-radius:3px;font:12px/1.6 system-ui,sans-serif;text-align:center}
+nav{position:absolute;z-index:2;bottom:34px;left:50%;display:flex;max-width:calc(100% - 12px);transform:translateX(-50%);align-items:center;justify-content:center;gap:3px;padding:3px;background:#232821e8;border:1px solid #8b8162;border-radius:4px;white-space:nowrap}
+nav a,nav button{display:inline-block;padding:7px 10px}
+nav button{border:0;background:transparent;border-radius:2px}
+nav button[aria-pressed=true]{background:#d1bf94;color:#282b22}
+nav button:disabled{opacity:.40;cursor:default}
+.help,.reference{position:absolute;left:5%;right:5%;margin:0;text-align:center;font:11px/1.5 system-ui,sans-serif;color:#e7dcc2;text-shadow:0 1px 5px #161b15}
+.help{bottom:10px}.reference{bottom:83px}
+body[data-embedded=true] header{display:none}
+@media(max-width:570px){nav{gap:0;bottom:25px}nav button,nav a{padding:8px 7px;font-size:11px}.help{bottom:4px;font-size:10px}.reference{bottom:68px}header{padding:10px}header h1{font-size:15px}}
+@media(max-width:300px){nav{flex-wrap:wrap;width:100%;white-space:normal}.reference{bottom:80px}.help{display:none}nav a,nav button{padding:4px 6px}nav{bottom:2px}}
+
+body[data-registered=true]{background:#c9c6c1}body[data-registered=true] :is(header,nav,.help,.reference,#status){display:none!important}body[data-registered=true] canvas{pointer-events:none}body[data-registered=true] #photo{inset:0;width:100%;height:100%}
