@@ -14,26 +14,26 @@
 
 ## 本地图像与权利信息
 
-名取洋之助1956年原址摄影。岩波书店1957年出版[《麦積山石窟》](https://ndlsearch.ndl.go.jp/books/R100000002-I000000964605)，[日本相机博物馆摄影展说明](https://www.jcii-cameramuseum.jp/item/2019/01/31/8341/)。图录题名与[逐幅转载](https://www.sohu.com/a/464950773_501362)同步比对，书目并非图片的下载地址。历史摄影的权利处理沿用[同次1956年麦积山照片的署名与公版标识](https://commons.wikimedia.org/wiki/File:Maijishan,_grotto_120_-_1956_-_Natori_Y%C5%8Dnosuke.png)。本批保留原始 JPEG。第13窟转正画面90°后以 JPEG 系数无损旋转保存，馆内为1603 × 1024，原文件尺寸和哈希仍在下表。其余图片保持原像素与方向。保留复制图的明暗、颗粒、残损和投影；未上色、未插画、未拼接、未放大。下表保存核验使用的原文件与散列。
+名取洋之助1956年原址摄影。岩波书店1957年出版[《麦積山石窟》](https://ndlsearch.ndl.go.jp/books/R100000002-I000000964605)，[日本相机博物馆摄影展说明](https://www.jcii-cameramuseum.jp/item/2019/01/31/8341/)。图录题名与[逐幅转载](https://www.sohu.com/a/464950773_501362)同步比对，书目并非图片的下载地址。历史摄影的权利处理沿用[同次1956年麦积山照片的署名与公版标识](https://commons.wikimedia.org/wiki/File:Maijishan,_grotto_120_-_1956_-_Natori_Y%C5%8Dnosuke.png)。本批保留原始 JPEG。第13窟转正画面90°后以 JPEG 系数无损旋转保存，馆内为1603 × 1024，原文件尺寸和哈希仍在下表。其余图片保持原像素与方向。保留复制图的明暗、颗粒、残损和投影；未上色、未插画、未拼接、未放大。下表列出制作时使用的文件名与散列。公开版保留来源链接，可点击各行题名查看核对时使用的图像。
 
 | 馆内文件 | 原图像素 | 图录题名与实际来源 | SHA-256 |
 | --- | --- | --- | --- |
-| [105-companions.jpg](105-companions.jpg) | 1024 × 1483 | [105号窟 菩萨与比丘](https://p0.itc.cn/images03/20210507/d436a3026ae44b15a6d2ffff4815c54e.jpeg) | `b4203f9e44219ccfa47e91586434240a9d17f7c7b57a79a190cceef4f71551d2` |
-| [60-attendant.jpg](60-attendant.jpg) | 1024 × 1545 | [60号窟 胁侍菩萨](https://p1.itc.cn/images03/20210507/8aa265c17add44bfac24e02abf6027cf.jpeg) | `416e31080e70468ba1039e75be6b2375fd0e0662ed00f06f7d4c5d2138296b2a` |
-| [26-musician.jpg](26-musician.jpg) | 1024 × 1459 | [26号窟 左壁佛台座浮雕飞天](https://p3.itc.cn/images03/20210507/d9ece8faebe247f9b5b0ee656f49fdf9.jpeg) | `bae1a09d23802960fd817aa9bca1a4262f4e2fc6685cccb777959fdd77f769c9` |
-| [90-kasyapa.jpg](90-kasyapa.jpg) | 1024 × 1540 | [90号窟 迦叶](https://p3.itc.cn/images03/20210507/6df96599f47c40f9833d8b5022a1b74c.jpeg) | `c568c60462802469560c654630a9906e80e927f673a95cfd4a4cfa277bcb8aa2` |
-| [14-guardian.jpg](14-guardian.jpg) | 1024 × 1452 | [14号窟 力士](https://p8.itc.cn/images03/20210507/6b05b67b20fd4c6990246868a180601e.jpeg) | `1a1fe4374a30bbe70c0089f2a85188b547fdcde742cd9c836ad9e03aa5cd28d6` |
-| [42-seated.jpg](42-seated.jpg) | 1024 × 1476 | [42号窟 坐佛](https://p1.itc.cn/images03/20210507/2cb186a8e46946a5a3860a49bb1e0f4d.jpeg) | `05c62befa49ccf3aa735fca8f546bc61178fe51e03ba34459044aaa5b69509a1` |
-| [1-nirvana.jpg](1-nirvana.jpg) | 1024 × 1483 | [1号窟 涅槃窟](https://p0.itc.cn/images03/20210507/ed776b49c42f48a2bda01b06d784ef4f.jpeg) | `1d871ac3378e872739bc8723b57ca2ed2ecb74ad0c931d2d84870d9b45082272` |
-| [27-wall-assembly.jpg](27-wall-assembly.jpg) | 1024 × 1459 | [27号窟 壁画局部](https://p4.itc.cn/images03/20210507/d0d69d7c5176430ea5c1d6a318ba4833.jpeg) | `106fd76dd8126f1ef541336973db89ca82cf691935269320748ec59e0bcb3f9a` |
-| [27-wall-canopy.jpg](27-wall-canopy.jpg) | 1024 × 1446 | [27号窟 壁画局部](https://p9.itc.cn/images03/20210507/3b07a6473dfb4d02beffe8a409700c21.jpeg) | `a99318384a50cc4794297d523257e30fdea0014dfbc6c2e1d07af7e9fee15645` |
-| [123-vimalakirti.jpg](123-vimalakirti.jpg) | 1024 × 1461 | [123号窟 右壁 维摩诘](https://p5.itc.cn/images03/20210507/248a4c40bb434bb8b0d35c1c4bc02a74.jpeg) | `fe11472d49112fbd18138d0fee533583ca617c877c63e8c142388f21b43b50cd` |
-| [123-manjusri.jpg](123-manjusri.jpg) | 1024 × 1501 | [123号窟 左壁 文殊](https://p3.itc.cn/images03/20210507/cabf1a5b63f044a4a58c2944ff76e322.jpeg) | `654052fe7bc6192259b45c610e30b19332f29eb064b1305e43e2af4cd56b29ec` |
-| [13-cliff.jpg](13-cliff.jpg) | 1024 × 1603 | [13号摩崖造像](https://p5.itc.cn/images03/20210507/a05c4090248c47539fd4dc3b7f75ebe5.jpeg) | `8ccff7b474db80176932175c14336e51dc229a7ea52a5121442f4673af18db1a` |
-| [43-attendant.jpg](43-attendant.jpg) | 1024 × 1495 | [43号窟 胁侍菩萨](https://p3.itc.cn/q_70/images03/20210507/5a917426db644a4c9067f2d334f40931.jpeg) | `6384b598f7d246dd356eeeb81952064f46fdb06b03dd02e8883832908485916f` |
-| [165-donor.jpg](165-donor.jpg) | 1024 × 1466 | [165号窟 供养人](https://p9.itc.cn/images03/20210507/4930dbd5fe524740b9eb07f75f77dca6.jpeg) | `097bf48d2aa87bbc0874f0bd2d4aa76215e9390bf23276b13d39b9b46a00f0b1` |
-| [4-king-left.jpg](4-king-left.jpg) | 1024 × 1510 | [4号窟 上七佛阁 长廊左端天王](https://p5.itc.cn/images03/20210507/63a1de8d77ec46c48becb90ebfa7f6a8.jpeg) | `b83693af3da7b96433737e7ddf5d4cc9ffb701fbb95b65108afb34fe42b96ee6` |
-| [4-king-right.jpg](4-king-right.jpg) | 1024 × 1477 | [4号窟 上七佛阁 长廊右端天王](https://p5.itc.cn/images03/20210507/3a69e03ace6e4c7482d1f377c579762a.jpeg) | `4994ea8db08d5f2cd9c061050552feb0ae439baeea1fc29d835917b4a5e1b9bb` |
+| `105-companions.jpg` | 1024 × 1483 | [105号窟 菩萨与比丘](https://p0.itc.cn/images03/20210507/d436a3026ae44b15a6d2ffff4815c54e.jpeg) | `b4203f9e44219ccfa47e91586434240a9d17f7c7b57a79a190cceef4f71551d2` |
+| `60-attendant.jpg` | 1024 × 1545 | [60号窟 胁侍菩萨](https://p1.itc.cn/images03/20210507/8aa265c17add44bfac24e02abf6027cf.jpeg) | `416e31080e70468ba1039e75be6b2375fd0e0662ed00f06f7d4c5d2138296b2a` |
+| `26-musician.jpg` | 1024 × 1459 | [26号窟 左壁佛台座浮雕飞天](https://p3.itc.cn/images03/20210507/d9ece8faebe247f9b5b0ee656f49fdf9.jpeg) | `bae1a09d23802960fd817aa9bca1a4262f4e2fc6685cccb777959fdd77f769c9` |
+| `90-kasyapa.jpg` | 1024 × 1540 | [90号窟 迦叶](https://p3.itc.cn/images03/20210507/6df96599f47c40f9833d8b5022a1b74c.jpeg) | `c568c60462802469560c654630a9906e80e927f673a95cfd4a4cfa277bcb8aa2` |
+| `14-guardian.jpg` | 1024 × 1452 | [14号窟 力士](https://p8.itc.cn/images03/20210507/6b05b67b20fd4c6990246868a180601e.jpeg) | `1a1fe4374a30bbe70c0089f2a85188b547fdcde742cd9c836ad9e03aa5cd28d6` |
+| `42-seated.jpg` | 1024 × 1476 | [42号窟 坐佛](https://p1.itc.cn/images03/20210507/2cb186a8e46946a5a3860a49bb1e0f4d.jpeg) | `05c62befa49ccf3aa735fca8f546bc61178fe51e03ba34459044aaa5b69509a1` |
+| `1-nirvana.jpg` | 1024 × 1483 | [1号窟 涅槃窟](https://p0.itc.cn/images03/20210507/ed776b49c42f48a2bda01b06d784ef4f.jpeg) | `1d871ac3378e872739bc8723b57ca2ed2ecb74ad0c931d2d84870d9b45082272` |
+| `27-wall-assembly.jpg` | 1024 × 1459 | [27号窟 壁画局部](https://p4.itc.cn/images03/20210507/d0d69d7c5176430ea5c1d6a318ba4833.jpeg) | `106fd76dd8126f1ef541336973db89ca82cf691935269320748ec59e0bcb3f9a` |
+| `27-wall-canopy.jpg` | 1024 × 1446 | [27号窟 壁画局部](https://p9.itc.cn/images03/20210507/3b07a6473dfb4d02beffe8a409700c21.jpeg) | `a99318384a50cc4794297d523257e30fdea0014dfbc6c2e1d07af7e9fee15645` |
+| `123-vimalakirti.jpg` | 1024 × 1461 | [123号窟 右壁 维摩诘](https://p5.itc.cn/images03/20210507/248a4c40bb434bb8b0d35c1c4bc02a74.jpeg) | `fe11472d49112fbd18138d0fee533583ca617c877c63e8c142388f21b43b50cd` |
+| `123-manjusri.jpg` | 1024 × 1501 | [123号窟 左壁 文殊](https://p3.itc.cn/images03/20210507/cabf1a5b63f044a4a58c2944ff76e322.jpeg) | `654052fe7bc6192259b45c610e30b19332f29eb064b1305e43e2af4cd56b29ec` |
+| `13-cliff.jpg` | 1024 × 1603 | [13号摩崖造像](https://p5.itc.cn/images03/20210507/a05c4090248c47539fd4dc3b7f75ebe5.jpeg) | `8ccff7b474db80176932175c14336e51dc229a7ea52a5121442f4673af18db1a` |
+| `43-attendant.jpg` | 1024 × 1495 | [43号窟 胁侍菩萨](https://p3.itc.cn/q_70/images03/20210507/5a917426db644a4c9067f2d334f40931.jpeg) | `6384b598f7d246dd356eeeb81952064f46fdb06b03dd02e8883832908485916f` |
+| `165-donor.jpg` | 1024 × 1466 | [165号窟 供养人](https://p9.itc.cn/images03/20210507/4930dbd5fe524740b9eb07f75f77dca6.jpeg) | `097bf48d2aa87bbc0874f0bd2d4aa76215e9390bf23276b13d39b9b46a00f0b1` |
+| `4-king-left.jpg` | 1024 × 1510 | [4号窟 上七佛阁 长廊左端天王](https://p5.itc.cn/images03/20210507/63a1de8d77ec46c48becb90ebfa7f6a8.jpeg) | `b83693af3da7b96433737e7ddf5d4cc9ffb701fbb95b65108afb34fe42b96ee6` |
+| `4-king-right.jpg` | 1024 × 1477 | [4号窟 上七佛阁 长廊右端天王](https://p5.itc.cn/images03/20210507/3a69e03ace6e4c7482d1f377c579762a.jpeg) | `4994ea8db08d5f2cd9c061050552feb0ae439baeea1fc29d835917b4a5e1b9bb` |
 
 **现代展场摄影。** [4-yuxin-rubbing.webp](4-yuxin-rubbing.webp) 从 [KWUNGAM Haueng Chanem 的深圳南山博物馆藏展摄影 R12S 112](https://commons.wikimedia.org/wiki/File:SZ_Shenzhen_%E5%8D%97%E5%B1%B1_Nanshan_%E5%8D%97%E9%A0%AD%E8%A1%97_Nantou_Street_%E6%B7%B1%E5%9C%B3%E5%8D%97%E5%B1%B1%E5%8D%9A%E7%89%A9%E9%A4%A8_Nanshan_Museum_%E5%B1%95%E8%A6%BD_exhibition_%E7%94%98%E8%82%83_Gansu_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_Maijishan_Grottoes_%E6%96%87%E7%89%A9%E4%BF%9D%E8%AD%B7%E6%AD%B7%E5%8F%B2_conservation_history_October_2023_R12S_112.jpg) 的 1280 × 1707 像素衍生版裁出拓片范围，保留拓面、裂纹及展柜反光，输出为 1067 × 1707 像素。底片登记为 3000 × 4000 像素，馆内裁切版本采用与原照片相同的 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 授权。原图展签、该馆其他拓片及仿品均未并入画面。
 

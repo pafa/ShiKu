@@ -1,6 +1,6 @@
 # 藏品影像与身份核对
 
-[逐件核对表](object-audit.csv)列出148件展品的身份、图源与处置。原址照片注明窟号，馆藏原件及拓本保留收藏机构，历史摄影注明拍摄或刊行年代。图注只指照片可辨认的部分。各件的断代与背景可从随件资料查证。
+策展工作表逐件核对了 148 件展品的身份、图源与处置。公开版的展签与来源见[馆藏目录](../../CATALOG.md)。原址照片注明窟号，馆藏原件及拓本保留收藏机构，历史摄影注明拍摄或刊行年代。图注只指照片可辨认的部分。各件的断代与背景可从随件资料查证。
 
 ## 伯希和原刊
 
@@ -18,7 +18,7 @@
 
 宾阳中洞维摩诘浮雕 F2001.7 的早期原址照片出自 Friedrich Perzyński《Von Chinas Göttern》，1920年出版，图27。实物后来被拆移修整，现藏史密森尼国立亚洲艺术博物馆，展图为原壁尚存浮雕时的历史照片。原刊的色纸背景已裁去，保留完整照片范围。[原刊图27](https://archive.org/details/vonchinasgotter00perz/page/n168/mode/1up) · [现藏机构档案与旧影出处](https://asia-archive.si.edu/object/F2001.7/)
 
-collection.js 保留逐件原始身份、署名、许可、影像和资料出处。archive.js 按窟号或藏品号登记逐张替代或补充摄影。originalFrame 用于标记旧热点坐标仍能对应的同一幅图。不同摄影之间不继承图中坐标。只保留文献的条目可以从逐件核对表查看对应的原馆记录。
+collection.js 保留逐件原始身份、署名、许可、影像和资料出处。archive.js 按窟号或藏品号登记逐张替代或补充摄影。originalFrame 用于标记旧热点坐标仍能对应的同一幅图。不同摄影之间不继承图中坐标。只保留文献的条目可查阅馆藏目录中的原馆记录。
 
 ## 三处原作者与机构影像入口
 
@@ -30,6 +30,6 @@ collection.js 保留逐件原始身份、署名、许可、影像和资料出处
 
 ## 原图分辨率与读图入口
 
-展面使用同一张原摄影或原刊扫描制作适合展厅的文件。部分细读图另存于 detail/，只在查看原物时读取。每张照片的原生像素、展面与细读尺寸、原件出处和署名见[影像审核记录](../../review/exhibit-image-audit.json)。东洋文库的逐幅 IIIF 图版和数字敦煌的编号全景由各机构网站提供。[东洋文库伯希和原刊](https://dsr.nii.ac.jp/toyobunko/VIII-5-B6-3/index.html.en) · [数字敦煌](https://www.e-dunhuang.com/)
+展面使用同一张原摄影或原刊扫描制作适合展厅的文件。部分细读图另存于 detail/，只在查看原物时读取。内部影像审核记录保存原生像素、展面和细读尺寸。公开版收录图片的出处与署名见[素材署名表](../credits.html)。东洋文库的逐幅 IIIF 图版和数字敦煌的编号全景由各机构网站提供。[东洋文库伯希和原刊](https://dsr.nii.ac.jp/toyobunko/VIII-5-B6-3/index.html.en) · [数字敦煌](https://www.e-dunhuang.com/)
 
 第16窟甬道照片采用多伦多大学罗伯茨图书馆藏《Ruins of Desert Cathay》卷二（Macmillan，1912）图188。原刊页转正后，依据造像、门框与卷束旁的轮廓对准之前展面的同一画幅，灰阶图保留印刷与石壁表面的痕迹。斯坦因1921年《Serindia》卷二图200刊有同一画面。英国图书馆的 Photo 392/57 记录了两个现场底本：有经卷的一张发生双重曝光；印本使用空甬道影像，前景经卷绘入底片。[1912原版图188](https://archive.org/details/ruinsofdesertcat02stei/page/n240/mode/1up) · [1921图200](https://archive.org/details/in.ernet.dli.2015.69620/page/n286/mode/1up) · [英国图书馆档案](https://searcharchives.bl.uk/catalog/040-003080272) · [国际敦煌项目实物说明](https://idp.bl.uk/discover/learning/dunhuang/collection-items/)

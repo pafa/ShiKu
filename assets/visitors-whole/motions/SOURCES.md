@@ -20,9 +20,9 @@
 
 平地迈步时，脚跟到脚尖的转动以及肩、胯绕竖直轴的摆动依据第 7 号表演者的两段 120 Hz 光学记录。每个步周期根据左、右脚跟的实际着地帧对齐。LFWT、LBWT、RFWT、RBWT 四个腰带标记给出胯线，左右肩标记给出肩线。两只鞋的足跟和趾端给出相对各自平放时的俯仰角。网站将实测的前掌滚动适配为当前鞋体的转动，手臂保留真人动作中肩、肘和手腕之间的时差。两腕各自的 WRA、WRB 与 FIN 光学标记组成手背平面，按各自步周期提取小幅转动。人物原扫描的腕至中指方向和食指至小指方向定义不同访客的手背与拇指，袖子按同一解剖方向运动。[正常步行原始 C3D](https://mocap.cs.cmu.edu/subjects/07/07_01.c3d) · [慢步原始 C3D](https://mocap.cs.cmu.edu/subjects/07/07_04.c3d)。
 
-## 离线重建
+## 核对原始记录与馆内数据
 
-将下面的原文件置于同一目录，使用 Python、NumPy 和 SciPy 运行 `python3 scripts/build-visitor-motion.py 原始文件目录 --output 输出目录`。另运行 `python3 scripts/build-optical-walk.py 原始文件目录 assets/visitors-whole/motions/optical-walk.js`，由同两份 C3D 重建脚掌、肩胯和左右腕的每步 48 个采样值。可用下面的 SHA-256 核对每份记录。网站运行时读取已生成的姿态表和二进制文件。
+制作时用 Python、NumPy 和 SciPy 从 ASF/AMC 提取姿态，并从上述两份 C3D 生成每步 48 个采样值。下载原记录后，可用下表的 SHA-256 核对文件。随仓提供[姿态布局](cmu-layout.js)、[关节姿态表](cmu-poses.bin)和[光学步态采样](optical-walk.js)。在仓库根目录运行 `shasum -a 256 assets/visitors-whole/motions/cmu-poses.bin`，可将结果与根目录 `SHA256SUMS` 中同名文件的摘要对照。
 
 ```text
 c29414591d76a34885bff0b04a2666bf9659f869751a2549591c55277cf95b04  07.asf
@@ -43,4 +43,4 @@ db7976c321c0a637049ca28e2f663caead4ab23e11930837d986150b4c2b6d75  69_01.amc
 ab26d17f420194b74a0434ad1a9ac400f364f839298bb3a10f37e15b98e81429  69_18.amc
 ```
 
-上臂及前臂前后与侧向摆动分别采用上述两次 C3D 的肩、肘、腕标记。脚跟触地定义周期起点，先用腰部位移确定行进方向，再换算为各侧肩肘的局部摆角。为馆内散步保留原迹的时差并收小前后摆幅，侧向距离适应各自衣着和髋宽。运行 `python3 scripts/build-arm-walk.py 原始文件目录 assets/visitors-whole/motions/arm-walk.js` 可重建。另有[同一位访客原作步行的对照](../../visitors-fitted/motion-study/SOURCES.md)，仅供查看平地直行。
+上臂及前臂前后与侧向摆动分别采用上述两次 C3D 的肩、肘、腕标记。脚跟触地定义周期起点，先用腰部位移确定行进方向，再换算为各侧肩肘的局部摆角。为馆内散步保留原迹的时差并收小前后摆幅，侧向距离适应各自衣着和髋宽。可查看[馆内使用的双臂采样](arm-walk.js)对照这些变化。另有[同一位访客原作步行的对照](../../visitors-fitted/motion-study/SOURCES.md)，仅供查看平地直行。

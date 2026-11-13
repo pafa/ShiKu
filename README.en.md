@@ -47,12 +47,12 @@ Use **Node.js 22.12 or later**. Three.js, images, models and Mandarin narration 
 ```sh
 git clone https://github.com/pafa/ShiKu.git
 cd ShiKu
-node server/museum.mjs --port 4173
+node scripts/start-local.mjs feature
 ```
 
-Open the [local museum](http://127.0.0.1:4173/). If you already have the source, run the last command from its root directory. To review a pull request, run the same command from its branch.
+Open the [local museum](http://127.0.0.1:4174/). If you already have the source, run the last command from its root directory. To review a pull request, run the same command from its branch.
 
-Add `--lan` to host a visit for people on the same Wi-Fi and share the local address printed by the server. Press Ctrl+C to stop it. The local room clears when the Node process restarts. The hosted demo serves the site with Cloudflare Workers and keeps admissions, queued tickets and reconnections in a single SQLite-backed Durable Object. [Architecture](docs/ARCHITECTURE.md) · [Cloudflare deployment](deploy/cloudflare/README.md)
+See [local environments](docs/ENVIRONMENTS.md) for separate feature, test and released builds. Use `node server/museum.mjs --port 4174 --lan` to host a visit for people on the same Wi-Fi and share the local address printed by the server. Press Ctrl+C to stop it. The local room clears when the Node process restarts. The hosted demo serves the site with Cloudflare Workers and keeps admissions, queued tickets and reconnections in a single SQLite-backed Durable Object. [Architecture](docs/ARCHITECTURE.md) · [Cloudflare deployment](deploy/cloudflare/README.md)
 
 ## Contribute and reuse
 

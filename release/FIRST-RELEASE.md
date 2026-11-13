@@ -1,4 +1,6 @@
-# ShiKu｜首次公开与上线计划
+# ShiKu｜首次建仓记录
+
+这是首次开源时使用的清单。仓库已经建立；维护现有项目请按[贡献与分支流程](../CONTRIBUTING.md)、[本地环境](../docs/ENVIRONMENTS.md)和[生产发布手册](../deploy/cloudflare/README.md)操作。
 
 目标仓库名 **ShiKu**，默认分支 **main**，目标域名 **shiku.xiaoha.org**。开源和站点启用各自独立。仅复制经过筛选的候选目录；开发工作区的历史模型、审阅图、补丁、环境信息以及 .git 对象库不能随项目上传。
 

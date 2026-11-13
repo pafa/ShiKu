@@ -15,4 +15,4 @@
 
 原形象轻微侧视、露齿微笑；单次采集保留这一表情。颜色、眼睛和脸均来自同一原模型，头发保留原本的发束表面。表情、独立发丝和毛孔的细节以上述实际清晰度为限。本馆 [行走动作](../../visitors-whole/motions/SOURCES.md) 根据操作实时驱动原身体骨架。
 
-[转换脚本](../../../scripts/visitor-natural/kana.py) 使用 Python 3.12、NumPy 1.26.4。从上述 Objaverse 存档取得 GLB 后，运行 `python scripts/visitor-natural/kana.py /path/to/original.glb /path/to/output` 可重建两档馆内模型。
+原始工作台的转换脚本使用 Python 3.12、NumPy 1.26.4。从上述 Objaverse 存档取得 GLB 后，制作时以原始 GLB 和输出目录为参数运行 `kana.py`，重建两档模型。此脚本未随公开版分发。

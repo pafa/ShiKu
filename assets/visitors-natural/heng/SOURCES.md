@@ -13,4 +13,4 @@
 | gallery.glb | 95,533 | 14,628 | 4096 / 2048 |
 | portrait.glb | 128,467 | 14,628 | 4096 / 4096 |
 
-[离线构建方法](../../../scripts/visitor-natural/yukihiro/README.md)
+离线构建笔记保存在原始工作台。
