@@ -2,6 +2,8 @@
 
 欢迎修正展签、完善普通话讲解，或改善步行、看展与多人参观体验。小修正可以直接提 PR。较大改动可以先开 issue，描述希望改变的参观体验。报告问题时，请附展品的站内路径和复现步骤。可先浏览[参观帮助与反馈渠道](SUPPORT.md)。
 
+讨论与评审适用[社区行为约定](CODE_OF_CONDUCT.md)。研究引用软件时可附项目元数据与提交号。对访客可见的改动请在变更记录的 Unreleased 部分概述。[引用项目](CITATION.cff) · [变更记录](CHANGELOG.md)
+
 ## 开发与检查
 
 先在 GitHub fork 本项目，克隆你的 fork，再从最新的 `main` 建立主题分支，例如 `fix/cave-audio`。在首发 PR 合入前，以该 PR 的候选分支作为可运行参考，并在叠加的 PR 中注明依赖。一次提交审阅聚焦一个问题。[首发 PR](https://github.com/pafa/ShiKu/pull/1) · [各功能的代码入口](docs/ARCHITECTURE.md)

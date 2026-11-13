@@ -62,6 +62,8 @@ Add `--lan` to host a visit for people on the same Wi-Fi and share the local add
 
 ## Contribute and reuse
 
+For research or teaching, cite the software and record the commit you used. When citing an individual object, use the creator, institution and source from its catalogue entry. [Cite ShiKu](CITATION.cff) · [Changelog](CHANGELOG.md) · [Code of conduct](CODE_OF_CONDUCT.md)
+
 A useful collection correction can be as small as one cave number or a term in a narration script. Include the original caption, the proposed change and a museum record or publication that supports it. For a photograph or scan, include the creator, source, reuse conditions and any edits. For a walking, audio or multiplayer issue, include the visitor route, browser and steps to reproduce it. Changes go through a topic branch and a pull request. [Contributing](CONTRIBUTING.md) · [Help](SUPPORT.md) · [Security reports](SECURITY.md)
 
 Original software is **Apache-2.0**. Original curatorial texts, guides, audio, entrance art and floor maps are **CC BY 4.0**, credited to **ShiKu**. Third-party photography, scans, models, motion data and catalogue records retain their respective terms. ShiKu is an independent project. Museum links lead to the institutions' records. [Software license](LICENSE) · [Content license](CONTENT-LICENSE.md) · [Asset credits](docs/ASSETS.md) · [NOTICE](NOTICE)
