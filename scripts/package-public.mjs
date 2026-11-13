@@ -58,7 +58,7 @@ const stage = await mkdtemp(join(parent,'.shiku-package-'));
 try {
   for (const path of sources) {
     const permittedText = /\.(?:m?js|html|css|jsonc?|txt|md|py|ya?ml|toml|service|conf)$/i.test(path) ||
-      ['LICENSE','NOTICE','.gitattributes','.gitignore'].includes(path);
+      ['CITATION.cff','LICENSE','NOTICE','.gitattributes','.gitignore'].includes(path);
     if (!permittedText || path.split('/').some(part => /^(?:review|preview|node_modules|\.env|\.git|\.aws|\.codex|dist|secrets|LOCAL-WORKBENCH)(?:$|\.)/.test(part)))
       throw Error('该路径不能通过文本源码名单导出 '+path);
     const bytes = await input(path);

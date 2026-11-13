@@ -1,0 +1,14 @@
+cff-version: "1.2.0"
+message: "If you use ShiKu in research or teaching, please cite the software and record the commit you used. Credit individual artworks, photographs and models using their catalogue records."
+title: "ShiKu 石窟"
+type: software
+authors:
+  - name: "ShiKu"
+repository-code: "https://github.com/pafa/ShiKu"
+url: "https://shiku.xiaoha.org/"
+license: Apache-2.0
+keywords:
+  - digital humanities
+  - Buddhist grottoes
+  - cultural heritage
+  - digital museum

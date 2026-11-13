@@ -15,7 +15,7 @@ assert(!(await lstat(args[dirAt+1])).isSymbolicLink(),'候选根目录不能是�
 const root=await realpath(args[dirAt+1]);
 const issues=[],files=new Map(),media=new Set();
 const problem=(path,reason)=>issues.push(path+' — '+reason);
-const docsExt=/\.(?:md|html?|m?js|css|json|txt|xml|svg|csv|command|sh|py|ya?ml|toml|lock|service|conf)$/i;
+const docsExt=/\.(?:md|cff|html?|m?js|css|json|txt|xml|svg|csv|command|sh|py|ya?ml|toml|lock|service|conf)$/i;
 const mediaExt=/\.(?:avif|gif|jpe?g|tiff?|png|webp|svg|mp3|m4a|aac|opus|wav|ogg|flac|webm|mp4|mov|glb|gltf|bin|drc|dds|ktx2?|hdr|exr|woff2?|ttf|otf|pdf|fbx|obj|mtl)$/i;
 const deniedDirs=new Set(['.git','.aws','.ssh','.codex','.agents','.config','.wrangler','.cache','node_modules','__pycache__','review','preview','release-output','output','coverage','.venv','.DS_Store']);
 const credentialName=/^(?:\.env(?:\..*)?|\.dev\.vars(?:\..*)?|\.npmrc|\.pypirc|\.netrc|\.git-credentials|id_(?:rsa|ed25519|dsa|ecdsa)(?:\.pub)?|credentials(?:\.json)?)$|\.(?:key|pem|pfx|p12|kdbx|sqlite3?|log|bak|tar|tgz|zip|7z)$/i;
