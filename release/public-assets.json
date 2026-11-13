@@ -2080,6 +2080,24 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
     },
     {
+      "path": "docs/images/binyang-relief.webp",
+      "sha256": "1e898d3572512e551d1a743276ff2a2c200f9d1a8916ab3a10cb5adb51cde500",
+      "license": "CC BY 4.0（ShiKu 截图）；馆方采集 CC0 1.0",
+      "credit": "ShiKu；The Metropolitan Museum of Art, New York, Fletcher Fund, 1935 (35.146)",
+      "source": "https://www.metmuseum.org/art/collection/search/42707",
+      "changes": "馆方三维数据在 ShiKu 观察器中正面显示。完整 1440 × 900 首发浏览器截图转为 WebP。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "docs/images/fengxian-walk.webp",
+      "sha256": "a5278e16a36ff5b4a65a8e5c7d56a05711c4fefcf4df4abfec26aaed8fba699e",
+      "license": "CC BY-SA 4.0",
+      "credit": "ShiKu；原址摄影 Zhangzhugang、G41rn8、Gary Todd；地面与照明 Rob Tuytel、Dimitrios Savva、Jarod Guest",
+      "source": "https://commons.wikimedia.org/wiki/File:Luoyang_Longmen_Shiku_2018.12.16_09-43-06.jpg",
+      "changes": "原址照片在三维展面上透视显示。完整 1440 × 900 首发浏览器截图转为 WebP。第三方作品与各自的许可见署名说明。",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
       "path": "real-viewer/assets/yungang-20.glb",
       "sha256": "8713e9efdea857bbeb42664ca19dfc3a49d48371e3c66e1973d45837c6e6a657",
       "license": "CC BY 4.0",

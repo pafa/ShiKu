@@ -1,7 +1,9 @@
-# 私下报告安全问题
+# 私下报告安全问题 · Security policy
 
-如果问题涉及访问令牌、他人昵称或位置泄露、会话边界、未授权的请求，请使用仓库 **Security → Report a vulnerability** 私下发给维护者。附上 ShiKu 版本或提交号、受影响的功能、问题概述及在自己本地实例上的最短重现步骤。请先去掉真实访客数据、凭据和日志中的令牌。
+发现访问令牌泄露、未经授权读取他人状态、会话混用或其他可能影响真实访客的问题时，请在 GitHub 私下发送给维护者。中英文均可。 [Report a vulnerability / 私下提交报告](https://github.com/pafa/ShiKu/security/advisories/new)
 
-若页面尚未显示私下报告按钮，可开一个仅请求维护者启用私下联系渠道的普通 issue。细节、日志和重现材料应保留至私下渠道建立后再发送。馆藏勘误、画面异常和不涉及他人数据的普通功能问题可使用公开 issue 表单。
+报告中请附受影响的版本或提交号、涉及的入口、你自己的测试环境、最短复现步骤、实际影响和可选的修复建议。用虚构昵称、临时会话和本地实例说明经过。请在提交前移除真实访客数据、候位票据、访问令牌和部署凭据。维护者会通过这份私密报告沟通修复与披露时间。
 
-发布仓库的维护者应先在仓库设置中启用 GitHub **Private vulnerability reporting**，再从未获仓库写入权限的账号验证入口。修复完成后，与报告人商定披露时间和受影响版本。
+如果无法打开私密报告入口，请通过普通 issue 仅请求维护者开启私下沟通，保留技术细节直到私密渠道可用。馆藏勘误、体验建议和一般运行故障可以公开报告。[参观帮助与反馈渠道](SUPPORT.md)
+
+For a security or privacy issue, open the private reporting link above. Include the affected commit and a reproduction using a local instance and invented visitor data. Remove live credentials, visitor names and session tickets before sharing logs.
