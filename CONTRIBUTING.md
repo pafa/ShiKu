@@ -30,9 +30,9 @@ node scripts/check-presence-recovery.mjs
 
 ## 审阅与合入
 
-提交前检查整个 diff 和新文件。PR 内给出问题、改动、验证结果，按需附截图或语音样段。维护者审阅当前提交，解决未结讨论，等名为 **Public checks** 的 CI 检查通过后，再由获授权的维护者批准该版本合入。若审阅后又修改了实质内容，请重新请人审阅。合并源码与发布服务分别进行。
+提交前检查完整 diff 和新文件。在 PR 中写明改动和验证结果，涉及画面或声音时可附截图或样段。项目由一人维护，维护者可以审阅并合入自己提交的 PR。外部贡献也通过同一套检查，由维护者决定是否合入。
 
-`main` 要求通过 PR、至少一名独立评审者批准并解决未结讨论。**Public checks** 检查行走和候位、干净的公开导出、持久化房间重启和 Worker 构建。新增提交后需要重新审阅。已批准的 PR 使用 squash 合入。[分支规则](https://github.com/pafa/ShiKu/rules/27212530) · [CI 工作流](.github/workflows/ci.yml)
+合入 `main` 前，主题分支须与最新主线同步，**Public checks** 须通过，审阅讨论须解决。检查涵盖行走、候位、公开包导出、房间持久化和 Worker 构建。提交有更新时，维护者重新核对差异和 CI 结果，再使用 squash 合并。[分支规则](https://github.com/pafa/ShiKu/rules/27212530) · [CI 工作流](.github/workflows/ci.yml)
 
 挑选本次需要的路径暂存，通读 `git diff --cached`，包括新文件。新源码须登记在 `release/public-sources.json`；图片、模型和录音按[素材说明](docs/ASSETS.md)处理。重新导出后把改变的生成文件逐项核对、同步回工作树，最后同步 `SHA256SUMS` 并暂存；用 `node scripts/check-public-tree.mjs --dir "$SHIKU_QA_DIR/public"` 核对**暂存区**与导出的路径和内容。未跟踪的个人笔记可留在本地，不能夹进提交。下文定义 `SHIKU_QA_DIR` 和导出命令。
 

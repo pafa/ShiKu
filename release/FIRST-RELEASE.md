@@ -18,8 +18,8 @@
 
 1. 在单独的候选目录操作，绝不把开发工作区的 .git 推送。再次确认目标 owner、仓库名称与可见性。新建仓库时仅用空的初始提交或初始化说明建立 main，随后创建任务分支。建仓是否先设为私有、何时改变可见性，由维护者针对候选分别决定。
 2. 在新克隆的任务分支中，仅引入候选内经审核文件（含必要点文件）。推前对比完整文件清单/摘要、检查大文件与来源，逐项审阅 git diff。勿使用会上传旧 refs 的镜像推送。提交带清楚范围的变更，PR 描述使用仓库模板，记录候选摘要、实际验证和未完成验证。
-3. 先在 PR 上让 **Public checks** 实际跑绿；仓库设置仅允许 squash，关闭自动合并；确认仓库已启用 Issues、私密漏洞报告，删除已合并任务分支。在 Settings → Rules → Rulesets 导入 [main 规则](github-main-rules.json)，并从管理页核验实际生效（默认分支、阻止强推与删除、至少一名独立审核、更新后旧批准失效、检查必须通过）。私有仓库规则可用性随 GitHub 套餐而异；没有第二位评审人时，应补充评审人而非静默绕过。
-4. 首个 PR 交由用户审阅具体 head；获准后才 squash 合入。核对合并所得 main 与已批准候选的文件树，再创建受审阅的版本 tag/Release。仓库简介与 topics 草案见 [github-about.json](github-about.json)。站点实测可用后再填写 homepage，避免指向空域名。
-5. 后续每次改动经主题分支、PR、CI、独立审核与相同候选批准。GitHub Actions 无生产权限，push、合并或打 tag 均不会自动部署。发现问题优先回滚已知版本，修复走新 PR。
+3. 在 PR 上运行 **Public checks**。设置默认分支为 `main`，启用 squash 和合并后删除任务分支。通过 Settings → Rules → Rulesets 导入[主线规则](github-main-rules.json)，核验禁止删除和强推、必须走 PR、通过最新主线检查并解决审阅讨论等设置。维护者可自行核对并合入自己的 PR。
+4. 首个 PR 交由用户审阅具体 head；获准后才 squash 合入。核对合并所得 main 与已批准候选的文件树，再创建受审阅的版本 tag/Release。仓库简介与 topics 见 [github-about.json](github-about.json)。站点实测可用后再填写 homepage，避免指向空域名。
+5. 后续改动从主题分支发起 PR，经 CI 和维护者核对后合入。GitHub Actions 无生产权限，push、合并或打 tag 均不会自动部署。发现问题优先回滚已知版本，修复走新 PR。
 
 [GitHub 官方规则说明](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) · [Cloudflare 发布与回滚](../deploy/cloudflare/README.md) · [Cloudflare DNS 变更](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
