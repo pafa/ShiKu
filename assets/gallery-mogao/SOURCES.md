@@ -38,3 +38,5 @@
 [敦煌研究院第249窟](https://www.dha.ac.cn/info/1425/3696.htm) · [故宫博物院敦煌西夏石窟研究](https://www.dpm.org.cn/journal/252235.html)
 
 第275窟用北壁本生画作同窟对照。检索到的游客摄影与研究院原窟全景相比，窟顶、主像及壁面均有明显差异，故只在原机构页面观察交脚弥勒。[敦煌研究院第275窟](https://www.dha.ac.cn/info/1425/3554.htm)
+
+第428窟琵琶与第465窟竖琴使用来源页提供的原始数字图版，分别为 429 × 376、562 × 731 像素。[第428窟原图](https://commons.wikimedia.org/wiki/File:Dunhuang_Cave_428_Pipa.jpg) · [第465窟原图](https://commons.wikimedia.org/wiki/File:Mogao_Cave_465,_bow_harp.jpg)

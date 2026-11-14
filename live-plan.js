@@ -20,7 +20,9 @@ export function livePlan(button){
   for(const w of wings){museum.append(box(w.terrace,'mini-terrace'));w.caves.forEach(c=>museum.append(box(c.floorBox,'mini-cave')));}
   position.append(node('path',{d:'M 2 -1.3 L 9 0 L 2 1.3 Z',fill:'#ffe3a3'}),
     node('circle',{r:2.4,fill:'#fff3cc',stroke:'#43321e','stroke-width':1}));
-  const traffic=node('g',{'aria-hidden':'true'});
+  const traffic=node('g',{'aria-hidden':'true'}),paths=node('g',{}),dots=node('g',{});
+  traffic.append(paths,dots);
+  const markers=new Map();
   surface.append(museum,caveLayer,traffic,position);button.prepend(surface);const caption=button.querySelector('span');
   let oldZone=-2,oldCave=undefined,seen=null;
   let presence={selfId:null,visitors:[]};
@@ -31,19 +33,39 @@ export function livePlan(button){
       const local=toCave(c,{x,z});return [local.x,local.z];
     };
     const inside=point=>!c||caveAt(point)===c;
-    const strokes=[],dots=[],unit=c?Math.max(.11,Math.min(.27,c.width*.013)):1;
+    const unit=c?Math.max(.11,Math.min(.27,c.width*.013)):1;
+    const present=new Set();
     let count=0;
     for(const visitor of presence.visitors){
       if(!goodPoint(visitor))continue;
       const self=visitor.id===presence.selfId,color=markerColor(visitor.avatarId);
-      const d=trailPath(visitor.trail,xy,inside);
-      if(d)strokes.push(node('path',{d,fill:'none',stroke:color,'stroke-width':1.25*unit,opacity:.78}));
-      if(self){position.lastElementChild.setAttribute('fill',color);continue;}
-      if(!inside(visitor))continue;
-      const [cx,cy]=xy(visitor.x,visitor.z);
-      dots.push(node('circle',{cx,cy,r:2.4*unit,fill:color,stroke:'#fff0d1','stroke-width':.55*unit}));count++;
+      present.add(visitor.id);
+      let marker=markers.get(visitor.id);
+      if(!marker){
+        marker={path:node('path',{fill:'none',opacity:.78}),dot:node('circle',{stroke:'#fff0d1'})};
+        paths.append(marker.path);dots.append(marker.dot);markers.set(visitor.id,marker);
+      }
+      if(marker.cave!==c || marker.trail!==visitor.trail){
+        marker.path.setAttribute('d',trailPath(visitor.trail,xy,inside));
+        marker.path.setAttribute('stroke-width',1.25*unit);
+        marker.dot.setAttribute('r',2.4*unit);
+        marker.dot.setAttribute('stroke-width',.55*unit);
+        marker.cave=c;marker.trail=visitor.trail;
+      }
+      if(marker.color!==color){
+        marker.path.setAttribute('stroke',color);marker.dot.setAttribute('fill',color);marker.color=color;
+      }
+      if(self)position.lastElementChild.setAttribute('fill',color);
+      const visible=!self && inside(visitor);
+      marker.dot.style.display=visible?'':'none';
+      if(visible){
+        const [cx,cy]=xy(visitor.x,visitor.z);
+        marker.dot.setAttribute('cx',cx);marker.dot.setAttribute('cy',cy);count++;
+      }
     }
-    traffic.replaceChildren(...strokes,...dots);
+    for(const [id,marker] of markers){
+      if(!present.has(id)){marker.path.remove();marker.dot.remove();markers.delete(id);}
+    }
     const captionText=(c?'窟内方位':'全馆方位')+(count?' · 另 '+count+' 人':'');
     if(caption.textContent!==captionText)caption.textContent=captionText;
   }

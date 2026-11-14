@@ -4,6 +4,7 @@ import * as editions from './assets/authentic/detail-images.js';
 import {walkCompanion} from './walk-companion.js';
 import {experienceRooms} from './experience-room.js';
 import {caveVisit} from './cave-visit.js';
+import {evidenceAt} from './chamber-evidence.js';
 import {caveById,wings} from './cave-plan.js';
 import {makeCollectionRoom} from './collection-room.js';
 import {makeStoryWalk} from './story-walk.js';
@@ -21,10 +22,11 @@ import {makePanels} from './visit-panels.js';
 import {readingRoom} from './story-archive.js';
 const $=s=>document.querySelector(s),el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!=null)n.textContent=txt;return n};
 const num=n=>String(n).padStart(2,'0'),routes=halls;
-const sheet=$('#sheet'),detail=$('#detail'),sheetBody=$('#sheet-body'),stage=$('#detail-stage'),plate=$('#plate'),img=$('#artifact'),pins=$('#pins'),bubble=$('#bubble');
+const sheet=$('#sheet'),detail=$('#detail'),sheetBody=$('#sheet-body'),stage=$('#detail-stage'),plate=$('#plate'),pins=$('#pins'),bubble=$('#bubble');
+let img=$('#artifact'),displayedWork=null;
 let r=0,n=0,near=null,hall=null,zoom=null,study=null,sheetType='',previousFocus=null;
 let sceneReady=false,personEyes=false,visitorId=visit.profile.avatarId,here=0,walkDestination=null,closestWing=0;
-let currentStop=-1,physicalCave=null,physicalTerrace=-1,webglUnavailable=false;
+let currentStop=-1,physicalCave=null,physicalTerrace=-1;
 const remembered=routes.map(()=>0),mapPosition=livePlan($('#live-plan'));
 let accountStatus=null;
 const atlas=createRoomAtlas({
@@ -41,6 +43,29 @@ function applyPresence(state){
   const link=document.querySelector('.menu [data-action=map]');
   link.textContent=state.status==='online'?'访客地图 · '+state.snapshot.visitors.length:'访客地图';
   link.setAttribute('aria-label',state.status==='online'?'访客地图，'+state.snapshot.visitors.length+'人在馆':'访客地图，正在连接');
+}
+let reportVisit=null,awaitingArtwork=false;
+function artworkShown(){
+  if(!awaitingArtwork || document.hidden)return;
+  awaitingArtwork=false;
+  hall?.observeArtwork(null);
+  document.removeEventListener('load',checkPlate,true);
+  document.removeEventListener('visibilitychange',checkPlate);
+  reportVisit('artwork');
+}
+function checkPlate(event){
+  if(!awaitingArtwork || document.hidden)return;
+  if(event?.type==='load' && !event.target.matches?.('#artifact,.sd-layer img,.sd-registered img'))return;
+  requestAnimationFrame(()=>{
+    if(!awaitingArtwork || document.hidden || sheet.open)return;
+    const image=detail.open?detail.querySelector('.sd-layer img,.sd-registered img'):img;
+    if(!image?.complete || !image.naturalWidth || !image.getClientRects().length)return;
+    const rect=image.getBoundingClientRect();
+    const x=(Math.max(0,rect.left)+Math.min(innerWidth,rect.right))/2;
+    const y=(Math.max(0,rect.top)+Math.min(innerHeight,rect.bottom))/2;
+    const visible=document.elementsFromPoint(x,y);
+    if(visible.includes(image) && (detail.open || !$('#exhibit').hidden))artworkShown();
+  });
 }
 const current=()=>workForDisplay(routes[r].scenes[n]);
 function switchView(eyes=!personEyes){hall?.setView(eyes)}
@@ -89,6 +114,69 @@ function walk(index){
   stopSheet();if(!hall)return;
   $('#exhibit').hidden=true;hall.setPaused(false);hall.walkInto(index);
 }
+let navActive=false,restoring=false,navRevision=0,selectedPlace=null;
+function address(place){
+  if(!place)return '';
+  return '?'+new URLSearchParams(place);
+}
+function rememberPlace(place,replace=false){
+  if(!navActive||restoring||!place)return;
+  selectedPlace=place;navRevision++;
+  const search=address(place);
+  if(location.search!==search){
+    const parent=replace?history.state?.shikuParent:location.search;
+    history[replace?'replaceState':'pushState']({shikuParent:parent||null},'',location.pathname+search);
+  }
+}
+function closeLandmark(){
+  if(history.state?.shikuParent){history.back();return;}
+  // A bookmark opened in a new tab has no in-gallery parent.
+  rememberPlace($('#exhibit').hidden?galleryPlace():workPlace(r,n),true);
+}
+function catalogLocation(state){
+  if(restoring || !navActive || !sheet.open || sheetType!=='collection')return;
+  const place={catalog:state.mode};
+  if(state.siteId)place.site=state.siteId;
+  if(state.hallId)place.hall=state.hallId;
+  if(state.medium)place.medium=state.medium;
+  if(state.preset)place.pick=state.preset;
+  if(state.page)place.page=String(state.page+1);
+  // Updating filters and typing are one history entry. Keep the search text local.
+  rememberPlace(place,Boolean(selectedPlace?.catalog));
+  if(history.state?.shikuSearch!==state.q)history.replaceState({...history.state,shikuSearch:state.q},'');
+}
+function galleryPlace(){
+  if(physicalCave){
+    const cue=physicalCave.details[currentStop];
+    return cue?{cave:physicalCave.id,detail:cue.id}:{cave:physicalCave.id};
+  }
+  return here>=0?{hall:routes[here].id}:{hall:'atrium'};
+}
+function shareAddress(){
+  const place=selectedPlace||galleryPlace();
+  const cave=caveById.get(place.cave||place.experience);
+  if(cave){
+    if(place.experience&&cave.experience)return address({experience:cave.id,stage:String(parseStage(cave,new URLSearchParams(place))+1)});
+    const cue=cave.details.find(d=>d.id===place.detail);
+    return address(cue?{cave:cave.id,detail:cue.id}:{cave:cave.id});
+  }
+  const work=works.find(w=>w.id===(place.work||place.structure));
+  if(work){
+    if(place.structure)return address({structure:work.id});
+    const index=routes.findIndex(route=>route.id===place.hall&&route.scenes.some(s=>s.id===work.id));
+    return address(index<0?{work:work.id}:{work:work.id,hall:routes[index].id});
+  }
+  return address(galleryPlace());
+}
+function queueLocation(){
+  if(!navActive||restoring)return;
+  const revision=++navRevision;
+  queueMicrotask(()=>{if(revision===navRevision && !detail.open && !sheet.open && $('#exhibit').hidden)rememberPlace(galleryPlace());});
+}
+function workPlace(rr,nn){
+  const work=routes[rr].scenes[nn];
+  return work.crossPeriod?{work:work.id,hall:routes[rr].id}:{work:work.id};
+}
 function locationChanged(index){
   here=index;trail.enter(index);caveUI.setHall(index);
   if(index>=0){r=index;n=remembered[index];draw(false);}
@@ -96,7 +184,7 @@ function locationChanged(index){
     $('#exhibit').hidden=true;$('#site-name').textContent='采光中庭';$('#site-location').textContent='中央步廊';
     $('.progressline').hidden=true;
   }
-  setNear(null);journey(walkDestination);
+  setNear(null);journey(walkDestination);queueLocation();
 }
 function positionChanged(p,yaw,teleport=false){
   mapPosition(p,yaw,here);atlas.position(p);if(teleport)presence.move(p,{teleport:true});
@@ -136,7 +224,43 @@ function locateLabel(p){
   leader.firstElementChild.setAttribute('d','M'+sx.toFixed(1)+' '+sy.toFixed(1)+' L'+pick.x.toFixed(1)+' '+pick.y.toFixed(1));leader.style.display='block';
 }
 function makePins(s){pins.replaceChildren();(s.image?s.hotspots||[]:[]).forEach((h,i)=>{const pin=action('',()=>showBubble(i,true),'anchor');pin.setAttribute('aria-label','图中故事：'+h.title);pin.append(el('i'));pins.append(pin)});showBubble(0,false)}
-new ResizeObserver(setAnchor).observe(plate);img.onload=setAnchor;
+new ResizeObserver(setAnchor).observe(plate);
+function loadPlate(work, retry=false){
+  if(displayedWork===work && !retry)return;
+  displayedWork=work;
+  const photo=work.visual, record=$('#primary-record'), enlarge=$('.enlarge'), credit=$('#plate-credit');
+  const next=document.createElement('img');
+  next.id='artifact';next.alt=photo?.caption||'';next.hidden=true;next.decoding='async';
+  img.replaceWith(next);img=next;
+  restoreLabel();bubble.hidden=true;pins.replaceChildren();
+  $('#pin-leader').style.display='none';credit.replaceChildren();
+  enlarge.disabled=true;enlarge.hidden=true;record.hidden=false;record.setAttribute('role','status');
+  if(!photo){
+    $('#ex-kind').textContent=mediaLabel(photo);
+    record.textContent=work.evidence.reason||'本件以原始著录展出。';
+    credit.append(source(work.sourceName||'原始著录',work.source));
+    if(editions.workViewers?.[work.id])credit.append(source('进入数字敦煌全景',editions.workViewers[work.id]));
+    return;
+  }
+  record.textContent='正在载入展图…';$('#ex-kind').textContent='正在取图';
+  function failed(){
+    if(img!==next)return;
+    $('#ex-kind').textContent='展图暂未载入';
+    record.replaceChildren(el('span','','未能载入这件展品的图像。'),
+      action('重新加载展图',()=>loadPlate(work,true),'plate-retry'),
+      source('查看原始出处',photo.source||work.source));
+  }
+  next.onerror=failed;
+  next.onload=async()=>{
+    try{await next.decode();}catch{failed();return;}
+    if(img!==next || !next.naturalWidth)return;
+    record.hidden=true;next.hidden=false;enlarge.disabled=false;enlarge.hidden=false;
+    $('#ex-kind').textContent=mediaLabel(photo);
+    credit.append(document.createTextNode(photo.caption+'　'),source(photo.credit+' · '+photo.license,photo.source));
+    makePins(work);if(awaitingArtwork)checkPlate();requestAnimationFrame(setAnchor);
+  };
+  next.src=photo.src;
+}
 function locationLabel(){
   const at=hall?here:r;
   $('.progressline').hidden=at<0||!!physicalCave||physicalTerrace>=0;
@@ -151,22 +275,10 @@ function draw(ex=true) {
   $('#count').textContent=num(n+1)+' / '+num(site.scenes.length);
   $('#progress').style.width=((n+1)/site.scenes.length*100)+'%';
   const visual=s.visual;
-  $('#ex-kind').textContent=mediaLabel(visual);
   $('#origin').textContent=(s.crossPeriod?'跨期对照 ／ ':'')+s.siteName+' ／ '+s.number+'　·　'+s.era;
   $('#ex-title').textContent=s.title;
   $('#ex-feature').textContent=s.crossPeriod?s.comparisonNote:(visual?.comparisonNote || visual?.contextReason || ((visual?.contextOnly || visual?.relation)?s.story:s.feature));
-  makePins(s);
-  const record=$('#primary-record'),credit=$('#plate-credit');
-  record.hidden=!!visual;img.hidden=!visual;credit.replaceChildren();
-  if(visual) {
-    img.alt=visual.caption;img.src=visual.src;
-    credit.append(document.createTextNode(visual.caption+'　'),source(visual.credit+' · '+visual.license,visual.source));
-  } else {
-    img.removeAttribute('src');
-    record.textContent=s.evidence.reason||'本件以原始著录展出。';
-    credit.append(source(s.sourceName||'原始著录',s.source));
-    if(editions.workViewers?.[s.id])credit.append(source('进入数字敦煌全景',editions.workViewers[s.id]));
-  }
+  if(ex){loadPlate(s);if(awaitingArtwork)checkPlate();}
   const links=$('#visual-links');links.replaceChildren();
   if(visual?.relation||visual?.contextOnly){
     const official=editions.workViewers?.[s.id] || originalCaveResource(s);
@@ -180,7 +292,6 @@ function draw(ex=true) {
   $('#model-btn').textContent=study?'旋转尺度模型 ↗':'实物扫描 ↗';
   document.querySelector('[data-action=intoEx]').hidden=!caveById.has(s.id);
   document.querySelector('[data-action=structure]').textContent=visual?.relation?'看对照与资料 ↗':visual?'放大与细读 ↗':'查阅本件资料 ↗';
-  $('.enlarge').hidden=!visual;
   document.querySelector('[data-action=prev]').disabled=n===0;
   document.querySelector('[data-action=next]').disabled=n===site.scenes.length-1;
   setNear(near);requestAnimationFrame(setAnchor);
@@ -188,14 +299,15 @@ function draw(ex=true) {
 function move(rr,nn,travel=true){
   if(!routes[rr]?.scenes[nn])return;
   if(travel)hall?.visit(rr,nn);
-  r=rr;n=nn;remembered[rr]=nn;draw(true);trail.select(routes[r].scenes[n].id);
+  r=rr;n=nn;remembered[rr]=nn;draw(true);trail.select(routes[r].scenes[n].id);rememberPlace(workPlace(rr,nn));
 }
 function hallway(index){
   stopSheet();
   if(hall){hall.enter(index);locationChanged(index);}
-  else {r=index;n=0;draw(true);}
+  else {r=index;n=0;here=index;draw(true);}
+  rememberPlace({hall:routes[index].id});
 }
-function modal(title,type,fn){if(!sheet.open){previousFocus=document.activeElement;sheet.showModal()}sheetType=type;sheet.dataset.sheet=type;$('#sheet-title').textContent=title;sheetBody.replaceChildren();fn(sheetBody);accountStatus=type==='person'?mountVisitAccount(sheetBody):null;accountStatus?.(visit);sheet.scrollTop=0;hall?.setPaused(true)}
+function modal(title,type,fn){if(!sheet.open){previousFocus=document.activeElement;sheet.showModal()}sheetType=type;sheet.dataset.sheet=type;$('#sheet-title').textContent=title;sheetBody.replaceChildren();if(type==='experiences')rememberPlace({experiences:'1'});fn(sheetBody);accountStatus=type==='person'?mountVisitAccount(sheetBody,shareAddress):null;accountStatus?.(visit);sheet.scrollTop=0;hall?.setPaused(true)}
 const panels=makePanels({el,action,modal,source,routes,sites,works,visitors:VISITORS,selectedVisitor:()=>hall?.getAppearance(),
   initialVisitor:()=>sceneReady?null:visitorId,changeVisitor:swapPerson,canChangeVisitor:()=>Boolean(hall),startVisit:returnAsVisitor,
   currentPlace:()=>[here<0?closestWing:here,n],enterChamber:id=>caveUI.go(id),walkTo:walk,enterHall:hallway,enter:(rr,nn)=>{stopSheet();move(rr,nn)}});
@@ -233,9 +345,10 @@ function story(which=null){
   });
 }
 function guide(){modal('探索指南','guide',body=>{body.append(el('p','storytext','九座时代展馆通过中庭、崖廊和窟门连在一起。体验馆收录原窟照片、历史摄影和馆藏原件影像，书房可展卷细读。从展厅走过崖前步廊，走近窟顶、壁画、佛龛和造像旁的观察点，故事会随位置展开。'));[['走进展廊','WASD、方向键或点击地面'],['转身看周围','拖动场景，滚轮调整距离'],['随行讲解','第158窟和奉先寺可从起点自动同行，停在实物前讲解。按方向键、点地面或拖动视角可自己走；点一次「听普通话讲解」，后面的驻足点会接着讲。'],['进窟与读细节','选「本馆窟室」，也可以从门洞直接走入。点窟内标记会步行到对应位置。'],['观察展品','点展框，或靠近后按 F'],['换馆与直达','从敞口穿过中庭走到另一馆；也可按「步行到」让访客自行前往。用「时代展馆」可直接选展品。'],['改变形象与视角','「我的访客」换人；按 V 切换人眼和随行视角'],['端详构造','在「看原物」中放大原址照片、比对历史图版。云冈第20窟另可旋转观察原址局部采集模型。']].forEach(([a,b])=>{const d=el('div','guide-row');d.append(el('b','',a),el('span','',b));body.append(d)});body.append(el('h3','subttl','关于这座展厅'),el('p','meta','中庭、九馆及参观通道是当代布展空间。文物照片、历史图像及云冈第20窟的局部三维扫描单独标注了来源。展位间距按虚拟步行需要安排。'),source('本馆资料',routes[r].source),source('青禾与行川 · 衣装与真人采集出处','./assets/visitors-fitted/SOURCES.md'),source('访客步行动作 · 素材说明','./assets/visitors-whole/motions/SOURCES.md'),source('云冈扫描 · 素材说明','./real-viewer/PROVENANCE.md'))})}
-function startDetail(type){stopSheet();stage.replaceChildren();detail.className=type;detail.showModal();hall?.setPaused(true)}
+function releaseDetail(){zoom?.destroy();study?.destroy();zoom=study=null;stage.replaceChildren();}
+function startDetail(type){stopSheet();releaseDetail();detail.className=type;if(!detail.open)detail.showModal();hall?.setPaused(true)}
 function fullImage(){
-  const s=current(),photo=s.visual;if(!photo)return;
+  const s=current(),photo=s.visual;if(!photo || displayedWork!==s || img.hidden)return;
   if(photo.kind==='space'){structure(s,{initialMedia:'space'});return;}
   const asset=photo.detailSrc || editions.detailImages[photo.src] || photo.src;
   startDetail('photo');
@@ -246,23 +359,28 @@ function fullImage(){
 }
 
 function structure(s=current(),options={}){
+  rememberPlace(options.initialMedia?{structure:s.id,media:options.initialMedia}:{structure:s.id});
   const c=caveById.get(s.id);startDetail('study');
   study=mountStructure(stage,{s,c,reading:readingRoom[s.id],...options,visit:hall&&c?i=>{
-    endDetail();hall.stopStroll();hall.enterCave(c.id,i);hall.setView(true);hall.lookAtDetail(i);
+    endDetail();hall.stopStroll();hall.enterCave(c.id,i);hall.setView(true);hall.lookAtDetail(i);rememberPlace({cave:c.id,detail:c.details[i].id});
   }:null});
 }
 function model(){structure(current(),{initialMedia:'scan'})}
 function endDetail(){if(detail.open)detail.close()}
-detail.addEventListener('close',()=>{zoom?.destroy();study?.destroy();zoom=study=null;stage.replaceChildren();hall?.setPaused(false)});sheet.addEventListener('close',()=>{hall?.setPaused(detail.open);sheetType='';accountStatus=null;if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true})});
-const collection=makeCollectionRoom({openExperiences:()=>experiences.directory(),enterExperience:(id,step=0)=>experiences.begin(caveById.get(id),step,'direct'),sites,works,halls:routes,modal,el,action,source,openWork:(work,inspect=false)=>{
+detail.addEventListener('close',()=>{
+  if(detail.open)return;
+  releaseDetail();hall?.setPaused(sheet.open);
+  if(detail.className==='study' && selectedPlace?.structure)closeLandmark();
+});sheet.addEventListener('close',()=>{if(sheet.open)return;hall?.setPaused(detail.open);if(!detail.open && ((selectedPlace?.catalog&&sheetType==='collection') || (selectedPlace?.manuscript&&sheetType==='catalog-file') || (selectedPlace?.experiences&&sheetType==='experiences')))closeLandmark();sheetType='';accountStatus=null;if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true})});
+const collection=makeCollectionRoom({onLocation:catalogLocation,onManuscript:id=>rememberPlace({manuscript:id}),openExperiences:()=>experiences.directory(),enterExperience:(id,step=0)=>experiences.begin(caveById.get(id),step,'direct'),sites,works,halls:routes,modal,el,action,source,openWork:(work,inspect=false)=>{
   const rr=routes.findIndex(h=>h.id===work.homeHall);
   const nn=routes[rr].scenes.findIndex(s=>!s.crossPeriod&&s.id===work.id);
   stopSheet();move(rr,nn);
   if(inspect)structure(work);
 }});
-const caveUI=caveVisit({world:()=>hall,modal,closeSheet:stopSheet,el,exhibit:$('#exhibit'),trail:$('#trail'),onDeparture:value=>passage.departure(value)});
-const passage=walkCompanion({world:()=>hall,go:(...args)=>caveUI.go(...args),closeSheet:stopSheet,read:c=>caveUI.dossier(c),leave:()=>caveUI.exit()});
-const experiences=experienceRooms({startPassage:(...args)=>passage.begin(...args),world:()=>hall,walk:(...args)=>caveUI.go(...args),read:c=>caveUI.dossier(c),eyes:()=>personEyes,el,action,modal,closeSheet:stopSheet});
+const caveUI=caveVisit({onLocation:queueLocation,world:()=>hall,modal,closeSheet:stopSheet,el,exhibit:$('#exhibit'),trail:$('#trail'),onDeparture:value=>passage.departure(value)});
+const passage=walkCompanion({onPlayback:()=>{reportVisit?.('audio_played');return true;},world:()=>hall,go:(...args)=>caveUI.go(...args),closeSheet:stopSheet,read:c=>caveUI.dossier(c),leave:()=>caveUI.exit()});
+const experiences=experienceRooms({onStage:(c,i)=>rememberPlace({experience:c.id,stage:String(i+1)}),startPassage:(...args)=>passage.begin(...args),world:()=>hall,walk:(...args)=>caveUI.go(...args),read:c=>caveUI.dossier(c),eyes:()=>personEyes,el,action,modal,closeSheet:stopSheet});
 const trail=makeStoryWalk({
   host:$('#trail'),halls:routes,
   go:(rr,nn,travel=true)=>{
@@ -275,19 +393,16 @@ const trail=makeStoryWalk({
 });
 const tasks={
   home:()=>hallway(0),experiences:()=>experiences.directory(), routes:()=>panels.rooms(),collection:()=>collection.open(),map:()=>atlas.open(),
-  intoEx:()=>webglUnavailable?caveUI.dossier(caveById.get(current().id)):caveUI.go(current().id),person:()=>panels.dressing(),view:()=>switchView(),story:()=>story(),structure:()=>structure(),guide,zoom:fullImage,model,
-  closeEx:()=>{draw(false);setNear(near);},inspect:()=>draw(true),
+  intoEx:()=>caveUI.go(current().id),person:()=>panels.dressing(),view:()=>switchView(),story:()=>story(),structure:()=>structure(),guide,zoom:fullImage,model,
+  closeEx:()=>{draw(false);setNear(near);rememberPlace(galleryPlace());},inspect:()=>{draw(true);rememberPlace(workPlace(r,n));},
   near:()=>{if(near)move(near.hallIndex,near.index,false);},walkLink:()=>walkDestination!=null?hall?.stop():walk(neighbouring()),
   prev:()=>move(r,n-1),next:()=>move(r,n+1),closeSheet:stopSheet,closeDetail:endDetail
 };
 document.querySelectorAll('[data-action]').forEach(b=>b.onclick=tasks[b.dataset.action]);$('#bubble-toggle').onclick=()=>showBubble(activePin,!expanded);
 for(const id of ['#cave-structure','#stroll-structure'])$(id).onclick=()=>{if(physicalCave)structure(physicalCave.work,{initialDetail:currentStop})};
-let entryOpened=false;
 const parseStage=(c,p)=>Math.max(0,Math.min(c.experience.stages.length-1,(parseInt(p.get('stage')||'1',10)||1)-1));
-function openNamedEntry(){
-  if(entryOpened)return;
-  entryOpened=true;
-  const params=new URLSearchParams(location.search),target=params.get('work'),shelf=params.get('manuscript');
+function openNamedEntry(params,fromHistory=false){
+  const target=params.get('work'),shelf=params.get('manuscript');
   if(params.get('panel')==='visitors'){
     const index=routes.findIndex(route=>route.id===params.get('hall'));
     if(index>=0)hallway(index);
@@ -295,41 +410,87 @@ function openNamedEntry(){
     return;
   }
   const structural=works.find(w=>w.id===params.get('structure'));
-  if(structural){const rr=routes.findIndex(h=>h.id===structural.homeHall);move(rr,routes[rr].scenes.findIndex(w=>!w.crossPeriod&&w.id===structural.id),!caveById.has(structural.id));if(caveById.has(structural.id))draw(false);structure(structural,{initialMedia:params.get('media')});return;}
+  if(structural){const rr=routes.findIndex(h=>h.id===structural.homeHall);if(fromHistory&&caveById.has(structural.id))hall?.enterCave(structural.id,0);move(rr,routes[rr].scenes.findIndex(w=>!w.crossPeriod&&w.id===structural.id),!caveById.has(structural.id));if(caveById.has(structural.id))draw(false);structure(structural,{initialMedia:params.get('media')});return;}
   if(params.has('experiences')){experiences.directory();return;}
   const immersive=caveById.get(params.get('experience'));
   if(immersive?.experience){const index=parseStage(immersive,params);experiences.begin(immersive,index,immersive.stroll?'entry':'direct');return;}
   const requested=caveById.get(params.get('cave'));
   if(requested){
-    if(!hall){
+    if(hall&&fromHistory){
+      const cue=Math.max(0,requested.details.findIndex(d=>d.id===params.get('detail')));
+      hall.enterCave(requested.id,cue);
+    }else if(!hall){
       r=requested.hallIndex;n=routes[r].scenes.findIndex(s=>s.id===requested.id);draw(true);
       caveUI.dossier(requested);
     }
     return;
   }
   const room=routes.findIndex(h=>h.id===params.get('hall'));
-  if(room>=0)hallway(room);
   if(target){
-    const w=works.find(s=>s.id===target);if(w){const rr=routes.findIndex(h=>h.id===w.homeHall);move(rr,routes[rr].scenes.findIndex(s=>!s.crossPeriod&&s.id===w.id));return;}
+    const w=works.find(s=>s.id===target);
+    if(w){
+      const rr=room>=0&&routes[room].scenes.some(s=>s.id===target)?room:routes.findIndex(h=>h.id===w.homeHall);
+      move(rr,routes[rr].scenes.findIndex(s=>s.id===w.id));return;
+    }
   }
+  if(room>=0&&!params.has('catalog'))hallway(room);
+  else if(params.get('hall')==='atrium'){if(hall)hall.enterAtrium();else hallway(0);}
   if(shelf&&/^FRBNFEAD[0-9]{9}$/.test(shelf)){collection.read(shelf);return;}
   const mode=params.get('catalog');
-  if(['art','register','ms'].includes(mode))collection.open({mode,medium:['scan','record','photo','compare'].includes(params.get('medium'))?params.get('medium'):'',preset:['new','treasures','scripture'].includes(params.get('pick'))?params.get('pick'):'',siteId:sites.find(s=>s.id===params.get('site'))?.id||'',hallId:mode==='art'&&room>=0?routes[room].id:'',q:(params.get('q')||'').slice(0,120)});
+  if(['art','register','ms'].includes(mode))collection.open({mode,medium:['scan','record','photo','compare'].includes(params.get('medium'))?params.get('medium'):'',preset:['new','treasures','scripture'].includes(params.get('pick'))?params.get('pick'):'',siteId:sites.find(s=>s.id===params.get('site'))?.id||'',hallId:mode==='art'&&room>=0?routes[room].id:'',page:Math.max(0,(parseInt(params.get('page'),10)||1)-1),q:(history.state?.shikuSearch??params.get('q')??'').slice(0,120)});
 }
 let finishInitial;
 export const initialScene=new Promise(resolve=>{finishInitial=resolve;});
 export function stopInitialScene(){hall?.destroy();hall=null;}
-export function openInitialView(){if(!sheet.open)openNamedEntry();}
+function restoreAddress(fromHistory){
+  restoring=true;navRevision++;
+  try{
+    const params=new URLSearchParams(location.search);
+    // Only museum landmarks belong in a shareable address.
+    const allowed=['work','hall','structure','media','cave','detail','experience','stage','experiences','catalog','site','pick','medium','q','page','manuscript','panel'];
+    const place=Object.fromEntries(allowed.filter(k=>params.has(k)).map(k=>[k,params.get(k)]));
+    selectedPlace=Object.keys(place).length?place:null;
+    openNamedEntry(params,fromHistory);
+  }finally{restoring=false;}
+  if(!selectedPlace)rememberPlace(galleryPlace(),true);
+}
+export function openInitialView(report){
+  if(navActive)return;
+  reportVisit=report;
+  if(report){
+    awaitingArtwork=true;
+    hall?.observeArtwork(artworkShown);
+    document.addEventListener('load',checkPlate,true);
+    document.addEventListener('visibilitychange',checkPlate);
+  }
+  navActive=true;restoreAddress(false);
+}
+window.addEventListener('popstate',()=>{
+  if(!navActive)return;
+  stopSheet();endDetail();hall?.stop();
+  restoreAddress(true);
+});
 draw(false);
 try{
   const {mountBuilding}=await import('./connected-museum.js');
   const params=new URLSearchParams(location.search),initialCave=caveById.get(params.get('structure'))||caveById.get(params.get('experience'))||caveById.get(params.get('cave'));
+  const initialHall=routes.findIndex(route=>route.id===params.get('hall'));
+  const workTarget=works.find(work=>work.id===(params.get('structure')||params.get('work')));
+  let initialWork=null;
+  if(workTarget&&!initialCave){
+    const hall=initialHall>=0&&routes[initialHall].scenes.some(work=>work.id===workTarget.id)
+      ? initialHall : routes.findIndex(route=>route.id===workTarget.homeHall);
+    if(hall>=0)initialWork={hall,station:routes[hall].scenes.findIndex(work=>work.id===workTarget.id)};
+  }
   const initialDetail=initialCave?Math.max(0,initialCave.details.findIndex(d=>d.id===(params.has('experience')&&initialCave.experience?initialCave.experience.stages[parseStage(initialCave,params)].detail:params.get('detail')))):0;
   if(!sceneActive())throw Error('入馆已取消');
   sceneProgress('building');
-  hall=mountBuilding($('#world'),routes,{onLoadProgress:sceneProgress,onInitialError:()=>finishInitial('failed'),initialVisitor:visitorId,initialCave,initialDetail,startingPose:selfRecord(),
+  hall=mountBuilding($('#world'),routes,{onLoadProgress:sceneProgress,onInitialError:()=>finishInitial('failed'),initialVisitor:visitorId,initialCave,initialDetail,initialWork,initialHall,initialAtrium:params.get('hall')==='atrium',startingPose:selfRecord(),
     onCave:(c,t)=>{currentStop=-1;physicalCave=c;physicalTerrace=t;caveUI.enter(c,t);experiences.enter(c);passage.enter(c);locationLabel();},
-    onCaveDetail:(c,i)=>{currentStop=i;caveUI.updateDetail(c,i);experiences.observe(c,i);passage.observe(c,i);},onStroll:passage.progress,isStrollNarrating:passage.isNarrating,onCaveMarkers:caveUI.projection,onCaveDoor:(id,i)=>caveUI.go(id,i),onCaveError:caveUI.error,
+    onCaveDetail:(c,i)=>{currentStop=i;caveUI.updateDetail(c,i);experiences.observe(c,i);passage.observe(c,i);},onStroll:passage.progress,isStrollNarrating:passage.isNarrating,onCaveMarkers:points=>{
+      caveUI.projection(points);
+      if(awaitingArtwork && physicalCave && points.some(p=>physicalCave.id==='yungang-20' || evidenceAt(physicalCave,p.index)))artworkShown();
+    },onCaveDoor:(id,i)=>caveUI.go(id,i),onCaveError:caveUI.error,
     onManuscript:id=>collection.read(id),onReady:()=>{sceneReady=true;panels.refreshVisitor();finishInitial('ready');},onSelect:s=>move(s.hallIndex,s.index,false),onNear:setNear,onZone:locationChanged,onJourney:journey,onPosition:positionChanged,onVisitorPose:p=>presence.move(p),onView:viewUI});
   observeVisit(applyPresence);
   panels.refreshVisitor();
@@ -337,10 +498,7 @@ try{
 
 }catch(err){
   if(sceneActive()&&err.name==='WebGLUnavailable'){
-    sceneReady=true;webglUnavailable=true;document.querySelector('[data-action=intoEx]').textContent='读此窟窟志 ↗';
-    $('#walk-link').hidden=true;$('#live-plan').hidden=true;$('#cave-passage').hidden=true;
-    $('#world').append(el('p','fallback','此设备未能启动三维展馆。可通过「时代展馆」选作品和阅读故事。'));
-    console.warn('三维建筑不可用',err);observeVisit(applyPresence);draw(true);finishInitial('catalogue');
+    finishInitial('catalogue');
   }else{
     finishInitial('failed');
   }

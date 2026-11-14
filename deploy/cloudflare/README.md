@@ -67,3 +67,30 @@ SQLite DO 另有最长 30 天的 PITR。恢复房间数据会回退访客、候�
 ## 满员与费用
 
 50 是席位数，不是请求限额。按当前客户端移动时最快约每 120 毫秒上送一次估算，50 人持续走动 10 分钟的理论上界约为 25 万次位置请求，另有心跳、排队和静态请求。此为预算情景，不是实测流量或账单。NDJSON 保持连接时房间可能持续活跃，需分别核对 Workers 请求、DO 请求、运行时长与 SQLite 读写额度；未看到账户套餐前不能承诺零费用。上线前确认预算、告警阈值和负责人，观察实际访问后再调节上送频率。参见[Workers 限额](https://developers.cloudflare.com/workers/platform/limits/)与[Durable Objects 计费](https://developers.cloudflare.com/durable-objects/platform/pricing/)。
+
+## 参观质量与隔离负载验证
+
+Workers Logs 中筛选结构化事件 `kind=visit_metric`，按 `version`、`entry`、`device` 分组。分别看 `submitted → admitted` 和 `admitted → ready`，并列 `queued`、`cancelled`、`failed`。ready、artwork（首次呈现展品）和 audio_played（首次实际播放普通话讲解）的耗时区间从取得席位起算。每次参观后两项至多各计一次，播放失败不计入。比较同一时间窗口、同类样本的阶段计数；跨窗口、拒绝统计、浏览器中断或网络故障会造成遗漏。指标表达参观尝试次数。不要把估算当作独立访客数或逐人追踪。配置只保留自定义日志，关闭逐请求日志和追踪。[参观隐私](../../privacy.html)
+
+### 公网定时检查
+
+主库的 GitHub Actions 在 UTC 每小时第 23 分钟安排一次公网检查。也可在 **Actions → Public availability → Run workflow** 手动启动，并填写期望的 Worker Version ID。检查入口遮罩与登记控件、线上版本、50 席房间摘要、图册、完整 WebP 和普通话音频的 Range 响应。脚本只发 GET，无需 Cookie 或席位。每项失败可重试一次；Actions 运行摘要列出耗时和尝试次数。[定时工作流](../../.github/workflows/public-availability.yml) · [公网检查脚本](../../scripts/check-public-availability.mjs)
+
+### 匿名入馆质量阈值
+
+在 Workers Logs 选定 Worker `shiku` 和一个已经结束的时间窗口，筛选自定义事件 `kind=visit_metric`，将明细导出到维护者本机的私有目录。建议从一个完整自然日开始，隔开仍在排队或载入的时段。每次读一份完整的 JSON 或 JSONL 导出。脚本兼容结构化事件、`source` 包装、`result.events` 和 Tail 中的 `Logs[].Message[]`。导出若有分页，应先核对总记录数、补齐各页并去掉重叠。报告仅列版本、入口类型、设备类别和聚合数值。
+
+```sh
+node scripts/check-visit-metrics.mjs /path/to/completed-window.jsonl
+node --test scripts/check-visit-metrics.test.mjs
+```
+
+各组分别以本时间窗口的 `submitted` 次数为分母。默认每组至少 30 次提交才判断；`ready / submitted` 低于 90%，或明确的场景载入超时 `timeout / submitted` 高于 5%，其中任何一项都触发 `ALERT`。维护者可通过 `SHIKU_MIN_SAMPLE`、`SHIKU_MIN_READY_RATE`、`SHIKU_MAX_TIMEOUT_RATE` 调整阈值，两个比率用 0 至 1 的小数。达到 180 秒载入时限才会记作 `timeout`；取消、普通失败、就绪对同一次提交流程互斥。报告也列出首次成功呈现展品 `artwork` 与普通话实际开始播放 `audio_played` 的次数。
+
+`unresolvedBalance` 是提交数减去本窗口四种终态数。席位尚在等待、访客关闭浏览器、匿名上报丢失和窗口边界都可能影响它。这个差额不能推断具体访客的去向。若终态数大于提交数，该组为 `INCONCLUSIVE`，请扩大观察窗口后重算；低样本显示 `INSUFFICIENT`。旧日志缺少明确超时事件时超时率显示 `null`。没有任何满足条件的提交时，检查不会当作通过。
+
+退出码 `0` 表示所有观测组均达标，`1` 表示至少一组触发阈值，`2` 表示输入或配置错误，`3` 表示样本、窗口或日志协议不足以完整判断。运维可以将退出码 `1` 接入现有通知渠道，用下一个独立完整窗口的结果判断是否恢复。仓库提供本地判定工具和公网 GET 定时工作流；Cloudflare 生产指标阈值和通知渠道需由维护者在实际账号中配置并确认。[离线检查](../../scripts/check-visit-metrics.mjs) · [告警与恢复的模拟测试](../../scripts/check-visit-metrics.test.mjs)
+
+### 隔离负载验证
+
+运行 `node scripts/check-room-load.mjs` 会启动仅限本机回环地址的新 Node 房间，50 个访客持续移动 10 分钟，另外两人候位，中途验证队首补位，最后核对所有席位释放。输出采样对端位置传播延迟和应用消息数。运行 `node scripts/verify-worker-room.mjs` 另测真实 workerd 与同一 SQLite 数据的重启恢复。平台账单、手机画面帧率需在对应环境单独观察。

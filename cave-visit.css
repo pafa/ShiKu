@@ -13,3 +13,14 @@
 .live-plan .mini-terrace{fill:#b5a08148}.live-plan .mini-cave{fill:#a68c6538;stroke:#b9a580;stroke-width:.64}
 @media(pointer:coarse){.cave-pin::after{content:"";position:absolute;inset:-9px}}
 .cave-pin.selected::before{content:"";position:absolute;left:-6px;top:50%;width:36px;height:36px;transform:translateY(-50%);border:1px dashed #f2deb69c;border-radius:50%;pointer-events:none}.cave-pin.selected span{margin-left:10px}
+
+.cave-pin-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cave-pin-leaders line{stroke:#ead9b5;stroke-width:1.5;stroke-dasharray:3 3}
+@media(pointer:coarse),(max-width:700px){
+  #cave-marks .cave-pin{width:44px;height:44px;transform:translate(-50%,-50%);justify-content:center}
+  #cave-marks .cave-pin span,#cave-marks .cave-pin::after,#cave-marks .cave-pin::before{display:none}
+  #cave-marks .cave-pin.selected i{outline:1px dashed #f2deb6;outline-offset:4px}
+  #cave-stops{flex-wrap:wrap}
+  #cave-reading{max-height:calc(100dvh - 160px);overflow:auto}
+  #cave-stops button{min-width:32px;min-height:32px}
+}

@@ -17,6 +17,7 @@
     <p id="cover-caption" role="status" aria-live="polite">正在展开石窟全景。</p>
     <progress id="cover-progress" max="100" value="0" aria-label="展馆准备进度"></progress>
     <div class="cover-meta"><span id="cover-step">迎宾全景</span><span id="cover-count" aria-hidden="true"></span></div>
+    <button id="cover-cancel" type="button" hidden>取消入馆</button>
     <div id="cover-recovery" hidden><a href="" id="cover-retry">重新加载</a><a href="exhibition-guide.html">阅读展览图册 ↗</a></div>
     <p class="cover-static-help">没有开始加载？<a href="">重新打开</a>，或<a href="exhibition-guide.html">阅读展览图册</a>。</p>
     <noscript><p>三维展馆需要 JavaScript。也可以直接<a href="exhibition-guide.html">阅读展览图册</a>。</p></noscript>
@@ -33,6 +34,7 @@
     <h1 id="arrival-title">石窟</h1>
     <p>走进崖壁之间，近看壁画与造像。</p>
     <button id="open-registration" class="arrival-enter" type="button" aria-haspopup="dialog">留名入馆<span aria-hidden="true">⟶</span></button>
+    <a class="arrival-album" href="exhibition-guide.html">浏览展览图册 ↗</a>
   </section>
   <footer class="arrival-sites" aria-label="馆内四处遗址">
     <span><small>敦煌</small>莫高窟</span><i aria-hidden="true"></i><span><small>天水</small>麦积山石窟</span>
@@ -41,7 +43,7 @@
   <dialog id="gate-guide" class="entrance-dialog note-dialog" aria-labelledby="gate-guide-title">
     <button type="button" class="entrance-close" aria-label="关闭参观说明">×</button>
     <h2 id="gate-guide-title">参观说明</h2>
-    <p>留名并选好形象后，你会从中庭开始参观。点击或轻触地面行走，拖动画面环顾；使用键盘时，也可按方向键或 WASD 移动。</p>
+    <p>留名后会从九座展厅之一开始，直达链接会带你到指定展品或窟室。点击或轻触地面行走，拖动画面环顾；使用键盘时，也可按方向键或 WASD 移动。在画布中按 I、K 抬头低头，J、L 左右环顾，R 回正视角。</p>
     <p>打开「访客地图」可找到同行者。走近展品或窟室里的观察点，可以读到相应的故事。</p>
     <div class="guide-image-note"><b>关于首页画面</b>首页全景为 AI 生成的艺术合成，以四大石窟的造像、崖壁和栈道为灵感。馆内展品另附相应的实物影像与资料出处。<a id="public-credits" href="assets/credits.html" hidden>展馆素材与署名 ↗</a></div>
   </dialog>
@@ -49,16 +51,17 @@
     <button type="button" class="entrance-close" aria-label="返回首页">×</button>
     <form id="guest-form">
       <h2 id="gate-title" tabindex="-1">入馆留名</h2>
-      <p class="gate-intro">请用昵称。通常会从九座展厅中的一处开始，洞窟直达链接会带你到指定地点。同馆访客能看到你的名字、位置与近期轨迹。</p>
+      <p class="gate-intro">请用昵称。通常会从九座展厅中的一处开始，洞窟直达链接会带你到指定地点。同馆访客能看到你的名字、位置与近期轨迹。<a href="privacy.html" target="_blank" rel="noopener">参观隐私说明 ↗</a></p>
       <label for="guest-name" class="field-label">访客名字</label>
       <div class="name-line"><input id="guest-name" name="nickname" autocomplete="nickname" autocapitalize="off" spellcheck="false" placeholder="为自己取个名字" required><button id="suggest-name" type="button">换个名字 <span aria-hidden="true">⟳</span></button></div>
       <fieldset class="gate-avatars"><legend>选择形象 <span id="chosen-look"></span></legend><button type="button" id="inspect-look" aria-haspopup="dialog">近看人物 ↗</button><div id="guest-looks"></div></fieldset>
       <button id="join-room" type="submit">进入展馆<span aria-hidden="true">⟶</span></button>
+      <p id="graphics-help" hidden>当前设备无法打开三维画面。<a href="exhibition-guide.html">免留名阅读展览图册 ↗</a></p>
       <p id="gate-message" role="status" aria-live="polite"></p>
     </form>
     <section id="gate-queue" hidden aria-labelledby="queue-title">
       <h2 id="queue-title" tabindex="-1">等候入馆</h2>
-      <p class="queue-intro">请保持本页打开，轮到你时会自动入馆。</p>
+      <p class="queue-intro">请保持本页打开，轮到你时会自动入馆。<a href="exhibition-guide.html" target="_blank" rel="noopener">另开图册，保留排位 ↗</a></p>
       <div class="queue-ticket">
         <div class="queue-ticket-head">
           <strong id="queue-name"></strong>
@@ -77,7 +80,7 @@
 </main>
 <main id="museum" hidden inert>
 <div id="world" aria-label="三维漫游展厅"></div><div class="shade"></div>
-<header class="mast"><button class="brand" data-action="home" aria-label="石窟首页">石窟</button><span class="byline">中国石窟文化遗产探索</span><nav class="menu" aria-label="主导航"><button data-action="routes">时代展馆</button><button class="experience-nav" data-action="experiences">体验馆</button><button data-action="collection">馆藏总目</button><button data-action="map">访客地图</button><button data-action="person" aria-haspopup="dialog" aria-controls="sheet">我的访客</button></nav></header>
+<header class="mast"><button class="brand" data-action="home" aria-label="返回北魏馆">石窟</button><span class="byline">中国石窟文化遗产探索</span><nav class="menu" aria-label="主导航"><button data-action="routes">时代展馆</button><button class="experience-nav" data-action="experiences">体验馆</button><button data-action="collection">馆藏总目</button><button data-action="map">访客地图</button><button data-action="person" aria-haspopup="dialog" aria-controls="sheet">我的访客</button></nav></header>
 
 <section id="trail" class="trail" aria-label="本馆策展主线" hidden>
 <div class="trail-head"><span class="trail-seal" aria-hidden="true">展</span><span class="trail-room"></span><button data-trail="fold" type="button" aria-label="收起策展主线">−</button></div>

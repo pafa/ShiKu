@@ -7,7 +7,7 @@ const name=c=>c.spaceName||c.work.siteName+' '+c.work.number;
 const short=c=>c.spaceName||c.work.siteName.replace('石窟','').replace('莫高窟','莫高')+' '+c.work.number;
 const button=(title,run,cls='')=>{const b=document.createElement('button');b.className=cls;b.type='button';b.textContent=title;b.onclick=run;return b;};
 const pub=(label,url)=>{const a=document.createElement('a');a.className='source';a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=label+' ↗';return a;};
-export function caveVisit({world,modal,closeSheet,el,exhibit,trail,onDeparture}){
+export function caveVisit({world,modal,closeSheet,el,exhibit,trail,onDeparture,onLocation}){
   const $=s=>document.querySelector(s);
   const hud=$('#cave-reading'),marks=$('#cave-marks'),trip=$('#cave-trip'),door=$('#cave-passage');
   let zone=0,active=null,detail=-1,tripInfo=null,visited=new Set(),pinButtons=[],folded=false,token=0,apron=-1;
@@ -29,12 +29,12 @@ export function caveVisit({world,modal,closeSheet,el,exhibit,trail,onDeparture})
         btn.append(el('i','',String(i+1).padStart(2,'0')),el('span','',d.title));btn.hidden=true;marks.append(btn);return btn;
       });
     }
-    revealGallery();render();
+    revealGallery();render();onLocation();
   }
   function updateDetail(c,index){
     if(c?.id!==active?.id)return;
     if(index>=0)visited.add(c.id+'/'+index);
-    if(detail!==index){detail=index;folded=false;}render();
+    if(detail!==index){detail=index;folded=false;onLocation();}render();
   }
   function render(){
     if(!active)return;
@@ -55,12 +55,54 @@ export function caveVisit({world,modal,closeSheet,el,exhibit,trail,onDeparture})
     updateRouteButton();
     pinButtons.forEach((b,i)=>b.classList.toggle('selected',i===detail));
   }
+  const smallTouch=matchMedia('(pointer:coarse), (max-width:700px)');
+  const obstructions=['.mast','#walk-companion','#cave-reading','#stroll-stick','#cave-trip','.bottom']
+    .map(selector=>document.querySelector(selector));
+  // A displaced number still points at its original place on the photograph.
+  const ns='http://www.w3.org/2000/svg',leaders=document.createElementNS(ns,'svg');
+  leaders.classList.add('cave-pin-leaders');leaders.setAttribute('aria-hidden','true');
+  function avoidPanels(points){
+    const area=marks.getBoundingClientRect(),radius=22,pad=3;
+    if(!area.width||!area.height)return points;
+    const occupied=obstructions.map(node=>node.getBoundingClientRect()).filter(rect=>rect.width&&rect.height);
+    // Small joystick, independently clickable markers and story panels each need their own tap area.
+    const layout=[];
+    function fits(x,y){
+      return x>=radius+pad&&x<=area.width-radius-pad&&y>=radius+pad&&y<=area.height-radius-pad &&
+        !occupied.some(b=>x+area.left+radius>b.left-pad&&x+area.left-radius<b.right+pad&&y+area.top+radius>b.top-pad&&y+area.top-radius<b.bottom+pad) &&
+        !layout.some(p=>Math.hypot(x-p.px,y-p.py)<2*radius+pad);
+    }
+    for(const point of points){
+      const x=point.x*area.width,y=point.y*area.height;
+      let px=x,py=y;
+      if(!fits(x,y)){
+        let best=Infinity;
+        for(let sy=radius+pad;sy<=area.height-radius-pad;sy+=radius){
+          for(let sx=radius+pad;sx<=area.width-radius-pad;sx+=radius){
+            const distance=(sx-x)**2+(sy-y)**2;
+            if(distance<best&&fits(sx,sy)){best=distance;px=sx;py=sy;}
+          }
+        }
+        if(!Number.isFinite(best))continue;
+      }
+      layout.push({...point,px,py,x:px/area.width,y:py/area.height,originalX:x,originalY:y});
+    }
+    return layout;
+  }
   function projection(points){
     if(!active)return;
     const focused=points.find(p=>p.index===detail);
     if(focused)hud.dataset.side=focused.x>.52?'left':'right';
     const visible=new Set();
-    for(const p of points){const b=pinButtons[p.index];if(!b)continue;visible.add(p.index);b.style.left=p.x*100+'%';b.style.top=p.y*100+'%';b.hidden=false;}
+    const placed=smallTouch.matches?avoidPanels(points):points;
+    if(leaders.parentNode!==marks)marks.prepend(leaders);
+    leaders.replaceChildren();
+    for(const p of placed){
+      if(p.originalX!==undefined&&(p.px!==p.originalX||p.py!==p.originalY)){
+        const line=document.createElementNS(ns,'line');
+        for(const [key,v] of Object.entries({x1:p.originalX,y1:p.originalY,x2:p.px,y2:p.py}))line.setAttribute(key,String(v));
+        leaders.append(line);
+      }const b=pinButtons[p.index];if(!b)continue;visible.add(p.index);b.style.left=p.x*100+'%';b.style.top=p.y*100+'%';b.hidden=false;}
     pinButtons.forEach((b,i)=>{if(!visible.has(i))b.hidden=true;});
   }
   function updateRouteButton(){

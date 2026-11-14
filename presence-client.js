@@ -1,3 +1,4 @@
+import {museumPoint,roomPoint} from './presence-coordinates.js';
 import {startAdmission,getPendingAdmission} from './admission-client.js';
 export {getPendingAdmission};
 import {legacyVisitorId, resolveVisitorId} from './visitor-roster.js';
@@ -14,9 +15,15 @@ export function createPresence({onSnapshot=()=>{},onStatus=()=>{}}={}) {
   const current=id=>generation===id && !!profile;
   const setStatus=next=>{if(status!==next){status=next;onStatus(next);}};
   const snapshot=()=>onSnapshot({selfId:session?.id??null,visitors:[...guests.values()]});
+  // Apply every movement to the data immediately, but publish only the newest
+  // display state in a burst. Admission and membership changes remain immediate.
+  let movementTimer=null;
+  function publishMovement(){
+    if(movementTimer===null)movementTimer=setTimeout(()=>{movementTimer=null;snapshot();},70);
+  }
   const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   function readGuest(record) {
-    return {...record, avatarId: resolveVisitorId(record.avatarId)};
+    return {...museumPoint(record),trail:(record.trail||[]).map(museumPoint),avatarId:resolveVisitorId(record.avatarId)};
   }
   function apply(event) {
     if(event.type==='pulse')return;
@@ -25,10 +32,11 @@ export function createPresence({onSnapshot=()=>{},onStatus=()=>{}}={}) {
     else if(event.type==='leave')guests.delete(event.id);
     else if(event.type==='update') {
       const p=guests.get(event.id);if(!p)return;
-      const trail=event.point?[...p.trail,event.point].slice(-trailLimit):p.trail;
-      guests.set(event.id,{...p,x:event.x,z:event.z,heading:event.heading,avatarId:resolveVisitorId(event.avatarId),trail});
+      const trail=event.point?[...p.trail,museumPoint(event.point)].slice(-trailLimit):p.trail;
+      guests.set(event.id,{...p,x:event.x,z:museumPoint(event).z,heading:event.heading,avatarId:resolveVisitorId(event.avatarId),trail});
     }else return;
-    snapshot();
+    if(event.type==='update')publishMovement();
+    else {clearTimeout(movementTimer);movementTimer=null;snapshot();}
   }
   async function request(path,body,token,options={}) {
     const headers={'Content-Type':'application/json'};
@@ -68,14 +76,14 @@ export function createPresence({onSnapshot=()=>{},onStatus=()=>{}}={}) {
       }
     });
     admission=pending;
-    const data=await pending.run({...profile,avatarId:legacyVisitorId(profile.avatarId),rosterVersion:2,pose});
+    const data=await pending.run({...profile,avatarId:legacyVisitorId(profile.avatarId),rosterVersion:2,pose:pose?roomPoint(pose):null});
     if(!current(epoch))throw new Error('已取消入馆。');
     admission=null;
     session={id:data.selfId,token:data.token,usesDuet:data.rosterVersion===2};
     streamReady=false;lastStreamFrame=0;lastMapCheck=0;lastMapReply=0;
     trailLimit=data.trailLimit;
     const own=data.visitors.find(v=>v.id===data.selfId);
-    if(!latest&&own)latest={x:own.x,z:own.z,heading:own.heading};
+    if(!latest&&own)latest=museumPoint({x:own.x,z:own.z,heading:own.heading});
     apply({type:'snapshot',visitors:data.visitors});
   }
   // Finite authenticated requests still complete on connections that buffer the
@@ -176,7 +184,7 @@ export function createPresence({onSnapshot=()=>{},onStatus=()=>{}}={}) {
     if(pulse && (checkingMap || Date.now()-Math.max(lastSent,lastMapReply)<8000))return;
     lastSent=Date.now();
     const token=session.token, avatarId=session.usesDuet?profile.avatarId:legacyVisitorId(profile.avatarId);
-    const update={pose:latest,avatarId,teleport};
+    const update={pose:latest?roomPoint(latest):null,avatarId,teleport};
     dirty=false;teleport=false;writing=true;
     try{await request(pulse?'pulse':'update',pulse?{}:update,token);}
     catch(e){
@@ -188,6 +196,7 @@ export function createPresence({onSnapshot=()=>{},onStatus=()=>{}}={}) {
   }
   function clear(beacon=false,keepTicket=false) {
     generation++;
+    clearTimeout(movementTimer);movementTimer=null;
     checkingMap?.controller.abort();checkingMap=null;streamReady=false;
     clearInterval(poll);poll=null;stream?.abort();stream=null;
     const pending=admission;admission=null;

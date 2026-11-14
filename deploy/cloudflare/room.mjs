@@ -28,7 +28,7 @@ function checkedPose(p) {
     throw failure(400,'位置无效。');
   return {x:+p.x.toFixed(3),z:+p.z.toFixed(3),heading:+Math.atan2(Math.sin(p.heading), Math.cos(p.heading)).toFixed(4)};
 }
-async function payload(request) {
+export async function readPayload(request) {
   if(!/^(application\/json|text\/plain)(;|$)/i.test(request.headers.get('Content-Type')||'')) throw failure(415,'请求格式无效。');
   if(Number(request.headers.get('Content-Length'))>3072) throw failure(413,'请求过长。');
   const reader = request.body?.getReader();
@@ -98,8 +98,7 @@ export class MuseumRoom {
   snapshot(legacy) {
     return this.sql.exec('SELECT * FROM registration WHERE admitted IS NOT NULL ORDER BY seq').toArray().map(r=>this.appearance(r,legacy));
   }
-  send(peer,event) {
-    const bytes = encoder.encode(JSON.stringify(event)+'\n');
+  send(peer,bytes) {
     try {
       if(peer.control.desiredSize < bytes.byteLength) { peer.control.error(Error('slow connection'));return false; }
       peer.control.enqueue(bytes);
@@ -112,12 +111,17 @@ export class MuseumRoom {
     if(!this.peers.size && this.heartbeat){clearInterval(this.heartbeat);this.heartbeat=null;}
   }
   broadcast(event) {
-    for(const [id,peer] of this.peers) {
-      let view = event;
-      if(peer.legacy && event.type==='join') view={...event,visitor:{...event.visitor,avatarId:legacyVisitorId(event.visitor.avatarId)}};
-      if(peer.legacy && event.type==='update') view={...event,avatarId:legacyVisitorId(event.avatarId)};
-      if(!this.send(peer,view))this.drop(id,peer);
+    if(!this.peers.size)return;
+    const bytes=encoder.encode(JSON.stringify(event)+'\n');
+    let legacyBytes=bytes;
+    if(event.type==='join' || event.type==='update'){
+      const old=event.type==='join'
+        ? {...event,visitor:{...event.visitor,avatarId:legacyVisitorId(event.visitor.avatarId)}}
+        : {...event,avatarId:legacyVisitorId(event.avatarId)};
+      legacyBytes=encoder.encode(JSON.stringify(old)+'\n');
     }
+    for(const [id,peer] of this.peers)
+      if(!this.send(peer,peer.legacy?legacyBytes:bytes))this.drop(id,peer);
   }
   stream(row,now) {
     this.confirm(row,now);
@@ -128,7 +132,7 @@ export class MuseumRoom {
       start: control => {
         peer.control=control;
         this.peers.set(row.pid,peer);
-        if(!this.send(peer,{type:'snapshot',visitors:this.snapshot(row.legacy)})) this.drop(row.pid,peer);
+        if(!this.send(peer,encoder.encode(JSON.stringify({type:'snapshot',visitors:this.snapshot(row.legacy)})+'\n'))) this.drop(row.pid,peer);
       },
       cancel: () => this.drop(row.pid,peer)
     }, {highWaterMark:1024*1024,size:chunk=>chunk.byteLength});
@@ -273,7 +277,7 @@ export class MuseumRoom {
     try {
       const reading=path==='room'&&request.method==='GET';
       if(!reading && request.method!=='POST')throw failure(405,'请求方法无效。');
-      const body=reading?{}:await payload(request);
+      const body=reading?{}:await readPayload(request);
       const now=Date.now();
       if(now>=this.nextSweep)this.sweep(now);
       let response;

@@ -3,7 +3,7 @@ import {mediaLabel} from './authentic-display.js';
 // Browsers only fetch the fixed Mandarin recordings bundled with the museum.
 const voiceEdition = 'cn-guide-2';
 
-function galleryVoice(change) {
+function galleryVoice(change,onPlayback) {
   const player = new Audio();
   player.preload = 'none';
   let enabled = false, blocked = false, suspended = false;
@@ -72,6 +72,12 @@ function galleryVoice(change) {
     change();
   }
 
+  function progressed() {
+    if (!enabled || suspended || !pointKey || loadedKey!==pointKey || player.paused ||
+        player.muted || !player.volume || player.error || player.currentTime<=0) return;
+    if (onPlayback?.()) player.removeEventListener('timeupdate',progressed);
+  }
+  player.addEventListener('timeupdate',progressed);
   player.addEventListener('error', () => {
     if (loadedKey && player.error) failed();
   });
@@ -84,10 +90,10 @@ const passages={
   'mogao-158':['从东门望向整条佛坛。','沿着卧佛朝佛首一端走，留意枕面渐渐露出的侧边。','从枕边转向南壁，迦叶赶到的场景就在这一端。','沿展陈预留的通道转到佛身后。西壁上的人群分成上下两排。','继续沿西壁向北走。留意画面中不同于弟子的头冠。','沿长壁走向佛足，北壁画着另一群前来吊唁的人。','从佛足旁转过坛角，再回看长衣和双足的起伏。','从坛前转回门边。这一次看的，是进门时背对的东壁。'],
   'longmen-1280':['站在石阶下，把三面龛壁放在同一个视野里。','沿第一段石阶上去。两翼逐渐展开，岩檐上的方孔也更容易辨认。','走过中间的平台，继续登上第二段石阶。','踏上露台向大佛走近，目光从整座龛的轮廓移向佛面。','从佛面向下看到莲座。越靠近，重叠的石瓣越有深度。','向北侧横移，原先并列在大佛身旁的造像逐一分开。','转向北壁。这里的天王和力士，与正壁的弟子、菩萨朝向不同。']
 };
-export function walkCompanion({world,go,closeSheet,read,leave}){
+export function walkCompanion({world,go,closeSheet,read,leave,onPlayback}){
   const host=$('#walk-companion'),museum=$('#museum'),speech=$('#stroll-sound'),legacy=$('#cave-audio');
   let cave=null,detail=-1,state=null,quiet=false,pausedByButton=false,leaving=false;
-  const voice=galleryVoice(soundUI);
+  const voice=galleryVoice(soundUI,onPlayback);
   function soundUI(){
     for (const button of [speech, legacy]) {
       button.setAttribute('aria-pressed', String(voice.enabled()));
@@ -103,14 +109,24 @@ export function walkCompanion({world,go,closeSheet,read,leave}){
     const at=stateHere?.index??-1,walking=mode==='walking',reading=mode==='reading',finished=mode==='complete';
     const shown=reading?stateHere.detailIndex:detail,d=c.details[shown];
     host.dataset.status=mode;host.dataset.cave=c.id;host.dataset.detail=(!walking&&d)?d.id:'';
-    $('#stroll-place').textContent=c.id==='mogao-158'?'敦煌 · 莫高窟第158窟':'洛阳 · 龙门奉先寺';
+    $('#stroll-place').textContent=c.work.siteName+' · '+c.work.number;
     const atLabel=at>=0?pad(at+1)+' / '+pad(stages.length):'';
     $('#stroll-state').textContent=({walking:stateHere?.returning?'环行返程':'行进中',reading:'驻足',paused:'自由驻足',complete:'走读完成',free:'自由行走'})[mode]+(atLabel?'　'+atLabel:'');
-    const title=walking?(stateHere.returning?'沿坛回到东门':(stages[at]?.label||'前往下一处')):finished?(c.id==='mogao-158'?'回到卧佛前的东门':'回望大像龛'):(d?.title||c.stroll.name);
+    const title=walking?(stateHere.returning?'沿坛回到东门':(stages[at]?.label||'前往下一处')):finished?c.stroll.name+' · 走读完成':(d?.title||c.stroll.name);
     const attribution=$('#stroll-attribution');
     const plate=d && !walking && !finished?evidenceAt(c,shown):null;
-    attribution.textContent=!walking&&!finished&&d?(plate?mediaLabel(plate)+' · '+plate.credit:'窟志记载') : '';
-    const body=walking?(stateHere.returning?'循佛坛外侧回到来时的位置。':(passages[c.id]?.[at]||'沿途可以拖动环顾，或用方向键接过脚步。')):finished?(c.id==='mogao-158'?'从佛首、背后的举哀图到佛足，你已经绕回入口。接下来可以自由走看，或沿崖廊回馆。':'从阶下的全景，到近前的面容与衣纹，再到北壁的护法。留在这里自由走看，或沿石阶下行回馆。'):(d?.text||c.stroll.intro);
+    const source=!walking && !finished && d?(plate?.source||d.source):'';
+    const credit=plate?mediaLabel(plate)+' · '+plate.credit:'查阅这一处的原始资料';
+    if(attribution.dataset.source!==source || attribution.dataset.credit!==credit){
+      attribution.replaceChildren();
+      if(source){
+        const link=document.createElement('a');
+        link.href=source;link.target='_blank';link.rel='noopener noreferrer';
+        link.textContent=credit+' ↗';attribution.append(link);
+      }
+      attribution.dataset.source=source;attribution.dataset.credit=credit;
+    }
+    const body=walking?(stateHere.returning?'循佛坛外侧回到来时的位置。':(passages[c.id]?.[at]||stages[at]?.instruction||'沿途可以拖动环顾，或用方向键接过脚步。')):finished?'已经走完'+stages.length+'个驻足点。可以留在这里自由参观，或返回展厅。':(d?.text||c.stroll.intro);
     if($('#stroll-title').textContent!==title)$('#stroll-title').textContent=title;
     if($('#stroll-copy').textContent!==body)$('#stroll-copy').textContent=body;
     const line=$('#stroll-line');if(line.childElementCount!==stages.length){

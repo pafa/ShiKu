@@ -16,3 +16,6 @@
 @media(prefers-reduced-motion:reduce){#cover-progress::-webkit-progress-value{transition:none}}
 
 .cover-static-help{visibility:hidden;animation:cover-help 0s 12s forwards}#visit-cover[data-boot] .cover-static-help{display:none}@keyframes cover-help{to{visibility:visible}}
+
+#cover-cancel{margin-top:14px;padding:8px 12px;border:1px solid #8e806b;background:transparent;color:#e2d9c5;cursor:pointer;font:inherit}
+#cover-cancel[hidden]{display:none}

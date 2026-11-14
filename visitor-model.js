@@ -103,11 +103,25 @@ export function fineVisitorDetail(renderer){
     (navigator.deviceMemory??8)>=6 && matchMedia('(min-width: 760px) and (pointer: fine)').matches;
 }
 
+async function loadFigure(spec, file) {
+  if (file === spec.body && spec.walkingBody && typeof DecompressionStream === 'function') {
+    try {
+      const response = await fetch(spec.walkingBody);
+      if (!response.ok || !response.body) throw Error('漫游模型未载入');
+      const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
+      const bytes = await new Response(stream).arrayBuffer();
+      return await loader.parseAsync(bytes, new URL('.', response.url).href);
+    } catch {
+      // Older caches may have only the original gallery model.
+    }
+  }
+  return loader.loadAsync(file);
+}
 export async function acquireVisitorFigure(spec,detail=false) {
   const file=(detail&&spec.detailBody)||spec.body;
   let entry=sources.get(file);
   if (!entry) {
-    entry={users:0,model:loader.loadAsync(file).then(prepare)};
+    entry={users:0,model:loadFigure(spec,file).then(prepare)};
     sources.set(file,entry);
   }
   entry.users++;

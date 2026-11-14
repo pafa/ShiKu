@@ -26,3 +26,5 @@
 @media(min-width:701px){#sheet[data-sheet=experiences] .exp-index{grid-template-columns:minmax(0,1.5fr) minmax(218px,.85fr)}#sheet[data-sheet=experiences] .exp-index-list{max-height:min(53vh,460px);overflow:auto;scrollbar-width:thin}#sheet[data-sheet=experiences] .exp-index-choice{flex-shrink:0}}
 
 #stroll-attribution{display:block;color:#dbcbac;font:11px/1.5 system-ui,sans-serif;margin-top:5px}#stroll-attribution:empty{display:none}
+
+#stroll-attribution a{color:inherit;text-decoration:underline;text-underline-offset:.19em}

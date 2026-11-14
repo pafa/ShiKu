@@ -124,3 +124,18 @@ dialog{color:var(--ink);background:var(--glass);border:1px solid var(--edge);bor
 #visual-links:empty{display:none}
 #visual-links{padding:4px 16px 8px;font-size:13px}
 #visual-links a{color:#f1cd92;text-underline-offset:3px}
+
+#plate img[hidden],#plate .enlarge[hidden]{display:none}
+#primary-record:not([hidden]){display:grid;justify-items:center;align-content:center;gap:8px;margin:0;min-height:145px}
+.plate-retry{padding:8px 14px;border:1px solid var(--edge);color:var(--gold)}
+@media(pointer:coarse),(max-width:700px){
+  .progressline button{min-height:44px}
+  .progressline [data-action=prev],.progressline [data-action=next]{min-width:44px;flex:none}
+  .progressline #station-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #exhibit .x,.sheet-head .x,#plate .enlarge,#detail .detail-back{min-width:44px;min-height:44px}
+}
+@media(max-width:360px){
+  .mast{padding-inline:9px;gap:5px}
+  .mast .menu{gap:3px}
+  .mast .menu button{padding-inline:2px}
+}

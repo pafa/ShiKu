@@ -10,12 +10,19 @@ function caption(value){if($('cover-caption').textContent!==value)$('cover-capti
 function restartTimer(){
   clearTimeout(timer);timer=setTimeout(()=>{recovery();caption('网络较慢，可以继续等候，也可以重新加载。');},20000);
 }
+$('cover-cancel').addEventListener('click',async ()=>{
+  const leave=releaseSeat;
+  if(!leave)return;
+  releaseSeat=null;mode='cancelled';$('cover-cancel').disabled=true;
+  await Promise.race([Promise.resolve(leave()).catch(()=>{}),new Promise(resolve=>setTimeout(resolve,1000))]);
+  location.reload();
+});
 $('cover-retry').addEventListener('click',e=>{e.preventDefault();Promise.race([Promise.resolve(releaseSeat?.()).catch(()=>{}),new Promise(r=>setTimeout(r,500))]).finally(()=>location.reload());});
 export function reveal(){
-  clearTimeout(timer);mode='done';releaseSeat=null;bar.value=100;cover.hidden=true;
+  $('cover-cancel').hidden=true;clearTimeout(timer);mode='done';releaseSeat=null;bar.value=100;cover.hidden=true;
 }
 export function beginScene(leave){
-  mode='scene';releaseSeat=leave;bar.value=0;cover.hidden=false;$('cover-recovery').hidden=true;
+  $('cover-cancel').hidden=false;mode='scene';releaseSeat=leave;bar.value=0;cover.hidden=false;$('cover-recovery').hidden=true;
   $('cover-title').textContent='步入展馆';$('cover-kicker').textContent='入馆　／　空间准备';
   caption('正在展开通往展厅的步道。');advance(12,'已取得入馆名额','1 / 4');
   cover.focus({preventScroll:true});restartTimer();
@@ -34,11 +41,11 @@ export async function waitForScene(task){
   let deadline;
   try{
     await paint();
-    return await Promise.race([task(),new Promise((_,reject)=>{deadline=setTimeout(()=>reject(Error('载入超时')),180000);})]);
+    return await Promise.race([task(),new Promise((_,reject)=>{deadline=setTimeout(()=>reject(new DOMException('载入超时','SceneTimeout')),180000);})]);
   }finally{clearTimeout(deadline);}
 }
 export function sceneFailure(){
-  mode='failed';clearTimeout(timer);cover.hidden=false;$('cover-title').textContent='暂未能开馆';
+  $('cover-cancel').hidden=true;releaseSeat=null;mode='failed';clearTimeout(timer);cover.hidden=false;$('cover-title').textContent='暂未能开馆';
   caption('部分必要资源没有载入。请检查网络后重试，或先阅读展览图册。');$('cover-step').textContent='加载中断';$('cover-count').textContent='';recovery();$('cover-retry').focus({preventScroll:true});
 }
 export function sceneActive(){return mode==='scene';}

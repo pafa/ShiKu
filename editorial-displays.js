@@ -1,3 +1,4 @@
+import {galleryPreview} from './gallery-previews.js';
 import {exhibitVisual} from './exhibit-visual.js';
 import {evidenceFor} from './object-evidence.js';
 import {manuscriptTables} from './collection-documents.js';
@@ -96,7 +97,7 @@ export function makeEditorialDisplays(plan,hall,sharedImages,manager,invalidate,
     const src=archive?evidenceFor(archive.comparisonWork).images[0]?.src:exhibitVisual(step.work)?.src;
     if(src){
       deferPhoto(cx,cz,()=>{
-        if(!sharedImages.has(src))sharedImages.set(src,sourceLoader.loadAsync(src));
+        if(!sharedImages.has(src))sharedImages.set(src,sourceLoader.loadAsync(galleryPreview(src)));
         sharedImages.get(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=8;const ratio=t.image.width/t.image.height;left.scale.set(Math.min(1,ratio*.84/.86),Math.min(1,.86/(.84*ratio)),1);left.material.map=t;left.material.needsUpdate=true;left.visible=true;invalidate();}).catch(()=>{});
       });
     }

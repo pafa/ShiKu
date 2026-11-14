@@ -9,6 +9,7 @@ import { spawn } from 'node:child_process';
 import { legacyVisitorId, resolveVisitorId } from '../visitor-roster.js';
 import { createAdmission } from './admission.mjs';
 import { chooseGalleryArrival } from './arrival-points.mjs';
+import { visitMetric } from './visit-metric.mjs';
 import { securityHeaders } from './security-headers.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -183,6 +184,11 @@ export function createMuseumServer({disconnectMs=12000,heartbeatMs=6000,staleMs=
       if(req.method!=='POST')throw httpError(405,'请求方法无效。');
       if((publicRequest || req.headers.origin !== undefined) && req.headers.origin !== base)throw httpError(403,'请从展馆页面连接。');
       const body=await readBody(req);
+      if(url.pathname==='/api/visit-metric'){
+        if(req.headers.origin!==base || req.headers.authorization || url.search || !visitMetric(body))
+          throw httpError(400,'指标格式无效。');
+        res.writeHead(204,{'Cache-Control':'no-store'});res.end();return;
+      }
       if(url.pathname==='/api/join'){
         const profile=checkProfile(body.name,body.avatarId);
         const pose=body.pose?checkPose(body.pose):null;

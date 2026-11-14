@@ -2,18 +2,18 @@ import {caveById} from './cave-plan.js';
 import {chamberPhotos,evidenceAt} from './chamber-evidence.js';
 import {halls} from './dynasty-exhibition.js';
 
-export const experienceOrder=['mogao-158','longmen-1280','mogao-407','yungang-12','longmen-712','maijishan-133','mogao-320','mogao-bl-or8210-p2'];
+export const experienceOrder=['mogao-158','longmen-1280','yungang-20','maijishan-133','mogao-407','yungang-12','longmen-712','mogao-320','mogao-bl-or8210-p2'];
 const programs = {
   'longmen-712':['莲花洞的窟顶与正壁','莲花与造像原址摄影'],
   'mogao-407':['三兔共耳','藻井与壁画细读'],
   'mogao-320':['从窟顶读到净土变','壁画与历史摄影'],
   'yungang-12':['石壁上的乐队','原址乐伎雕刻'],
-  'maijishan-133':['万佛洞的石刻故事','石碑与造像旧影']
+  'maijishan-133':['万佛洞的石刻故事','碑刻摄影与原址著录']
 };
 const programName=c=>programs[c.id]?.[0]||c.experience.title;
 const medium=c=>programs[c.id]?.[1]||c.experience.medium;
 const number=i=>String(i+1).padStart(2,'0');
-export function experienceRooms({el,action,modal,closeSheet,world,walk,read,eyes,startPassage}){
+export function experienceRooms({el,action,modal,closeSheet,world,walk,read,eyes,startPassage,onStage}){
   const museum=document.querySelector('#museum'),dock=document.querySelector('#experience-tools'),restore=document.querySelector('#return-observation');
   let lastDetail=-1,active=null,selected=-1,range=.5,previousEyes=false,walking=null,silent=false,applied=null;
   const setSilent=value=>{silent=!!value;museum.dataset.quiet=String(silent);restore.hidden=!silent;
@@ -59,7 +59,8 @@ export function experienceRooms({el,action,modal,closeSheet,world,walk,read,eyes
     apply();paint();
     if(position==='direct'){world()?.enterCave(c.id,detail);walking=null;}
     else if(position==='here'||(already&&position!=='walkAgain')){world()?.lookAtDetail(detail);walking=null;}
-    else if(!walk(c,detail,null,()=>{walking=null;if(active?.id===c.id){if(lastDetail>=0)observe(c,lastDetail);else {end();paint();}}}))walking=null;
+    else if(!walk(c,detail,()=>onStage(c,i),()=>{walking=null;if(active?.id===c.id){if(lastDetail>=0)observe(c,lastDetail);else {end();paint();}}}))walking=null;
+    if(!walking)onStage(c,i);
   }
   function begin(c,i=0,how='walk'){
     if(!c)return;if(!world()){read(c);return;}
@@ -82,7 +83,7 @@ export function experienceRooms({el,action,modal,closeSheet,world,walk,read,eyes
     const x=c.experience,d=c.details[index];
     if(x.stages[selected].detail===d.id)return;
     const i=x.stages.findIndex(s=>s.detail===d.id);
-    if(i>=0){selected=i;range=x.stages[i].value??range;apply();paint();}
+    if(i>=0){selected=i;range=x.stages[i].value??range;apply();paint();onStage(c,i);}
     else {end();paint();}
   }
   function directory(initial=experienceOrder[0]){

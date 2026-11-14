@@ -1,3 +1,4 @@
+import {museumPoint,roomPoint} from '../presence-coordinates.js';
 import assert from 'node:assert/strict';
 import {galleryArrivals,chooseGalleryArrival} from '../server/arrival-points.mjs';
 import {makeWalker} from '../walking.js';
@@ -10,12 +11,22 @@ const furniture=[{x0:-1,x1:1,z0:-14,z1:-13}];
 const floor=buildingFloor(furniture),walker=makeWalker(floor);
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
 // The entry aisle stays open to the door and faces deeper into its gallery.
-assert.equal(new Set(galleryArrivals.map(roomAt)).size,9);
-for(const arrival of galleryArrivals){
+assert.equal(new Set(galleryArrivals.map(museumPoint).map(roomAt)).size,9);
+for(const arrival of galleryArrivals.map(museumPoint)){
   const gallery=plans[roomAt(arrival)];
   assert(gallery&&floor.free(arrival)&&floor.clear(arrival,threshold(gallery,1.5)));
   assert(Math.sign(-Math.sin(arrival.heading))===gallery.side);
 }
+// An old and a new client in an original hall stand at identical offsets
+// from its doorway. All current rooms, including the extended wings, round-trip.
+const oldRows=[0,-70.575,-154.525,-238.725,-280.225];
+for(const p of plans){
+  for(const offset of [-p.halfDepth,0,p.halfDepth]){
+    const local= museumPoint({z:oldRows[Math.floor(p.index/2)]+offset});
+    assert(Math.abs(local.z-p.centerZ-offset)<.00001,'mixed-version gallery '+p.index);
+  }
+}
+for(let z=-530;z<105;z+=.7)assert(Math.abs(museumPoint(roomPoint({z})).z-z)<.00001);
 const choices=new Set(Array.from({length:40},()=>chooseGalleryArrival([])));
 assert(choices.size>1,'an empty museum should not always use one position');
 for(const fps of [5,8,10,15,30,60,120]){

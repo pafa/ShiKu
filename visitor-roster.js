@@ -4,7 +4,7 @@ function scan(id,gender,label,description,reference,edition='visitors-fitted'){
   const folder='assets/'+edition+'/'+id+'/';
   const referenceImage = 'assets/visitors-natural/'+id+'/reference.webp';
   return {id,gender,label,description,profile:(gender==='female'?'女访客':'男访客')+' · 真人原型',
-    body:folder+'gallery.glb',detailBody:folder+'portrait.glb',portrait:'assets/visitors-fitted/'+id+'/card.webp',
+    body:folder+'gallery.glb',walkingBody:folder+'walking.bin',detailBody:folder+'portrait.glb',portrait:'assets/visitors-fitted/'+id+'/card.webp',
     reference:hasDisplayMedia(referenceImage) ? {image:referenceImage,...reference} : null};
 }
 export const VISITORS=[

@@ -53,7 +53,8 @@ special['mogao-158']=nirvanaDetails;
 // A new photograph of the same site may show a completely different wall.
 const catalogueDetails = {
  'yungang-20':['assets/photo/yungang-20.jpg','robe','east','fracture'],
- 'mogao-257':['assets/west/mg257.jpg','deer'],
+ 'mogao-146':['assets/wall-research-mogao/146-stein-healing.webp','layers'],
+ 'mogao-55':['assets/wall-research-mogao/055-stein-altar.webp','assembly'],
  'mogao-401':['assets/west/mg401.jpg','donor'],
  'longmen-543':['assets/east/wanfo.jpg','lotus-tree'],
  'mogao-217':['assets/west/mg217.jpg','paradise'],
@@ -63,7 +64,7 @@ const catalogueDetails = {
  'maijishan-13':['assets/west/mj13.jpg','face','flanks','silhouette'],
  'maijishan-165':['assets/west/mj165.png','donor'],
  'maijishan-120':['assets/west/mj120.png','monk'],
- 'maijishan-133':['assets/west/mj133.jpg','stele'],
+ 'maijishan-133':['assets/west/mj133.jpg','lower-niche'],
  'mogao-407':['assets/experience/mogao/407-hare.webp','hares'],
  'yungang-3':['assets/east/y3.jpg','triad'],
  'mogao-98':['assets/collection/mogao/cave-98.webp','family']
@@ -86,6 +87,11 @@ export function evidenceAt(c,index){
   const precise=special[c.id]?.[detail.id];
   if(precise && hasDisplayMedia(precise.src))return precise;
   const record=evidenceFor(c.work),rule=catalogueDetails[c.id];
+  if(detail.frame){
+    // A doorway guardian is catalogued separately from the Binyang chamber it belongs to.
+    const photos=c.id==='longmen-140'?[...record.images,...evidenceFor('longmen-140-guardian').images]:record.images;
+    return photos.find(image=>image.src===detail.frame && !image.relation)||null;
+  }
   const feature=(record.images||[]).find(image=>!image.relation && image.details?.includes(detail.id));
   if(feature)return feature;
   if(c.id==='mogao-285'&&detail.id==='dated')return record.images.find(p=>p.src.endsWith('285-yu-4a.webp'))||null;
@@ -95,7 +101,7 @@ export function evidenceAt(c,index){
   return null;
 }
 export function chamberPhotos(c){
-  const photos=[...(c.id==='mogao-158'?nirvanaEvidence.images:[]),...Object.values(special[c.id]||{}),...evidenceFor(c.work).images];
+  const photos=[...(c.id==='mogao-158'?nirvanaEvidence.images:[]),...Object.values(special[c.id]||{}),...evidenceFor(c.work).images,...c.details.map((d,i)=>d.frame && evidenceAt(c,i))];
   if(c.id==='longmen-1280')photos.push(feng.south);
   return [...new Map(photos.filter(image=>image && !image.relation && hasDisplayMedia(image.src)).map(image=>[image.src,image])).values()];
 }

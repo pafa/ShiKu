@@ -24,7 +24,7 @@ export function workForDisplay(raw) {
     ...raw,
     photo, evidence, visual:exhibitVisual(raw,evidence), image: photo?.src, credit: photo ? displayCredit(photo) : null,
     alt: photo?.caption, imageNote: photo?.caption, studyPlate: null, studyPlateNote: null, studyPlateAlt: null, diagram: null,
-    hotspots: photo?.originalFrame && (photo.coordinateSource || photo.src) === raw.image ? raw.hotspots || [] : []
+    hotspots: photo?.hotspots ?? (photo?.originalFrame && (photo.coordinateSource || photo.src) === raw.image ? raw.hotspots || [] : [])
   };
   presented.set(raw, work);
   presented.set(work, work);
