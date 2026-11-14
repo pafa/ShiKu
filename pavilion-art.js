@@ -1,3 +1,4 @@
+import {galleryPreview} from './gallery-previews.js';
 // The original document stays flat and colour managed. Surrounds, labels and
 // scroll rollers are independent three-dimensional, contemporary museum fittings.
 import * as THREE from 'three';
@@ -124,7 +125,7 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate,d
       image.userData.originalPhoto=src;prints.set(index,image);
       deferPhoto(x,z,()=>{
         if(!sharedImages.has(src)){
-          const loading=new THREE.TextureLoader(manager).loadAsync(src).then(t=>{
+          const loading=new THREE.TextureLoader(manager).loadAsync(galleryPreview(src)).then(t=>{
             t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t;
           });
           sharedImages.set(src,loading);

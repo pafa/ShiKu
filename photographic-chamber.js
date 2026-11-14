@@ -1,3 +1,4 @@
+import {galleryPreview} from './gallery-previews.js';
 // The display furniture belongs to the museum. The illuminated faces carry
 // complete, colour-managed photographs; their only transform is uniform scaling.
 import * as T from 'three';
@@ -34,9 +35,12 @@ function architecture(c,ctx,root,swatch){
   const shade=material('#363a34');
   const luminous=new T.MeshBasicMaterial({color:'#e4d6b7',toneMapped:false});
   const parts=new Map();
-  function box(mat,x,y,z,w,h,d){
+  function box(mat,x,y,z,w,h,d,tiltX=0,tiltZ=0){
     if(w<=0||h<=0||d<=0)return;
-    const geo=new T.BoxGeometry(w,h,d);geo.translate(x,y,z);
+    const geo=new T.BoxGeometry(w,h,d);
+    if(tiltX)geo.rotateX(tiltX);
+    if(tiltZ)geo.rotateZ(tiltZ);
+    geo.translate(x,y,z);
     if(mat===floor){
       const {position,normal,uv}=geo.attributes;
       for(let i=0;i<uv.count;i++){
@@ -77,14 +81,42 @@ function architecture(c,ctx,root,swatch){
     box(wall,w+.065,h/2,-d/2,.13,h,d);
     box(wall,0,h/2,-d-.065,2*w+.25,h,.13);
     box(shade,0,h+.05,-d/2,2*w+.25,.10,d+.20);
+    if(c.profile==='vault'){
+      // Facets describe the exhibition canopy. No texture extends the photograph.
+      const partsAcross=12,ceilingAt=x=>h-.22*h*(x/w)**2;
+      for(let n=0;n<partsAcross;n++){
+        const x0=-w+2*w*n/partsAcross,x1=-w+2*w*(n+1)/partsAcross;
+        const y0=ceilingAt(x0),y1=ceilingAt(x1);
+        box(wall,(x0+x1)/2,(y0+y1)/2,-d/2,Math.hypot(x1-x0,y1-y0)+.008,.10,d,0,Math.atan2(y1-y0,x1-x0));
+      }
+    }else if(c.profile==='gable'){
+      // Ridge across the room, with a distinguishable front and rear pitch.
+      const rise=h*.24, pitch=Math.atan2(rise,d/2);
+      const length=Math.hypot(d/2,rise);
+      box(wall,0,h-rise/2,-d*.25,c.width+.02,.09,length+.015,pitch);
+      box(wall,0,h-rise/2,-d*.75,c.width+.02,.09,length+.015,-pitch);
+      box(liner,0,h-.078,-d/2,c.width,.09,.15);
+    }else if(c.profile==='passage'){
+      for(const z of [-d*.20,-d*.52,-d*.84]){
+        box(liner,0,h-.20,z,c.width,.36,.23);
+        for(const side of [-1,1])box(metal,side*(w-.06),h*.52,z,.10,h*.96,.15);
+      }
+    }else if(c.profile==='tall'){
+      for(const side of [-1,1]){
+        box(liner,side*(w-.13),h*.80,-d/2,.25,.21,d);
+        box(luminous,side*(w-.26),h*.81,-d/2,.018,.032,d*.93);
+      }
+    }
     const gate=caveDoorWidth(c),jamb=w-gate/2;
     for(const side of [-1,1]){
       box(wall,side*(w-jamb/2),h/2,.055,jamb,h,.11);
       box(liner,side*(w-.012),.19,-d/2,.05,.38,d-.045);
       box(metal,side*(w-.036),.40,-d/2,.022,.016,d-.06);
       // Slim track lights and panel joints identify the room as an exhibition.
-      box(liner,side*(w*.74),h-.065,-d/2,.075,.08,d*.92);
-      box(luminous,side*(w*.74),h-.114,-d/2,.037,.013,d*.89);
+      if(!c.profile){
+        box(liner,side*(w*.74),h-.065,-d/2,.075,.08,d*.92);
+        box(luminous,side*(w*.74),h-.114,-d/2,.037,.013,d*.89);
+      }
       for(let z=-2.4;z>-d+.3;z-=2.4)box(liner,side*(w-.006),h/2,z,.015,h-.13,.014);
     }
     box(liner,0,.19,-d+.012,2*w,.38,.043);
@@ -108,9 +140,10 @@ function addPrint(root,ctx,spec,swatch,c){
   const mount=new T.Group();
   mount.name=image.caption;mount.userData.originalPhoto=image.src;
   mount.position.fromArray(spec.center);mount.rotation.set(...rotations[wall]);
+  if(spec.tilt)mount.rotation.x+=spec.tilt;
   root.add(mount);
   const loader=ctx.loader;
-  return loader.loadAsync(image.src).then(texture=>{
+  return loader.loadAsync(galleryPreview(image.src)).then(texture=>{
     texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=8;
     const ratio=texture.image.width/texture.image.height;
     const wp=Math.min(width,height*ratio),hp=wp/ratio;

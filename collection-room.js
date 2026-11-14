@@ -4,7 +4,7 @@ import {collectionScans} from './collection-scans.js';
 import {workForDisplay,mediaLabel} from './authentic-display.js';
 import {manuscriptTables} from './collection-documents.js';
 import {experienceOrder} from './experience-room.js';
-import {catalog as regionalCatalog} from './collection-extension.js';
+import {buildCaveRegister} from './cave-register.js';
 import {profiles} from './site-profiles.js';
 
 const registerLabels = {
@@ -27,32 +27,16 @@ function normalize(text){return [...String(text??'').normalize('NFKC').toLowerCa
 function subLabel(text){return String(text||'').replace(/^Pelliot chinois\s+/i,'P. ');}
 function words(el,tag,cls,text){const n=document.createElement(tag);n.className=cls;n.textContent=text;el.append(n);return n;}
 
-export function makeCollectionRoom({sites,works,halls,modal,el,action,source,openWork,openExperiences,enterExperience}){
+export function makeCollectionRoom({sites,works,halls,modal,el,action,source,openWork,openExperiences,enterExperience,onLocation,onManuscript}){
   let state={mode:'art',siteId:'',hallId:'',medium:'',q:'',page:0},serial=0;
   const treasures=new Set(['mogao-17','mogao-57','mogao-61','mogao-96','mogao-158','mogao-217','mogao-257','mogao-285','mogao-320','mogao-407','mogao-bl-or8210-p2','mogao-bl-star-atlas','mogao-bm-guide','mogao-328-kneeling','yungang-3','yungang-5','yungang-6','yungang-12','yungang-16','yungang-17','yungang-18','yungang-19','yungang-20','longmen-1280','longmen-543','longmen-712','longmen-140','longmen-1443','maijishan-4','maijishan-44','maijishan-120','maijishan-121','maijishan-127','maijishan-133','maijishan-165']);
-  const unique=new Map();
-  const idFor=row=>{
-    const cave=String(row.number).match(/^第\s*(\d+)\s*窟/);
-    return row.siteId+'/'+(cave?'第'+cave[1]+'窟':String(row.number).replace(/\s/g,''));
-  };
-  for(const record of regionalCatalog){const id=idFor(record);if(!unique.has(id))unique.set(id,{...record,related:[]});}
-  for(const work of works){
-    if(work.siteId==='mogao' && ['经书写本','木刻印本','馆藏文物'].includes(work.objectType)){
-      if(work.findspotCave)unique.get(work.siteId+'/第'+work.findspotCave+'窟')?.related.push(work);
-      continue;
-    }
-    if(work.objectType)continue;
-    const id=idFor(work);
-    if(!unique.has(id))unique.set(id,{siteId:work.siteId,number:work.number,title:work.title,era:work.era,source:work.source,sourceName:work.sourceName,related:[]});
-    unique.get(id).related.push(work);
-  }
   const manuscriptExhibits=new Map(works.filter(w=>w.accession?.startsWith('Pelliot chinois '))
     .map(w=>[w.accession,w]));
-  const register=[...unique.values()];
+  const register=buildCaveRegister(works);
   const labelFor=id=>sites.find(s=>s.id===id)?.name||'';
   const hallFor=id=>halls.find(h=>h.id===id)?.name||'';
   function open(options=null){
-    if(options)state={mode:options.mode||'art',siteId:options.siteId||'',hallId:options.hallId||'',medium:options.medium||'',q:options.q||'',preset:options.preset||'',page:0};
+    if(options)state={mode:options.mode||'art',siteId:options.siteId||'',hallId:options.hallId||'',medium:options.medium||'',q:options.q||'',preset:options.preset||'',page:options.page||0};
     const ticket=++serial;
     modal('馆藏总目','collection',body=>{
       const tabs=el('div','desk-tabs');tabs.setAttribute('aria-label','选择资料类别');
@@ -90,7 +74,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         body.append(picks);
       }
       const controls=el('div','desk-controls'),search=el('input','desk-search');
-      search.type='search';search.setAttribute('aria-label','检索馆藏');
+      search.type='search';search.maxLength=120;search.setAttribute('aria-label','检索馆藏');
       search.placeholder=state.mode==='ms'?'题名、藏号、分类，如 金刚 / 2001':'窟号、作品、朝代或关键词';search.value=state.q;
       controls.append(search);
       function selector(entries,selected,label,change){
@@ -123,7 +107,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
       }
       function draw(){
         const mode=state.mode;for(const b of presets.children)b.setAttribute('aria-pressed',String(b.dataset.key===(state.preset||'')));addProfile();list.replaceChildren();pager.replaceChildren();
-        if(mode==='ms'&&!ms){status.textContent='正在打开本站写本书目…';return;}
+        if(mode==='ms'&&!ms){onLocation(state);status.textContent='正在打开本站写本书目…';return;}
         const entries=mode==='art'?works:mode==='register'?register:ms;
         const query=normalize(state.q);
         let filtered=entries.filter(s=>{
@@ -141,6 +125,9 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
           if(!query)return true;
           const key=mode==='ms'?[s.shelf,subLabel(s.shelf),s.title,s.cn,s.date,...s.subjects,featuredManuscripts.get(s.id)?.title,featuredManuscripts.get(s.id)?.note]:
             [labelFor(s.siteId),s.title,s.number,s.era,s.summary,s.feature,...(s.motifs||[]),s.holding,s.accession,s.canonicalTitle,...(s.aliases||[]),s.sourceName];
+          if(mode==='register'){
+            key.push(s.number.replace('窟','龛'),...s.related.flatMap(work=>[work.number,work.title]));
+          }
           return normalize(key.join(' ')).includes(query);
         });
         if(mode==='art'&&state.preset==='treasures'&&!state.siteId){
@@ -149,7 +136,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         }
         if(mode==='art' && state.preset!=='treasures')filtered.sort((a,b)=>Number(!!workForDisplay(b).photo)-Number(!!workForDisplay(a).photo));
         const size=mode==='art'?12:18,pages=Math.max(1,Math.ceil(filtered.length/size));
-        state.page=Math.max(0,Math.min(state.page,pages-1));
+        state.page=Math.max(0,Math.min(state.page,pages-1));onLocation(state);
         const start=state.page*size;
         status.textContent=(mode==='art'?'展厅作品':mode==='register'?'窟龛条目':'写本编目')+' '+filtered.length.toLocaleString('zh-CN')+' 条'+(filtered.length?'　·　第 '+(start+1)+'–'+Math.min(start+size,filtered.length)+' 条':'');
         list.classList.toggle('art-grid',mode==='art');
@@ -212,6 +199,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
     });
   }
   function manuscript(item){
+    onManuscript(item.id);
     const ticket=++serial;
     const note=featuredManuscripts.get(item.id);
     modal(note?.title || (item.multiPart ? '合编写本' : item.cn) || subLabel(item.shelf),'catalog-file',body=>{

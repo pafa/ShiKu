@@ -1,6 +1,7 @@
 // Audit an unpacked public candidate before creating its remote. No remote service is used.
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {gunzipSync} from 'node:zlib';
 import {createRequire} from 'node:module';
 import {spawn} from 'node:child_process';
 import {once} from 'node:events';
@@ -35,12 +36,13 @@ async function walk(dir) {
     const size=(await stat(path)).size;files.set(k,size);
     if(size>=100*1024**2)problem(k,'达到 GitHub 每文件 100 MiB 限制');
     if(mediaExt.test(e.name))media.add(k);
-    if(docsExt.test(e.name)||!extname(e.name)||e.name.endsWith('.glb')){
+    if(docsExt.test(e.name)||!extname(e.name)||e.name.endsWith('.glb')||e.name==='walking.bin'){
       let value;
-      if(e.name.endsWith('.glb')){
+      if(e.name.endsWith('.glb')||e.name==='walking.bin'){
         // GLB metadata can include original artist workstation paths.
-        const data=await readFile(path);
-        if(data.length<20||data.readUInt32LE(16)!==0x4e4f534a){problem(k,'无效的 GLB 元数据');continue;}
+        const file=await readFile(path);
+        const data=e.name==='walking.bin'?gunzipSync(file,{maxOutputLength:32*1024*1024}):file;
+        if(data.length<20 || data.toString('ascii',0,4)!=='glTF' || data.readUInt32LE(8)!==data.length || data.readUInt32LE(12)>data.length-20 || data.readUInt32LE(16)!==0x4e4f534a){problem(k,'无效的 GLB 元数据');continue;}
         value=data.subarray(20,20+data.readUInt32LE(12)).toString('utf8');
       }else value=await readFile(path,'utf8');
       for(const [reason,re] of checks)if(re.test(value))problem(k,reason);
@@ -104,6 +106,7 @@ async function checkCredits(){
     allowed.set(k,row);
     if(!files.has(k)){problem(k,'已登记但文件缺失');continue;}
     if(!row.license || !row.credit || !row.source || !/^[a-f\d]{64}$/.test(row.sha256||'')){problem(k,'许可、署名、来源或哈希缺失');continue;}
+    if(/^CC(?:0| BY)/i.test(row.license) && !/^https:\/\/creativecommons\.org\//i.test(row.licenseUrl||''))problem(k,'缺少对应 CC 许可链接');
     if(/(?:待核|未核实|仅限研究|非商业|noncommercial|all rights reserved|\bNC\b|unknown)/i.test(row.license))problem(k,'公开范围未确认的授权');
     const digest=createHash('sha256').update(await readFile(join(root,k))).digest('hex');
     if(digest!==row.sha256)problem(k,'与授权清单哈希不符');
@@ -148,6 +151,11 @@ async function runtime(base){
   assert.equal(room.capacity,50);assert.equal(room.occupancy,0);assert.deepEqual(room.lanUrls,[]);
   const sound=await get('assets/walk/voices/mogao-158--threshold.mp3?v=cn-guide-2',{headers:{Range:'bytes=0-255'}});
   assert.equal(sound.status,206);assert.equal(sound.headers.get('content-type'),'audio/mpeg');assert.equal((await sound.arrayBuffer()).byteLength,256);
+  for(const event of ['ready','artwork','audio_played']){
+    assert.equal((await post('visit-metric',{event,device:'desktop',entry:'hall',elapsedMs:318})).status,204);
+    assert.equal((await post('visit-metric',{event,device:'desktop',entry:'hall',elapsedMs:318,work:'private'})).status,400);
+  }
+  assert.equal((await post('visit-metric',{event:'ready',device:'desktop',entry:'hall',elapsedMs:318,name:'测试'})).status,400);
   const joined=await post('join',{name:'验收',avatarId:'qing',rosterVersion:2});
   assert.equal(joined.status,201);const guest=await joined.json();
   assert(guest.visitors.some(x=>x.id===guest.selfId));assert.equal((await post('leave',{},guest.token)).status,200);
@@ -157,13 +165,24 @@ async function runtime(base){
 async function browserAudit(base,allowed) {
   const require=createRequire(import.meta.url);
   const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_BIN||undefined,args:['--no-proxy-server','--disable-background-networking','--enable-webgl','--ignore-gpu-blocklist',...(process.platform==='darwin'?['--use-angle=metal']:[])]});
+  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_BIN||undefined,args:['--no-proxy-server','--disable-background-networking','--enable-webgl','--ignore-gpu-blocklist',...(process.platform==='linux'?['--use-angle=swiftshader','--enable-unsafe-swiftshader']:[]),...(process.platform==='darwin'?['--use-angle=metal']:[])]});
   const assets=new Set();
   try{
     for(const [id,visitor,button] of [['longmen-1280','heng','#stroll-sound'],['mogao-285','qing','#cave-audio']]){
       const ctx=await browser.newContext({viewport:{width:visitor==='qing'?390:1150,height:800},reducedMotion:'reduce',serviceWorkers:'block'});
       try{
-        const page=await ctx.newPage(),runtimeErrors=new Set();
+        const page=await ctx.newPage(),runtimeErrors=new Set(),events=[];
+        page.on('request',req=>{
+          if(new URL(req.url()).pathname==='/api/visit-metric'){
+            const payload=req.postDataJSON();
+            assert.deepEqual(Object.keys(payload).sort(),['device','elapsedMs','entry','event']);
+            events.push(payload.event);
+          }
+        });
+        await page.addInitScript(optOut=>{
+          if(optOut)Object.defineProperty(navigator,'globalPrivacyControl',{value:true});
+          window.rejectFirstSound=true;
+        },visitor==='qing');
         page.setDefaultTimeout(35000);
         await ctx.route('**/*',route=>{
           const url=new URL(route.request().url());
@@ -177,7 +196,7 @@ async function browserAudit(base,allowed) {
           if(r.status()>=400)runtimeErrors.add(r.status()+' '+k);
           if(mediaExt.test(k)){assets.add(k);if(!allowed.has(k))runtimeErrors.add('自动请求未经登记的媒体 '+k);}
         });
-        await page.addInitScript(()=>{const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.testGuide=this;return play.call(this);};});
+        await page.addInitScript(()=>{const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.testGuide=this;if(window.rejectFirstSound){window.rejectFirstSound=false;return Promise.reject(new Error("Playback blocked"));}return play.call(this);};});
         // Keep a required texture pending: the page must not expose half a scene.
         let releaseTexture;
         const pendingTexture=new Promise(resolve=>{releaseTexture=resolve;});
@@ -209,15 +228,32 @@ async function browserAudit(base,allowed) {
 
         await page.locator('#world canvas').first().waitFor();
         await page.locator(button).click();
+        await page.getByRole('button',{name:'重试普通话讲解',exact:true}).filter({visible:true}).first().waitFor();
+        assert(!events.includes('audio_played'),'a rejected play request counted as playback');
+        await page.locator(button).click();
         await page.waitForFunction(()=>window.testGuide?.currentTime>0.3);
+        if(visitor==='heng'){
+          // Successful playback plus a second actual play still reports only once.
+          await page.locator(button).click();
+          await page.locator(button).click();
+          await page.waitForFunction(()=>window.testGuide?.currentTime>0.3);
+        }
         await page.locator(button).click();
         await page.locator(button==='#stroll-sound'?'#stroll-structure':'#cave-structure').click();
-        await page.locator('.evidence-desk').waitFor();await page.keyboard.press('Escape');
+        await page.locator('.evidence-desk').waitFor();
+        await page.waitForFunction(()=>[...document.querySelectorAll('.sd-layer img')].some(image=>image.naturalWidth && image.getClientRects().length));
+        await page.keyboard.press('Escape');
+        if(visitor==='heng'){
+          assert.equal(events.filter(x=>x==='audio_played').length,1,'exactly one completed playback start per visit');
+          assert.equal(events.filter(x=>x==='artwork').length,1,'exactly one first exhibited work per visit');
+        }else assert.deepEqual(events,[],'GPC must suppress all visitor measurements');
         await page.locator('[data-action=person]').click();
         await page.getByRole('button',{name:'离馆',exact:true}).click();await page.locator('#open-registration').waitFor();
         assert.deepEqual([...runtimeErrors],[],id+' 前端回归');
       }finally{await ctx.close();}
     }
+    const {checkVisitInteractions}=await import('./check-visit-interactions.mjs');
+    await checkVisitInteractions(browser,base);
     assert(assets.size>10,'未实际加载足够的 3D 场景及影像');
     return assets.size;
   }finally{await browser.close();}

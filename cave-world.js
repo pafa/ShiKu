@@ -55,13 +55,13 @@ export function buildCaveWorld(scene,textures,manager,invalidate,report){
     }).catch(e=>{slot.retryAt=performance.now()+30000;console.error('窟室载入失败',slot.c.id,e);report?.(slot.c);}).finally(()=>{slot.pending=null;});
     return slot.pending;
   }
-  function warm(point,zone,active){
+  function warm(point,zone,active,opening=false){
     const now=performance.now();
     updateHorizon(point,wings[zone],active);
     for(const t of terraces)t.group.visible=distanceTo(point,t.wing.terrace)<68;
     for(const slot of slots){
       const d=distanceTo(point,slot.c.floorBox);
-      const shouldSee=active?slot.c.id===active.id||d<17:(d<45&&(slot.c.hallIndex===zone||d<26));
+      const shouldSee=opening ? slot.c===active : active?slot.c.id===active.id||d<17:(d<45&&(slot.c.hallIndex===zone||d<26));
       slot.group.visible=shouldSee;
       if(shouldSee){slot.lastSeen=now;prepare(slot);}
     }

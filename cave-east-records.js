@@ -16,6 +16,13 @@ export const records={
   width:26,mouthWidth:25.5,depth:16,height:18,kind:'露天崖前 · 局部摄影测量',orientation:'原窟坐北朝南。面向大像，东侧在右。',sources:[scan,atlas],
   note:'罗迪的实地摄影测量记录主佛、东侧立佛与相连的部分断崖。崖前地面和扫描边缘以外的岩体为参观补景。前壁已坍失，空间保留露天状态。',
   obstacles:[block(-12.7,12.7,-16,-9.2)],
+  experience:{
+   title:'从露天崖口读三佛',medium:'原址采集与崖前步行',cover:'assets/photo/yungang-20.jpg',credits:'./real-viewer/PROVENANCE.md',
+   intro:'从残存的崖缘望向大佛，走到衣缘下方，再移向东侧立佛。沿途所见的凹凸与断面来自第20窟的局部摄影测量。',
+   sourceNote:'罗迪的原址采集保留实测边界。参观地面依据展厅动线设置。',
+   stages:[{label:'抬头看断崖',detail:'fracture',instruction:'沿主佛头顶找到岩壁与天空的分界。'},{label:'沿衣缘走近',detail:'robe',instruction:'顺着肩上的宽衣缘看石面起伏。'},{label:'走向东侧立佛',detail:'east',instruction:'向东移动，辨认立佛与主尊之间的高低。'}]
+  },
+  stroll:{name:'露天大佛与东侧立佛',intro:'从崖缘开始，沿着正面岩壁走到东侧立佛。',path:[[-5.4,-2.5],[-2.6,-5.0],[4.9,-6.0]]},
   details:[
    part('robe','右肩与翻卷的衣缘','主佛右肩袒露，另一肩上的法衣翻出一道宽衣缘。顺着斜向的衣褶，目光会从肩颈落到腹前。若要看石面的起伏，可以在「看原物」中旋转第20窟的局部扫描。',[2.47,5.03,-12.8],[-2.6,-5.0],atlas),
    part('east','留下来的东侧立佛','在崖前的照片里，中央坐佛旁还留着东侧的立佛。原来的三佛组合有两侧相应的造像。如今其中一侧缺失，剩下的坐像和立像仍让人想见最初的排列。',[5.12,5.53,-10.35],[4.9,-6.0],atlas),

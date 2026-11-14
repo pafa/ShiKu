@@ -2,6 +2,8 @@ cff-version: "1.2.0"
 message: "If you use ShiKu in research or teaching, please cite the software and record the commit you used. Credit individual artworks, photographs and models using their catalogue records."
 title: "ShiKu 石窟"
 type: software
+version: "0.2.0"
+date-released: 2026-11-14
 authors:
   - name: "ShiKu"
 repository-code: "https://github.com/pafa/ShiKu"

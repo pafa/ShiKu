@@ -43,8 +43,8 @@ export function mountBuilding(host,halls,events) {
   renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   const canvas=renderer.domElement;canvas.tabIndex=0;
-  canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none;outline:none;cursor:grab';
-  canvas.setAttribute('aria-label','九座相连的展馆、可步入的窟龛和藏经洞双卷书房。点地面或用方向键行走，拖动环顾。走近窟内观察点会展开故事。');
+  canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none;cursor:grab';
+  canvas.setAttribute('aria-label','九座相连的展馆、可步入的窟龛和藏经洞双卷书房。点地面或用方向键行走，拖动或按 I、K、J、L 抬头低头、左右环顾，按 R 回正。走近窟内观察点会展开故事。');
   host.append(canvas);
   const scene=new THREE.Scene();scene.background=new THREE.Color('#c3d0d1');
   scene.fog=new THREE.FogExp2('#c0b9ac',.008);
@@ -139,6 +139,8 @@ export function mountBuilding(host,halls,events) {
   let yaw=-1.38,pitch=.038,arm=4.05,eyes=false,snapCamera=true,drag=null,autoFace=false,destination=null;
   let observationLens=null;
   let thumbForward=0,thumbSide=0;
+  let onVisibleArtwork=null,lastArtCheck=0;
+  const printPoint=new THREE.Vector3(),printNormal=new THREE.Vector3(),printToEye=new THREE.Vector3();
   let zone=-2,near=null,lastMap=0,lastWarmX=Infinity,lastWarmZ=Infinity;
   const getArt=room=>{
     if(!room.art){
@@ -161,13 +163,16 @@ export function mountBuilding(host,halls,events) {
       room.group.visible=Math.abs(room.plan.centerZ-point.z)<40;
       if(!room.group.visible)continue;
       getArt(room);
+      // On arrival the full visible hall uses exhibition-scale plates. Beyond
+      // its walls, leave adjacent galleries and their caves for the walk.
       const plan=room.plan;
-      const inHall=Math.abs(point.x-plan.centerX)<=plan.halfWidth&&Math.abs(point.z-plan.centerZ)<=plan.halfDepth;
-      const doorway=threshold(plan);
-      const arriving=inHall||Math.hypot(point.x-doorway.x,point.z-doorway.z)<=5;
+      const inside=Math.abs(point.x-plan.centerX)<=plan.halfWidth && Math.abs(point.z-plan.centerZ)<=plan.halfDepth;
+      const facingEntrance=Math.hypot(point.x-threshold(plan).x,point.z-plan.centerZ)<=5;
       for(let i=room.pendingPhotos.length-1;i>=0;i--){
         const photo=room.pendingPhotos[i];
-        if(!arriving&&Math.hypot(photo.x-point.x,photo.z-point.z)>18)continue;
+        if(firstView){
+          if(events.initialCave || !(inside||facingEntrance))continue;
+        }else if(!inside&&!facingEntrance&&Math.hypot(photo.x-point.x,photo.z-point.z)>18)continue;
         room.pendingPhotos.splice(i,1);
         photo.load();
       }
@@ -341,12 +346,12 @@ export function mountBuilding(host,halls,events) {
     }
     let found=null,range=3.85;
     if(zone>=0&&!c&&!apron){
-      const art=getArt(rooms[zone]);art.approach?.(p.x,p.z);
+      const art=getArt(rooms[zone]);if(!firstView)art.approach?.(p.x,p.z);
       for(const s of art.stations){const d=Math.hypot(p.x-s.x,p.z-s.z);if(d<range){found=s;range=d;}}
     }
-    if(!paused)focusOriginal(c ? rockWorld.printAt(c,activeDetail) : found && rooms[zone]?.art?.prints.get(found.index));
+    if(!firstView&&!paused)focusOriginal(c ? rockWorld.printAt(c,activeDetail) : found && rooms[zone]?.art?.prints.get(found.index));
     if(near!==found){near=found;events.onNear?.(near);}
-    warmRooms(p);rockWorld.warm(p,zone,activeCave);
+    warmRooms(p);rockWorld.warm(p,zone,activeCave,firstView);
   }
   function cameraArm(p,angle,tilt){
     const {x,z}=p,s=Math.sin(angle),c=Math.cos(angle);
@@ -507,6 +512,18 @@ export function mountBuilding(host,halls,events) {
     if(motion.distance>0||motion.turnDelta!==0)events.onVisitorPose?.(walker.state);
     const attention=guests.update(actorDt,walker.state)??artAttention(walker.state);
     visitor.update({...motion,dt:actorDt,attention});updateZone();updateCamera(dt);renderer.render(scene,camera);
+    if(onVisibleArtwork && near && !activeCave && now-lastArtCheck>160){
+      lastArtCheck=now;
+      const print=rooms[zone]?.art?.prints.get(near.index);
+      // The text fallback is a CanvasTexture. Only a decoded photograph qualifies.
+      if(print?.visible && print.material.map?.image instanceof HTMLImageElement){
+        print.getWorldPosition(printPoint);
+        printNormal.set(0,0,1).transformDirection(print.matrixWorld);
+        const facing=printToEye.subVectors(camera.position,printPoint).dot(printNormal)>0;
+        printPoint.project(camera);
+        if(facing && printPoint.z>-1 && printPoint.z<1 && Math.abs(printPoint.x)<.92 && Math.abs(printPoint.y)<.88)onVisibleArtwork();
+      }
+    }
     if(finalPitch!=null&&!drag){
       const delta=finalPitch-pitch;pitch+=delta*(1-Math.exp(-dt*5.3));
       if(Math.abs(delta)<.006)finalPitch=null;else invalidate();
@@ -521,6 +538,13 @@ export function mountBuilding(host,halls,events) {
     if(paused||e.defaultPrevented||e.ctrlKey||e.metaKey||e.altKey||e.target.closest?.('dialog,input,textarea,select,[contenteditable=true]'))return;
     const k=e.key.toLowerCase();
     if(movement.includes(k)){takeOverStroll();cancelArrival();e.preventDefault();if(!keys.size){autoFace=false;destination=null;events.onJourney?.(null);}keys.add(k);invalidate();}
+    else if(['i','j','k','l','r'].includes(k)&&e.target===canvas){
+      e.preventDefault();takeOverStroll();finalYaw=null;finalPitch=null;requestedDetail=null;autoFace=false;
+      if(k==='r'){yaw=-walker.state.heading;pitch=.016;}
+      if(k==='j'||k==='l')yaw+=(k==='l'?1:-1)*.10;
+      if(k==='i'||k==='k')pitch=clamp(pitch+(k==='i'?1:-1)*.085,activeCave?-1.10:-.60,activeCave?1.55:.80);
+      invalidate();
+    }
     else if(!e.repeat&&k==='v'){stroll.pause();restoreEyes=null;view(!eyes);}
     else if(!e.repeat&&k==='f'&&activeCave){if(activeDetail>=0)lookAtDetail(activeCave,activeDetail);}
     else if(!e.repeat&&k==='f'&&near){stop();events.onSelect?.(near);}
@@ -591,6 +615,12 @@ export function mountBuilding(host,halls,events) {
   if(initialCave){
     enterCave(initialCave.id,events.initialDetail);
     pitch=finalPitch??pitch;finalPitch=null;snapCamera=true;updateCamera(1);
+  }else if(events.initialWork){
+    visit(events.initialWork.hall,events.initialWork.station);
+  }else if(events.initialAtrium){
+    place({x:0,z:0},0);
+  }else if(events.initialHall>=0){
+    enter(events.initialHall);
   }else if(events.startingPose){
     place(events.startingPose,-events.startingPose.heading);
   }else enter(0);
@@ -605,9 +635,13 @@ export function mountBuilding(host,halls,events) {
     if(stopped)return;
     renderer.render(scene,camera);
     await new Promise(requestAnimationFrame);
-    if(!stopped)events.onReady?.();
+    if(!stopped){
+      events.onReady?.();
+      lastWarmX=Infinity;
+      invalidate();
+    }
   }).catch(()=>{if(!stopped)events.onInitialError?.();});
-  return {setPresence:guests.accept,setLens(v){if(observationLens!==v){observationLens=v;resize();}},setExperience:rockWorld.setExperience,enter,visit,walkVisit,walkInto,walkCave,enterCave,leaveCave,lookAtDetail:(i)=>{if(activeCave)lookAtDetail(activeCave,i);},stop,setView(value){
+  return {observeArtwork(callback){onVisibleArtwork=callback;},enterAtrium(){place({x:0,z:0},0);},setPresence:guests.accept,setLens(v){if(observationLens!==v){observationLens=v;resize();}},setExperience:rockWorld.setExperience,enter,visit,walkVisit,walkInto,walkCave,enterCave,leaveCave,lookAtDetail:(i)=>{if(activeCave)lookAtDetail(activeCave,i);},stop,setView(value){
       if(stroll.state.id&&!!value!==eyes){stroll.pause();restoreEyes=null;}
       view(value);
     },setAppearance:id=>visitor.setAppearance(id),getAppearance:()=>visitor.getAppearance(),

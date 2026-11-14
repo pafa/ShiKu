@@ -1,3 +1,4 @@
+import {galleryPreview} from './gallery-previews.js';
 // Featured end-wall displays. Full images retain their source aspect ratio; the
 // catalogue evidence decides which works have a photographic display.
 import * as T from 'three';
@@ -114,7 +115,7 @@ export function addPavilionFocus(plan,entries,group,materials,options={}) {
     const plaque=face(work.siteName+' '+work.number,labelW,labelH,0,-h/2-labelH/2-(type===3?.26:.145),.12,new T.MeshBasicMaterial({map:label(work,photo),toneMapped:false}));
     plaque.userData.stationIndex=k;
     deferPhoto(pane.position.x,pane.position.z,()=>{
-      if(!cache.has(src))cache.set(src,loader.loadAsync(src).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t}));
+      if(!cache.has(src))cache.set(src,loader.loadAsync(galleryPreview(src)).then(t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t}));
       cache.get(src).then(t=>{
         const live=t.image.width/t.image.height;image.scale.set(Math.min(1,live/ar),Math.min(1,ar/live),1);mat.map=t;mat.needsUpdate=true;image.visible=true;invalidate();
       }).catch(()=>{image.visible=false;invalidate()});

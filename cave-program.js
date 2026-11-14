@@ -1,5 +1,6 @@
 // Viewing order follows the room's curatorial route. The first cave opens on the
 // axis of its gallery; the two lateral doors belong to the same physical terrace.
+import {records as photoRooms} from './gallery-cave-records.js';
 import {records as east} from './cave-east-records.js';
 import {records as mogao} from './cave-mogao-records.js';
 import {records as maiji} from './cave-maiji-records.js';
@@ -13,17 +14,17 @@ import {records as nirvana} from './walk-nirvana-records.js';
 import {records as fengxian} from './walk-fengxian-records.js';
 
 export const caveSelection=[
-  ['yungang-20','yungang-6','mogao-257','yungang-12','longmen-712'],
+  ['yungang-20','yungang-6','mogao-257','yungang-12','longmen-712','yungang-19','yungang-18','yungang-5','yungang-8','yungang-9','yungang-13','longmen-140','longmen-1443'],
   ['mogao-285','maijishan-44','mogao-249'],
   ['maijishan-4','maijishan-9','mogao-296'],
-  ['mogao-302','mogao-401','maijishan-13','mogao-407'],
-  ['longmen-1280','longmen-543','mogao-217','mogao-320','mogao-bl-or8210-p2','mogao-158'],
-  ['mogao-96','mogao-335','longmen-435'],
+  ['mogao-302','mogao-401','maijishan-13','mogao-407','maijishan-37'],
+  ['longmen-1280','longmen-543','mogao-217','mogao-320','mogao-bl-or8210-p2','mogao-158','longmen-20','longmen-159'],
+  ['mogao-96','mogao-335','longmen-435','longmen-2194'],
   ['mogao-61','mogao-98','mogao-146'],
   ['maijishan-165','maijishan-59','mogao-55'],
-  ['yungang-3','longmen-1387','maijishan-120','maijishan-133']
+  ['yungang-3','longmen-1387','maijishan-120','maijishan-133','maijishan-127']
 ];
-export const caveRecords={...east,...mogao,...maiji,...newMogao,...newEast,...newMaiji,...press,...nirvana,...fengxian};
+export const caveRecords={...east,...mogao,...maiji,...newMogao,...newEast,...newMaiji,...press,...nirvana,...fengxian,...photoRooms};
 const rockPier=1.55;
 export const terraceDepth=4.65;
 export function bayLayout(index){

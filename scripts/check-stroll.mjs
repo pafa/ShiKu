@@ -67,15 +67,16 @@ function checkControls() {
 
 export function checkStrolls(floor=buildingFloor()) {
   const result=[];
-  for(const id of ['mogao-158','longmen-1280']) {
+  const routes={
+    'mogao-158':['threshold','cheek','kasyapa','assembly','guardians','royals','folds','east'],
+    'longmen-1280':['approach','cornice','assembly','vairocana','pedestal','attendants','guardians'],
+    'yungang-20':['fracture','robe','east'],
+    'maijishan-133':['stele','lower-niche','thousand','lintel','ceiling','crossed','rahula']
+  };
+  for(const [id,expected] of Object.entries(routes)){
     const cave=caveById.get(id);
     assert(cave?.stroll,id+' is missing its walk');
-    const expected=id==='mogao-158'
-      ? ['threshold','cheek','kasyapa','assembly','guardians','royals','folds','east']
-      : ['approach','cornice','assembly','vairocana','pedestal','attendants','guardians'];
-    const stageDetails=cave.experience.stages.map(s=>s.detail);
-    assert.deepEqual(stageDetails.filter(id=>expected.includes(id)),expected,'missing or reordered observation');
-
+    assert.deepEqual(cave.experience.stages.map(s=>s.detail),expected,id+' missing or reordered observation');
     const points=strollWaypoints(cave);
     assert(points.length>=cave.experience.stages.length,id+' has an unmapped story');
     const walker=makeWalker(floor), readings=[], elev=[];

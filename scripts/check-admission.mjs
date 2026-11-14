@@ -1,3 +1,4 @@
+import {museumPoint} from '../presence-coordinates.js';
 // Run against disposable museum instances on loopback. Exercise the same HTTP
 // endpoints as the registration dialog and the same snapshot as the visitors map.
 import assert from 'node:assert/strict';
@@ -94,9 +95,9 @@ await withMuseum({}, async ({ room, mapSnapshot, join, status, cancel, leave, po
   assert.equal(inside.length, 50);
   assert.equal(line.length, 8);
   const arrivalsById=inside.map(({session})=>session.visitors.find(person=>person.id===session.selfId));
-  assert.equal(new Set(arrivalsById.map(roomAt)).size,9);
+  assert.equal(new Set(arrivalsById.map(museumPoint).map(roomAt)).size,9);
   for(const [i,a] of arrivalsById.entries()){
-    assert(roomAt(a)>=0);
+    assert(roomAt(museumPoint(a))>=0);
     for(const b of arrivalsById.slice(0,i))assert(Math.hypot(a.x-b.x,a.z-b.z)>=1.25);
   }
   assert.equal(new Set(inside.map(x => x.session.selfId)).size, 50);

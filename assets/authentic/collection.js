@@ -592,7 +592,10 @@ export const collectionEvidence = {
       {
         "src": "assets/west/mj133.jpg",
         "kind": "site",
-        "caption": "第133窟十号造像碑下龛，论文图4b",
+        "caption": "第133窟十号佛传碑下龛。沿拱顶中央可辨倒垂的莲花、合掌的化生和两侧卷草。论文图4b。",
+        "hotspots": [
+          {"x": 0.48, "y": 0.26, "title": "莲花里的合掌小像", "body": "拱顶两侧的藤蔓在中央相接。小像从一朵倒垂的莲花中出现，卷草也围出一圈圈小小的人形。", "source": "https://www.mdpi.com/2077-1444/16/10/1282#fig4-religions-16-01282", "sourceName": "Qiuhong Li · 图4b"}
+        ],
         "credit": "Li Jingjie 摄，Qiuhong Li，Religions 16(10)，图4b",
         "source": "https://doi.org/10.3390/rel16101282",
         "license": "CC BY 4.0",

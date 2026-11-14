@@ -121,9 +121,11 @@ export function createRoomAtlas({onOpen=()=>{},onClose=()=>{},onStructure}={}) {
     scale=clamp(Math.min(width/(b.width+14),height/(b.height+14)),fitScale,Math.max(10,fitScale*12));drawView();
   }
 
+  let viewRevision=0;
   function drawView() {
     if(!dialog.open||!width||!height)return;
     architecture.setAttribute('transform','translate('+width/2+','+height/2+') scale('+scale+') translate('+(-cx)+','+(-cy)+')');
+    viewRevision++;
     const roomInk=[],p=latest;
     for(const item of base) {
       const b=item.box,midX=(b.x0+b.x1)/2,midZ=(b.z0+b.z1)/2,[x,y]=viewXY(midX,midZ);
@@ -185,7 +187,11 @@ export function createRoomAtlas({onOpen=()=>{},onClose=()=>{},onStructure}={}) {
         painted.tagWidth=painted.tagName.getComputedTextLength()+16;
         painted.field.setAttribute('width',painted.tagWidth);painted.field.setAttribute('x',-painted.tagWidth/2);
       }
-      painted.path.setAttribute('stroke',color);painted.path.setAttribute('d',show.checked?trailPath(v.trail,viewXY):'');
+      painted.path.setAttribute('stroke',color);
+      if(painted.trail!==v.trail || painted.view!==viewRevision || painted.shown!==show.checked){
+        painted.path.setAttribute('d',show.checked?trailPath(v.trail,viewXY):'');
+        painted.trail=v.trail;painted.view=viewRevision;painted.shown=show.checked;
+      }
       painted.path.classList.toggle('selected',selected);
       let row=controllers.get(v.id);
       if(!row) {

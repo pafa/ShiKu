@@ -1,3 +1,5 @@
+import {visitMetric} from '../../server/visit-metric.mjs';
+import {readPayload} from './room.mjs';
 export { MuseumRoom } from './room.mjs';
 
 // Keep the singleton name, namespace and migration stable across code updates.
@@ -45,6 +47,17 @@ export default {async fetch(request,env){
   if(url.pathname==='/api/version'){
     if(request.method!=='GET')return error(405,'请求方法无效。');
     return Response.json({service:'shiku',version:env.VERSION?.id||null},{headers:{'Cache-Control':'no-store'}});
+  }
+  if(url.pathname==='/api/visit-metric'){
+    if(request.method!=='POST')return error(405,'请求方法无效。');
+    if(request.headers.get('Origin')!==env.PUBLIC_ORIGIN)return error(403,'请从展馆页面连接。');
+    if(url.search || request.headers.has('Authorization'))return error(400,'指标格式无效。');
+    let metric;
+    try { metric=visitMetric(await readPayload(request)); }
+    catch(err){return error(err.status||400,'指标格式无效。');}
+    if(!metric)return error(400,'指标格式无效。');
+    console.log({kind:'visit_metric',schema:2,version:env.VERSION?.id||'local',...metric});
+    return new Response(null,{status:204,headers:{'Cache-Control':'no-store'}});
   }
   if(url.pathname.startsWith('/api/')){
     if(!api.has(url.pathname))return error(404,'接口不存在。');

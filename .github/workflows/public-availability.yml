@@ -1,0 +1,35 @@
+name: Public availability
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+    inputs:
+      expected_version:
+        description: 'Optional Cloudflare Worker Version ID to verify after release'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shiku-public-availability
+  cancel-in-progress: false
+
+jobs:
+  production:
+    if: github.repository == 'pafa/ShiKu'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24.20.0'
+          package-manager-cache: false
+      - name: Check the public museum
+        env:
+          SHIKU_EXPECTED_VERSION: ${{ inputs.expected_version }}
+        run: node scripts/check-public-availability.mjs

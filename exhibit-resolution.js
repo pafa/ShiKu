@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {galleryPreview} from './gallery-previews.js';
 import {detailImages} from './assets/authentic/detail-images.js';
 
 // Only the exhibition surface being studied holds a high-resolution texture.
@@ -30,7 +31,8 @@ export function nearbyOriginal(renderer, invalidate) {
     }
   }
   function focus(surface) {
-    const url = surface && detailImages[surface.userData.originalPhoto];
+    const original = surface?.userData.originalPhoto;
+    const url = original && (detailImages[original] || (galleryPreview(original) !== original ? original : null));
     if (active && surface === active.surface) return;
     if (active) {
       clearTimeout(active.timer);

@@ -24,7 +24,10 @@ node scripts/check-walking.mjs
 node scripts/check-stroll.mjs
 node scripts/check-admission.mjs
 node scripts/check-presence-recovery.mjs
+node --test scripts/check-visit-metrics.test.mjs
 ```
+
+Public checks 会在全新公开包上用 Chromium 打开桌面与窄屏展馆，实测入馆、普通话播放、图像失败恢复、驻足点分享、历史导航和离馆。浏览器使用 [锁定的 Playwright 依赖](scripts/browser-tools/package-lock.json)，本地复现命令见[部署手册](deploy/cloudflare/README.md#本地准备)。
 
 改动界面、音频或展品时，也请沿公开包中实际可走的入口参观一次。将复现路径、浏览器、实际结果与仍未验证的部分写在 PR。内容勘误请指向对应藏品、实物图或研究出版物。提交第三方素材时，一并记录作者、来源页、素材许可证、原始署名和修改情况；不能确认可分发的原件，可提供机构页面的链接。[素材说明](docs/ASSETS.md)
 

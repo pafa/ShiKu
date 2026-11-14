@@ -2,6 +2,7 @@
 import {editionDetails} from '../collection-edition/index.js';
 export const detailImages = {
   ...editionDetails,
+  "assets/west/mj133.jpg": "assets/authentic/detail/maiji-133-lower.webp",
   "assets/photo/yungang-20.jpg": "assets/authentic/detail/yungang-20-f43c64.webp",
   "assets/east/y19.jpg": "assets/authentic/detail/y19-5ef27f.webp",
   "assets/photo/yungang-18.jpg": "assets/authentic/detail/yungang-18-5079e5.webp",

@@ -15,13 +15,13 @@ const curatedWalls={
   'longmen-712':{petals:'roof',edge:'roof',image:'back'},
   'mogao-407':{hares:'roof'},'mogao-320':{'north-panel':'right'},
   'maijishan-13':{face:'back',flanks:'back',core:'back',silhouette:'left'},
-  'maijishan-133':{stele:'right',thousand:'left',crossed:'left',rahula:'back'},
+  'maijishan-133':{stele:'right','lower-niche':'right',thousand:'left',crossed:'left',rahula:'back'},
   'mogao-285':{bandits:'left',dated:'right'},
   'mogao-217':{monk:'left'},'mogao-249':{asura:'roof'},
   'mogao-61':{wutai:'back',princess:'entry',gate:'entry'}
 };
 function mounting(c,d) {
-  const placed=curatedWalls[c.id]?.[d.id];if(placed)return placed;
+  const placed=d.mount||curatedWalls[c.id]?.[d.id];if(placed)return placed;
   const [x,y,z]=d.anchor;
   const dx=x-d.stand[0], dz=z-d.stand[1];
   if(y>c.height*.64 && y-1.62>Math.hypot(dx,dz)*1.17)return 'roof';
@@ -30,6 +30,7 @@ function mounting(c,d) {
 }
 // Measured on the photographs themselves, as fractions of the complete frame.
 const readingPoints={
+  'mogao-257':{deer:[.18,.48]},
   'longmen-712':{petals:[.507,.48],edge:[.27,.64]},
   'maijishan-13':{face:[.494,.226],flanks:[.245,.292],core:[.549,.563]},
   'longmen-435':{mainsitting:[.618,.42], 'side-sitting':[.813,.47],unworked:[.178,.53]},
@@ -39,14 +40,14 @@ const readingPoints={
 };
 const ratios={'longmen-712':1920/1280,'maijishan-13':2400/1802,'longmen-435':1280/853,'longmen-1387':1280/853,'mogao-96':1280/850};
 function imageAnchor(c,d,panel){
-  const point=readingPoints[c.id]?.[d.id],center=panel.center.slice();
+  const point=d.point||readingPoints[c.id]?.[d.id],center=panel.center.slice();
   if(!point)return center;
-  const ratio=panel.image.width&&panel.image.height?panel.image.width/panel.image.height:ratios[c.id];
+  const ratio=panel.image.width&&panel.image.height?panel.image.width/panel.image.height:d.ratio||ratios[c.id];
   if(!ratio)return center;
   const w=Math.min(panel.width,panel.height*ratio),h=w/ratio;
   const u=(point[0]-.5)*w,v=(.5-point[1])*h;
   switch(panel.wall){
-    case 'roof':center[0]+=u;center[2]+=v;break;
+    case 'roof':center[0]+=u;center[1]-=v*Math.sin(panel.tilt||0);center[2]+=v*Math.cos(panel.tilt||0);break;
     case 'left':center[2]-=u;center[1]+=v;break;
     case 'right':center[2]+=u;center[1]+=v;break;
     case 'entry':center[0]-=u;center[1]+=v;break;
@@ -95,6 +96,11 @@ function generalLayout(c,photos,details) {
       const height=wall==='roof'?Math.min(c.depth*.64,division*.87):Math.max(1,Math.min(c.height*.76,2*Math.min(verticalCenter-.18,c.height-.14-verticalCenter)));
       const width=wall==='entry'?c.width*.23:division*.84;
       const mount=panel(wall,center,width,height,group.image);
+      if(wall==='roof' && c.profile==='gable'){
+        mount.tilt=Math.atan2(c.height*.24,c.depth/2);
+        mount.center[1]=c.height*.904-.13;
+        mount.center[2]=-c.depth*.30;
+      }
       panels.push(mount);
       for(const i of group.at)anchors[i]=imageAnchor(c,c.details[i],mount);
     });
