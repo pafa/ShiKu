@@ -1,4 +1,5 @@
 import {curatorialReadings} from './curatorial-readings.js';
+import {revisions as maijiRevisions} from './assets/gallery-maiji/records.js';
 import {additions} from './collection-extension.js';
 import {eastRoutes} from './routes-east.js';
 import {westRoutes} from './routes-west.js';
@@ -170,7 +171,7 @@ const essays={
     '在这尊西魏主佛脸上，两眼微微垂下，嘴角内收，饱满的面颊让线条过渡得很慢。先遮住嘴部，只观察眉与眼，再把全脸放回视野，会发现表情是许多很小的起伏共同造成的。两旁菩萨又衬出主尊安定的正面姿态。',
     '关于乙弗皇后的讲述',
     '麦积山石窟艺术研究所的展览曾把这尊佛与西魏皇后乙弗氏的遭际联系起来。西魏为与柔然和亲，乙弗氏被废，出家后迁往秦州。把这一历史带入观看，是后人解释造像的一条线索；仅凭面容，还无法把它认作某位人物的肖像。',extra.mjHistory),
-  'maijishan-120':essay('一张在佛像身后拍的照片',
+  'maijishan-120':essay('另读1956年旧照的取景',
     '1956年，名取洋之助在窟内选择了一个少见的观察点。前景是一尊背向镜头的坐佛，旁边的僧像和相邻龛中的坐佛才面向我们。前景遮住的一部分恰好提示出真实距离，让人知道身体需要怎样移动，下一尊像才会显露。',
     '照片上方还有一层历史',
     '麦积山石窟艺术研究所记载，第120窟窟顶有北周重绘的壁画。黑白照片擅长记录明暗与体积，重绘的判断则来自另一类现场资料。把两者合在一起读，便能理解小小窟室既容纳不同朝向的塑像，也容纳相隔年代的工程。',extra.mjHistory),
@@ -203,6 +204,14 @@ for(const [site,scenes] of Object.entries({...eastRoutes,...westRoutes})){
     if((id==='maijishan-127'||id==='maijishan-133')&&s.credit?.source)sources.push({label:'本展图版所据原刊',url:s.credit.source});
     readingRoom[id]={chapters:entry.chapters,sources:sources.filter((item,i,list)=>list.findIndex(v=>v.url.split('#')[0]===item.url.split('#')[0])===i)};
   }
+}
+
+for (const [id, revision] of Object.entries(maijiRevisions)) {
+  const earlier = readingRoom[id];
+  readingRoom[id] = {
+    chapters:[...revision.chapters.map(ch => ({...ch, source:revision.sources[0]})), ...earlier.chapters],
+    sources:[...new Map([...revision.sources, ...earlier.sources].map(item => [item.url, item])).values()]
+  };
 }
 
 for(const work of additions){

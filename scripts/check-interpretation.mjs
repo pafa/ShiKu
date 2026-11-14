@@ -16,6 +16,11 @@ for(const w of works){
   const record=evidenceFor(w), display=workForDisplay(w);
   assert(record.source && record.reason,w.id+' missing provenance decision');
   assert.equal(display.image,record.images[0]?.src);
+  const visual=display.visual;
+  assert(visual && existsSync(path(visual.src)),w.id+' lacks a visual introduction');
+  assert(visual.caption && visual.credit && visual.license && /^https?:/.test(visual.source),w.id+' unsigned introduction');
+  if(visual.relatedId)assert(visual.relatedId!==w.id && visual.comparisonNote,w.id+' unidentified comparison');
+  if(visual.relation==='related')assert(visual.contextOnly && visual.contextReason,w.id+' unidentified object');
   assert(!display.studyPlate && !display.diagram);
   if(w.image!==(display.photo?.coordinateSource||display.image))assert.equal(display.hotspots.length,0,w.id+' obsolete photograph coordinates');
   const c=caveById.get(w.id);
@@ -41,4 +46,4 @@ for(const c of caves)for(const d of c.details){
   stops++;
 }
 assert.equal(Object.keys(index).length,stops);
-console.log(works.length+' 件藏品的原件影像或文献入口均与审定记录相符；'+stops+' 段录音与当前字幕、音轨文件匹配。');
+console.log(works.length+' 件展品均有可用的首展图像或模型，图像署名与细节坐标已核对；'+stops+' 段录音与当前字幕、音轨文件匹配。');

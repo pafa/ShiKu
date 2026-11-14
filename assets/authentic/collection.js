@@ -1585,11 +1585,10 @@ export const collectionEvidence = {
     "viewer": "https://www.shanghaimuseum.cn/mu/frontend/pg/article/id/CI00159686"
   },
   "yungang-chuanzuo-tile": {
-    "source": "https://ygx.sxu.edu.cn/db/%E6%9C%9F%E5%88%8A/sxdtdxxb-shkxb/sxdt2009/0906pdf/090611.pdf",
+    "source": "https://commons.wikimedia.org/wiki/File:Datong_Yungang_Shiku_2013.08.29_15-49-57.jpg",
     "images": [],
-    "reason": "旧有配图依据文字绘制。本馆尚缺可展示的本件实物影像。",
-    "previous": "illustration",
-    "viewer": "https://ygx.sxu.edu.cn/db/%E6%9C%9F%E5%88%8A/sxdtdxxb-shkxb/sxdt2009/0906pdf/090611.pdf"
+    "reason": "展出2010年出土的传祚无穷筒瓦，陈列签随实物一同拍摄。",
+    "previous": "illustration"
   },
   "yungang-west-summit": {
     "source": "https://ygx.sxu.edu.cn/static/xzts/4/%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AA%9F%E9%A1%B6%E8%A5%BF%E5%8C%BA%E5%8C%97%E9%AD%8F%E4%BD%9B%E6%95%99%E5%AF%BA%E9%99%A2%E9%81%97%E5%9D%80_%E5%BC%A0%E5%BA%86%E6%8D%B7.pdf",

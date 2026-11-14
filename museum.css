@@ -120,3 +120,7 @@ dialog{color:var(--ink);background:var(--glass);border:1px solid var(--edge);bor
 #near strong{display:block;color:#f5e4c4;font:500 15px/1.55 var(--song)}
 #near .near-reading{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-top:2px;color:#dfd2be;font:12px/1.55 var(--ui)}
 @media(max-width:759px){.bottom #near:not([hidden]){max-width:min(225px,58vw);padding:7px 10px}#near strong{font-size:13px}#near .near-reading{font-size:11px}}
+
+#visual-links:empty{display:none}
+#visual-links{padding:4px 16px 8px;font-size:13px}
+#visual-links a{color:#f1cd92;text-underline-offset:3px}

@@ -1,3 +1,5 @@
+import {visualCategory,visualCounts} from './exhibit-visual.js';
+import {spaceStudies} from './space-studies.js';
 import {collectionScans} from './collection-scans.js';
 import {workForDisplay,mediaLabel} from './authentic-display.js';
 import {manuscriptTables} from './collection-documents.js';
@@ -100,7 +102,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         selector([['','全部遗址'],...sites.map(s=>[s.id,s.name])],state.siteId,'按遗址筛选',v=>state.siteId=v);
         if(state.mode==='art'){
           selector([['','全部展馆'],...halls.map(h=>[h.id,h.name])],state.hallId,'按展馆筛选',v=>state.hallId=v);
-          selector([['','全部图版'],['photo','实物影像与历史图版'],['scan','馆内可旋转的实物模型'],['record','文献记录']],state.medium||'','按图版类型筛选',v=>state.medium=v);
+          selector([['','全部图版'],['photo','本件与同址图版'],['scan','旋转模型'],['compare','其他作品对照'],['record','尚缺本件及同址图版']],state.medium||'','按图版类型筛选',v=>state.medium=v);
         }
       }
       const status=el('p','desk-count');status.setAttribute('role','status');
@@ -130,8 +132,11 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
           if(mode==='art'&&state.preset==='new'&&!s.newAcquisition)return false;
           if(mode==='art'&&state.preset==='scripture'&&!['经书写本','木刻印本'].includes(s.objectType)&&s.id!=='mogao-bl-or8210-p2')return false;
           if(mode==='art'&&state.medium){
-            if(state.medium==='scan'){if(!collectionScans[s.id]?.viewer)return false;}
-            else if((workForDisplay(s).photo?'photo':'record')!==state.medium)return false;
+            const kind=visualCategory(workForDisplay(s).visual);
+            if(state.medium==='scan' && !collectionScans[s.id]?.viewer && !spaceStudies[s.id])return false;
+            if(state.medium==='photo' && kind!=='photo' && kind!=='context')return false;
+            if(state.medium==='compare' && kind!=='comparison')return false;
+            if(state.medium==='record' && (kind==='photo' || kind==='context'))return false;
           }
           if(!query)return true;
           const key=mode==='ms'?[s.shelf,subLabel(s.shelf),s.title,s.cn,s.date,...s.subjects,featuredManuscripts.get(s.id)?.title,featuredManuscripts.get(s.id)?.note]:
@@ -148,10 +153,14 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         const start=state.page*size;
         status.textContent=(mode==='art'?'展厅作品':mode==='register'?'窟龛条目':'写本编目')+' '+filtered.length.toLocaleString('zh-CN')+' 条'+(filtered.length?'　·　第 '+(start+1)+'–'+Math.min(start+size,filtered.length)+' 条':'');
         list.classList.toggle('art-grid',mode==='art');
+        if (mode === 'art') {
+          const counts=visualCounts(filtered);
+          status.textContent += '　·　本件及同址图 '+(counts.photo+counts.context)+'　尺度模型 '+counts.space+'　作品对照 '+counts.comparison+'　纯文字 '+counts.text;
+        }
         for(const s of filtered.slice(start,start+size)){
           const btn=action('',()=>mode==='art'?openWork(s):mode==='register'?registerRecord(s):manuscript(s),'catalog-result');
           if(mode==='art'){
-            const photo=workForDisplay(s).photo;
+            const photo=workForDisplay(s).visual;
             if(photo){const img=el('img');img.src=photo.src;img.alt=photo.caption;img.loading='lazy';btn.append(img);}
             else btn.append(el('span','catalog-record',workForDisplay(s).evidence.officialViews?.length?'可看馆方原图':'文献记录'));
           }
@@ -162,7 +171,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
           }else{
             words(info,'small','',labelFor(s.siteId)+'　·　'+s.number);
             words(info,'strong','',s.title||s.number);
-            words(info,'span','',mode==='art'?hallFor(s.homeHall)+' ／ '+mediaLabel(workForDisplay(s).photo)+'　'+s.era:[registerLabels[s.recordLevel]||'窟龛资料',s.era].filter(Boolean).join(' ／ '));
+            words(info,'span','',mode==='art'?hallFor(s.homeHall)+' ／ '+mediaLabel(workForDisplay(s).visual)+'　'+s.era:[registerLabels[s.recordLevel]||'窟龛资料',s.era].filter(Boolean).join(' ／ '));
           }
           if(mode==='art'&&(experienceOrder.includes(s.id)||s.id==='mogao-bl-star-atlas')){
             const shell=el('div','catalog-with-entry');shell.append(btn,action(s.objectType?'到卷案体验 →':'入窟体验 →',()=>s.id==='mogao-bl-star-atlas'?enterExperience('mogao-bl-or8210-p2',3):enterExperience(s.id),'catalog-enter'));list.append(shell);
@@ -191,7 +200,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         body.append(el('h3','subttl','看本窟收录的展品'));
         const grid=el('div','desk-results art-grid');
         for(const w of s.related){
-          const photo=workForDisplay(w).photo;
+          const photo=workForDisplay(w).visual;
           const card=action('',()=>openWork(w,true),'catalog-result');
           if(photo){const im=el('img');im.src=photo.src;im.alt=photo.caption;im.loading='lazy';card.append(im);}
           const info=el('span','catalog-info');info.append(el('strong','',w.title));card.append(info);grid.append(card);
@@ -207,18 +216,19 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
     const note=featuredManuscripts.get(item.id);
     modal(note?.title || (item.multiPart ? '合编写本' : item.cn) || subLabel(item.shelf),'catalog-file',body=>{
       body.append(action('← 返回写本检索',()=>open(),'shelf-back'),el('p','origin','法国国家图书馆 · 手稿部'),el('h3','subttl',note?.shelf || item.shelf));
-      if(note)body.append(el('p','storytext',note.note),el('p','storytext',note.detail));
-      else if(!item.multiPart)body.append(el('p','storytext',item.title));
-      const exhibit=manuscriptExhibits.get(item.shelf);
+      const original=manuscriptExhibits.get(item.shelf);
+      const exhibit=original || (note && works.find(work=>work.id===note.comparisonWork));
       if(exhibit){
         const picture=workForDisplay(exhibit).photo;
         if(picture){
           const card=action('',()=>openWork(exhibit,true),'catalog-result');
           const img=el('img');img.src=picture.src;img.alt=picture.caption;
-          const label=el('span','catalog-info');label.append(el('strong','',exhibit.title),el('small','','放大原件 →'));
+          const label=el('span','catalog-info');label.append(el('strong','',exhibit.title),el('small','',original?'放大原件 →':note.comparisonLabel+' →'));
           card.append(img,label);const grid=el('div','desk-results art-grid');grid.append(card);body.append(grid);
         }
       }
+      if(note)body.append(el('p','storytext',note.note),el('p','storytext',note.detail));
+      else if(!item.multiPart)body.append(el('p','storytext',item.title));
       const contents=el('div');body.append(contents);contents.textContent='正在打开本地编目…';
       loadJSON('records-'+item.shard+'.json').then(records=>{
         if(ticket!==serial||!contents.isConnected)return;contents.replaceChildren();

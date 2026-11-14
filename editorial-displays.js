@@ -1,3 +1,4 @@
+import {exhibitVisual} from './exhibit-visual.js';
 import {evidenceFor} from './object-evidence.js';
 import {manuscriptTables} from './collection-documents.js';
 import * as T from 'three';
@@ -90,23 +91,9 @@ export function makeEditorialDisplays(plan,hall,sharedImages,manager,invalidate,
       if(archive)leaf.userData.manuscriptId=archive.id;else leaf.userData.stationIndex=step.index;
       group.add(leaf);targets.push(leaf);return leaf;
     };
-    makeLeaf(.86,.88,cx+.48,new T.MeshBasicMaterial({map:pageTexture(archive?{...step,title:archive.title,note:archive.note,work:{siteName:'法国国家图书馆',number:archive.shelf}}:step,archive?archive.shelf:j?'末章':'序章'),toneMapped:false}));
+    makeLeaf(.86,.88,cx+.48,new T.MeshBasicMaterial({map:pageTexture(archive?{...step,title:archive.title,note:archive.note,work:{siteName:'左图',number:archive.comparisonLabel}}:step,archive?archive.shelf:j?'末章':'序章'),toneMapped:false}));
     const left=makeLeaf(.86,.84,cx-.45,new T.MeshBasicMaterial({color:0xffffff,toneMapped:false}));left.visible=false;
-    const src=archive?null:evidenceFor(step.work).images[0]?.src;
-    if(archive){
-      const cover=document.createElement('canvas');cover.width=800;cover.height=800;
-      const c=cover.getContext('2d');
-      c.fillStyle=palettes[plan.index];c.fillRect(0,0,800,800);
-      c.strokeStyle='#bbac86';c.lineWidth=2;c.strokeRect(28,28,744,744);
-      c.fillStyle='#e0ceaa';c.font='30px sans-serif';c.fillText('法国国家图书馆　／　敦煌文书',62,108);
-      c.fillStyle='#fff0d3';c.font='90px "Songti SC",serif';c.fillText(archive.formLabel,59,287);
-      c.font='47px Georgia,serif';c.fillText(archive.shelf,63,373);
-      c.fillStyle='#cab081';c.fillRect(64,435,71,3);
-      c.fillStyle='#f0dfbe';c.font='33px "Songti SC",serif';c.fillText(archive.physicalLabel,62,523,678);
-      c.font='28px sans-serif';c.fillText('翻阅编目与原卷　↗',63,691);
-      const tex=new T.CanvasTexture(cover);tex.colorSpace=T.SRGBColorSpace;tex.anisotropy=8;
-      left.material.map=tex;left.material.needsUpdate=true;left.visible=true;
-    }
+    const src=archive?evidenceFor(archive.comparisonWork).images[0]?.src:exhibitVisual(step.work)?.src;
     if(src){
       deferPhoto(cx,cz,()=>{
         if(!sharedImages.has(src))sharedImages.set(src,sourceLoader.loadAsync(src));

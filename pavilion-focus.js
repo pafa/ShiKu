@@ -1,7 +1,7 @@
 // Featured end-wall displays. Full images retain their source aspect ratio; the
 // catalogue evidence decides which works have a photographic display.
 import * as T from 'three';
-import {evidenceFor} from './object-evidence.js';
+import {exhibitVisual,visualLabel} from './exhibit-visual.js';
 import {mergeGeometries} from './real-viewer/vendor/addons/utils/BufferGeometryUtils.js';
 
 const ratio={
@@ -50,7 +50,7 @@ function label(work,image) {
   const cave=work.siteName+' '+work.number;
   g.fillStyle='#433428';g.font='46px "Songti SC",serif';g.fillText(cave+'　'+work.title,29,63,1092);
   g.fillStyle='#5d4d39';g.font='31px "PingFang SC",sans-serif';
-  g.fillText((work.crossPeriod?'跨时代对照':'本馆主展')+'　·　'+work.era+'　·　'+({site:'原址影像',historical:'历史摄影',object:'馆藏原件',document:'原件图版'}[image.kind]||'原件图版'),31,119,1087);
+  g.fillText((work.crossPeriod?'跨时代对照':'本馆主展')+'　·　'+work.era+'　·　'+visualLabel(image),31,119,1087);
   g.font='25px "PingFang SC",sans-serif';g.fillStyle='#6c6051';
   const credit=image.credit+'　·　'+image.license;
   g.fillText(credit,32,164,1087);
@@ -74,7 +74,7 @@ export function addPavilionFocus(plan,entries,group,materials,options={}) {
   };
   for(const [id,lateral,y,maxW,maxH,tilt] of list){
     const k=entries.findIndex(s=>s.id===id);if(k<0)continue;
-    const work=entries[k],photo=evidenceFor(work).images[0],src=photo?.src;
+    const work=entries[k],photo=exhibitVisual(work),src=photo?.src;
     if(!src)continue;
     const ar=ratio[id],w=Math.min(maxW,maxH*ar),h=w/ar;
     // The leading edge of a folded display remains clear of the stone wall.

@@ -2,16 +2,8 @@
 // Coordinates from one photograph must never be carried over to a replacement.
 import {evidenceFor} from './object-evidence.js';
 
-const labels = {
-  site: '原址实拍',
-  historical: '历史摄影',
-  object: '馆藏原件',
-  document: '原件图版'
-};
-
-export function mediaLabel(image) {
-  return image ? labels[image.kind] || '实物图版' : '文献记录';
-}
+import {exhibitVisual,visualLabel} from './exhibit-visual.js';
+export const mediaLabel = visualLabel;
 
 export function displayCredit(image) {
   return {
@@ -30,7 +22,7 @@ export function workForDisplay(raw) {
   const photo = evidence.images[0];
   const work = {
     ...raw,
-    photo, evidence, image: photo?.src, credit: photo ? displayCredit(photo) : null,
+    photo, evidence, visual:exhibitVisual(raw,evidence), image: photo?.src, credit: photo ? displayCredit(photo) : null,
     alt: photo?.caption, imageNote: photo?.caption, studyPlate: null, studyPlateNote: null, studyPlateAlt: null, diagram: null,
     hotspots: photo?.originalFrame && (photo.coordinateSource || photo.src) === raw.image ? raw.hotspots || [] : []
   };

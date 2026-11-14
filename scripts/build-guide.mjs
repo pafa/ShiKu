@@ -4,6 +4,8 @@ import {fileURLToPath} from 'node:url';
 import {evidenceFor} from '../object-evidence.js';
 import {readingRoom} from '../story-archive.js';
 import {detailImages,institutionalViewers,workViewers} from '../assets/authentic/detail-images.js';
+import {exhibitVisual,visualCounts} from '../exhibit-visual.js';
+import {studyViewer} from '../space-studies.js';
 import {mediaLabel} from '../authentic-display.js';
 import {chamberPhotos} from '../chamber-evidence.js';
 import {collectionScans,originalCaveResource} from '../collection-scans.js';
@@ -211,17 +213,18 @@ function section(hall,i) {
   const rows=[...new Set(plans.map(p=>p.centerZ))].sort((a,b)=>b-a);
   const description='从南端前厅向北，到第'+(rows.indexOf(plan.centerZ)+1)+'排门转向'+side+'侧。'+(mate?'隔廊正对'+halls[mate.index].name+'。':'此处为庭廊北端的单侧展厅。');
   function article(scene,index) {
-    const wall=stations[index].inwardZ>0?'北墙':'南墙',evidence=evidenceFor(scene),image=evidence.images[0];
+    const wall=stations[index].inwardZ>0?'北墙':'南墙',evidence=evidenceFor(scene),image=exhibitVisual(scene,evidence);
     const anchor=guideId(hall,index);
     const sourceLinks=[...(scene.sources||[]),...(evidence.references||[])].filter(s=>s.url!==scene.source&&s.url!==scene.mediaPage&&s.url!==scene.credit?.source);
     const metadata=[scene.era,scene.holding,scene.accession?'登记号 '+scene.accession:''].filter(Boolean).map(escape).join('　·　');
     const credit=image?'<div class="credit">'+escape(mediaLabel(image))+' · '+ext(image.source,image.credit)+' · '+escape(image.license)+'</div>':'<div class="credit">'+escape(evidence.reason)+'</div>';
     const original=workViewers[scene.id]?ext(workViewers[scene.id],'进入数字敦煌全景'):(!image&&evidence.viewer)?ext(evidence.viewer,evidence.viewerLabel||'原机构图版与著录'):'';
-    const picture=image?'<a class="image" href="'+escape(image.detailSrc||detailImages[image.src]||image.src)+'" target="_blank" rel="noopener"><img src="'+escape(image.src)+'" alt="'+escape(image.caption)+'" loading="lazy" decoding="async"></a>' :evidence.officialViews?.length?'<div class="credit">'+ext(evidence.officialViews[0].url,evidence.officialViews[0].label)+'</div>':'<div class="credit">文献记录</div>';
+    const picture=image?'<a class="image" href="'+escape(image.kind==='space'?studyViewer(scene.id):(image.detailSrc||detailImages[image.src]||image.src))+'" target="_blank" rel="noopener"><img src="'+escape(image.src)+'" alt="'+escape(image.caption)+'" loading="lazy" decoding="async"></a>' :evidence.officialViews?.length?'<div class="credit">'+ext(evidence.officialViews[0].url,evidence.officialViews[0].label)+'</div>':'<div class="credit">文献记录</div>';
+    const scope=image && (image.relation || image.contextOnly || image.kind==='space') ? '<p class="caption">'+escape(image.caption)+(image.comparisonNote?' '+escape(image.comparisonNote):'')+'</p>' : '';
     const newReadings=(readingRoom[scene.id]?.chapters||[]).filter(ch=>ch.source?.url);
     const readings=newReadings.length ? '<details><summary>展品细读</summary>'+newReadings.map(ch=>'<h5>'+escape(ch.title)+'</h5><p>'+escape(ch.body)+'</p>'+ext(ch.source.url,ch.source.label)).join('')+'</details>' : '';
     return '<li id="'+anchor+'"><article>'+picture+'<div class="reading">'+
-      '<small>展位 '+number(index+1)+' · '+wall+'　／　'+(scene.crossPeriod?'跨期对照':'主展')+'　／　'+escape(scene.siteName)+' · '+escape(scene.number)+'</small><strong>'+escape(scene.title)+'</strong><span class="era">'+metadata+'</span><p>'+escape(scene.periodNote)+'</p>'+localLink('index.html?structure='+scene.id,'看原物与资料')+
+      '<small>展位 '+number(index+1)+' · '+wall+'　／　'+(scene.crossPeriod?'跨期对照':'主展')+'　／　'+escape(scene.siteName)+' · '+escape(scene.number)+'</small><strong>'+escape(scene.title)+'</strong><span class="era">'+metadata+'</span><p>'+escape(scene.periodNote)+'</p>'+localLink('index.html?structure='+scene.id,'看展图与资料')+scope+
       (scene.crossPeriod&&scene.comparisonNote&&scene.comparisonNote!==scene.periodNote?'<p class="compare">'+escape(scene.comparisonNote)+'</p>':'')+
       readings+'<div class="sources">'+ext(scene.source,scene.sourceName||'逐件来源')+(scene.mediaPage&&scene.mediaPage!==scene.source?'　'+ext(scene.mediaPage,scene.mediaPageName||'机构图版'):'')+sourceLinks.map(s=>'　'+ext(s.url,s.label)).join('')+'</div>'+credit+(institutionalViewers[image?.src]?ext(institutionalViewers[image.src],'在来源处看高清原图'):'')+original+'</div></article></li>';
   }
@@ -270,6 +273,17 @@ const md = value => String(value || '').replaceAll('|','\\|').replaceAll('\n',' 
 const link = (text,url) => '['+md(text)+'](<'+url+'>)';
 const inventory=['# 石窟 · 实物与图像目录','',rightsNotice+' [许可条款]('+contentLicense+')。','',
   '展览以本件文物照片、原址与历史摄影、馆藏数字图像及注明范围的摄影测量展示。馆方记录可用来核对身份、年代与来源。展览建筑和站位用于参观。',''];
+const distribution = visualCounts(works);
+inventory.push('## 展墙图像覆盖','',
+  '按 '+works.length+' 件展品首次呈现的画面统计，各列互不重复。实物与图版含历史照片、出版图版及同一遗址的特定考古标本。其余图像按实际取景范围标注。外部全景链接另列，未计作本地影像。','',
+  '| 展厅 | 本件或专题实物 | 同址参考 | 尺度模型 | 其他作品对照 | 纯文字 | 合计 |','| --- | ---: | ---: | ---: | ---: | ---: | ---: |');
+function coverageRow(label,entries) {
+  const {photo,context,space,comparison,text}=visualCounts(entries);
+  return '| '+label+' | '+[photo,context,space,comparison,text,entries.length].join(' | ')+' |';
+}
+for(const hall of halls)inventory.push(coverageRow(hall.name,hall.scenes));
+inventory.push(coverageRow('全馆展位（含跨馆对照）',halls.flatMap(hall=>hall.scenes)),coverageRow('独立展品（去重）',works),'',
+  '仅有同址参考或其他作品对照的展品，可在馆内查看取景说明，并通过本件的研究或机构入口继续查阅。'+(distribution.text?'仍有 '+distribution.text+' 件为文献展签。':''),'');
 for(const site of sites){
   inventory.push('## '+site.name,'','| 作品 | 年代 | 展出依据 |','|---|---|---|');
   for(const work of works.filter(w=>w.siteId===site.id)){
@@ -280,7 +294,13 @@ for(const site of sites){
     for(const ref of entry.references||[])proof.push(link(ref.label,ref.url));
     if(entry.viewer)proof.push(link(entry.viewerLabel||'发布机构图版',entry.viewer));
     proof.push(link(work.sourceName||'本件资料',work.source));
-    if(!entry.images.length)proof.unshift(md(entry.reason));
+    if(!entry.images.length){
+      const visual=exhibitVisual(work,entry);
+      if(visual){
+        proof.unshift(link(mediaLabel(visual)+' · '+visual.caption,visual.src)+'　'+link(visual.credit+' · '+visual.license,visual.source));
+        if(visual.kind==='space')proof.unshift(link('旋转窟室尺度模型',studyViewer(work.id)));
+      }else proof.unshift(md(entry.reason));
+    }
     inventory.push('| '+link(work.number+' · '+work.title,'index.html?structure='+work.id)+' | '+md(work.era)+' | '+proof.join('<br>')+' |');
   }
   inventory.push('');

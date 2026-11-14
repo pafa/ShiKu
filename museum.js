@@ -1,3 +1,4 @@
+import {spaceStudies} from './space-studies.js';
 import {sceneProgress,sceneActive} from './loading-screen.js';
 import * as editions from './assets/authentic/detail-images.js';
 import {walkCompanion} from './walk-companion.js';
@@ -12,8 +13,8 @@ import {createRoomAtlas} from './room-atlas.js';
 import {presence,visit,selfRecord,observeVisit} from './shared-visit.js';
 import {mountVisitAccount} from './visit-account.js';
 import {halls,sites,works} from './dynasty-exhibition.js';
-import {collectionScans} from './collection-scans.js';
-import {workForDisplay,mediaLabel} from './authentic-display.js';
+import {collectionScans,originalCaveResource} from './collection-scans.js';
+import {workForDisplay,mediaLabel,displayCredit} from './authentic-display.js';
 import {mountStructure} from './structure-desk.js';
 import {VISITORS} from './visitor-roster.js';
 import {makePanels} from './visit-panels.js';
@@ -134,7 +135,7 @@ function locateLabel(p){
   leader.setAttribute('viewBox','0 0 '+p.width+' '+p.height);
   leader.firstElementChild.setAttribute('d','M'+sx.toFixed(1)+' '+sy.toFixed(1)+' L'+pick.x.toFixed(1)+' '+pick.y.toFixed(1));leader.style.display='block';
 }
-function makePins(s){pins.replaceChildren();(s.image?s.hotspots||[]:[]).forEach((h,i)=>{const pin=action('',()=>showBubble(i,true),'anchor');pin.setAttribute('aria-label','图中故事：'+h.title);pin.append(el('i'));pins.append(pin)});showBubble(0,matchMedia('(min-width: 1000px) and (min-height: 640px)').matches)}
+function makePins(s){pins.replaceChildren();(s.image?s.hotspots||[]:[]).forEach((h,i)=>{const pin=action('',()=>showBubble(i,true),'anchor');pin.setAttribute('aria-label','图中故事：'+h.title);pin.append(el('i'));pins.append(pin)});showBubble(0,false)}
 new ResizeObserver(setAnchor).observe(plate);img.onload=setAnchor;
 function locationLabel(){
   const at=hall?here:r;
@@ -149,26 +150,37 @@ function draw(ex=true) {
   $('#station-name').textContent=s.title;
   $('#count').textContent=num(n+1)+' / '+num(site.scenes.length);
   $('#progress').style.width=((n+1)/site.scenes.length*100)+'%';
-  $('#ex-kind').textContent=mediaLabel(s.photo);
+  const visual=s.visual;
+  $('#ex-kind').textContent=mediaLabel(visual);
   $('#origin').textContent=(s.crossPeriod?'跨期对照 ／ ':'')+s.siteName+' ／ '+s.number+'　·　'+s.era;
   $('#ex-title').textContent=s.title;
-  $('#ex-feature').textContent=s.crossPeriod?s.comparisonNote:s.feature;
+  $('#ex-feature').textContent=s.crossPeriod?s.comparisonNote:(visual?.comparisonNote || visual?.contextReason || ((visual?.contextOnly || visual?.relation)?s.story:s.feature));
   makePins(s);
   const record=$('#primary-record'),credit=$('#plate-credit');
-  record.hidden=!!s.photo;img.hidden=!s.photo;credit.replaceChildren();
-  if(s.photo) {
-    img.alt=s.photo.caption;img.src=s.photo.src;
-    credit.append(source(s.photo.credit+' · '+s.photo.license,s.photo.source),document.createTextNode(s.photo.caption));
+  record.hidden=!!visual;img.hidden=!visual;credit.replaceChildren();
+  if(visual) {
+    img.alt=visual.caption;img.src=visual.src;
+    credit.append(document.createTextNode(visual.caption+'　'),source(visual.credit+' · '+visual.license,visual.source));
   } else {
     img.removeAttribute('src');
     record.textContent=s.evidence.reason||'本件以原始著录展出。';
     credit.append(source(s.sourceName||'原始著录',s.source));
     if(editions.workViewers?.[s.id])credit.append(source('进入数字敦煌全景',editions.workViewers[s.id]));
   }
-  $('#model-btn').hidden=!collectionScans[s.id]?.viewer;
+  const links=$('#visual-links');links.replaceChildren();
+  if(visual?.relation||visual?.contextOnly){
+    const official=editions.workViewers?.[s.id] || originalCaveResource(s);
+    const view=s.evidence.officialViews?.[0];
+    if(view)links.append(source(view.label,view.url));
+    if(official && official!==view?.url)links.append(source('看数字敦煌本窟',official));
+    if(!view && !official)links.append(source('查阅本件记录',s.evidence.viewer||s.source));
+  }
+  const study=spaceStudies[s.id];
+  $('#model-btn').hidden=!collectionScans[s.id]?.viewer&&!study;
+  $('#model-btn').textContent=study?'旋转尺度模型 ↗':'实物扫描 ↗';
   document.querySelector('[data-action=intoEx]').hidden=!caveById.has(s.id);
-  document.querySelector('[data-action=structure]').textContent=s.photo?'看原物与细节 ↗':'查阅本件资料 ↗';
-  $('.enlarge').hidden=!s.photo;
+  document.querySelector('[data-action=structure]').textContent=visual?.relation?'看对照与资料 ↗':visual?'放大与细读 ↗':'查阅本件资料 ↗';
+  $('.enlarge').hidden=!visual;
   document.querySelector('[data-action=prev]').disabled=n===0;
   document.querySelector('[data-action=next]').disabled=n===site.scenes.length-1;
   setNear(near);requestAnimationFrame(setAnchor);
@@ -223,11 +235,14 @@ function story(which=null){
 function guide(){modal('探索指南','guide',body=>{body.append(el('p','storytext','九座时代展馆通过中庭、崖廊和窟门连在一起。体验馆收录原窟照片、历史摄影和馆藏原件影像，书房可展卷细读。从展厅走过崖前步廊，走近窟顶、壁画、佛龛和造像旁的观察点，故事会随位置展开。'));[['走进展廊','WASD、方向键或点击地面'],['转身看周围','拖动场景，滚轮调整距离'],['随行讲解','第158窟和奉先寺可从起点自动同行，停在实物前讲解。按方向键、点地面或拖动视角可自己走；点一次「听普通话讲解」，后面的驻足点会接着讲。'],['进窟与读细节','选「本馆窟室」，也可以从门洞直接走入。点窟内标记会步行到对应位置。'],['观察展品','点展框，或靠近后按 F'],['换馆与直达','从敞口穿过中庭走到另一馆；也可按「步行到」让访客自行前往。用「时代展馆」可直接选展品。'],['改变形象与视角','「我的访客」换人；按 V 切换人眼和随行视角'],['端详构造','在「看原物」中放大原址照片、比对历史图版。云冈第20窟另可旋转观察原址局部采集模型。']].forEach(([a,b])=>{const d=el('div','guide-row');d.append(el('b','',a),el('span','',b));body.append(d)});body.append(el('h3','subttl','关于这座展厅'),el('p','meta','中庭、九馆及参观通道是当代布展空间。文物照片、历史图像及云冈第20窟的局部三维扫描单独标注了来源。展位间距按虚拟步行需要安排。'),source('本馆资料',routes[r].source),source('青禾与行川 · 衣装与真人采集出处','./assets/visitors-fitted/SOURCES.md'),source('访客步行动作 · 素材说明','./assets/visitors-whole/motions/SOURCES.md'),source('云冈扫描 · 素材说明','./real-viewer/PROVENANCE.md'))})}
 function startDetail(type){stopSheet();stage.replaceChildren();detail.className=type;detail.showModal();hall?.setPaused(true)}
 function fullImage(){
-  const s=current(),asset=s.photo?.detailSrc || editions.detailImages[s.photo?.src] || s.photo?.src;if(!asset)return;
+  const s=current(),photo=s.visual;if(!photo)return;
+  if(photo.kind==='space'){structure(s,{initialMedia:'space'});return;}
+  const asset=photo.detailSrc || editions.detailImages[photo.src] || photo.src;
   startDetail('photo');
-  zoom=window.ImmersivePhoto.mount(stage,{...s,image:asset,alt:s.alt||s.studyPlateAlt,label:s.siteName+' · '+s.number,
-    imageType:mediaLabel(s.photo),fallbackImage:s.photo.src,institutionalViewer:editions.institutionalViewers[s.photo.src],
-    credit:s.credit});
+  zoom=window.ImmersivePhoto.mount(stage,{...s,image:asset,alt:photo.caption,
+    label:photo.relation?mediaLabel(photo)+' · '+photo.caption:s.siteName+' · '+s.number,
+    imageType:mediaLabel(photo),fallbackImage:photo.src,institutionalViewer:editions.institutionalViewers[photo.src],
+    credit:displayCredit(photo)});
 }
 
 function structure(s=current(),options={}){
@@ -299,7 +314,7 @@ function openNamedEntry(){
   }
   if(shelf&&/^FRBNFEAD[0-9]{9}$/.test(shelf)){collection.read(shelf);return;}
   const mode=params.get('catalog');
-  if(['art','register','ms'].includes(mode))collection.open({mode,medium:['scan','record','photo'].includes(params.get('medium'))?params.get('medium'):'',preset:['new','treasures','scripture'].includes(params.get('pick'))?params.get('pick'):'',siteId:sites.find(s=>s.id===params.get('site'))?.id||'',hallId:mode==='art'&&room>=0?routes[room].id:'',q:(params.get('q')||'').slice(0,120)});
+  if(['art','register','ms'].includes(mode))collection.open({mode,medium:['scan','record','photo','compare'].includes(params.get('medium'))?params.get('medium'):'',preset:['new','treasures','scripture'].includes(params.get('pick'))?params.get('pick'):'',siteId:sites.find(s=>s.id===params.get('site'))?.id||'',hallId:mode==='art'&&room>=0?routes[room].id:'',q:(params.get('q')||'').slice(0,120)});
 }
 let finishInitial;
 export const initialScene=new Promise(resolve=>{finishInitial=resolve;});
