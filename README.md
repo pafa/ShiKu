@@ -47,12 +47,12 @@
 ```sh
 git clone https://github.com/pafa/ShiKu.git
 cd ShiKu
-node server/museum.mjs --port 4173
+node scripts/start-local.mjs feature
 ```
 
-打开[本机展馆](http://127.0.0.1:4173/)。已经下载源码时，在项目根目录只需执行最后一行。如果你正在审阅某个 PR，可从该 PR 的分支启动同一命令。
+打开[本机展馆](http://127.0.0.1:4174/)。已经下载源码时，在项目根目录只需执行最后一行。如果你正在审阅某个 PR，可从该 PR 的分支启动同一命令。
 
-想在同一 Wi-Fi 下共游，可加 `--lan` 启动，将终端显示的局域网地址分享给朋友。按 Ctrl+C 关闭服务。本地房间在重启时清空。试用站采用 Cloudflare Workers 分发静态展馆，一个 SQLite Durable Object 管理名额、排队和重连。部署步骤、验证与回滚均在仓库中。[架构](docs/ARCHITECTURE.md) · [Cloudflare 部署](deploy/cloudflare/README.md)
+[本地环境说明](docs/ENVIRONMENTS.md)区分功能预览、隔离测试和线上版本对照。想在同一 Wi-Fi 下共游，可改用 `node server/museum.mjs --port 4174 --lan` 启动，将终端显示的局域网地址分享给朋友。按 Ctrl+C 关闭服务。本地房间在重启时清空。试用站采用 Cloudflare Workers 分发静态展馆，一个 SQLite Durable Object 管理名额、排队和重连。部署步骤、验证与回滚均在仓库中。[架构](docs/ARCHITECTURE.md) · [Cloudflare 部署](deploy/cloudflare/README.md)
 
 ## 参与与转载
 

@@ -5,7 +5,7 @@ import {createRequire} from 'node:module';
 import {spawn} from 'node:child_process';
 import {once} from 'node:events';
 import {readdir,readFile,stat,lstat,realpath} from 'node:fs/promises';
-import {extname,dirname,basename,join,relative,resolve,sep} from 'node:path';
+import {extname,dirname,join,relative,resolve,sep} from 'node:path';
 
 const args=process.argv.slice(2);
 const dirAt=args.indexOf('--dir');
@@ -63,13 +63,14 @@ async function checkInventory(){
   for(const k of files.keys())if(k!==path&&!seen.has(k))problem(k,'未在候选清单登记');
 }
 
-async function checkReadmes(){
-  const documents=[...files.keys()].filter(k=>/^README(?:\.[^.\/]+)?\.md$/i.test(basename(k)));
+async function checkMarkdownLinks(){
+  const documents=[...files.keys()].filter(k=>k.toLowerCase().endsWith('.md'));
   if(!documents.includes('README.md'))problem('README.md','缺少中文入口');
   let count=0;
   for(const path of documents){
     const md=await readFile(join(root,path),'utf8');
-    const prose=md.replace(/^`{3,}[^\n]*\n[\s\S]*?^`{3,}[^\n]*$/gm,'');
+    const prose=md.replace(/^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?^ {0,3}\1[ \t]*$/gm,'')
+      .replace(/(`+)[^`\n]*?\1/g,'');
     const targets=[
       ...Array.from(prose.matchAll(/\]\((?:<([^>]+)>|([^()\s]+))(?:\s+(?:"[^"]*"|'[^']*'))?\)/g),m=>m[1]||m[2]),
       ...Array.from(prose.matchAll(/^\s*\[[^\]]+\]:\s*<?([^>\s]+)>?/gm),m=>m[1]),
@@ -77,7 +78,10 @@ async function checkReadmes(){
     ];
     for(const raw of targets){
       if(/^(?:https?:|mailto:|\/\/|#)/i.test(raw))continue;
-      const target=decodeURIComponent(raw.split(/[?#]/)[0]);if(!target)continue;
+      let target;
+      try{target=decodeURIComponent(raw.split(/[?#]/)[0]);}
+      catch{problem(path,'链接路径编码有误 '+raw);continue;}
+      if(!target)continue;
       const destination=resolve(target.startsWith('/')?root:join(root,dirname(path)),target.replace(/^\//,''));
       if(destination!==root&&!destination.startsWith(root+sep)){problem(path,'链接越过发布目录 '+target);continue;}
       try{await stat(destination);count++;}catch{problem(path,'失效链接 '+target);}
@@ -221,9 +225,9 @@ async function browserAudit(base,allowed) {
 
 await walk(root);
 await checkInventory();
-const linkCount=await checkReadmes(),allowed=await checkCredits();
+const linkCount=await checkMarkdownLinks(),allowed=await checkCredits();
 if(issues.length){console.error(issues.slice(0,100).join('\n'));throw Error('候选审查发现 '+issues.length+' 项');}
-console.log(files.size+' 个已核哈希文件、'+allowed.size+' 项授权记录（含 '+media.size+' 件媒体文件）、'+linkCount+' 个 README 本地链接通过。');
+console.log(files.size+' 个已核哈希文件、'+allowed.size+' 项授权记录（含 '+media.size+' 件媒体文件）、'+linkCount+' 个 Markdown 本地链接通过。');
 if(!args.includes('--files-only')){
   const {base,child}=await startCandidate();
   try{

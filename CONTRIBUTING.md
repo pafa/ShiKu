@@ -6,15 +6,18 @@
 
 ## 开发与检查
 
-先在 GitHub fork 本项目，克隆你的 fork，再从最新的 `main` 建立主题分支，例如 `fix/cave-audio`。如果改动依赖仍在审阅的 PR，请在说明中注明依赖，并在依赖合入后同步主线。一次提交审阅聚焦一个问题。 [各功能的代码入口](docs/ARCHITECTURE.md)
-
-在项目目录启动展馆。
+`main` 是唯一长期分支，对应仓库首页和普通克隆。外部贡献者从自己的 fork 开发；维护者用连接 `pafa/ShiKu` 的公开工作副本。请勿把含历史素材、验收截图或凭据的内部工作台整体推送。每个功能、修复或文档改动使用一个短期分支，例如 `codex/fix-cave-audio`，同一问题的反馈继续推到同一 PR。[代码入口](docs/ARCHITECTURE.md)
 
 ```sh
-node server/museum.mjs --port 4173
+# origin 指向官方仓库；使用 fork 时，从指向官方仓库的 upstream 同步 main。
+git fetch --prune origin
+git switch main
+git pull --ff-only origin main
+git switch -c codex/fix-cave-audio
+node scripts/start-local.mjs feature
 ```
 
-在浏览器打开 [本地展馆](http://127.0.0.1:4173/)。CI 使用 Node.js 24.20.0。以下检查无需 npm 依赖，候位测试会在本机的临时端口启动独立服务。
+打开[功能预览](http://127.0.0.1:4174/)。开发、独立验收、已上线基准各有自己的进程和地址，见[本地环境](docs/ENVIRONMENTS.md)。CI 使用 Node.js 24.20.0。以下检查无需 npm 依赖，候位测试会在本机的临时端口启动独立服务。
 
 ```sh
 node scripts/check-walking.mjs
@@ -27,9 +30,17 @@ node scripts/check-presence-recovery.mjs
 
 ## 审阅与合入
 
-提交前检查整个 diff 和新文件。PR 内给出问题、改动、验证结果，按需附截图或语音样段。维护者审阅当前提交，解决未结讨论，等名为 **Public checks** 的 CI 检查通过后，再由获授权的维护者批准该版本合入。若审阅后又修改了实质内容，请重新请人审阅。合并源码与发布服务分别进行。
+提交前检查完整 diff 和新文件。在 PR 中写明改动和验证结果，涉及画面或声音时可附截图或样段。项目由一人维护，维护者可以审阅并合入自己提交的 PR。外部贡献也通过同一套检查，由维护者决定是否合入。
 
-`main` 要求通过 PR、至少一名独立评审者批准并解决未结讨论。**Public checks** 检查行走和候位、干净的公开导出、持久化房间重启和 Worker 构建。新增提交后需要重新审阅。已批准的 PR 使用 squash 合入。[分支规则](https://github.com/pafa/ShiKu/rules/27212530) · [CI 工作流](.github/workflows/ci.yml)
+合入 `main` 前，主题分支须与最新主线同步，**Public checks** 须通过，审阅讨论须解决。检查涵盖行走、候位、公开包导出、房间持久化和 Worker 构建。提交有更新时，维护者重新核对差异和 CI 结果，再使用 squash 合并。[分支规则](https://github.com/pafa/ShiKu/rules/27212530) · [CI 工作流](.github/workflows/ci.yml)
+
+挑选本次需要的路径暂存，通读 `git diff --cached`，包括新文件。新源码须登记在 `release/public-sources.json`；图片、模型和录音按[素材说明](docs/ASSETS.md)处理。重新导出后把改变的生成文件逐项核对、同步回工作树，最后同步 `SHA256SUMS` 并暂存；用 `node scripts/check-public-tree.mjs --dir "$SHIKU_QA_DIR/public"` 核对**暂存区**与导出的路径和内容。未跟踪的个人笔记可留在本地，不能夹进提交。下文定义 `SHIKU_QA_DIR` 和导出命令。
+
+维护者推送主题分支后执行 `gh pr create --repo pafa/ShiKu --base main --head codex/fix-cave-audio --web`；来自 fork 的分支使用 `--head 用户名:分支名`。必须依赖尚未合并的变更时，可先向依赖分支开草稿，注明先后顺序；上游合入后确认 base 已改为 `main`，同步最新主线、复核差异、重跑 CI，才转为待审。不能将草稿直接合回已冻结的候选分支。
+
+合并后，确认 PR 显示 **Merged**、合并提交已进入 `main`，再同步本地 `main`（`git pull --ff-only`）和远端引用（`git fetch --prune`）。仓库启用合并后自动删除同仓库任务分支；来自 fork 的分支由贡献者管理。本机只移除无改动且未在使用的工作树。squash 会生成新的提交号；如果 `git branch -d` 拒绝删除，请核对原 PR 的最终 head、实际合并提交和本地有无后续改动，不能批量强删。被整合但未直接合并的旧 PR，应先核对内容并确认没有其他 PR 依赖，再逐个关闭、清理。
+
+运行时或展品有实质变化才需要切换试用站。常规发布从已审阅的 `main` 提交导出，同一份记录串起 **PR → 合并提交及文件树 → 公开包摘要 → Cloudflare Version ID → 实际 Deployment ID**。文档和本地开发工具可以单独合入，无须为此重新切换生产。线上切流需明确批准具体 Version ID，并在切换后核对域名、实际版本和关键参观流程；详见[部署与回滚](deploy/cloudflare/README.md)。
 
 提交原创代码默认按项目的 [Apache-2.0](LICENSE) 提供。原创展签、讲稿、导览音轨和导览图按 [CC BY 4.0，署名 ShiKu](CONTENT-LICENSE.md) 提供，第三方材料仍适用它们各自的许可。安全问题的私下报告渠道见 [SECURITY.md](SECURITY.md)。
 

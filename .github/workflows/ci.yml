@@ -41,6 +41,7 @@ jobs:
         run: |
           node scripts/package-public.mjs --out "$RUNNER_TEMP/shiku-public"
           node scripts/check-public-release.mjs --dir "$RUNNER_TEMP/shiku-public"
+          node scripts/check-public-tree.mjs --dir "$RUNNER_TEMP/shiku-public"
           node "$RUNNER_TEMP/shiku-public/scripts/prepare-worker-assets.mjs"
       - name: Install the locked Worker development tools outside the export
         working-directory: deploy/cloudflare/tools
