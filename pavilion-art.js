@@ -6,37 +6,61 @@ import {wallStations} from './building-plan.js';
 import {evidenceFor} from './object-evidence.js';
 import {attachMetStation} from './met-relief-exhibit.js';
 
-function caption(work) {
+function caption(work, photo) {
   const canvas=document.createElement('canvas');canvas.width=768;canvas.height=120;
   const ctx=canvas.getContext('2d');
   ctx.fillStyle='#e7ddc8';ctx.fillRect(0,0,768,120);
   ctx.fillStyle='#342b23';ctx.font='38px "Songti SC",serif';
   ctx.fillText(work.title,24,56,722);
   ctx.font='22px "PingFang SC",sans-serif';ctx.fillStyle='#635648';
-  ctx.fillText(work.siteName+' '+work.number+'　·　'+work.era,24,94,722);
+  const label = photo?.contextOnly ? '同址参考图　·　' + photo.caption : work.siteName+' '+work.number+'　·　'+work.era;
+  ctx.fillText(label,24,94,722);
   const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
   return texture;
 }
-function sourceLabel(work,record) {
-  const canvas=document.createElement('canvas');
-  canvas.width=880;canvas.height=680;
-  const g=canvas.getContext('2d');
-  g.fillStyle='#dfd4bc';g.fillRect(0,0,880,680);
-  g.fillStyle='#846f49';g.font='25px sans-serif';g.fillText(work.siteName+'　／　窟志',56,82);
-  g.fillStyle='#444236';g.font='56px "Songti SC",serif';g.fillText(work.number,56,204,764);
-  g.fillRect(57,243,66,2);
-  g.font='32px "Songti SC",serif';
-  const text=work.feature||record.reason||work.title;
-  let y=326,line='';
-  for(const character of text){
-    if(g.measureText(line+character).width>758){g.fillText(line,56,y);line='';y+=54;}
-    line+=character;
-    if(y>495)break;
+function sourceLabel(work, record, unavailablePhoto = false) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 960;
+  canvas.height = 720;
+  const g = canvas.getContext('2d');
+  g.fillStyle = '#e7ddc9';
+  g.fillRect(0, 0, canvas.width, canvas.height);
+  g.fillStyle = '#8a583e';
+  g.fillRect(60, 72, 5, 43);
+  g.font = '25px sans-serif';
+  g.fillText(work.siteName + '　／　' + work.number, 88, 104, 796);
+  g.fillStyle = '#322d27';
+  g.font = '52px "Songti SC", serif';
+  g.fillText(work.title, 60, 226, 840);
+  g.fillStyle = '#766952';
+  g.font = '26px sans-serif';
+  g.fillText(work.era, 60, 283, 840);
+  g.strokeStyle = '#b6a88c';
+  g.beginPath();
+  g.moveTo(60, 326);
+  g.lineTo(900, 326);
+  g.stroke();
+
+  // Wrap one complete observation without squeezing the glyphs on the wall.
+  const observation = work.feature || record.reason;
+  g.font = '35px "Songti SC", serif';
+  g.fillStyle = '#423b32';
+  const lines = [''];
+  for (const glyph of observation) {
+    const last = lines.length - 1;
+    if (g.measureText(lines[last] + glyph).width <= 835) lines[last] += glyph;
+    else lines.push(glyph);
   }
-  g.fillText(line,56,y);
-  g.fillStyle='#716550';g.font='23px sans-serif';g.fillText('文字记录　·　'+(work.sourceName||'查阅窟志'),56,603,756);
-  const texture=new THREE.CanvasTexture(canvas);
-  texture.colorSpace=THREE.SRGBColorSpace;
+  lines.slice(0, 4).forEach((line, i) => {
+    const text = i === 3 && lines.length > 4 ? line.slice(0, -1) + '…' : line;
+    g.fillText(text, 60, 405 + i * 54);
+  });
+  g.font = '23px sans-serif';
+  g.fillStyle = '#675943';
+  const status = unavailablePhoto ? '图片未加载' : '文献展签';
+  g.fillText(status + '　·　' + (work.sourceName || '展品出处见详细资料'), 60, 650, 840);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
 function fitting(color,metalness=0) {
@@ -106,11 +130,16 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate,d
           const ratio=t.image.width/t.image.height;
           image.scale.set(Math.min(1,ratio*h/w),Math.min(1,w/(h*ratio)),1);
           image.material.map=t;image.material.needsUpdate=true;image.visible=true;invalidate();
-        }).catch(()=>{image.visible=false;});
+        }).catch(()=>{
+          image.material.map=sourceLabel(work,record,true);
+          image.material.needsUpdate=true;
+          image.visible=true;
+          invalidate();
+        });
       });
     }
     const textWidth=Math.min(w*.83,1.58),textHeight=textWidth*120/768;
-    const label=new THREE.Mesh(new THREE.PlaneGeometry(textWidth,textHeight),new THREE.MeshBasicMaterial({map:caption(work),toneMapped:false}));
+    const label=new THREE.Mesh(new THREE.PlaneGeometry(textWidth,textHeight),new THREE.MeshBasicMaterial({map:caption(work,record.images[0]),toneMapped:false}));
     label.position.set(x,y-h/2-.29,z+sign*.088);label.rotation.y=image.rotation.y;
     label.userData.exhibit=station;group.add(label);targets.push(label);
     const pick=new THREE.Mesh(new THREE.PlaneGeometry(w+.26,h+.82),new THREE.MeshBasicMaterial({visible:false}));

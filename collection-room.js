@@ -100,7 +100,7 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         selector([['','全部遗址'],...sites.map(s=>[s.id,s.name])],state.siteId,'按遗址筛选',v=>state.siteId=v);
         if(state.mode==='art'){
           selector([['','全部展馆'],...halls.map(h=>[h.id,h.name])],state.hallId,'按展馆筛选',v=>state.hallId=v);
-          selector([['','全部图版'],['photo','实物影像与历史图版'],['scan','馆内可旋转的实物模型'],['record','文献记录']],state.medium||'','按图版类型筛选',v=>state.medium=v);
+          selector([['','全部图版'],['photo','有图（实物、原址及历史图版）'],['scan','馆内可旋转的实物模型'],['record','文献记录']],state.medium||'','按图版类型筛选',v=>state.medium=v);
         }
       }
       const status=el('p','desk-count');status.setAttribute('role','status');
@@ -148,6 +148,10 @@ export function makeCollectionRoom({sites,works,halls,modal,el,action,source,ope
         const start=state.page*size;
         status.textContent=(mode==='art'?'展厅作品':mode==='register'?'窟龛条目':'写本编目')+' '+filtered.length.toLocaleString('zh-CN')+' 条'+(filtered.length?'　·　第 '+(start+1)+'–'+Math.min(start+size,filtered.length)+' 条':'');
         list.classList.toggle('art-grid',mode==='art');
+        if (mode === 'art') {
+          const pictured = filtered.filter(work => workForDisplay(work).photo).length;
+          status.textContent += '　·　有图 ' + pictured + ' 件，纯文字 ' + (filtered.length - pictured) + ' 件';
+        }
         for(const s of filtered.slice(start,start+size)){
           const btn=action('',()=>mode==='art'?openWork(s):mode==='register'?registerRecord(s):manuscript(s),'catalog-result');
           if(mode==='art'){

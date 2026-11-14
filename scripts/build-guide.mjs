@@ -270,6 +270,20 @@ const md = value => String(value || '').replaceAll('|','\\|').replaceAll('\n',' 
 const link = (text,url) => '['+md(text)+'](<'+url+'>)';
 const inventory=['# 石窟 · 实物与图像目录','',rightsNotice+' [许可条款]('+contentLicense+')。','',
   '展览以本件文物照片、原址与历史摄影、馆藏数字图像及注明范围的摄影测量展示。馆方记录可用来核对身份、年代与来源。展览建筑和站位用于参观。',''];
+const pictured = entries => entries.filter(work => evidenceFor(work).images.length > 0).length;
+const withImages = pictured(works);
+inventory.push('## 展墙图像覆盖','',
+  '按展品去重，'+works.length+' 件藏品中有 '+withImages+' 件附展墙图像，'+(works.length-withImages)+' 件以文字展签陈列。下表按实际展位统计，含跨馆对照。馆外链接不计作展墙图片。','',
+  '| 展厅 | 有图展位 | 文字展位 | 合计 |','| --- | ---: | ---: | ---: |');
+for(const hall of halls){
+  const count = pictured(hall.scenes);
+  inventory.push('| '+hall.name+' | '+count+' | '+(hall.scenes.length-count)+' | '+hall.scenes.length+' |');
+}
+const stations = halls.flatMap(hall => hall.scenes);
+const picturedStations = pictured(stations);
+inventory.push('| **全馆展位** | **'+picturedStations+'** | **'+(stations.length-picturedStations)+'** | **'+stations.length+'** |','');
+const contextOnly = works.filter(work => evidenceFor(work).images.length && evidenceFor(work).images.every(photo => photo.contextOnly));
+if (contextOnly.length) inventory.push('其中 '+contextOnly.length+' 件标为同址参考图。'+contextOnly.map(work => '《'+work.title+'》').join('、')+'仅附同窟或遗址的参考图，图注标明所摄范围。','');
 for(const site of sites){
   inventory.push('## '+site.name,'','| 作品 | 年代 | 展出依据 |','|---|---|---|');
   for(const work of works.filter(w=>w.siteId===site.id)){

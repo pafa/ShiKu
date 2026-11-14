@@ -10,6 +10,7 @@ const labels = {
 };
 
 export function mediaLabel(image) {
+  if (image?.contextOnly) return '同址参考图';
   return image ? labels[image.kind] || '实物图版' : '文献记录';
 }
 

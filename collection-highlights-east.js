@@ -36,16 +36,16 @@ work({id:'yungang-shanghai-celestial',siteId:'yungang',hallId:R,number:'第17窟
     ['两次移交之间','1948年的追索和1955年的入藏是两次不同的事件。从最初清理、运离，到回国后由博物馆接收，顺次读这条路径，今日藏地与造像原先所在的位置便都能交代清楚。']],
   sources:[['上海博物馆 · 云冈石窟天人头部','https://www.shanghaimuseum.cn/mu/frontend/pg/article/id/CI00159686'],['师若予 · 上海博物馆藏云冈石窟造像残件整理','https://www.dpm.org.cn/Uploads/File/2020/08/31/u5f4cce2464710.pdf']],
   ...study('study-return','云冈造像调查、归国和入藏时间线','依原馆的发掘与移交记录绘制。通过资料链接可看原件摄影。')});
-work({id:'yungang-chuanzuo-tile',siteId:'yungang',number:'第3窟窟前出土 · 文字瓦当',title:'檐口上的「传祚无穷」',era:'北魏',form:'architecture',
-  objectType:'馆藏文物',holding:'云冈研究院',periodNote:'大同市考古研究所的平城陶瓦研究将这件窟前出土的文字瓦当归入北魏。',
-  feature:'外圈、分格和乳钉把祝愿的话安排在圆形檐头。瓦当与筒瓦相接，将铭文送到屋顶的边缘。',
-  look:'依上、下、右、左的次序读四字，再看中央和四角的凸点如何隔开字位。',
-  story:'大佛之外，考古发掘还留下了窟前屋檐的部件。第3窟前出土的一件灰陶瓦当带四字阳文，研究记录其直径约15厘米。“祚”在此联系皇位传承，原先仰头就可能望见的祝语也成了建筑身份的线索。',
-  motifs:['文字瓦当','乳钉','窟前建筑'],chapters:[
-    ['怎样读圆形题字','井字分界把当面分出若干格。中央乳钉及四角小乳钉外又有圆圈，与文字相间。释读要跟随记录的四个字位，不宜套用今天横排的阅读次序。'],
-    ['屋面如何留下证据','筒瓦与板瓦负责屋面上的搭接，末端圆形当面既遮护檐口，也把文字朝外展示。结合出土地点观察这些部件，就能看见石窟前木构建筑曾经占据的空间。']],
-  sources:[['刘俊喜 · 北魏平城遗址陶瓦的初步研究','https://ygx.sxu.edu.cn/db/期刊/sxdtdxxb-shkxb/sxdt2009/0906pdf/090611.pdf'],['大同大学云冈文化研究中心 · 云冈考古','https://ygwh.sxdtdx.edu.cn/news-show-247.html']],
-  ...study('study-tile','文字瓦当的九格、乳钉和四字阅读顺序','按考古报告所记构造和读序绘制，字形以今字释读。')});
+work({id:'yungang-chuanzuo-tile',siteId:'yungang',number:'云冈石窟2010年出土 · 灰陶筒瓦',title:'筒瓦尽头的「传祚无穷」',era:'北魏',form:'architecture',
+  objectType:'馆藏文物',periodNote:'实物陈列签记为北魏灰陶筒瓦，2010年云冈石窟出土。展签未注明窟号。',
+  feature:'沿着瓦身往前看，弧面尽头是一面圆形瓦当。四个凸起的字围绕中央乳钉排列。',
+  look:'照片下端是原展签。先找「筒瓦」两字，再从圆形瓦当沿瓦身的弧线往上看，能辨出遮护檐口和覆盖屋面的是同一件陶器。',
+  story:'「传祚无穷」把祈愿留在屋檐尽头。「祚」有福运、国祚之意。云冈出土的这件筒瓦保留了瓦身，可以想象它原本怎样搭在屋面上，让经过檐下的人抬头便望见圆形的文字。',
+  motifs:['灰陶筒瓦','文字瓦当','屋面'],chapters:[
+    ['一件瓦的两个方向','圆形当面朝向檐外，弯曲的筒瓦则顺屋坡伸向后方。照片从瓦当一端拍摄，将这两个方向同时收入画面。'],
+    ['怎样区分同铭标本','这件实物的陈列签记录了2010年的出土时间。陶瓦研究另载早先在云冈第3窟前发现的同铭瓦当，两件文物各有出土记录。']],
+  sources:[['Zhangzhugang · 2010年出土筒瓦与原陈列签实拍','https://commons.wikimedia.org/wiki/File:Datong_Yungang_Shiku_2013.08.29_15-49-57.jpg'],['刘俊喜 · 北魏平城遗址陶瓦的初步研究（同铭瓦当对照）','https://ygx.sxu.edu.cn/db/期刊/sxdtdxxb-shkxb/sxdt2009/0906pdf/090611.pdf']],
+  hotspots:[]});
 work({id:'yungang-west-summit',siteId:'yungang',hallId:R,number:'窟顶西区 · 北魏塔院遗址',title:'从第33窟上方找到寺院',era:'北魏 · 后世叠压',form:'architecture',
   objectType:'建筑遗址',periodNote:'依据分层发掘报告，以山顶北魏佛寺及上覆辽金、明清活动面作断代对照。',
   feature:'窟顶西区遗址内存塔基和数列房址。地层里出土的瓦片、陶器与泥层记录着不同年代的活动。',

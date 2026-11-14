@@ -1,6 +1,7 @@
 import { eastRoutes } from './routes-east.js';
 import { westRoutes } from './routes-west.js';
 import { designs } from './station-designs.js';
+import {revisions as maijiRevisions} from './assets/gallery-maiji/records.js';
 import {additions} from './collection-extension.js';
 
 export const sites = [
@@ -15,7 +16,7 @@ const originalWorks = sites.flatMap(site => routes[site.id].map(entry => {
   const cave = String(entry.number).match(/\d+/)[0];
   const id = site.id + '-' + cave;
   return {
-    ...entry, id, number:'第'+cave+'窟', siteId:site.id, siteName:site.name, design:designs[id]
+    ...entry, ...maijiRevisions[id], id, number:'第'+cave+'窟', siteId:site.id, siteName:site.name, design:designs[id]
   };
 }));
 const siteById = new Map(sites.map(site=>[site.id,site]));
@@ -148,14 +149,14 @@ const program = [
     ]
   },
   {
-    id:'chronology',name:'断代研读馆',period:'北朝至唐 · 跨期证据',style:0,
+    id:'chronology',name:'断代研读馆',period:'跨时代 · 营造与断代',style:0,
     intro:'把开窟、造像、壁画重绘、窟外题刻和近代拍摄放回各自的时间。每件主展都留下需要分别阅读的证据。',
     focus:'北齐风格、重绘与断代分歧',source:'https://www.nlc.cn/pcab/xctg/bd/20190121_175422.shtml',
     primary:[
       ['yungang-3','第3窟北魏开凿，后室三尊另有后世续雕及不同断代意见。'],
       ['longmen-1387','药方洞开凿、正壁造像与洞口药方石刻分属多个问题。主尊具有北齐风格。'],
       ['maijishan-5','主龛与旁龛存在隋至初唐的阶段差异，现存面貌还包含后世重妆。'],
-      ['maijishan-120','北朝洞室的窟顶有北周重绘。1956年照片记录的是坐佛与龛间僧像。'],
+      ['maijishan-120','从坐像旁的取样位置走到绿色颜料的截面，再与窟顶北周重绘的记录对读。'],
       ['maijishan-127','第127窟细分年代有不同观点，本展依据图版观察睒子本生的叙事顺序。'],
       ['maijishan-133','窟内保存多块来自北朝的石刻造像碑，本展专看第十号碑下龛图像。']
     ],

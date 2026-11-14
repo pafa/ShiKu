@@ -1716,6 +1716,517 @@
       "changes": "从原图取展面、等比缩放或转码；图版及细节随原许可提供。"
     },
     {
+      "path": "assets/gallery-banners/banner.webp",
+      "sha256": "ddfbffdc2680c56beb357bf49363ef35a716d10bdb022eb9103e138ef08bf691",
+      "credit": "The Metropolitan Museum of Art, Purchase, The Vincent Astor Foundation Gift, 2007 · 2007.294a,b",
+      "source": "https://www.metmuseum.org/art/collection/search/73823",
+      "license": "CC0 · The Met Open Access",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "等比转为 WebP 供展墙显示，保留原图构图。"
+    },
+    {
+      "path": "assets/gallery-banners/cave-17.webp",
+      "sha256": "8cb8e13e689ca1901506663515f5b7d1730b81094802f9e2938b93f23fa6263b",
+      "credit": "Charles Nouette（1908）／吉美国立亚洲艺术博物馆",
+      "source": "https://commons.wikimedia.org/wiki/File:Paul_Pelliot_examining_manuscripts_in_Cave_17_at_Mogao_Caves_in_1908.jpg",
+      "license": "公有领域 · Public Domain Mark",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "等比转为 WebP 供展墙显示，保留原图构图。"
+    },
+    {
+      "path": "assets/gallery-banners/donor.webp",
+      "sha256": "f62a25a0c2f6d7125662c8397d26bdd260b1a066f0f8db7a396879ffce78d605",
+      "credit": "佚名，983年／吉美国立亚洲艺术博物馆，MG 17662；本幅为女供养人局部",
+      "source": "https://commons.wikimedia.org/wiki/File:Buddhist_donor,_Guiyi_era,_983_AD.jpg",
+      "license": "公有领域 · 忠实复制的二维古画",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "等比转为 WebP 供展墙显示，保留原图构图。"
+    },
+    {
+      "path": "assets/gallery-banners/sea.webp",
+      "sha256": "34ad7adc8a0d626f662b901994957005c7293e87a9525ea6d66bd0b7facda4f8",
+      "credit": "大英博物馆，1919,0101,0.45；图版据 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Vaishravana_riding_across_the_waters._61,8x54,7cm_From_Dunhuang,_Cave17._Five_Dynasties,_mid-10th_century_AD._British_Museum..jpg",
+      "license": "公有领域 · 忠实复制的二维古画",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "等比转为 WebP 供展墙显示，保留原图构图。"
+    },
+    {
+      "path": "assets/gallery-banners/water-moon.webp",
+      "sha256": "b088e93aa15e341afa39fe265985a124a76f746abb10df6dc36ebb033822b0d9",
+      "credit": "Freer Gallery of Art, Smithsonian Institution · Purchase — Charles Lang Freer Endowment · F1930.36",
+      "source": "https://asia-archive.si.edu/object/F1930.36/",
+      "license": "CC0 · Smithsonian Open Access",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "等比转为 WebP 供展墙显示，保留原图构图。"
+    },
+    {
+      "path": "assets/gallery-east/binyang-guardian.webp",
+      "sha256": "f1d09fb796ddf94b214f90ae6bf1d8b0c5faa43a22ecc47f5d2ce98ada72b564",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Middle_Binyang_Cave,_Celestial_Guardian_Statue.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/binyang-palm.webp",
+      "sha256": "2a7d84cd55b0dfe30589dd3e9c7a9c9ed4fb92386c45de6a41310de757751320",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Middle_Binyang_Cave,_Hand_of_Celestial_Guardian.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/crossed-front.webp",
+      "sha256": "4735c2fb014cd837366c7895de6ef5eed0cb3bb09d8d91de718fad7922c398eb",
+      "license": "CC0 1.0",
+      "credit": "The Metropolitan Museum of Art, Rogers Fund, 1922",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E9%AD%8F_%E4%BA%91%E5%B4%97%E7%9F%B3%E7%AA%9F_%E5%BD%A9%E7%B9%AA%E7%9F%B3%E9%9B%95%E4%BA%A4%E8%85%B3%E8%8F%A9%E8%96%A9%E5%83%8F%EF%BC%88%E7%A0%82%E5%B2%A9%EF%BC%89-Bodhisattva_with_Crossed_Ankles_MET_DP170267.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/crossed-side.webp",
+      "sha256": "6a6d1a362fdef329f0f68ed8b2c8121ef3df6d34f6c71779d50a3990b4d354a9",
+      "license": "CC0 1.0",
+      "credit": "The Metropolitan Museum of Art, Rogers Fund, 1922",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E9%AD%8F_%E4%BA%91%E5%B4%97%E7%9F%B3%E7%AA%9F_%E5%BD%A9%E7%B9%AA%E7%9F%B3%E9%9B%95%E4%BA%A4%E8%85%B3%E8%8F%A9%E8%96%A9%E5%83%8F%EF%BC%88%E7%A0%82%E5%B2%A9%EF%BC%89-Bodhisattva_with_Crossed_Ankles_MET_DP170266.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/crowned-buddha.webp",
+      "sha256": "2d9b0c0c5ad56121b2b644bca58472e9eebd7baf5078a90f3eba61f04944403e",
+      "license": "CC BY 3.0",
+      "credit": "Harlock81",
+      "source": "https://commons.wikimedia.org/wiki/File:Maitreya-Tang_Dynasty-side.JPG",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "changes": "保留拍摄全幅，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/gaz-title.webp",
+      "sha256": "d2c46ebdf1e5038d08c2eeed7f6b12bbd3f45899158acbe2818b38585963e1f5",
+      "license": "Public domain",
+      "credit": "路朝霖辑，中国国家图书馆藏",
+      "source": "https://commons.wikimedia.org/wiki/File:NLC403-312001077490-94792_%E6%B4%9B%E9%99%BD%E9%BE%8D%E9%96%80%E5%BF%97_%E6%B8%85%E5%85%89%E7%B7%9213%E5%B9%B4(1887).pdf?page=2",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从馆藏数字本提取指定书页，等比缩放、转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/gaz-yique.webp",
+      "sha256": "700d183966b600a698589b6995beeb72c5b4901a9f12cddaa8bc5bb140aa8ad8",
+      "license": "Public domain",
+      "credit": "路朝霖辑，中国国家图书馆藏",
+      "source": "https://commons.wikimedia.org/wiki/File:NLC403-312001077490-94792_%E6%B4%9B%E9%99%BD%E9%BE%8D%E9%96%80%E5%BF%97_%E6%B8%85%E5%85%89%E7%B7%9213%E5%B9%B4(1887).pdf?page=8",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从馆藏数字本提取指定书页，等比缩放、转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/kanjing-gate.webp",
+      "sha256": "e0b4106ac78e969e6632c5a9596c1ccb63ab38ccb6929550216bd12e2cf7748a",
+      "license": "CC BY 3.0",
+      "credit": "江上清风1961",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%9C%8B%E7%BB%8F%E5%AF%BA_-_panoramio.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/kanjing-pair.webp",
+      "sha256": "321fab96691e970ba5caeedbe1c5f6fe91013c07e879a433760e4855b69746f2",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Arhats_on_Wall_of_Grotto_of_Scripture_Reading_-_9.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/kasyapa.webp",
+      "sha256": "f5395f8b0f12c9e7f01a10449a0bcf7b320dbbe2e52d3b55df70f05ffa480c93",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple,_Kasyapa,_Disciple_of_Buddha.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/pharmacy-north.webp",
+      "sha256": "8aece2b4e78d3e1ea0a7c9e2b8087cf5db16bd7a807acc7dd62d47b31dcd2faa",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Medical_Prescriptions,_Celestial_Guardian_on_North_Side_of_Entrance.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/pharmacy-south.webp",
+      "sha256": "0435632a6b747681b2b8c1b7671f8483e9b14f198ab8709bd906e4ba688592d4",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Medical_Prescriptions,_Celestial_Guardian_on_South_Side_of_Entrance.jpg",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/tile.webp",
+      "sha256": "744e32318998dd6aeb5f89152f1dddfcf877e6a58af0fae23e082761845794f5",
+      "license": "CC BY-SA 3.0",
+      "credit": "Zhangzhugang",
+      "source": "https://commons.wikimedia.org/wiki/File:Datong_Yungang_Shiku_2013.08.29_15-49-57.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "changes": "保留全幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-east/yi-river.webp",
+      "sha256": "6ff7d8a16968cb2caa43781359e1fd41aecc717bbec50e52c5c707ce3f3d3d80",
+      "license": "CC BY-SA 4.0",
+      "credit": "Strider9527",
+      "source": "https://commons.wikimedia.org/wiki/File:Looking_towards_Longmen_Bridge_on_the_west_bank_of_Yihe_River,Mar_2024.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "changes": "保留原幅，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/clouds-98.webp",
+      "sha256": "ab703d2c86aa04e19523349f1fbb3a1a6baf65cf25b7b2cf20a5de4a0d75312b",
+      "license": "CC BY 3.0",
+      "credit": "Anagoria",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-12-15_Maijishan_Grotten_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_anagoria_46.JPG",
+      "changes": "保留摄影构图，等比转制 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/green-120.webp",
+      "sha256": "3018c2007104fde946cd44fe9814bd225b7f7dd97c6d374649ad0503bf15a027",
+      "license": "CC BY 4.0",
+      "credit": "Jiakun Wang, Miaoying Lv, Nan Song, Huan Zhang, Bokai Xu, Hui Zhang",
+      "source": "https://doi.org/10.3390/cryst15040339",
+      "changes": "Crystals 2025 图3a，分取现场照及其作者附加的样品放大图，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/group-4-centre.webp",
+      "sha256": "c047881a7b2bf1b4e8ea349370afccd0a3e659a463b8a7c38845ef4d6e7bc572",
+      "license": "CC BY 4.0",
+      "credit": "Yulong Duan, Fasi Wu, Wanfu Wang, Dongpeng He, Ji-Dong Gu, Huyuan Feng, Tuo Chen, Guangxiu Liu, Lizhe An",
+      "source": "https://doi.org/10.1371/journal.pone.0179718.g001",
+      "changes": "PLOS ONE 2017 图1D，分取原始摄影子图，保留原研究圈注，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/group-4-north.webp",
+      "sha256": "24b23dced7c7d5996104509084e5ba44e13043ace5d2e8bc0c8140d01fcada3d",
+      "license": "CC BY 4.0",
+      "credit": "Yulong Duan, Fasi Wu, Wanfu Wang, Dongpeng He, Ji-Dong Gu, Huyuan Feng, Tuo Chen, Guangxiu Liu, Lizhe An",
+      "source": "https://doi.org/10.1371/journal.pone.0179718.g001",
+      "changes": "PLOS ONE 2017 图1C，分取原始摄影子图，保留原研究圈注，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/group-4-south.webp",
+      "sha256": "933ac93743b3a768d4c6794e6710deff508d8d7841abd76b17df09918f202be7",
+      "license": "CC BY 4.0",
+      "credit": "Yulong Duan, Fasi Wu, Wanfu Wang, Dongpeng He, Ji-Dong Gu, Huyuan Feng, Tuo Chen, Guangxiu Liu, Lizhe An",
+      "source": "https://doi.org/10.1371/journal.pone.0179718.g001",
+      "changes": "PLOS ONE 2017 图1E，分取原始摄影子图，保留原研究圈注，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/guardian-4.webp",
+      "sha256": "378abce77420c83e2a9effa059b169ed63a57d358789bbc02e40617f78291803",
+      "license": "CC BY-SA 3.0",
+      "credit": "Shizhao",
+      "source": "https://commons.wikimedia.org/wiki/File:Majishan_grotto_004_(4).jpg",
+      "changes": "保留摄影构图，等比转制 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/guardian-5.webp",
+      "sha256": "dd29922918ef087deddd931e71f51821ed19a055860459785152ffc51dc97b10",
+      "license": "CC BY 3.0",
+      "credit": "Anagoria",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-12-15_Maijishan_Grotten_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_anagoria_35.JPG",
+      "changes": "保留摄影构图，等比转制 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/layer-120.webp",
+      "sha256": "7170be929f087b65959fba69dd0baef377948e831ac0e5c72878e9b4888f41d6",
+      "license": "CC BY 4.0",
+      "credit": "Jiakun Wang, Miaoying Lv, Nan Song, Huan Zhang, Bokai Xu, Hui Zhang",
+      "source": "https://doi.org/10.3390/cryst15040339",
+      "changes": "Crystals 2025 图3c，分取壁画样品截面，保留原标记，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/wall-marks-28-30.webp",
+      "sha256": "b317682cab95128aeb7e69d7ca24f85d9b28ed8d1ab5a92c814214e99f8f2ea2",
+      "license": "CC BY 4.0",
+      "credit": "Wenxia Ma, Qiqi Chen, Fasi Wu, Dongpeng He, Yulong Duan, Yongqiang Yue, Ji-Dong Gu, Xiaoyan Yang, Huyuan Feng",
+      "source": "https://doi.org/10.3389/fmicb.2025.1657118",
+      "changes": "Frontiers in Microbiology 2025 图1I，分取原始摄影子图，保留色标和箭头，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/wall-paint-28-30.webp",
+      "sha256": "c626d11c2b1270c6e545e178fa9eee7b9ef7975f0ed89edb19576727868a176b",
+      "license": "CC BY 4.0",
+      "credit": "Wenxia Ma, Qiqi Chen, Fasi Wu, Dongpeng He, Yulong Duan, Yongqiang Yue, Ji-Dong Gu, Xiaoyan Yang, Huyuan Feng",
+      "source": "https://doi.org/10.3389/fmicb.2025.1657118",
+      "changes": "Frontiers in Microbiology 2025 图1E，分取原始摄影子图，保留色标和箭头，转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-maiji/west-cliff-98.webp",
+      "sha256": "651bb9bd9f5f659119d5ea031686b025c1e6386575f3ab702f75cc05be357de9",
+      "license": "CC BY 3.0",
+      "credit": "Anagoria",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-12-15_Maijishan_Grotten_%E9%BA%A5%E7%A9%8D%E5%B1%B1%E7%9F%B3%E7%AA%9F_anagoria_43.jpg",
+      "changes": "保留摄影构图，等比转制 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/012-wedding.webp",
+      "sha256": "72e892415c7917d3fbabe708fcba95c1721fb854de65b2ed424ec53ab45c2f8b",
+      "license": "公有领域",
+      "credit": "晚唐敦煌佚名画师，图版经 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A9%9A%E5%AB%81%E5%9C%96a.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/057-guanyin.webp",
+      "sha256": "318927a4fd15e614af22a4fc0f5c70d4c701b7c1367a05a8c6fad9db3bdfb95b",
+      "license": "公有领域",
+      "credit": "初唐敦煌画师，张伟文摄影，樊锦诗主编图录",
+      "source": "https://commons.wikimedia.org/wiki/File:Mural_Avolokitesvara.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/098-donors.webp",
+      "sha256": "6aeeff67584aabfe47a04e962b698533ffb8368872bf33526dd37329cf85ed80",
+      "license": "公有领域",
+      "credit": "五代敦煌佚名画师，图版经 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Buddhist_donors_from_Cave_98_at_Mo-kao.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/098-khotan.webp",
+      "sha256": "087d74f7b1f5df1736db4b35416cc8da200a01e8fd9ff1f3b9bd5ffd02083ee1",
+      "license": "公有领域",
+      "credit": "五代敦煌佚名画师，《The Silk Road》图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Khotan_King_-_full.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/112-drum.webp",
+      "sha256": "ad2331b49155e11a782ae357274719e4fa320201651f720557dc7f77e5894400",
+      "license": "公有领域",
+      "credit": "中唐敦煌画师，《敦煌石窟艺术全集》第16卷《音乐画卷》",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%8E%AB%E9%AB%98%E7%AA%9F112%E7%AA%9F%E5%8D%97%E5%A3%81.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/112-pipa.webp",
+      "sha256": "708a0db2f99d651750dec0815a7a60ed8b42947e7c6b2c52f0fe51235b74fbc9",
+      "license": "公有领域",
+      "credit": "中唐敦煌佚名画师，Wikimedia Commons 收录的彩色图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Caves_Pipa-Player.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/156-procession.webp",
+      "sha256": "57231fb2d40e32656f8947a12f32a9eae1b8ad628e9a21db3455c30f4e05ae81",
+      "license": "公有领域",
+      "credit": "晚唐敦煌佚名画师，图版经 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Zhang_Yichao_army.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/220-emperor.webp",
+      "sha256": "1b1efcffdcdfe2196dd640ccde2080bad40dbac6c0b825f056729b99a2a9dceb",
+      "license": "公有领域",
+      "credit": "初唐敦煌佚名画师，图版经 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_220_Tang_Dynasty_emperor_and_officials_%E8%8E%AB%E9%AB%98%E7%AA%9F220%E7%AA%9F%E4%B8%9C%E5%A3%81%E9%97%A8%E5%8C%97_%E5%88%9D%E5%94%90%E5%90%9B%E8%87%A3%E5%B8%9D%E7%8E%8B.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/249-asura.webp",
+      "sha256": "584575b79df60c27a0d982b7b636e9e8d161ca64fc8ab020dc14db4b3eb444a7",
+      "license": "CC BY-SA 4.0",
+      "credit": "敦煌画师，Ismoon 扫描，《5000 ans d’art chinois》第14卷图68",
+      "source": "https://commons.wikimedia.org/wiki/File:Asura_in_249th_cave_of_Mogao_Caves1.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/254-sibi.webp",
+      "sha256": "111b9cb0bf74d9ddfd19cd13bb5767b18f3d1c910af91b6cb896d4a0cab8bca1",
+      "license": "公有领域",
+      "credit": "北魏敦煌画师，华盛顿大学丝绸之路展览图录",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_254,_Shibi_Jataka,_Northern_Wei_period.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/275-jataka.webp",
+      "sha256": "31c32cd25eb3e284e68fb0c54f26dc00cf09fc3443331ea1a413c1446e34ec78",
+      "license": "公有领域",
+      "credit": "早期敦煌画师，Ismoon 扫描，《5000 ans d’art chinois》第14卷图248",
+      "source": "https://commons.wikimedia.org/wiki/File:King_Bhilanjili_Jataka._Northern_Liang._Mogao_cave_275.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/285-apsara.webp",
+      "sha256": "ad77601eca0b91f75708ae9dac19070e1777df4201882e9e71217016e5a89a31",
+      "license": "公有领域",
+      "credit": "西魏敦煌画师，樊锦诗《The Caves of Dunhuang》（2008）图版，第75页",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_mural_flying_apsarasa.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/288-balcony.webp",
+      "sha256": "d5e22dd5b4af472a99e6b13c5b961970a58b0cb1d1895d550bda7045a29262ed",
+      "license": "公有领域",
+      "credit": "西魏敦煌画师，华盛顿大学丝绸之路展览图录",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_288,_Devatas_at_the_Balcony,_Western_Wei_period.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/299-qin.webp",
+      "sha256": "b02f9cd96c1faae0300dab64633af28bc064fbbf29dc17454c36d3f9e3ab4bc1",
+      "license": "公有领域",
+      "credit": "北周敦煌画师，Wikimedia Commons 收录的彩色图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Cave_299,_Qin.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/301-ceiling.webp",
+      "sha256": "719b4fbf2fe8fb00f8df708e106b5f562eed044136e4a0a6a2c54ec3f3e2d1d1",
+      "license": "公有领域",
+      "credit": "北周敦煌画师，慧日华光图版经 Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_301,_Northern_Zhou_Dynasty.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/302-kings.webp",
+      "sha256": "4afbd53e13dd120bdf35894239682552d3a41e9271173646ee8d83bca2344059",
+      "license": "CC BY 4.0",
+      "credit": "隋代敦煌画师；Xinyu Gao（2025）图2",
+      "source": "https://doi.org/10.26689/jcer.v9i7.11284",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/302-shyama.webp",
+      "sha256": "af0e53479605e042d6d8710933fe84690a8d82072ded5d739f98bd2b121eab01",
+      "license": "CC BY 4.0",
+      "credit": "隋代敦煌画师；Xinyu Gao（2025）图3",
+      "source": "https://doi.org/10.26689/jcer.v9i7.11284",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/322-healing.webp",
+      "sha256": "a2b04941c651d16df007e1f4a3b3a14ccbcc327219dbb10a18c27c8332920a10",
+      "license": "公有领域",
+      "credit": "初唐敦煌画师，Wikimedia Commons 收录的东壁图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Bhaisajyaguru_mural_from_Mogao_Cave_322,_Dunhuang.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/322-lute.webp",
+      "sha256": "e8acb276471a7278cf8fec7f788dc8ce00e85693121a23fe1c5461c6029c9f2e",
+      "license": "公有领域",
+      "credit": "初唐敦煌画师，Wikimedia Commons 收录的伎乐飞天图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_322_Apsara_playing_lute-family_instrument.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/329-dragon.webp",
+      "sha256": "2758407f006b4bd5ea3833559c04ee14cc0ecc2bc367d0a7541f41f4f1f035be",
+      "license": "公有领域",
+      "credit": "初唐敦煌画师，Wikimedia Commons 收录的乘龙图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_329.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/332-court.webp",
+      "sha256": "678fa90321f4704f71d4fc42c8fffe41c6db5163208f80deab6d202bada3ab21",
+      "license": "CC0 1.0",
+      "credit": "LIJIHENG",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_332,_Emperor_beneath_the_Virmalakirti.png",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/332-debate.webp",
+      "sha256": "a4eb7467c6ddc944b7e13247052369bd580ef9eeedd3a69af4f56af5060c0c65",
+      "license": "CC0 1.0",
+      "credit": "LIJIHENG",
+      "source": "https://commons.wikimedia.org/wiki/File:Cave_332,_Virmalakirti_and_Manjushri.png",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/409-donor.webp",
+      "sha256": "de272b37f415c462d91450acfdb6269f9ad11b7d05f72036a4f49f3380ff2098",
+      "license": "公有领域",
+      "credit": "敦煌佚名画师，《Cave Temples of Dunhuang: Art and History on the Silk Road》图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Uighur_king.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/428-gift.webp",
+      "sha256": "961f1efa4b266a3cd0d33180fcd9562169e9b12d3a10b22730e83ced76d452ff",
+      "license": "公有领域",
+      "credit": "北周敦煌画师，《中国美术全集》图版",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%A0%88%E9%81%94%E6%8B%8F%E6%9C%AC%E7%94%9F.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/428-pipa.webp",
+      "sha256": "9f14ae0cef8bab6d0a5f0e17691042154db112ec3a870294cade7b4310ef44eb",
+      "license": "公有领域",
+      "credit": "北周敦煌画师，Wikimedia Commons 收录的塔柱伎乐图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Dunhuang_Cave_428_Pipa.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/428-tiger.webp",
+      "sha256": "d465404e982123ad98e8c605efac9840a217e97d119ffa0db268a1e1979d73c3",
+      "license": "公有领域",
+      "credit": "北周敦煌画师，敦煌研究院藏图，Google Arts & Culture 图版",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%90%A8%E5%9F%B5%E5%A4%AA%E5%AD%90%E6%9C%AC%E7%94%9F%E5%9B%BE.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/435-bodhisattva.webp",
+      "sha256": "ccd8296eb91d6489fa5a5fdfa54611bcf4c20f3ee58816826e8e31672f22be5d",
+      "license": "CC BY-SA 4.0",
+      "credit": "北朝敦煌画师，Ismoon 扫描，《5000 ans d’art chinois》第14卷图206",
+      "source": "https://commons.wikimedia.org/wiki/File:Bodhisattva._Northern_Wei._Mogao_cave_435.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
+      "path": "assets/gallery-mogao/465-harp.webp",
+      "sha256": "2f7419e8e9efd1eb342379a0608322944dea292ab0ae9beea7037b9e64384e0c",
+      "license": "公有领域",
+      "credit": "敦煌佚名画师，Wikimedia Commons 收录的弓形竖琴图版",
+      "source": "https://commons.wikimedia.org/wiki/File:Mogao_Cave_465,_bow_harp.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留来源图版的完整取景，等比缩放并转为 WebP。"
+    },
+    {
       "path": "assets/museum/garden/autumn-forest.webp",
       "sha256": "ba31dc021edd7a38939da115d247798fce64c01382da5d7ba20187aa81ccd13f",
       "license": "CC0 1.0",

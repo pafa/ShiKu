@@ -79,7 +79,7 @@ export const gapSources = {
   ],
   "yungang-chuanzuo-tile": [
     {
-      "label": "第3窟发掘简报 · 残存「祚穷」二字的标本记录",
+      "label": "第3窟发掘简报 · 另一件同铭瓦当，据残存「祚穷」二字对读",
       "url": "https://ygx.sxu.edu.cn/db/%E6%9C%9F%E5%88%8A/20230329new/%E4%BA%91%E5%86%88%E7%9F%B3%E7%AA%9F%E7%AC%AC3%E7%AA%9F%E9%81%97%E5%9D%80%E5%8F%91%E6%8E%98%E7%AE%80%E6%8A%A5.pdf#page=10"
     }
   ],
