@@ -171,7 +171,9 @@ function draw(ex=true) {
   if(visual?.relation||visual?.contextOnly){
     const official=editions.workViewers?.[s.id] || originalCaveResource(s);
     const view=s.evidence.officialViews?.[0];
-    links.append(source(official?'看数字敦煌本窟':view?.label||'查阅本件记录',official||view?.url||s.evidence.viewer||s.source));
+    if(view)links.append(source(view.label,view.url));
+    if(official && official!==view?.url)links.append(source('看数字敦煌本窟',official));
+    if(!view && !official)links.append(source('查阅本件记录',s.evidence.viewer||s.source));
   }
   const study=spaceStudies[s.id];
   $('#model-btn').hidden=!collectionScans[s.id]?.viewer&&!study;

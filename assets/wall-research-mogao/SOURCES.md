@@ -18,3 +18,5 @@
 | 61 | Ch. VIII | 224 | 北壁西起第二铺。与《伯希和敦煌图录》卷四图218对比，上部小庭院、中心佛座、下层说法众与莲纹边饰相合。[敦煌学者的图像释读](https://dsr.nii.ac.jp/reference/pelliot/entry/4-218.html.zh) |
 | 61 | Ch. VIII | 222 | 西壁五台山图中的山峦、寺院和榜题，用来对照同窟佛传下方屏风的叙事空间。该影像不含南壁西端佛传，展签单独标识。[佛传屏风原件](https://dsr.nii.ac.jp/reference/pelliot/entry/4-210.html.zh) |
 | 146 | Ch. XVI | 235 | 图235的原刊泛称净土。对比《伯希和敦煌图录》卷一图23，中心楼阁、前景的台基与右下斜裂均符合北壁东起第三铺药师经变。斯坦因取景在屏风上方终止。[敦煌学者的现代定名与全幅](https://dsr.nii.ac.jp/reference/pelliot/entry/1-023.html.zh) |
+
+研究院官方网站另有第25窟劳度叉斗圣变、第152窟十方佛和第303窟塔柱的原件彩照，可从相应展签打开。第100窟的圣天公主出行图与第296窟另一面的得眼林故事另作同窟对照。尺寸来自原站实际图片文件。[第25窟](https://www.dha.ac.cn/info/1425/3612.htm) · [第100窟](https://www.dha.ac.cn/info/1425/3592.htm) · [第152窟](https://www.dha.ac.cn/info/1425/3632.htm) · [第303窟](https://www.dha.ac.cn/info/1425/3597.htm)

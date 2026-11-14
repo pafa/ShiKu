@@ -49,6 +49,28 @@ export const evidence = {
 };
 
 export const views = {
+  'mogao-25': [
+    {label:'南壁《劳度叉斗圣变》彩照 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/D/95/16/3EBAAE68DCF65ADEF3E49D3ABC2_A3194E77_42387.png',
+      source:'https://www.dha.ac.cn/info/1425/3612.htm', width:450, height:252},
+  ],
+  'mogao-100': [
+    {label:'北壁至东壁下部圣天公主李氏出行局部 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/B/A7/1F/A2C7FCE69DCB7DAB11113A845A1_855338E1_1813A.png',
+      source:'https://www.dha.ac.cn/info/1425/3592.htm', width:450, height:106},
+  ],
+  'mogao-152': [
+    {label:'壁画中的十方佛之一 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/C/A9/5D/0EE3AFD1E4EC32673D673392C5C_EF132488_388D9.png',
+      source:'https://www.dha.ac.cn/info/1425/3632.htm', width:400, height:218},
+  ],
+  'mogao-296': [
+    {label:'同窟南壁《五百强盗成佛因缘》局部 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/8/20/F3/7FBAABFC3ED1F3097145F2EA8D5_7BF49C0F_644AB.png',
+      source:'https://www.dha.ac.cn/info/1425/3595.htm', width:563, height:182},
+  ],
+  'mogao-303': [
+    {label:'中心塔柱东、北两面全景 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/6/D9/A4/C111AE315F2C08C47EA8D429D84_1AB70347_1AF3B6.png',
+      source:'https://www.dha.ac.cn/info/1425/3597.htm', width:542, height:813},
+    {label:'中心塔柱东向面正面图 · 敦煌研究院', url:'https://www.dha.ac.cn/__local/C/C5/B3/3F4BB251FB6C8D0CC63183793B6_49A371EB_1C979A.png',
+      source:'https://www.dha.ac.cn/info/1425/3597.htm', width:575, height:813},
+  ],
   'mogao-45': [{label:'西壁龛内菩萨彩照 · 孙志军摄，联合国教科文组织',url:'https://whc.unesco.org/en/documents/209041'}],
   'mogao-55': [{label:'第55窟宋代壁画贴金细部 · 敦煌研究院等原位调查图2',url:'https://www.nature.com/articles/s40494-025-02101-2/figures/2'}],
   'mogao-335': [{label:'南壁三身跪姿供养菩萨残片 · 哈佛艺术博物馆1924.47',url:'https://harvardartmuseums.org/collections/object/210060'}],
