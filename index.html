@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#241e18">
+<meta name="description" content="在一座由中庭连接的建筑里，步行穿过九座展厅，走进四大石窟的代表窟龛，靠近壁画与造像，读其故事。"><title>石窟｜中国石窟文化遗产探索</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='7' fill='%23342e27'/%3E%3Ctext x='24' y='37' text-anchor='middle' font-size='36' font-family='serif' fill='%23ebdbb5'%3E石%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="loading-screen.css"><link rel="preload" as="image" href="assets/welcome/grotto-panorama.webp" fetchpriority="high"><link rel="modulepreload" href="entry.js">
+<link rel="stylesheet" href="museum.css"><link rel="stylesheet" href="immersive.css"><link rel="stylesheet" href="cave-visit.css"><link rel="stylesheet" href="experiences.css"><link rel="stylesheet" href="walk-companion.css"><link rel="stylesheet" href="structure-desk.css">
+<script type="importmap">{"imports":{"three":"./real-viewer/vendor/three.module.min.js"}}</script><script defer src="immersive.js"></script><script type="module" src="loading-screen.js"></script>
+<link rel="stylesheet" href="entry.css"><link rel="stylesheet" href="room-atlas.css">
+</head><body>
+<section id="visit-cover" aria-labelledby="cover-title" tabindex="-1">
+  <div class="cover-inner">
+    <div class="cover-label"><span class="cover-seal" aria-hidden="true">石<br>窟</span>中国石窟文化遗产探索</div>
+    <div class="cover-rule" aria-hidden="true"></div>
+    <p class="cover-kicker" id="cover-kicker">序厅　／　四大石窟</p>
+    <h1 id="cover-title">山门将启</h1>
+    <p id="cover-caption" role="status" aria-live="polite">正在展开石窟全景。</p>
+    <progress id="cover-progress" max="100" value="0" aria-label="展馆准备进度"></progress>
+    <div class="cover-meta"><span id="cover-step">迎宾全景</span><span id="cover-count" aria-hidden="true"></span></div>
+    <div id="cover-recovery" hidden><a href="" id="cover-retry">重新加载</a><a href="exhibition-guide.html">阅读展览图册 ↗</a></div>
+    <p class="cover-static-help">没有开始加载？<a href="">重新打开</a>，或<a href="exhibition-guide.html">阅读展览图册</a>。</p>
+    <noscript><p>三维展馆需要 JavaScript。也可以直接<a href="exhibition-guide.html">阅读展览图册</a>。</p></noscript>
+  </div>
+</section>
+<main id="arrival" hidden inert aria-labelledby="arrival-title">
+  <img id="gate-landscape" class="arrival-art" src="assets/welcome/grotto-panorama.webp" alt="由中国四大石窟的造像、崖壁和栈道融成的山谷全景意象" fetchpriority="high">
+  <div class="arrival-veil" aria-hidden="true"></div>
+  <header class="arrival-mast">
+    <div class="arrival-brand"><span class="arrival-sigil" aria-hidden="true">石<br>窟</span><span>中国石窟文化遗产探索</span></div>
+    <button id="arrival-guide" type="button" aria-haspopup="dialog">参观说明<span aria-hidden="true">↗</span></button>
+  </header>
+  <section class="arrival-intro">
+    <h1 id="arrival-title">石窟</h1>
+    <p>走进崖壁之间，近看壁画与造像。</p>
+    <button id="open-registration" class="arrival-enter" type="button" aria-haspopup="dialog">留名入馆<span aria-hidden="true">⟶</span></button>
+  </section>
+  <footer class="arrival-sites" aria-label="馆内四处遗址">
+    <span><small>敦煌</small>莫高窟</span><i aria-hidden="true"></i><span><small>天水</small>麦积山石窟</span>
+    <i aria-hidden="true"></i><span><small>大同</small>云冈石窟</span><i aria-hidden="true"></i><span><small>洛阳</small>龙门石窟</span>
+  </footer>
+  <dialog id="gate-guide" class="entrance-dialog note-dialog" aria-labelledby="gate-guide-title">
+    <button type="button" class="entrance-close" aria-label="关闭参观说明">×</button>
+    <h2 id="gate-guide-title">参观说明</h2>
+    <p>留名并选好形象后，你会从中庭开始参观。点击或轻触地面行走，拖动画面环顾；使用键盘时，也可按方向键或 WASD 移动。</p>
+    <p>打开「访客地图」可找到同行者。走近展品或窟室里的观察点，可以读到相应的故事。</p>
+    <div class="guide-image-note"><b>关于首页画面</b>首页全景为 AI 生成的艺术合成，以四大石窟的造像、崖壁和栈道为灵感。馆内展品另附相应的实物影像与资料出处。<a id="public-credits" href="assets/credits.html" hidden>展馆素材与署名 ↗</a></div>
+  </dialog>
+  <dialog id="gate-register" class="entrance-dialog register-dialog" aria-labelledby="gate-title">
+    <button type="button" class="entrance-close" aria-label="返回首页">×</button>
+    <form id="guest-form">
+      <h2 id="gate-title" tabindex="-1">入馆留名</h2>
+      <p class="gate-intro">请用昵称。通常会从九座展厅中的一处开始，洞窟直达链接会带你到指定地点。同馆访客能看到你的名字、位置与近期轨迹。</p>
+      <label for="guest-name" class="field-label">访客名字</label>
+      <div class="name-line"><input id="guest-name" name="nickname" autocomplete="nickname" autocapitalize="off" spellcheck="false" placeholder="为自己取个名字" required><button id="suggest-name" type="button">换个名字 <span aria-hidden="true">⟳</span></button></div>
+      <fieldset class="gate-avatars"><legend>选择形象 <span id="chosen-look"></span></legend><button type="button" id="inspect-look" aria-haspopup="dialog">近看人物 ↗</button><div id="guest-looks"></div></fieldset>
+      <button id="join-room" type="submit">进入展馆<span aria-hidden="true">⟶</span></button>
+      <p id="gate-message" role="status" aria-live="polite"></p>
+    </form>
+    <section id="gate-queue" hidden aria-labelledby="queue-title">
+      <h2 id="queue-title" tabindex="-1">等候入馆</h2>
+      <p class="queue-intro">请保持本页打开，轮到你时会自动入馆。</p>
+      <div class="queue-ticket">
+        <div class="queue-ticket-head">
+          <strong id="queue-name"></strong>
+          <span>馆内 <span id="queue-occupancy"></span> 人</span>
+        </div>
+        <dl class="queue-numbers">
+          <div aria-live="polite" aria-atomic="true"><dt>前方等候</dt><dd><b id="queue-ahead">—</b><span>人</span></dd></div>
+          <div><dt>预计等待 <small id="queue-units">分:秒</small></dt><dd><time id="queue-eta" role="timer" aria-live="off">—</time></dd></div>
+        </dl>
+      </div>
+      <p id="queue-notice" role="status" aria-live="polite" aria-atomic="true"></p>
+      <button type="button" id="queue-cancel">退出排队</button>
+    </section>
+  </dialog>
+  <noscript>请打开 JavaScript 以进入三维展馆。</noscript>
+</main>
+<main id="museum" hidden inert>
+<div id="world" aria-label="三维漫游展厅"></div><div class="shade"></div>
+<header class="mast"><button class="brand" data-action="home" aria-label="石窟首页">石窟</button><span class="byline">中国石窟文化遗产探索</span><nav class="menu" aria-label="主导航"><button data-action="routes">时代展馆</button><button class="experience-nav" data-action="experiences">体验馆</button><button data-action="collection">馆藏总目</button><button data-action="map">访客地图</button><button data-action="person" aria-haspopup="dialog" aria-controls="sheet">我的访客</button></nav></header>
+
+<section id="trail" class="trail" aria-label="本馆策展主线" hidden>
+<div class="trail-head"><span class="trail-seal" aria-hidden="true">展</span><span class="trail-room"></span><button data-trail="fold" type="button" aria-label="收起策展主线">−</button></div>
+<h2 class="trail-title"></h2><p class="trail-copy"></p>
+<div id="cave-passage"><button id="cave-first" type="button"></button><button id="cave-list" type="button">本馆窟室</button></div>
+<div class="trail-meta"><span class="trail-index"></span><div class="trail-progress"></div></div>
+<p class="trail-work"></p><div class="trail-actions"><button data-trail="back" type="button" aria-label="上一章" hidden>←</button><button data-trail="main" type="button"></button><button data-trail="other" type="button">本馆藏品</button></div><button class="trail-full" data-trail="full" type="button">完整走读</button> <button class="trail-full" data-trail="book" type="button" hidden>阅卷</button></section>
+<div id="cave-marks" hidden aria-label="窟内细节位置"></div>
+<section id="cave-reading" hidden aria-label="窟内故事"><div class="cave-reading-head"><span id="cave-location"></span><button id="cave-fold" aria-label="收起窟内故事">−</button></div>
+<div class="cave-reading-inner"><p id="cave-detail-index"></p><h2 id="cave-story-title" aria-live="polite"></h2><p id="cave-story-body"></p>
+<div id="experience-tools" hidden></div><div id="cave-stops" aria-label="选择窟内细节"></div><div class="cave-controls"><button id="cave-walk-next">走向下一处 →</button><button id="cave-focus">朝向此处</button></div>
+<div class="cave-links"><button id="cave-audio" aria-pressed="false" title="标准普通话 · AI 合成讲解">听普通话讲解</button><button id="cave-structure">看原物</button><button id="cave-file">窟志与依据</button><button id="cave-change">本馆窟室</button><button id="cave-leave">走回展厅</button><button id="cave-resume" hidden>继续本馆主线</button></div></div></section>
+<aside id="walk-companion" hidden aria-label="随行讲解">
+<div class="stroll-head"><span id="stroll-place"></span><span id="stroll-state"></span></div>
+<div class="stroll-caption" aria-live="polite" aria-atomic="true"><h2 id="stroll-title"></h2><p id="stroll-copy"></p><small id="stroll-attribution"></small></div>
+<div id="stroll-line" aria-hidden="true"></div>
+<div class="stroll-tools"><button id="stroll-switch" type="button">随讲解走</button><button id="stroll-sound" type="button" aria-pressed="false" title="标准普通话 · AI 合成讲解">听普通话讲解</button><button id="stroll-quiet" type="button">收起故事</button><button id="stroll-structure" type="button">看原物</button><button id="stroll-file" type="button">窟志</button><button id="stroll-leave" type="button">走回展厅</button></div>
+</aside><div id="stroll-stick" aria-label="拖住控制行走"><span aria-hidden="true">↑</span><i></i></div>
+<button id="return-observation" type="button" hidden>显示导览</button><div id="cave-trip" role="status" hidden><span id="cave-trip-text"></span><button id="cave-trip-stop">停下</button><button id="cave-trip-direct">直接就位</button></div>
+<section id="exhibit" hidden aria-label="展品观察窗"><div class="ex-head"><span class="figure-icon" aria-hidden="true">▣</span><span id="ex-kind"></span><button class="x" data-action="closeEx" aria-label="收起展品">×</button></div>
+<div id="plate" class="plate"><p id="primary-record" hidden></p><img id="artifact" alt=""><svg id="pin-leader" aria-hidden="true"><path></path></svg><div id="pins"></div><aside id="bubble" hidden><button id="bubble-toggle" aria-expanded="false"></button><div id="bubble-body" hidden></div></aside><button class="enlarge" data-action="zoom" title="放大影像" aria-label="放大影像">⛶</button></div>
+<div id="story-under"></div><div class="label"><div class="origin" id="origin"></div><h1 id="ex-title"></h1><p id="ex-feature"></p></div>
+<div id="plate-credit"></div><nav class="ex-actions" aria-label="展品操作"><button data-action="intoEx" hidden>步行入窟 ↗</button><button data-action="story">读故事 <span>↗</span></button><button data-action="structure">看原物 <span>↗</span></button><button id="model-btn" data-action="model" hidden>实物扫描 <span>↗</span></button></nav></section>
+<footer class="bottom"><div class="wayfinding"><div class="route-line"><b id="site-name"></b><span id="site-location"></span><button data-action="routes" aria-label="选择时代展馆">选展馆 ⌄</button></div><div class="progressline"><button data-action="prev" aria-label="上一站">←</button><button id="station-name" data-action="inspect">查看本站</button><span class="progress-track"><i id="progress"></i></span><span id="count"></span><button data-action="next" aria-label="下一站">→</button></div></div>
+<button class="live-plan" id="live-plan" data-action="map" aria-label="打开多人访客全景地图"><span>全馆方位</span></button><button class="walk-link" id="walk-link" data-action="walkLink">步行到西魏馆 →</button><button id="near" data-action="near" hidden>查看展品</button><div class="walk-tools"><button id="view-mode" data-action="view" aria-pressed="false">随行 · 切到人眼</button><button class="keyguide" data-action="guide" aria-label="漫游指南">漫游指南</button></div></footer>
+<dialog id="sheet" aria-labelledby="sheet-title"><div class="sheet-head"><h2 id="sheet-title"></h2><button class="x" data-action="closeSheet" aria-label="关闭窗口">×</button></div><div id="sheet-body"></div></dialog>
+<dialog id="detail" aria-label="展品沉浸观察"><button class="detail-back" data-action="closeDetail">← 返回展馆</button><div id="detail-stage"></div></dialog>
+<noscript>请打开 JavaScript 以进入三维展廊。</noscript></main></body></html>

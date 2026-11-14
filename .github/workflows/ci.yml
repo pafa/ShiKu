@@ -1,0 +1,70 @@
+name: ShiKu CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shiku-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  public-checks:
+    name: Public checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the proposed change
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24.20.0'
+          package-manager-cache: false
+      - name: Check JavaScript syntax
+        run: git ls-files -z -- '*.js' '*.mjs' | xargs -0 -r -n 1 -P 4 node --check
+      - name: Walk between galleries and stop at the exhibits
+        run: |
+          node scripts/check-walking.mjs
+          node scripts/check-stroll.mjs
+      - name: Check the admission limit and queue
+        run: |
+          node scripts/check-admission.mjs
+          node scripts/check-presence-recovery.mjs
+
+      - name: Verify a fresh public export
+        run: |
+          node scripts/package-public.mjs --out "$RUNNER_TEMP/shiku-public"
+          node scripts/check-public-release.mjs --dir "$RUNNER_TEMP/shiku-public"
+          node "$RUNNER_TEMP/shiku-public/scripts/prepare-worker-assets.mjs"
+      - name: Install the locked Worker development tools outside the export
+        working-directory: deploy/cloudflare/tools
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Audit locked deployment dependencies on pull requests
+        if: github.event_name == 'pull_request'
+        working-directory: deploy/cloudflare/tools
+        run: |
+          npm audit --package-lock-only --include=dev --audit-level=high \
+            --registry=https://registry.npmjs.org --fetch-retries=2 \
+            --fetch-retry-mintimeout=1000 --fetch-retry-maxtimeout=5000 --fetch-timeout=15000 || {
+            echo "::error::Dependency audit did not pass. Check the npm output for an advisory or a registry failure."
+            exit 1
+          }
+      - name: Verify the SQLite room across two local workerd processes
+        env:
+          MINIFLARE_MODULE: ${{ github.workspace }}/deploy/cloudflare/tools/node_modules/miniflare
+          ESBUILD_MODULE: ${{ github.workspace }}/deploy/cloudflare/tools/node_modules/esbuild
+          WRANGLER_SEND_METRICS: "false"
+        run: node "$RUNNER_TEMP/shiku-public/scripts/verify-worker-room.mjs"
+      - name: Bundle the Worker locally
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: |
+          "$GITHUB_WORKSPACE/deploy/cloudflare/tools/node_modules/.bin/wrangler" deploy \
+            --dry-run --config "$RUNNER_TEMP/shiku-public/deploy/cloudflare/wrangler.json" \
+            --outdir "$RUNNER_TEMP/shiku-worker-dry"

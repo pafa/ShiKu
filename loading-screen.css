@@ -1,0 +1,18 @@
+#visit-cover{position:fixed;inset:0;isolation:isolate;z-index:2147483000;overflow:auto;display:grid;place-items:center;padding:clamp(24px,6vw,100px);box-sizing:border-box;background:radial-gradient(ellipse at 76% 8%,#4b3e30 0,transparent 57%),linear-gradient(135deg,#29271f,#171b18 78%);color:#f4e9d4;color-scheme:dark;font:16px/1.55 "Songti SC","STSong",serif}
+#visit-cover[hidden],#cover-recovery[hidden]{display:none!important}
+#museum[inert]{visibility:hidden}
+.cover-inner{width:min(100%,36rem);margin:auto}
+.cover-label{display:flex;align-items:center;gap:1rem;color:#dfcfb3;font-size:.85rem;letter-spacing:.18em}
+.cover-seal{display:inline-grid;place-content:center;line-height:.96;width:1.85rem;height:2.75rem;border:1px solid #b59b72;outline:1px solid #ad875959;outline-offset:3px;letter-spacing:0}
+.cover-rule{margin:clamp(2rem,7vh,5rem) 0 1.5rem;width:3.5rem;border-top:1px solid #b39767}
+.cover-kicker,.cover-meta{font:11px/1.5 system-ui,sans-serif;letter-spacing:.16em;color:#d1b98e}
+#cover-title{font:400 clamp(3.1rem,7vw,5.5rem)/1.18 "Songti SC","STSong",serif;letter-spacing:.1em;margin:.4rem 0 1rem}
+#cover-caption{color:#e7d9be;min-height:1.65em;margin:0 0 2rem;line-height:1.65}
+#cover-progress{display:block;width:100%;height:5px;appearance:none;border:0;border-radius:3px;overflow:hidden;background:#695e49;color:#e5bc7d}
+#cover-progress::-webkit-progress-bar{background:#695e49}#cover-progress::-webkit-progress-value{background:#e5bc7d;transition:width .2s ease}#cover-progress::-moz-progress-bar{background:#e5bc7d}
+.cover-meta{display:flex;justify-content:space-between;gap:1rem;margin:.7rem 0 0;font-variant-numeric:tabular-nums}
+#cover-recovery{display:flex;align-items:center;gap:1.5rem;margin-top:1.4rem;flex-wrap:wrap}
+#visit-cover a{display:inline-block;padding:8px 0;color:#ffdc9e;text-underline-offset:5px}#visit-cover a:focus-visible{outline:2px solid #f6ce88;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){#cover-progress::-webkit-progress-value{transition:none}}
+
+.cover-static-help{visibility:hidden;animation:cover-help 0s 12s forwards}#visit-cover[data-boot] .cover-static-help{display:none}@keyframes cover-help{to{visibility:visible}}

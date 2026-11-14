@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#232520">
+  <title>宾阳中洞 · 孝文帝礼佛图</title>
+  <link rel="stylesheet" href="./relief.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+  <main id="relief-viewer" aria-label="孝文帝礼佛图扫描观察">
+    <header><a href="../?work=longmen-met-35146">← 回到展馆</a><h1>孝文帝礼佛图</h1></header>
+    <div id="stage" aria-label="浮雕的摄影测量视图"></div>
+    <img id="photo" src="../assets/authentic/scans/met-procession-reference.webp" alt="大都会艺术博物馆馆藏35.146的原件正面摄影">
+    <div class="reference" id="reference" hidden>大都会艺术博物馆　／　原件摄影</div>
+    <div id="status" role="status">正在载入原件扫描…</div>
+    <nav aria-label="雕刻观察工具">
+      <button type="button" id="front" disabled>正面</button>
+      <button type="button" id="angle" disabled>斜侧</button>
+      <button type="button" id="in" disabled aria-label="放大扫描">＋</button>
+      <button type="button" id="out" disabled aria-label="缩小扫描">−</button>
+      <button type="button" id="switch" disabled>馆藏照片</button>
+      <a href="https://www.metmuseum.org/art/collection/search/42707" target="_blank" rel="noopener">馆藏记录 ↗</a>
+    </nav>
+    <p class="help" id="help">拖动旋转 · 滚轮或双指缩放</p>
+  </main>
+  <script type="module" src="./relief-viewer.js"></script>
+</body>
+</html>

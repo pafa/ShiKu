@@ -1,0 +1,22 @@
+name: 馆藏勘误或新增建议
+description: 指出展品归属、画面、普通话读音、年代、著录或转载许可的问题。
+body:
+  - type: input
+    id: object
+    attributes:
+      label: 展品与位置
+      description: 提供站内路径、窟号、壁面或作品名称。
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: 希望修正或补充什么
+      description: 如果存在断代、释读或读音争议，请说明不同说法。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 出处与可访问的原件
+      description: 优先给出馆方、研究机构或作者的链接与具体页码。如建议收录文件，请附出处及授权条款。

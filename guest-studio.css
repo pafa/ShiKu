@@ -1,0 +1,46 @@
+#guest-studio{--studio-line:#b2a38a80;color-scheme:light;border:1px solid #a79679;max-width:none;max-height:none;width:min(900px,calc(100vw - 38px));height:min(646px,calc(100dvh - 44px));padding:0;color:#392f23;background:#f4ebd9;border-radius:4px;overflow:hidden;box-shadow:0 20px 90px #211b135c;font-family:var(--song,serif)}
+#guest-studio::backdrop{background:#211d16b8;backdrop-filter:blur(6px)}
+#guest-studio *{box-sizing:border-box}
+.gs-layout{height:100%;display:flex;flex-direction:column}
+.gs-head{padding:12px 22px;border-bottom:1px solid var(--studio-line);display:flex;align-items:center;justify-content:space-between}
+.gs-head h2{font:500 21px/1.35 var(--song,serif);letter-spacing:.12em;margin:0}
+.gs-head small{display:block;color:#796a54;font:10px/1.45 var(--ui,sans-serif);letter-spacing:.16em;margin-bottom:2px}
+.gs-head .gs-close{color:#554733;font:26px/1 Georgia,serif;width:35px;height:35px}
+.gs-body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(200px,.85fr);flex:1;min-height:0}
+.gs-view{position:relative;overflow:hidden;isolation:isolate;border-right:1px solid var(--studio-line);background:radial-gradient(ellipse 78% 76% at 38% 32%,#d0c9bc 0%,#a69e90 60%,#716c62 100%);cursor:grab;touch-action:none}
+.gs-dragging{cursor:grabbing}.gs-surface,.gs-surface canvas,.gs-photo{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gs-view[data-mode=loading] .gs-surface,.gs-view[data-mode=photo] .gs-surface,.gs-view[data-mode=model] .gs-photo{visibility:hidden}
+.gs-photo{object-fit:contain;background:#4e493e}
+.gs-surface{pointer-events:none}
+.gs-modes,.gs-rotate{position:absolute;z-index:2;display:flex;align-items:center;padding:3px;background:#f8f0deeb;border:1px solid #aa997b99;border-radius:30px;color:#4a4030;box-shadow:0 2px 10px #392e2110;font:12px/1.35 var(--ui,sans-serif)}
+.gs-modes{top:14px;left:15px}.gs-modes button{padding:6px 12px;border-radius:20px}
+.gs-modes [aria-pressed=true]{color:#fbf2e2;background:#4c5141}.gs-rotate{bottom:15px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.gs-rotate span{padding:0 5px}.gs-rotate button{font:19px/1.2 Georgia,serif;padding:3px 9px}
+.gs-view[data-mode=photo] .gs-modes,.gs-view[data-mode=photo] .gs-rotate,.gs-view[data-mode=loading] .gs-modes,.gs-view[data-mode=loading] .gs-rotate{visibility:hidden}
+.gs-details{display:flex;flex-direction:column;align-items:stretch;justify-content:center;position:relative;padding:28px;min-width:0}
+.gs-gender{font:12px/1.4 var(--ui,sans-serif);color:#77644e}
+.gs-caption h3{font:500 clamp(24px,3vw,39px)/1.35 var(--song,serif);margin:8px 0 6px;letter-spacing:.05em}
+.gs-caption p{font:14px/1.7 var(--song,serif);margin:0;color:#655644}
+.gs-pair{display:flex;align-items:stretch;gap:7px;margin:28px 0 0}
+.gs-pair button{flex:1;padding:9px 3px;border:1px solid #aa9d86;border-radius:2px;color:#635843;font:12px/1.35 var(--ui,sans-serif)}
+.gs-pair button[aria-pressed=true]{background:#e4dcc6;border-color:#68674e;color:#303c30}
+.gs-status{position:absolute;bottom:83px;left:28px;right:28px;margin:0;color:#76654b;font:12px/1.5 var(--ui,sans-serif)}
+.gs-choose{position:absolute;bottom:25px;left:28px;right:28px;height:45px;background:#333e31;color:#ffefd9;border-radius:2px;letter-spacing:.07em;font:16px/1.4 var(--song,serif)}
+.gs-choose span{margin-left:12px}
+#guest-studio button:focus-visible,.gs-view:focus-visible{outline:2px solid #974930;outline-offset:-3px}
+@media(max-width:600px){#guest-studio{width:calc(100vw - 22px);height:min(760px,calc(100dvh - 22px))}.gs-head{padding:8px 16px}.gs-head h2{font-size:19px}.gs-body{display:flex;flex-direction:column}.gs-view{flex:1;min-height:0;border-right:0;border-bottom:1px solid var(--studio-line)}.gs-details{display:grid;grid-template-columns:1fr auto;padding:12px 16px 14px;gap:9px 12px;align-items:center}.gs-gender{font-size:11px}.gs-caption h3{font-size:23px;line-height:1.22;margin:2px 0}.gs-caption p{font-size:12px}.gs-pair{gap:5px;margin:0}.gs-pair button{flex:none;padding:8px 5px;font-size:11px}.gs-choose{position:static;grid-column:1/-1;height:39px}.gs-status{position:static;grid-column:1/-1;grid-row:2}.gs-status:empty{display:none}}
+@media(max-height:460px) and (min-width:601px){.gs-details{padding:16px;justify-content:flex-start}.gs-pair{margin-top:10px}.gs-choose{left:16px;right:16px;bottom:10px;height:35px}.gs-status{left:16px;bottom:50px}.gs-caption h3{font-size:23px}.gs-head{padding:4px 14px}}
+
+@media(max-width:365px){.gs-details{grid-template-columns:1fr}.gs-pair{grid-row:2}.gs-status{grid-row:auto}.gs-modes button{padding:6px 9px}}
+
+.gs-reference-toggle:not([hidden]){display:block;align-self:flex-start;margin-top:12px;padding:5px 0;color:#59614c;border-bottom:1px solid #969b86;font:12px var(--song,serif);letter-spacing:.04em}
+.gs-reference:not([hidden]){display:block;position:absolute;z-index:4;right:12px;bottom:61px;width:min(44%,220px);padding:8px;background:#f8f3e9f7;border:1px solid #958c76;box-shadow:0 3px 18px #211e1725;border-radius:3px;color:#352e24;cursor:auto;touch-action:auto}
+.gs-reference figure{margin:0}.gs-reference img{display:block;max-width:100%;width:100%;max-height:min(32dvh,230px);object-fit:contain;background:#e9e4da}
+.gs-reference figcaption,.gs-reference a{display:block;font:11px/1.45 var(--ui,sans-serif);margin:5px 1px 0}.gs-reference a{color:#555d48;text-decoration:underline;text-underline-offset:2px}
+.gs-reference button{position:absolute;right:5px;top:5px;border-radius:50%;width:26px;height:26px;font:20px/1 var(--ui,sans-serif);background:#fffaf0e8;color:#40382e;z-index:1}
+.gs-reference nav{display:flex;flex-wrap:wrap;gap:0 8px}
+#guest-studio :is(.gs-reference-toggle,.gs-reference a,.gs-reference button,.gs-pair button,.gs-rotate button,.gs-close):hover{color:#283c2e}
+#guest-studio .gs-modes button:not([aria-pressed=true]):hover{color:#283c2e;background:#e2dccb}
+@media(max-width:600px){.gs-reference-toggle:not([hidden]){grid-column:1/-1;grid-row:2;margin:0;justify-self:start;padding:3px 0}.gs-status:not(:empty){grid-row:3}.gs-reference:not([hidden]){bottom:54px;width:min(43%,165px)}}
+@media(max-width:365px){.gs-reference-toggle:not([hidden]){grid-row:3}.gs-status:not(:empty){grid-row:4}}
+@media(max-height:460px){.gs-reference:not([hidden]){bottom:45px;width:130px}}

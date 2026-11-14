@@ -1,0 +1,9 @@
+{
+  "name": "ShiKu",
+  "description": "石窟 ShiKu · A walkable 3D museum of China’s four great Buddhist grottoes. 从敦煌卧佛走到龙门大佛，看原址摄影与实物扫描，听普通话讲解，与同行者在馆内相遇。",
+  "topics": ["china", "cloudflare-workers", "cultural-heritage", "digital-humanities", "digital-museum", "durable-objects", "grottoes", "mandarin", "multiplayer", "photogrammetry", "threejs", "webgl"],
+  "homepage": "https://shiku.xiaoha.org",
+  "defaultBranch": "main",
+  "mergeMethod": "squash",
+  "autoDeploy": false
+}
