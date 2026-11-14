@@ -1,3 +1,4 @@
+import {spaceStudies,studyViewer} from './space-studies.js';
 import {hasDisplayMedia} from './public-media.js';
 import {evidenceAt, chamberPhotos} from './chamber-evidence.js';
 import {workForDisplay, mediaLabel} from './authentic-display.js';
@@ -27,7 +28,9 @@ function link(text, url) {
 
 export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, initialDetail}) {
   const s = workForDisplay(raw);
-  const photos = c ? chamberPhotos(c) : s.evidence.images;
+  const evidencePhotos = c ? chamberPhotos(c) : s.evidence.images;
+  const photos = evidencePhotos.length ? evidencePhotos : s.visual && s.visual.kind!=='space' ? [s.visual] : [];
+  const study = spaceStudies[s.id];
   const capture=collectionScans[s.id];
   const root = node('article', 'sd evidence-desk');
   const header = node('header', 'sd-header');
@@ -101,7 +104,7 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
   for(const item of [...(c?.sources || []), ...(reading?.sources || [])]) addSource(item.label,item.url);
   if(s.evidence.officialViews?.length){
     const choices=node('div','sd-originals');
-    for(const item of s.evidence.officialViews)choices.append(link('看馆方原图 · '+item.label,item.url));
+    for(const item of s.evidence.officialViews)choices.append(link(item.label,item.url));
     rail.prepend(choices);
   }
   rail.append(sources);
@@ -111,7 +114,12 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
     title.textContent = s.title;
     copy.textContent = s.story || s.feature;
     ref.replaceChildren();
-    if(s.evidence.references?.length){const first=s.evidence.references[0];ref.append(link(first.label,first.url));}
+    const first=(s.evidence.references||[]).find(item=>item.url!==digitalResource && !s.evidence.officialViews?.some(view=>view.url===item.url));
+    if(first)ref.append(link(first.label,first.url));
+    if(s.visual?.comparisonNote)ref.prepend(node('p','',s.visual.comparisonNote));
+    if((!s.photo || s.visual?.contextOnly || s.visual?.relation) && !digitalResource && !s.evidence.officialViews?.length && first?.url!==s.source){
+      ref.prepend(link(s.evidence.viewerLabel||'查阅这件展品',s.evidence.viewer||s.source));
+    }
     if(s.holding)ref.append(node('p','ed-id',[s.holding,s.accession].filter(Boolean).join(' · ')));
     entryButtons.forEach(b=>b.setAttribute('aria-pressed','false'));
   }
@@ -124,7 +132,11 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
     if(entry.source)ref.append(link(entry.sourceLabel || '此处资料',entry.source));
     if(visit && Number.isInteger(entry.station))ref.append(button('走到这个展位',()=>visit(entry.station),'sd-enter'));
     if(entry.photo){showPhoto(entry.photo);if(Number.isInteger(entry.hotspot))viewer?.focus(entry.hotspot);}
-    else if(Number.isInteger(entry.station)){showPhoto(null);}
+    else if(Number.isInteger(entry.station)){
+      ref.prepend(node('p','','此处有调查记录，尚缺可确认的局部照片。'));
+      if(study)showStudy();else showPhoto(photos[0]||null);
+      if(photos.length&&!study)kind.textContent='展品参考 · '+mediaLabel(photos[0]);
+    }
   }
   if(entries.length) {
     essayList.append(node('h4','',c?'驻足与导读':'细节与导读'));
@@ -160,8 +172,16 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
         node('p','',selectedEntry?'此处由窟志记载，尚缺可核实的局部照片。':s.evidence.reason||'本件以馆藏著录展出。'),
         link('打开原始著录',selectedEntry?.source||s.evidence.source||s.source));
       if(s.evidence.viewer)note.append(link(s.evidence.viewerLabel||'在原机构查看本件影像',s.evidence.viewer),node('p','ed-subject',s.evidence.viewerNote));
-      if(photos.length)note.append(button('查看本窟已收录影像',()=>{summary();showPhoto(photos[0]);},'sd-enter'));
+      if(photos.length)note.append(button('返回展品主图',()=>{summary();showPhoto(photos[0]);},'sd-enter'));
     }
+    paintTools();
+  }
+  function showStudy(){
+    release();mode='space';media.dataset.mode=mode;
+    view.hidden=true;note.hidden=true;registered.hidden=true;scan.hidden=false;
+    frame=node('iframe');frame.src=studyViewer(s.id);frame.title=study.title;scan.append(frame);
+    kind.textContent='窟室尺度模型';sequence.textContent='';
+    caption.replaceChildren(node('span','',study.note),link(study.sourceName,study.source));
     paintTools();
   }
   function showScan(compare=false) {
@@ -206,6 +226,7 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
   cameraBox.onpointermove=event=>{if(cameraBox.hasPointerCapture(event.pointerId))slide(event);};
   function paintTools() {
     tools.replaceChildren();
+    if(c && visit)tools.append(button(c.spaceType?'步入书房':'进入这间窟室',()=>visit(0),'sd-enter'));
     if(photos.length>1 && mode==='photo') {
       for(const [name,step] of [['上一张',-1],['下一张',1]]) {
         tools.append(button(name,()=>{const i=photos.findIndex(p=>p.src===photo?.src);summary();showPhoto(photos[(i+step+photos.length)%photos.length]);}));
@@ -223,6 +244,8 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
       slider.setAttribute('aria-label','实拍照片显示比例');slider.oninput=()=>setSplit(slider.valueAsNumber);
       label.append(slider,document.createTextNode('扫描'));tools.append(label);
     }
+    if(study && mode!=='space')tools.append(button('旋转尺度模型',showStudy));
+    if(study && mode==='space' && photos.length)tools.append(button('看实物图',()=>showPhoto(photos[0])));
     if(capture?.online && !capture.viewer){
       tools.append(link('馆方摄影测量档案',capture.source));
     }
@@ -236,6 +259,7 @@ export function mountStructure(host, {s:raw, c, reading, visit, initialMedia, in
   summary();
   if(capture?.viewer && ['scan','compare'].includes(initialMedia)) showScan(initialMedia==='compare');
   else if(Number.isInteger(initialDetail) && initialDetail>=0) pickEntry(initialDetail);
+  else if(study && (initialMedia==='space'||initialMedia==='scan'||!photos.length)) showStudy();
   else {
     showPhoto(photos[0]||null);
     if(capture?.online && !capture.viewer){

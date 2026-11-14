@@ -1,4 +1,4 @@
-import {workForDisplay} from './authentic-display.js';
+import {workForDisplay,mediaLabel} from './authentic-display.js';
 import {makeVisitorPicker} from './visitor-picker.js';
 // All navigation, changing visitor and reading take place over the same 3D canvas.
 import {profiles} from './site-profiles.js';
@@ -8,8 +8,8 @@ import {plans} from './building-plan.js';
 export function makePanels({el,action,modal,source,routes,sites,works,visitors,selectedVisitor,changeVisitor,currentPlace,enter,enterHall,walkTo,enterChamber,startVisit,canChangeVisitor,initialVisitor}){
  const two=n=>String(n).padStart(2,'0');
  function door(rr,nn){enter(rr,nn)}
- function photo(s){const item=workForDisplay(s).photo;if(!item)return el('span','catalog-record','文献记录');const im=el('img');im.alt=item.caption;im.src=item.src;im.loading='lazy';return im}
- function stationList(items,target){const list=el('div','stops archive-stops');items.forEach(([s,k])=>{const b=action('',()=>target(s,k));b.append(photo(s));const text=el('span');text.append(el('small','',(s.crossPeriod?'对照 · ':'')+s.siteName+' · '+s.number),el('strong','',s.title),el('small','era-meta',s.era));b.append(text);list.append(b)});return list}
+ function photo(s){const item=workForDisplay(s).visual;if(!item)return el('span','catalog-record','文献记录');const im=el('img');im.alt=item.caption;im.src=item.src;im.loading='lazy';return im}
+ function stationList(items,target){const list=el('div','stops archive-stops');items.forEach(([s,k])=>{const b=action('',()=>target(s,k));b.append(photo(s));const text=el('span');text.append(el('small','',(s.crossPeriod?'对照 · ':'')+s.siteName+' · '+s.number),el('strong','',s.title),el('small','era-meta',s.era+'　·　'+mediaLabel(workForDisplay(s).visual)));b.append(text);list.append(b)});return list}
  function rooms(rr=currentPlace()[0]){
    const h=routes[rr];
    modal('时代展馆','routes',body=>{

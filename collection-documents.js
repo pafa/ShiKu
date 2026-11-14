@@ -22,25 +22,25 @@ export const print={
 };
 export const manuscriptTables = {
   tang: {
-    id:'FRBNFEAD000118625', shelf:'P. 2001', title:'一卷僧院见闻，行间还有红笔',
+    id:'FRBNFEAD000118625', shelf:'P. 2001', comparisonWork:'mogao-bl-s6728', comparisonLabel:'写卷装帧对照 · S.6728 的木轴与接纸', title:'一卷僧院见闻，行间还有红笔',
     note:'这份《南海寄归内法传》抄本保留序和卷一。把卷首放大，正文的细字之间，有人用红墨补上了漏抄的字，往后又改用黑墨。',
     detail:'义净在印度和南海诸地观察僧人如何生活，再把当地做法写下来。这份流传到敦煌的抄本长5.08米，十五张纸接成一卷。书手把小注写成单行或双行，比正文还细。对照原卷，行间的补字和原有修补都是这件手稿自身的痕迹。',
     label:'《南海寄归内法传》序及卷一', formLabel:'僧院见闻', physicalLabel:'十五纸接卷 · 长 508 厘米'
   },
   'five-dynasties': {
-    id:'FRBNFEAD000119484', shelf:'P. 2846', title:'讲经之后，谁来算账？',
+    id:'FRBNFEAD000119484', shelf:'P. 2846', comparisonWork:'mogao-17', comparisonLabel:'出土地点 · 第17窟整理文书的历史照片', title:'讲经之后，谁来算账？',
     note:'甲寅年正月二十一日，都僧政愿清等人呈上一份报告。小麦、黍、麻、豆、布帛、铜和铁都记在账内，写的是讲经所收施物的用途。',
     detail:'馆方把这个甲寅年定为954年。残存的报告开头共二十行，字写得快，夹着行草和记账用的大写数字。原纸留着增写、涂改和订正，右下角已撕裂。沿一行读到改字，再看物品的单位，可以想象核算这样一笔实物账有多费功夫。',
     label:'寺院账记', formLabel:'寺院账记', physicalLabel:'单纸二十行 · 甲寅年正月'
   },
   song: {
-    id:'FRBNFEAD000120795', shelf:'P. 4525（12）', partShelf:'Pelliot chinois 4525 (12)', title:'一份留着签名空栏的收养契约',
+    id:'FRBNFEAD000120795', shelf:'P. 4525（12）', comparisonWork:'mogao-bnf-p3965', comparisonLabel:'同批收藏对照 · P.3965 的纸面与印像', partShelf:'Pelliot chinois 4525 (12)', title:'一份留着签名空栏的收养契约',
     note:'宋太平兴国八年三月（983年），僧正崇会收养一名女孩。曾抚育她的康愿昌和阿安也被记在契约里。这份文书位于第十二件的正面。',
     detail:'纸上共十六行，其中五行留给署名。往下读，女孩和养育她的人列在当事者处，见证人的位置也已留好，却没有写下姓名或签押。馆方对康愿昌与阿安是否为夫妻保留疑问。文字的空白和已经写下的称呼一样值得看。',
     label:'收养契约 · 第十二件正面', formLabel:'收养契约', physicalLabel:'第十二件正面 · 十六行'
   },
   chronology: {
-    id:'FRBNFEAD000118928', shelf:'P. 2304', title:'一卷写了两面，经注还打过补丁',
+    id:'FRBNFEAD000118928', shelf:'P. 2304', comparisonWork:'mogao-bl-s5458', comparisonLabel:'经文行款对照 · S.5458 摊开的两叶', title:'一卷写了两面，经注还打过补丁',
     note:'这件卷子长逾十米，正面与背面各写一部注释。背面第五纸粘着一张补纸，书手在上面重抄、补正了正文中的一段。',
     detail:'正面现存《大乘百法明门论》注释的末段，共七百一十三行。翻到背面，开元寺律师大弁在起首题记中写下年号，但字有残缺。法国国家图书馆倾向释作广顺三年（953），同时列出较不确定的大顺三年（892）读法。这个疑问来自一处具体题记。',
     label:'经注卷 · 正背面', formLabel:'双面经注', physicalLabel:'二十四纸接卷 · 长约十米'

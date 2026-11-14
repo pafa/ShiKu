@@ -52,3 +52,5 @@
 .sd .plate-navigator:before{content:'';position:absolute;inset:-5px}
 
 .sd-originals{display:grid;gap:6px;margin:0 0 15px}.sd-originals a{color:#425d49;font:14px/1.55 system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px}
+
+.sd-media[data-mode=space] .scan-pane{height:100%;width:100%}

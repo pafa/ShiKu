@@ -1,0 +1,14 @@
+# 云冈、龙门旧展签的实物与遗址对读
+
+本组逐件核对六项展签。首次收录的五幅图像均保留原构图，另有一幅采用馆内已经登记的第17窟现场照片。在各自藏品的标签里，来窟、同一浮雕的另一纸拓本和另一处遗址的同类器物有各自的说明。全部影像均为实物摄影或纸本数字化。
+
+| 展签 | 可以从图片读到什么 | 核验与图源 |
+| --- | --- | --- |
+| 克利夫兰所藏帝后礼佛图拓本 | 巴黎的两纸早期墨拓也取自龙门宾阳中洞这两幅浮雕，可直接比对衣袖、扇羽和仪仗轮廓。巴黎馆录定两纸的拓制时间均在1900至1911年。克利夫兰的两纸为1916.64、1916.65，巴黎的是 M.C. 5262、M.C. 5261。 | [巴黎藏帝王拓本及 CC0 标识](https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/estampage-272) · [巴黎藏皇后拓本及 CC0 标识](https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/estampage-271) · [芝加哥大学对不同拓本的逐项研究](https://caea.lib.uchicago.edu/dcadp/en/longmenbcc/viewers/) · [克利夫兰帝王本](https://www.clevelandart.org/art/1916.64) · [克利夫兰皇后本](https://www.clevelandart.org/art/1916.65) |
+| 龙门东山佛足迹碑 | 《故宫博物院院刊》将原碑与日本奈良药师寺753年佛足石作比较，并讨论佛足上轮纹等共同特征。展出图是药师寺这方石刻的1955年书刊照片。院刊图一、图二可分别核对龙门的原刻与拓片。 | [故宫博物院研究及图一至十](https://img.dpm.org.cn/Uploads/file/2025/06/19/1750318623RzECWSBKq260.pdf) · [奈良药师寺国宝](https://www.yakushiji.or.jp/tw/temples/010.html) · [1955年原版照片和公有领域依据](https://commons.wikimedia.org/wiki/File:Buddha_footprint_Stone_Yakushiji.jpg) |
+| 弗利尔 F1911.421 | 弗利尔将这件有残彩的唐代石灰岩称为龙门墙体残片。它的原窟尚待考证。馆内另展 Gary Todd 实拍的万佛洞密排小佛，供观察同遗址千佛题材如何组成整面洞壁。 | [弗利尔馆方原件照片与出土位置说明](https://asia-archive.si.edu/object/F1911.421/) · [龙门石窟研究院](https://www.lmsk.cn/Gywm_id_5.html) · [Gary Todd摄影、CC0](https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Buddhas_-_5.jpg) |
+| 云冈窟顶西区北魏寺院 | 西区遗址出土石研磨器 T519④:50，研究论文表1第6项。直径18厘米，中央磨坑直径5厘米、深2.5厘米，坑中红色残留经拉曼分析鉴为赤铁矿。图像使用作者的原始分辨率262 × 207，保留2厘米标尺。原址发掘区、塔基全景另有发掘简报原图入口。 | [Fan 等《Minerals》14(3) 221，表1及图6、CC BY 4.0](https://doi.org/10.3390/min14030221) · [出版者原始图](https://mdpi-res.com/d_attachment/minerals/minerals-14-00221/article_deploy/minerals-14-00221-i006.tif) |
+| 上海博物馆石天人头部残件 | 馆方注明高24.3厘米，出自第17窟，1948年由日返国。沿用馆内 Patrick20242023 的第17窟主尊仰视照交代原窟，残首形貌可在上海博物馆藏品页核实。 | [上海博物馆藏品记录与照片](https://www.shanghaimuseum.cn/mu/frontend/pg/article/id/CI00159686) · [第17窟实拍、CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:云冈石窟第17窟仰视视角.jpg) |
+| 云冈第38窟 | 核读京都大学原书《云冈石窟》第十五卷（1955）目录，图76为窟外壁，77为吴氏题记，78为北壁东部涅槃，79为西壁下段，80为窟顶，81为骑象普贤。原书可在京都大学读到。馆刊的开放阅览记录未给图板标出开放再分发许可。另核对了原书《拓本》图版 XIV 的 B 图（电子版第18页中段），题签标出第三十八洞东壁下层供养人，拓本呈现供养人之间的音乐树。 | [第38窟东壁下层原拓，图版 XIV B](https://repository.kulib.kyoto-u.ac.jp/server/api/core/bitstreams/b5b5c1ff-6890-46a9-91aa-7000cfd55d05/content#page=18) · [京都大学原书与分册目录](https://repository.kulib.kyoto-u.ac.jp/handle/2433/139090) · [京都大学原书图版目录，第10页](https://repository.kulib.kyoto-u.ac.jp/server/api/core/bitstreams/732038ec-8bc1-48ca-a916-3256f33563d7/content#page=10) · [云冈研究院维护报道与音乐树实拍](https://www.thepaper.cn/newsDetail_forward_12294320) |
+
+巴黎两件拓本的原始数字图及编号另可通过馆方 [M.C. 5262 IIIF](https://apicollections.parismusees.paris.fr/iiif/420005434/manifest) 与 [M.C. 5261 IIIF](https://apicollections.parismusees.paris.fr/iiif/420005433/manifest) 核对。首次引入本目录的影像仅进行等比缩小、WebP 转码，比例尺、纸边、残损及石面纹理均保留。

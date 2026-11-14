@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "CATALOG.md",
-      "sha256": "4548a641d6bcfde2a12e77a5e619860188b05e4f29447fe1df203c71fc5bbc18",
+      "sha256": "4197229400026bd6f79595b9d4ed4f30b96d6516eefd6420eefbf834208310ff",
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "credit": "ShiKu",
@@ -2371,6 +2371,33 @@
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
     },
     {
+      "path": "assets/space-studies/maijishan-197.webp",
+      "sha256": "35b4c18f1782d85638cfbbc8b06a8a3d7f85f413b290082a28c7e4c7879db038",
+      "license": "CC BY 4.0",
+      "credit": "ShiKu",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "assets/space-studies/SOURCES.md",
+      "changes": "依据调查尺寸建模，由模型初始视角生成剖视封面。"
+    },
+    {
+      "path": "assets/space-studies/maijishan-202.webp",
+      "sha256": "4054672331fd4a54c15b09096f336d105c203bb8894f369901bcc61e20c3476b",
+      "license": "CC BY 4.0",
+      "credit": "ShiKu",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "assets/space-studies/SOURCES.md",
+      "changes": "依据调查尺寸建模，由模型初始视角生成剖视封面。"
+    },
+    {
+      "path": "assets/space-studies/maijishan-219.webp",
+      "sha256": "02c48af3386dda20af2d9412c1e4677c9f1f9a7f4e532b6dc3fd170c6e739eea",
+      "license": "CC BY 4.0",
+      "credit": "ShiKu",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "assets/space-studies/SOURCES.md",
+      "changes": "依据调查尺寸建模，由模型初始视角生成剖视封面。"
+    },
+    {
       "path": "assets/visitors-fitted/heng/card.webp",
       "sha256": "e19668468a641107f3b075598c0909010336f97047b81900bda1b373b4911c13",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
@@ -3770,6 +3797,168 @@
       "changes": "由本站普通话讲稿生成；语音模型和声音身份不随录音转授。"
     },
     {
+      "path": "assets/wall-research-east/binyang-emperor-cernuschi.webp",
+      "sha256": "a8acc20a536796f345ea79502f0b3bda1205f92a892dbb6c2adabf15bb795494",
+      "license": "CC0 1.0",
+      "credit": "Paris Musées / Musée Cernuschi · M.C. 5262",
+      "source": "https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/estampage-272",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "保留整幅构图，转换为 WebP。超过2300像素的原图等比缩小。"
+    },
+    {
+      "path": "assets/wall-research-east/binyang-empress-cernuschi.webp",
+      "sha256": "f1a26510b3b3bf7f00a40ac7c2cf33b41e5618eb1c77ffe9574432d5e9dee69e",
+      "license": "CC0 1.0",
+      "credit": "Paris Musées / Musée Cernuschi · M.C. 5261",
+      "source": "https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/estampage-271",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "保留整幅构图，转换为 WebP。超过2300像素的原图等比缩小。"
+    },
+    {
+      "path": "assets/wall-research-east/wanfo-miniature-buddhas.webp",
+      "sha256": "da55099485c814cd5c6ba62b3a94d46190bdb6bea0db2e3c5bf22c26b73e0f65",
+      "license": "CC0 1.0",
+      "credit": "Gary Todd",
+      "source": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Grotto_of_Buddhas_-_5.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "保留整幅构图，转换为 WebP。超过2300像素的原图等比缩小。"
+    },
+    {
+      "path": "assets/wall-research-east/west-summit-pigment-grinder.webp",
+      "sha256": "153e05b67edf4db7c4260c06acdcdd543f5f159dc0d16a95b0637df0c709d592",
+      "license": "CC BY 4.0",
+      "credit": "Xiao Fan、Jianfeng Cui、Shuyu Wang、Lizhong Tai、Jing Guo、Hongbin Yan、Anna Candida Felici、Lucilla Pronti",
+      "source": "https://www.mdpi.com/2075-163X/14/3/221#table_body_display_minerals-14-00221-t001",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "保留整幅构图，转换为 WebP。超过2300像素的原图等比缩小。"
+    },
+    {
+      "path": "assets/wall-research-east/yakushiji-bussokuseki.webp",
+      "sha256": "24baba321920969b7d9426a731ca70c76985fef2fac495588230f55a7abcca57",
+      "license": "Public Domain",
+      "credit": "Association of Cultural Properties，1955年刊",
+      "source": "https://commons.wikimedia.org/wiki/File:Buddha_footprint_Stone_Yakushiji.jpg",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "保留整幅构图，转换为 WebP。超过2300像素的原图等比缩小。"
+    },
+    {
+      "path": "assets/wall-research-maiji/123-surfaces.webp",
+      "sha256": "58ad2b68684bfc7f800e6fa0142622c3cecd18690e05b2e4840ca1eb9515ec39",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Chenglei Meng、Shiqiang Fang、Qian Ma、Wenjing Hu、Xiaobin Liu、Ye Zheng、Guangqiang Dong、Yongqiang Yue、Bingjian Zhang，2020年，图7A、B，第123窟",
+      "source": "https://doi.org/10.21203/rs.3.rs-40594/v1",
+      "changes": "从作者预印本内嵌位图取该窟原图或分图，保留作者的英文圈注，按原生像素转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-maiji/135-painted-wall.webp",
+      "sha256": "8cde0f72c6df3f2cb84108da6ca40b4eb9ae9046f6f6d163e129a6288f42d206",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Chenglei Meng、Shiqiang Fang、Qian Ma、Wenjing Hu、Xiaobin Liu、Ye Zheng、Guangqiang Dong、Yongqiang Yue、Bingjian Zhang，2020年，图7C、D，第135窟",
+      "source": "https://doi.org/10.21203/rs.3.rs-40594/v1",
+      "changes": "从作者预印本内嵌位图取该窟原图或分图，保留作者的英文圈注，按原生像素转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-maiji/44-wall-surface.webp",
+      "sha256": "128e72130bd3855d3ae5e1dea5016afa9f8e53a26ee9d17026905d6799bd593a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Chenglei Meng、Shiqiang Fang、Qian Ma、Wenjing Hu、Xiaobin Liu、Ye Zheng、Guangqiang Dong、Yongqiang Yue、Bingjian Zhang，2020年，图5",
+      "source": "https://doi.org/10.21203/rs.3.rs-40594/v1",
+      "changes": "从作者预印本内嵌位图取该窟原图或分图，保留作者的英文圈注，按原生像素转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-maiji/59-flaking.webp",
+      "sha256": "65cb1db664c118fe0023ed0522d7cb666165e0c32f3ba31f61b8a29176b93f75",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Chenglei Meng、Shiqiang Fang、Qian Ma、Wenjing Hu、Xiaobin Liu、Ye Zheng、Guangqiang Dong、Yongqiang Yue、Bingjian Zhang，2020年，图6右，第59窟",
+      "source": "https://doi.org/10.21203/rs.3.rs-40594/v1",
+      "changes": "从作者预印本内嵌位图取该窟原图或分图，保留作者的英文圈注，按原生像素转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/003-stein-north.webp",
+      "sha256": "9a9ddb45b77acedb72eab1d485b77c214ff4d13c0b4375b343f27270a6f3ef10",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图205",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n306/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/003-stein-south.webp",
+      "sha256": "cb93b43bc0b26f7f11299e24f669e35ac3d737e2050764756057805eedeaf9bb",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图204",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n297/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/045-stein-niche.webp",
+      "sha256": "31f6bcfd29e8dfb2f65708c55b2cbc4dc4b835cf3e9b20c3c7c5e6956eda81be",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图212",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n319/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/055-stein-altar.webp",
+      "sha256": "e513e22dd916a4c5387f25483a7a98f8867ecb0c15296b550152514d69cfacbb",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图213",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n336/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/061-stein-questions.webp",
+      "sha256": "2e63b13857803d5e1f2e221b9fd68754108c4fa7e486bba4d33ad7f7e54225ff",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图224",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n371/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/061-stein-wutai.webp",
+      "sha256": "87f4ba0e16d5e01c88d46680465a15f6c8ed253aba5713833f35768160989851",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图222",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n370/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/146-stein-healing.webp",
+      "sha256": "9a14eac5aed84dcb46755cef0000fee6f43c958666888cb03ca8d013b887d69b",
+      "license": "公有领域",
+      "credit": "Aurel Stein，1907年敦煌调查，《Serindia》卷二（1921年）图235",
+      "source": "https://archive.org/details/steinaurelserindiavoliitext_180_O/page/n433/mode/1up",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/285-chen-north-halo.webp",
+      "sha256": "a094ff2bd17552594da7f5e3145239fbf0e4ce2bca19de138399e4fc44553574",
+      "license": "公有领域",
+      "credit": "陈万里摄，《西陲壁画集》（1928年）图7，中国国家图书馆藏本",
+      "source": "https://commons.wikimedia.org/wiki/File:NLC416-08jh010325-9256_西陲壁畫集.pdf",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
+      "path": "assets/wall-research-mogao/285-chen-offerings.webp",
+      "sha256": "42fd99386c7204319882c854e908793b22b581307a0d1abd76836151feff43c6",
+      "license": "公有领域",
+      "credit": "陈万里摄，《西陲壁画集》（1928年）图6，中国国家图书馆藏本",
+      "source": "https://commons.wikimedia.org/wiki/File:NLC416-08jh010325-9256_西陲壁畫集.pdf",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "changes": "从原刊扫描裁出单幅照片，按图注调整阅读方向，保留黑白影调，等比缩小并转为 WebP。"
+    },
+    {
       "path": "assets/welcome/grotto-panorama.webp",
       "sha256": "4bc0e5b2de7ebe3db9b5e77f45f077daebc84cc59d6cca660eb962b45fee3cdc",
       "license": "CC BY 4.0",
@@ -3870,7 +4059,7 @@
     },
     {
       "path": "exhibition-guide.html",
-      "sha256": "e8618020cff378123c065f39e173c78281e919cfb8ca6ec3ef1167a6f747a371",
+      "sha256": "e6645e4dc96a5a2f831fb75cfb8966fcf6c91e3340a891143acc7207942a2caa",
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "credit": "ShiKu",

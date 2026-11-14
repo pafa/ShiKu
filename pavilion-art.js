@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import {mergeGeometries} from './real-viewer/vendor/addons/utils/BufferGeometryUtils.js';
 import {wallStations} from './building-plan.js';
+import {exhibitVisual,visualLabel} from './exhibit-visual.js';
 import {evidenceFor} from './object-evidence.js';
 import {attachMetStation} from './met-relief-exhibit.js';
 
@@ -13,7 +14,8 @@ function caption(work, photo) {
   ctx.fillStyle='#342b23';ctx.font='38px "Songti SC",serif';
   ctx.fillText(work.title,24,56,722);
   ctx.font='22px "PingFang SC",sans-serif';ctx.fillStyle='#635648';
-  const label = photo?.contextOnly ? '同址参考图　·　' + photo.caption : work.siteName+' '+work.number+'　·　'+work.era;
+  const label = photo?.relation || photo?.contextOnly || photo?.kind==='space'
+    ? visualLabel(photo)+'　·　'+(photo.comparisonTitle || photo.caption.split(/[。；]/)[0]) : work.siteName+' '+work.number+'　·　'+work.era;
   ctx.fillText(label,24,94,722);
   const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
   return texture;
@@ -110,7 +112,8 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate,d
     image.position.set(x,y,z+sign*.112);image.rotation.y=sign===1?0:Math.PI;
     image.userData.exhibit=station;group.add(image);targets.push(image);
     const record=evidenceFor(work);
-    const src=record.images[0]?.src;
+    const picture=exhibitVisual(work,record);
+    const src=picture?.src;
     image.visible=false;
     if(!src){
       image.material.map=sourceLabel(work,record);
@@ -139,7 +142,7 @@ export function mountArt(plan,entries,textures,manager,sharedImages,invalidate,d
       });
     }
     const textWidth=Math.min(w*.83,1.58),textHeight=textWidth*120/768;
-    const label=new THREE.Mesh(new THREE.PlaneGeometry(textWidth,textHeight),new THREE.MeshBasicMaterial({map:caption(work,record.images[0]),toneMapped:false}));
+    const label=new THREE.Mesh(new THREE.PlaneGeometry(textWidth,textHeight),new THREE.MeshBasicMaterial({map:caption(work,picture),toneMapped:false}));
     label.position.set(x,y-h/2-.29,z+sign*.088);label.rotation.y=image.rotation.y;
     label.userData.exhibit=station;group.add(label);targets.push(label);
     const pick=new THREE.Mesh(new THREE.PlaneGeometry(w+.26,h+.82),new THREE.MeshBasicMaterial({visible:false}));

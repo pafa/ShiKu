@@ -86,7 +86,7 @@ export function evidenceAt(c,index){
   const precise=special[c.id]?.[detail.id];
   if(precise && hasDisplayMedia(precise.src))return precise;
   const record=evidenceFor(c.work),rule=catalogueDetails[c.id];
-  const feature=(record.images||[]).find(image=>image.details?.includes(detail.id));
+  const feature=(record.images||[]).find(image=>!image.relation && image.details?.includes(detail.id));
   if(feature)return feature;
   if(c.id==='mogao-285'&&detail.id==='dated')return record.images.find(p=>p.src.endsWith('285-yu-4a.webp'))||null;
   const plateNumber=archiveDetails[c.id]?.[detail.id];
@@ -97,5 +97,5 @@ export function evidenceAt(c,index){
 export function chamberPhotos(c){
   const photos=[...(c.id==='mogao-158'?nirvanaEvidence.images:[]),...Object.values(special[c.id]||{}),...evidenceFor(c.work).images];
   if(c.id==='longmen-1280')photos.push(feng.south);
-  return [...new Map(photos.filter(image=>image && hasDisplayMedia(image.src)).map(image=>[image.src,image])).values()];
+  return [...new Map(photos.filter(image=>image && !image.relation && hasDisplayMedia(image.src)).map(image=>[image.src,image])).values()];
 }
