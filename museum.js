@@ -55,10 +55,10 @@ function artworkShown(){
 }
 function checkPlate(event){
   if(!awaitingArtwork || document.hidden)return;
-  if(event?.type==='load' && !event.target.matches?.('#artifact,.sd-layer img,.sd-registered img'))return;
+  if(event?.type==='load' && !event.target.matches?.('#artifact,.sd-layer img,.registered-photo'))return;
   requestAnimationFrame(()=>{
     if(!awaitingArtwork || document.hidden || sheet.open)return;
-    const image=detail.open?detail.querySelector('.sd-layer img,.sd-registered img'):img;
+    const image=detail.open?[...detail.querySelectorAll('.sd-layer img,.registered-photo')].find(node=>node.naturalWidth && node.getClientRects().length):img;
     if(!image?.complete || !image.naturalWidth || !image.getClientRects().length)return;
     const rect=image.getBoundingClientRect();
     const x=(Math.max(0,rect.left)+Math.min(innerWidth,rect.right))/2;
