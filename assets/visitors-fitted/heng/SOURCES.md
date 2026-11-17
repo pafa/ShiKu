@@ -9,3 +9,5 @@
 深灰系带运动鞋来自 Digital Reality Lab / HumanScanRepository 的 HSR0042-Body-011，以 CC BY 4.0 授权。鞋跟与鞋头整只跟随对应脚踝旋转，脚掌着地时仍保留投影和压纹。[鞋的登记记录](../../visitors-natural/heng/SOURCES.md) · [采集者的许可](https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md#license)
 
 本次拟合在原始工作台运行 `PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 python scripts/visitor-fitting/heng/fit.py`。该离线步骤从库内原有的 gallery 与 portrait 两档扫描读取原生坐标、相机颜色、法线、骨骼与权重。复现使用 C 编译器、Python 3.12、NumPy 1.26.4、SciPy 1.15.3、Pillow 11.3.0。此历史制作脚本未随公开版分发。
+
+展厅使用的 `walking.bin` 由上述 `gallery.glb` 制作。人物主色图从原作衍生的 4096 × 4096 图集重采样至 2048 × 2048。沿网格的纹理边缘补出同色像素，避免远看时袖口和肩膀混入图集空白处的肤色。法线图缩至 768 × 768，粗糙度保留材质使用的绿色通道，并限制极低粗糙度造成的反光亮点。鞋保留同一双 HSR0042 运动鞋的扫描纹理。贴图用 WebP 编码，再将带骨骼的 GLB 用 gzip 压缩。

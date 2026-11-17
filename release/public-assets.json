@@ -3867,11 +3867,11 @@
     },
     {
       "path": "assets/visitors-fitted/heng/walking.bin",
-      "sha256": "00efb86bcb3fe7d7197e8b368c49d355c3f987dadd2a3362f2511c2991fe5273",
+      "sha256": "4424800064f076141c0bf3f1b6763b5199bd036c2c48cc7428792996c53ad34e",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
       "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
       "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
-      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 展厅漫游版；保留原始网格、骨骼、蒙皮及材质，漫游贴图最长边1024像素，采用 gzip 编码。",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 展厅漫游版从 gallery.glb 的摄影色图重采样至 2048×2048，扩展有效纹理边缘，按材质保留法线和粗糙度通道。贴图采用 WebP，GLB 使用 gzip 编码。",
       "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
     },
     {
@@ -3930,11 +3930,11 @@
     },
     {
       "path": "assets/visitors-trousers/qing/walking.bin",
-      "sha256": "67d75b77e1c151314159f4c7e2413c33366dd9ff87aadf6d9f8a3907ad4aa407",
+      "sha256": "b99dd1d220a7e12072437ee3fbc145f34e870621dcbf552918db553786b38f6e",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
-      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 展厅漫游版；保留原始网格、骨骼、蒙皮及材质，漫游贴图最长边1024像素，采用 gzip 编码。",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 展厅漫游版从 gallery.glb 提取头部、双手和两只鞋实际使用的纹理区块，按原网格重新排列 UV，保留衣料纹理。贴图采用 WebP，GLB 使用 gzip 编码。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {

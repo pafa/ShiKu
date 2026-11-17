@@ -225,6 +225,7 @@
   "scripts/check-visit-interactions.mjs",
   "scripts/check-visit-metrics.mjs",
   "scripts/check-visit-metrics.test.mjs",
+  "scripts/check-visitor-motion.mjs",
   "scripts/check-walking.mjs",
   "scripts/freeze-public.py",
   "scripts/mandarin_narration.py",

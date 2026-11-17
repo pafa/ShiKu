@@ -31,6 +31,7 @@ jobs:
       - name: Walk between galleries and stop at the exhibits
         run: |
           node scripts/check-walking.mjs
+          node scripts/check-visitor-motion.mjs
           node scripts/check-stroll.mjs
       - name: Check the admission limit and queue
         run: |

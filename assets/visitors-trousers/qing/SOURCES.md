@@ -9,3 +9,5 @@
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python scripts/visitor-trousers/qing.py
 ```
+
+展厅的 `walking.bin` 从同一套 `gallery.glb` 提取原作实际使用的纹理区域。头、发和双手的六个纹理区块按原像素密度排入 512 × 664 图集。两只 HSR0028 运动鞋的 625 个纹理区块从 4096 × 4096 原图取样，按原像素密度的 70% 排入 1024 × 1240 图集。各纹理区块预留边缘颜色，避免远看时混入相邻区块。皮肤和灰绿衬衣由展厅灯光照明。贴图用 WebP 编码，GLB 用 gzip 压缩。

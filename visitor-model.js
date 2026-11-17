@@ -64,7 +64,12 @@ function prepare({scene}) {
     mesh.receiveShadow=true;
     enableCornealReflection(mesh);
     for (const m of [].concat(mesh.material)) {
-      // Keep each original's colour, roughness and authored normal maps together.
+      // These three photographic surfaces share a fill baked into the original
+      // colour map. Let the gallery lights illuminate the skin and cotton.
+      if (m.name === 'Kana · captured head and hands' || m.name.startsWith('Celadon ·')) {
+        m.emissive.setRGB(0, 0, 0);
+        m.color.setRGB(1, 1, 1);
+      }
       if (m.map) m.map.anisotropy=4;
     }
   });

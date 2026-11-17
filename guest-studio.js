@@ -109,11 +109,17 @@ export async function openGuestStudio({avatarId,onChoose,trigger,startWalking=fa
   function advanceWalk(dt){
     walkTime+=dt;
     const curve=walkingAngle(walkTime);
-    // Give two complete strides at the same pace before rounding the bend.
-    // The gallery walker supplies its own acceleration and braking.
-    const motion=walker.step(dt,walkTime<4.65?{x:Math.sin(curve),z:-Math.cos(curve)}:null,.88);
+    // Approach the exhibit, slow down to see it, then turn and walk back.
+    let direction=null,pace=.88;
+    if(walkTime<4.9){
+      direction={x:Math.sin(curve),z:-Math.cos(curve)};
+      if(walkTime>=2.8)pace=.42;
+    }else if(walkTime>=5.75&&walkTime<8.15){
+      direction={x:-Math.sin(curve),z:Math.cos(curve)};
+    }
+    const motion=walker.step(dt,direction,pace);
     const p=walker.state;actor.root.position.set(p.x,0,p.z);actor.root.rotation.y=p.heading;
-    const art=walkTime>2.9?{x:p.x+1.35,y:person.eyeY+.04,z:p.z-2.4,kind:'art'}:null;
+    const art=walkTime>2.8&&walkTime<5.75?{x:p.x+1.35,y:person.eyeY+.04,z:p.z-2.4,kind:'art'}:null;
     actor.update({...motion,attention:art});
   }
   const syncClock=()=>{lastTime=performance.now();};
@@ -134,7 +140,7 @@ export async function openGuestStudio({avatarId,onChoose,trigger,startWalking=fa
       const p=walker.state;
       releaseLighting.follow(p.x,p.z);
       const follow=1-Math.exp(-dt*(framing==='feet'?12:2.8));cameraZ+=(p.z-cameraZ)*follow;cameraX+=(p.x-cameraX)*follow;drawCamera();
-      if(walkTime>5.9&&!walker.moving()&&!actor.isSettling()){
+      if(walkTime>8.15&&!walker.moving()&&!actor.isSettling()){
         walking=false;walkButton.textContent='再走一次';walkButton.setAttribute('aria-pressed','false');
       }
     }else{
