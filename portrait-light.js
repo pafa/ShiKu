@@ -1,27 +1,26 @@
 import * as THREE from 'three';
 import {HDRLoader} from './real-viewer/vendor/addons/loaders/HDRLoader.js';
 
-// A matte studio sweep for the casting room. A small tonal change across the
-// sweep gives the head depth without placing a bright window behind the hair.
+// A warm matte backdrop. Frame the light falloff on the screen so a long
+// portrait lens still sees the gradation across the paper.
 function studioSweep(){
-  const w=128,h=64,canvas=document.createElement('canvas');
-  canvas.width=w;canvas.height=h;
-  const ctx=canvas.getContext('2d'),pixels=ctx.createImageData(w,h);
-  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
-    const light=9*Math.cos(2*Math.PI*x/w-.8)+24*(1-y/(h-1));
-    const i=(y*w+x)*4;
-    pixels.data.set([158+light,155+light,147+light,255],i);
-  }
-  ctx.putImageData(pixels,0,0);
+  const canvas=document.createElement('canvas');
+  canvas.width=canvas.height=256;
+  const ctx=canvas.getContext('2d');
+  const light=ctx.createRadialGradient(82,81,5,82,81,252);
+  light.addColorStop(0,'#dad1c2');
+  light.addColorStop(.56,'#bcb4a6');
+  light.addColorStop(1,'#928d83');
+  ctx.fillStyle=light;ctx.fillRect(0,0,canvas.width,canvas.height);
   const texture=new THREE.CanvasTexture(canvas);
-  texture.mapping=THREE.EquirectangularReflectionMapping;texture.colorSpace=THREE.SRGBColorSpace;
+  texture.colorSpace=THREE.SRGBColorSpace;texture.generateMipmaps=false;texture.minFilter=THREE.LinearFilter;
   return texture;
 }
 
 export function portraitLight(scene,renderer){
-  scene.add(new THREE.HemisphereLight(0xf1f4f5,0xc6bfb7,.85));
-  const key=new THREE.DirectionalLight(0xfff8ee,1.24);
-  key.position.set(-2.6,2.9,-3.9);key.target.position.set(0,1.45,0);scene.add(key,key.target);
+  scene.add(new THREE.HemisphereLight(0xf1f4f5,0xc6bfb7,.68));
+  const key=new THREE.DirectionalLight(0xfff6eb,1.52);
+  key.position.set(-3.2,3.6,-3.9);key.target.position.set(0,1.45,0);scene.add(key,key.target);
   if(renderer){
     renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     const size=renderer.domElement.clientWidth>500?2048:1024;
@@ -31,9 +30,9 @@ export function portraitLight(scene,renderer){
   }
   // A broad return at face height keeps light in the eye sockets.
   // This is a fixed bounce from the gallery, not a light attached to the camera.
-  const bounce=new THREE.DirectionalLight(0xf3f2ee,.60);bounce.position.set(2.7,1.65,-4.8);
+  const bounce=new THREE.DirectionalLight(0xedf1f4,.46);bounce.position.set(2.7,1.65,-4.8);
   bounce.target.position.set(0,1.4,0);scene.add(bounce,bounce.target);
-  const edge=new THREE.DirectionalLight(0xf3f4f2,.30);edge.position.set(2.5,2.5,2.2);scene.add(edge);
+  const edge=new THREE.DirectionalLight(0xfff1dd,.60);edge.position.set(2.5,2.5,2.2);scene.add(edge,edge.target);
   scene.environmentRotation.y=-1.1;scene.environmentIntensity=.22;
   let disposed=false;
   // The booth uses a neutral copy of the room light with the window peaks
@@ -45,7 +44,11 @@ export function portraitLight(scene,renderer){
   const background=studioSweep();scene.background=background;scene.backgroundIntensity=1;
   function release(){disposed=true;scene.environment=scene.background=null;environment.dispose();background.dispose();key.shadow.dispose();}
   release.focus=framing=>{scene.backgroundIntensity=framing==='full'?.92:1;};
-  release.follow=(x,z)=>{key.position.set(x-2.6,2.9,z-3.9);key.target.position.set(x,1.45,z);bounce.position.set(x+2.7,1.65,z-4.8);bounce.target.position.set(x,1.4,z);};
+  release.follow=(x,z)=>{
+    key.position.set(x-3.2,3.6,z-3.9);key.target.position.set(x,1.45,z);
+    bounce.position.set(x+2.7,1.65,z-4.8);bounce.target.position.set(x,1.4,z);
+    edge.position.set(x+2.5,2.5,z+2.2);edge.target.position.set(x,0,z);
+  };
   return release;
 }
 

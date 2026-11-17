@@ -1,4 +1,4 @@
-// Exercise the shipped rig, capture and both mesh resolutions without a GPU.
+// Exercise the shipped rig and capture on each mesh that a visitor can load.
 // Read geometry, skin weights and joints. Surface materials need a browser.
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -34,7 +34,9 @@ async function readMesh(path,compressed){
 for(const visitor of VISITORS){
   const rootGroup=new THREE.Group(),walker=makeWalker(flat),dt=1/60;
   const forward={x:0,z:-1},left={x:-1,z:0},right={x:1,z:0};
-  const bodies=await Promise.all([readMesh(visitor.walkingBody,true),readMesh(visitor.detailBody,false)]);
+  const bodies=await Promise.all([
+    readMesh(visitor.walkingBody,true),readMesh(visitor.body,false),readMesh(visitor.detailBody,false)
+  ]);
   for(const body of bodies){
     rootGroup.add(body);
     rootGroup.position.set(0,0,0);rootGroup.rotation.y=0;rootGroup.updateMatrixWorld(true);

@@ -3849,38 +3849,38 @@
     },
     {
       "path": "assets/visitors-fitted/heng/card.webp",
-      "sha256": "e19668468a641107f3b075598c0909010336f97047b81900bda1b373b4911c13",
+      "sha256": "4f7a72f8f1dda8d695bd41bb19254d6f911033b68b1bc80a23ebd83b7bc1d3cf",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
       "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
       "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
-      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 从同款换装后的三维人物渲染选角肖像。",
       "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
     },
     {
       "path": "assets/visitors-fitted/heng/gallery.glb",
-      "sha256": "8bfb3a65d74850ff7c934436bf1f920d78cd12aba9239d4e40ea7ec146c32b60",
+      "sha256": "c9c4ba6c1361a30ffbc5a747f55d898265574844a44f4d38734f33a8cd953bbe",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
       "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
       "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
-      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
       "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
     },
     {
       "path": "assets/visitors-fitted/heng/portrait.glb",
-      "sha256": "d896473aa46d105fd774fcf04dca448f64979cea3fa0a3e3355cdbee45a5e151",
+      "sha256": "14d914bfef268b60c905156bc2f87a0a437372085969319886924fdc65dfb889",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
       "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
       "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
-      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
       "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
     },
     {
       "path": "assets/visitors-fitted/heng/walking.bin",
-      "sha256": "4424800064f076141c0bf3f1b6763b5199bd036c2c48cc7428792996c53ad34e",
+      "sha256": "a5fc2700f64803dece6b1758510346b0e102713f4c4bb4e6722f3b484919b29f",
       "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
       "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
       "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
-      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 展厅漫游版从 gallery.glb 的摄影色图重采样至 2048×2048，扩展有效纹理边缘，按材质保留法线和粗糙度通道。贴图采用 WebP，GLB 使用 gzip 编码。",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 展厅漫游版从 gallery.glb 的摄影色图重采样至 2048×2048，扩展有效纹理边缘，按材质保留法线和粗糙度通道。贴图采用 WebP，GLB 使用 gzip 编码。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
       "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
     },
     {
@@ -3894,11 +3894,11 @@
     },
     {
       "path": "assets/visitors-fitted/qing/card.webp",
-      "sha256": "c5e21f05588475e1f6ff61292c29d074af468ce396b20ea0307c2a76e400d90c",
+      "sha256": "a74bf6b7008287fdbe09b862a3207e4bf2d02843a2b2517b31244303b70f9f69",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
-      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 从同款换装后的三维人物渲染选角肖像。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
@@ -3921,29 +3921,29 @@
     },
     {
       "path": "assets/visitors-trousers/qing/gallery.glb",
-      "sha256": "fdf5e35c6371838e55fdf90b9266e4b8cf8be9cd02917ed38fd004a27a0486ac",
+      "sha256": "061aab26b84ff385c2d7d911f3101d26e2989a43ec7468a0292f3de292cf3f60",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
-      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 依原扫描调整眉眼、唇色和深栗色及肩发，重做米白条纹上衣与墨靛色长裤，并为新发型和衣饰增加配件。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
       "path": "assets/visitors-trousers/qing/portrait.glb",
-      "sha256": "c5b1b5ecf1e2b20df9084eafbbfba49bec9825bbd2c7caa943881dc98a6cd135",
+      "sha256": "3df2cc0c70e58a64d8fc178f06716177d40075e570c338f6864909d1f645a28e",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
-      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 依原扫描调整眉眼、唇色和深栗色及肩发，重做米白条纹上衣与墨靛色长裤，并为新发型和衣饰增加配件。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
       "path": "assets/visitors-trousers/qing/walking.bin",
-      "sha256": "b99dd1d220a7e12072437ee3fbc145f34e870621dcbf552918db553786b38f6e",
+      "sha256": "a7f4f6f6f8a0e991187eb7f7cbf90bd423a2cb2f83113db233ef27b552c15db3",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
-      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 展厅漫游版从 gallery.glb 提取头部、双手和两只鞋实际使用的纹理区块，按原网格重新排列 UV，保留衣料纹理。贴图采用 WebP，GLB 使用 gzip 编码。",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 展厅漫游版从 gallery.glb 提取头部、双手和两只鞋实际使用的纹理区块，按原网格重新排列 UV，保留衣料纹理。贴图采用 WebP，GLB 使用 gzip 编码。 依原扫描调整眉眼、唇色和深栗色及肩发，重做米白条纹上衣与墨靛色长裤，并为新发型和衣饰增加配件。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {

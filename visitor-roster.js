@@ -8,10 +8,10 @@ function scan(id,gender,label,description,reference,edition='visitors-fitted'){
     reference:hasDisplayMedia(referenceImage) ? {image:referenceImage,...reference} : null};
 }
 export const VISITORS=[
-  scan('qing','female','青禾','灰绿衬衣 · 燕麦灰直筒裤与黑白系带鞋',{
+  scan('qing','female','青禾','米白海魂条纹衫 · 墨靛蓝直筒裤与黑白系带鞋',{
     caption:'换装前 · 原模型四面视图 · Atelier Brown',
     url:'https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f'},'visitors-trousers'),
-  scan('heng','male','行川','石青圆领短袖 · 深灰斜纹裤与运动鞋',{
+  scan('heng','male','行川','墨蓝针织 Polo 衫 · 暖石色长裤与深灰运动鞋',{
     caption:'换装前 · 眼平机位的原始照片 · Yukihiro Iwayama',
     url:'https://github.com/HappyOcean/Full_Body_Photogrammetry'})
 ];
