@@ -112,11 +112,11 @@ export function roomVisitors(scene,groundAt,shoeHeight,invalidate,lineOfSight,ar
     if(state.time>1.35&&(state.time%7.3)>.9)return null;
     return {x:best.x,y:groundAt(best)+(best.labelY?best.labelY-.34:1.58),z:best.z,kind:'visitor'};
   }
-  function update(dt,viewer){
+  function update(dt,viewer,sceneReady=true){
     const visible=[viewer];
     const now=performance.now();
     detailClock-=dt;
-    if(detailed&&detailClock<=0){
+    if(sceneReady&&detailed&&detailClock<=0){
       detailClock=.42;
       const candidates=[];
       for(const record of records.values()){

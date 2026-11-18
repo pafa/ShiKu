@@ -250,7 +250,7 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
   let breathingPhase=(identity%63)/10,gazeYaw=0,gazePitch=0,gazeResidual=0;
   let hipsAboveFloor=NaN,hipsVelocity=0;
   let priorYaw=0,phase=.60,pivotPhase=0,pivotDirection='pivotLeft',walkWeight=0,turnWeight=0;
-  let lastSpeed=0,stopTime=1,stopBlend=1,stopTake='stop',stopping=false,valid=false;
+  let lastSpeed=0,stopTime=1,stopBlend=0,stopTake='stop',stopping=false,valid=false;
   let entering=false,startDistance=0,startTake='start',starts=0,curveRate=0;
 
   function worldOrient(joint,target){
@@ -440,20 +440,25 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
       entering=true;stopping=false;startDistance=0;
       startTake=((lead>=.25&&lead<.75)!==!!(starts++%2))?'startRight':'start';
     }
-    if(stopping&&(acceleration>.4||isPivot))stopping=false;
+    // A shorter stride (analog input, stairs, or a slower remote visitor)
+    // can begin with the same deceleration as a full stop. Return to the
+    // walking cycle as soon as the visitor maintains forward speed.
+    if(stopping&&dt>0&&(isPivot||(moving&&acceleration>=-.08)))stopping=false;
     if(entering&&!moving&&acceleration<=0&&startDistance<.025)entering=false;
     if(!stopping&&!isPivot&&((acceleration<-.65&&lastSpeed>.18&&speed<1.12)||(lastSpeed>.025&&!moving))){
-      stopping=true;entering=false;stopBlend=0;
+      stopping=true;
       // Match the remaining momentum to the end of the capture. Replaying the
       // performer's full last step after a tap made the stationary leg kick up.
       stopTime=lerp(.80,.70,smoothstep(lastSpeed,.22,1.05));
       // Align the trailing leg with the captured braking step.
       stopTake=phase<.5?'stopRight':'stop';
     }
-    if(stopping){
-      stopTime=Math.min(1,stopTime+dt*1.65/layout.clips.stop.duration);
-      stopBlend=Math.min(1,stopBlend+dt*4.3);
-    }
+    // Keep the braking pose as a separate motion layer. Dropping the
+    // last step immediately when a pivot starts can teleport a swinging foot.
+    stopTime=Math.min(1,stopTime+dt*1.65/layout.clips.stop.duration);
+    stopBlend=smooth(stopBlend,stopping?1:0,11,dt);
+    if(Math.abs(stopBlend-Number(stopping))<.001)stopBlend=Number(stopping);
+    if(stopping&&!moving&&stopBlend>.99)entering=false;
     if(isPivot)entering=false;
     const stepLength=clamp(.18+speed/(1.16*size),0,1);
     walkWeight=smooth(walkWeight,moving?stepLength:0,10,dt);
@@ -501,13 +506,15 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
     turnWeight=smooth(turnWeight,pivotTarget,12,dt);
     if(turnWeight<.001)turnWeight=0;
     const pivot=sample(pivotDirection,pivotPhase),start=sample(startTake,startTime);
-    const stand=stopping?sample(stopTake,stopTime):restPose;
-    const w=stopping?walkWeight*(1-stopBlend):walkWeight;
+    const stand=sample(stopTake,stopTime);
+    const w=walkWeight*(1-stopBlend);
+    startWeight*=1-stopBlend;
     for(const c of components)c.pose=sample(c.name,phase);
     model.getWorldQuaternion(basis);facing.copy(forward).applyQuaternion(basis);
     for(const bone of chain){
       if(bone.hand)continue; // The final wrist frame uses the photographed palm.
-      projectedRotation(stand,bone,aQ);
+      projectedRotation(restPose,bone,aQ);
+      if(stopBlend) aQ.slerp(projectedRotation(stand,bone,cQ),stopBlend);
       if(w>1e-5){
         let sum=0;
         for(const c of components){
@@ -548,9 +555,11 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
       worldOrient(bone.joint,aQ);
     }
 
-    const mixChannel=k=>{
+    const mixChannel=(k,weight=w)=>{
       const gait=components.reduce((sum,c)=>sum+c.weight*value(c.pose,k),0);
-      return lerp(lerp(lerp(value(stand,k),gait,w),value(start,k),startWeight),value(pivot,k),turnWeight);
+      const idle=lerp(value(restPose,k),value(stand,k),stopBlend);
+      const stride=lerp(idle,gait,weight);
+      return lerp(lerp(stride,value(start,k),startWeight),value(pivot,k),turnWeight);
     };
     rootMove.set(mixChannel(0)*size,mixChannel(1)*size,mixChannel(2)*size);
     const activeStep=Math.max(w,startWeight);
@@ -558,7 +567,10 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
     rootMove.add(rest);model.localToWorld(rootMove);
     pelvis.position.copy(pelvis.parent.worldToLocal(rootMove));model.updateMatrixWorld(true);
     const levels=legs.map(leg=>soleFloor(leg));
-    const contact=legs.map((_,i)=>mixChannel(3+i));
+    // Short steps have a smaller swing, but still alternate their support
+    // foot. Scaling contact timing by stride length plants both shoes.
+    const supportWeight=Math.max(w,smoothstep(speed,.06,.30)*(1-stopBlend));
+    const contact=legs.map((_,i)=>mixChannel(3+i,supportWeight));
     // Bring the support shoe to the measured ground. Preserve the difference
     // in height between the two shoes from the original performance.
     const min=Math.min(levels[0].gap,levels[1].gap);
@@ -761,7 +773,7 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
   function reset(){
     if(valid)restoreUpper();
     priorYaw=measure();previous.copy(position);phase=lead;pivotPhase=0;entering=false;starts=0;startDistance=curveRate=0;
-    walkWeight=turnWeight=lastSpeed=0;stopping=false;stopTime=stopBlend=1;
+    walkWeight=turnWeight=lastSpeed=0;stopping=false;stopTime=1;stopBlend=0;
     gazeYaw=gazePitch=gazeResidual=0;hipsAboveFloor=NaN;hipsVelocity=0;
     for(const leg of legs){leg.held=leg.approaching=false;leg.release.set(0,0,0);}
     valid=true;draw(0,0,0);rememberUpper();upperMotion(0,null);face.reset();
@@ -804,7 +816,7 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
     }
     rememberUpper();upperMotion(0,null);
   }
-  function locomotionSettling(){return walkWeight>.001||turnWeight>.001||(stopping&&stopTime<1);}
+  function locomotionSettling(){return walkWeight>.001||turnWeight>.001||stopBlend!==Number(stopping)||(stopping&&stopTime<1);}
   function isSettling(){return locomotionSettling()||gazeResidual>.006;}
   reset();
   return {reset,update,isSettling,captureState,restoreState};

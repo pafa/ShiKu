@@ -124,12 +124,13 @@ export function mountBuilding(host,halls,events) {
   scene.add(footings);
   const rockWorld=buildCaveWorld(scene,textures,manager,invalidate,c=>events.onCaveError?.(c));
   const floor=buildingFloor(obstacles),walker=makeWalker(floor);
-  // The walking camera is at least two metres away. Keep close-up geometry
-  // for the portrait viewer; first person does not draw the local body at all.
+  // Admission uses the walking scan. The portrait scan is optional at close zoom.
+  const allowDetailedVisitors=fineVisitorDetail(renderer);
+  let localDetail=false;
   const visitor=makeVisitor(()=>!stopped,invalidate,events.initialVisitor,shoeHeight,false);
   scene.add(visitor.root);
   const artAttention=exhibitionAttention(allPlans,halls,floor.clear);
-  const guests=roomVisitors(scene,elevationAt,shoeHeight,invalidate,floor.clear,artAttention,fineVisitorDetail(renderer));
+  const guests=roomVisitors(scene,elevationAt,shoeHeight,invalidate,floor.clear,artAttention,allowDetailedVisitors);
   const marker=new THREE.Mesh(new THREE.RingGeometry(.10,.129,36),new THREE.MeshBasicMaterial({color:'#d9b376',opacity:.85,transparent:true,depthWrite:false}));
   marker.rotation.x=-Math.PI/2;marker.visible=false;scene.add(marker);
   const keys=new Set(),ray=new THREE.Raycaster(),pointer=new THREE.Vector2();
@@ -390,6 +391,12 @@ export function mountBuilding(host,halls,events) {
     const clearance=activeCave?1.48:.49;
     const showVisitor=!eyes&&cameraGap>clearance+(visitor.root.visible?0:.14);
     if(visitor.root.visible!==showVisitor){visitor.setVisible(showVisitor);}
+    // Use the requested zoom, so squeezing through a doorway never starts a download.
+    const close=allowDetailedVisitors && !firstView && showVisitor && arm<(localDetail?3.25:2.75);
+    if(close!==localDetail){
+      localDetail=close;
+      void visitor.setDetail(close);
+    }
     positionSun(x,z);
     daylight.update(x,z,dt);
   }
@@ -510,7 +517,7 @@ export function mountBuilding(host,halls,events) {
     // Network sends have their own cadence; supply the current walking pose
     // rather than the map's slower update (which otherwise duplicates/skips steps).
     if(motion.distance>0||motion.turnDelta!==0)events.onVisitorPose?.(walker.state);
-    const attention=guests.update(actorDt,walker.state)??artAttention(walker.state);
+    const attention=guests.update(actorDt,walker.state,!firstView)??artAttention(walker.state);
     visitor.update({...motion,dt:actorDt,attention});updateZone();updateCamera(dt);renderer.render(scene,camera);
     if(onVisibleArtwork && near && !activeCave && now-lastArtCheck>160){
       lastArtCheck=now;
