@@ -18,7 +18,7 @@ const clipNames=Object.keys(layout.clips);
 // Stride relative to bone length, contribution of the quieter second walker,
 // and the starting lead. The application still owns speed and direction.
 const bearing={
-  qing:[1.03,1,.51], heng:[.96,1,.02]
+  qing:[.96,.78,.51], heng:[.97,.62,.02]
 };
 function cyclicValue(table,phase){
   const t=phase*table.length,index=Math.floor(t);
@@ -267,7 +267,7 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
     rotation.setFromUnitVectors(tmp,tmp2);joint.getWorldQuaternion(previousFrame);
     worldOrient(joint,localRotation.copy(rotation).multiply(previousFrame));
   }
-  // Archived scans with only a wrist joint use the original Yukihiro fallback. Points 0/5/9/17 of
+  // The scan only has a wrist joint for Yukihiro. Points 0/5/9/17 of
   // the registered hand landmarks are the wrist, index, middle and little
   // knuckles, respectively (scripts/visitor-tailoring/heng/hand-landmarks.json).
   const scanHands={
@@ -285,7 +285,7 @@ export function makeWholeMotion(model,{id='',groundHeightAt=()=>0}={}) {
     const arm=nodes[side+'Arm'],elbow=nodes[side+'ForeArm'],hand=nodes[side+'Hand'];
     function knuckle(name){
       const joint=model.getObjectByName(side+'Hand'+name+'1');
-      if(joint)return restPoint(joint);
+      if(id!=='heng'&&joint)return restPoint(joint);
       return v().fromArray(scanHands[side][name.toLowerCase()]);
     }
     const along=knuckle('Middle').sub(hand.restPosition).normalize();

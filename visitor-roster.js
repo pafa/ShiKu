@@ -1,32 +1,25 @@
 import {hasDisplayMedia} from './public-media.js';
-// The museum and its presence protocol identify visitors independently of their art files.
-function photographedVisitor(id, folder, gender, label, description, source, caption) {
-  const root = 'assets/visitors-recast/' + folder + '/';
-  const image = root + 'reference.webp';
-  return {
-    id, gender, label, description,
-    profile: (gender === 'female' ? '女访客' : '男访客') + ' · 整身扫描',
-    body: root + 'gallery.glb',
-    walkingBody: root + 'walking.bin',
-    detailBody: root + 'portrait.glb',
-    portrait: root + 'card.webp',
-    reference: hasDisplayMedia(image) ? {image, caption, url: source} : null
-  };
+// Gallery names are aliases. Both detail levels for each visitor come from the same subject.
+function scan(id,gender,label,description,reference,edition='visitors-fitted'){
+  const folder='assets/'+edition+'/'+id+'/';
+  const referenceImage = 'assets/visitors-natural/'+id+'/reference.webp';
+  return {id,gender,label,description,profile:(gender==='female'?'女访客':'男访客')+' · 真人原型',
+    body:folder+'gallery.glb',walkingBody:folder+'walking.bin',detailBody:folder+'portrait.glb',portrait:'assets/visitors-fitted/'+id+'/card.webp',
+    reference:hasDisplayMedia(referenceImage) ? {image:referenceImage,...reference} : null};
 }
-
-export const VISITORS = [
-  photographedVisitor('qing', 'ning', 'female', '宁遥', '浅青色短袖 · 炭黑运动裤与系带跑鞋',
-    'https://huggingface.co/datasets/digitalrealitylab/HSRD-100/tree/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/data/HSR0028/HSR0028-Body-093',
-    '拍摄时的跑步姿态 · 原作者四面视图 · Digital Reality Lab'),
-  photographedVisitor('heng', 'lin', 'male', '林澈', '棒球帽与紫色连帽衫 · 牛仔裤和灰白运动鞋',
-    'https://sketchfab.com/3d-models/full-body-scan-clean-pose-ae9559912f6240a8a87057911b69edd0',
-    '原始全身扫描 · OverseerThuror')
+export const VISITORS=[
+  scan('qing','female','青禾','米白海魂条纹衫 · 墨靛蓝直筒裤与黑白系带鞋',{
+    caption:'换装前 · 原模型四面视图 · Atelier Brown',
+    url:'https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f'},'visitors-trousers'),
+  scan('heng','male','行川','墨蓝针织 Polo 衫 · 暖石色长裤与深灰运动鞋',{
+    caption:'换装前 · 眼平机位的原始照片 · Yukihiro Iwayama',
+    url:'https://github.com/HappyOcean/Full_Body_Photogrammetry'})
 ];
 
 // Retired choices can still occur in bookmarks, local storage or an older room.
 const identities = new Map([
-  ...['ning', 'qing', 'maya', 'rose', 'cardigan', 'slate', 'hoodie'].map(id => [id, 'qing']),
-  ...['lin', 'heng', 'sam', 'denim', 'linen', 'brick', 'sage'].map(id => [id, 'heng'])
+  ...['qing', 'maya', 'rose', 'cardigan', 'slate', 'hoodie'].map(id => [id, 'qing']),
+  ...['heng', 'sam', 'denim', 'linen', 'brick', 'sage'].map(id => [id, 'heng'])
 ]);
 
 export function resolveVisitorId(value) {

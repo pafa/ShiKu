@@ -19,7 +19,7 @@
 
 ## Getting around
 
-Pick Ning Yao or Lin Che as your avatar and enter a nickname. The main entrance places you at a randomly chosen free position in one of nine galleries. A direct cave link takes you to that cave. A central atrium connects the galleries, each devoted to a period of Chinese history. Walk through an opening to the next gallery, or select a period under **时代展馆** and use **本馆窟室** to find its cave rooms. The visitor interface and narration are in Chinese.
+Pick the Qinghe or Xingchuan avatar and enter a nickname. The main entrance places you at a randomly chosen free position in one of nine galleries. A direct cave link takes you to that cave. A central atrium connects the galleries, each devoted to a period of Chinese history. Walk through an opening to the next gallery, or select a period under **时代展馆** and use **本馆窟室** to find its cave rooms. The visitor interface and narration are in Chinese.
 
 | What you'd like to do | How |
 | --- | --- |

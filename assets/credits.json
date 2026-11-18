@@ -3848,12 +3848,57 @@
       "changes": "依据调查尺寸建模，由模型初始视角生成剖视封面。"
     },
     {
+      "path": "assets/visitors-fitted/heng/card.webp",
+      "sha256": "4f7a72f8f1dda8d695bd41bb19254d6f911033b68b1bc80a23ebd83b7bc1d3cf",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 从同款换装后的三维人物渲染选角肖像。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/gallery.glb",
+      "sha256": "c9c4ba6c1361a30ffbc5a747f55d898265574844a44f4d38734f33a8cd953bbe",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/portrait.glb",
+      "sha256": "14d914bfef268b60c905156bc2f87a0a437372085969319886924fdc65dfb889",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
+      "path": "assets/visitors-fitted/heng/walking.bin",
+      "sha256": "a5fc2700f64803dece6b1758510346b0e102713f4c4bb4e6722f3b484919b29f",
+      "license": "作者明确授权使用、重建及公开成品并要求署名、链接；鞋 CC BY 4.0",
+      "credit": "Yukihiro Iwayama, Digital Reality Lab / HumanScanRepository",
+      "source": "https://github.com/HappyOcean/Full_Body_Photogrammetry",
+      "changes": "人体照片重建、换装绑定及鞋组件改作。鞋来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-fitted/heng/SOURCES.md。 展厅漫游版从 gallery.glb 的摄影色图重采样至 2048×2048，扩展有效纹理边缘，按材质保留法线和粗糙度通道。贴图采用 WebP，GLB 使用 gzip 编码。 以原扫描调整眉眼、侧分发型和面部轮廓，重做墨蓝针织翻领、门襟和暖石色长裤。",
+      "licenseUrl": "https://github.com/HappyOcean/Full_Body_Photogrammetry/blob/ff5ba9ac9258741ecf395c2902365540afd960a2/README.md"
+    },
+    {
       "path": "assets/visitors-fitted/motion-study/kana-native.json",
       "sha256": "47fd6ceaeb46d402e89bd9cb991bdce8d4eab18d84c5754e95f758075914de9c",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
       "changes": "原模型的步行骨骼抽样。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-fitted/qing/card.webp",
+      "sha256": "a74bf6b7008287fdbe09b862a3207e4bf2d02843a2b2517b31244303b70f9f69",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 从同款换装后的三维人物渲染选角肖像。",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
@@ -3875,98 +3920,17 @@
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
     },
     {
-      "path": "assets/visitors-recast/lin/card.webp",
-      "sha256": "135eb36ee83de834dc384f004f823b43b2842df274581af4e454a3255776e929",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "OverseerThuror（Full Body Scan - Clean Pose），ShiKu 改编",
-      "source": "assets/visitors-recast/lin/SOURCES.md",
-      "changes": "从可行走近景模型拍摄的选人肖像。"
-    },
-    {
-      "path": "assets/visitors-recast/lin/gallery.glb",
-      "sha256": "81e6a3659cd05230faeebf9c19c4eeb180d6e2666add5fc10d8b195d587dcfd5",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "OverseerThuror（Full Body Scan - Clean Pose），ShiKu 改编",
-      "source": "assets/visitors-recast/lin/SOURCES.md",
-      "changes": "将全身扫描按展厅距离简化并绑定步态，保留原有摄影纹理。"
-    },
-    {
-      "path": "assets/visitors-recast/lin/portrait.glb",
-      "sha256": "5da3159c65eca5de5b54cd068362e07af4f9692d6ed78bd161ed902c076c4aaa",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "OverseerThuror（Full Body Scan - Clean Pose），ShiKu 改编",
-      "source": "assets/visitors-recast/lin/SOURCES.md",
-      "changes": "原作全身摄影扫描重排纹理，设置展馆行走骨架与蒙皮，保留采集的面部、帽子和整身衣着。"
-    },
-    {
-      "path": "assets/visitors-recast/lin/reference.webp",
-      "sha256": "0fbea6ca6797a5396c07591bd0e31b6692194fcb75727952dd4c4eb4d76fcb49",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "OverseerThuror（Full Body Scan - Clean Pose），ShiKu 改编",
-      "source": "assets/visitors-recast/lin/SOURCES.md",
-      "changes": "从作者原始全身扫描渲染的采集参照。"
-    },
-    {
-      "path": "assets/visitors-recast/lin/walking.bin",
-      "sha256": "3ac41a33d8c4cfb3fcd81ef48fdcff512b618ec773549ad814f23e01f4609f47",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "OverseerThuror（Full Body Scan - Clean Pose），ShiKu 改编",
-      "source": "assets/visitors-recast/lin/SOURCES.md",
-      "changes": "压缩封装的展馆行走模型。"
-    },
-    {
-      "path": "assets/visitors-recast/ning/card.webp",
-      "sha256": "4ecb39e85badf89f030042152c4ce41ba2bff2f60087cab951c966e1f1c902f1",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "Digital Reality Lab / HumanScanRepository，ShiKu 改编",
-      "source": "assets/visitors-recast/ning/SOURCES.md",
-      "changes": "从可行走近景模型拍摄的选人肖像。"
-    },
-    {
-      "path": "assets/visitors-recast/ning/gallery.glb",
-      "sha256": "e976485841795b74426625990075143b90ed955352656885abee2022091b64dd",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "Digital Reality Lab / HumanScanRepository，ShiKu 改编",
-      "source": "assets/visitors-recast/ning/SOURCES.md",
-      "changes": "依据原扫描设置关节与蒙皮，校正站姿与鞋底，保留摄影纹理。"
-    },
-    {
-      "path": "assets/visitors-recast/ning/portrait.glb",
-      "sha256": "dfe5c5b10fc51098dd6340ab662f7b7af9526139783250325b204b9a58793803",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "Digital Reality Lab / HumanScanRepository，ShiKu 改编",
-      "source": "assets/visitors-recast/ning/SOURCES.md",
-      "changes": "同次全身摄影扫描，保留原有五官与服装，校正站姿、局部扫描折片和鞋底，重排近景纹理。"
-    },
-    {
-      "path": "assets/visitors-recast/ning/reference.webp",
-      "sha256": "6300f27c5cea39937f6dfdf4209071a09267ae35aab66b61cdcc810e075f45b1",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "Digital Reality Lab / HumanScanRepository，ShiKu 改编",
-      "source": "assets/visitors-recast/ning/SOURCES.md",
-      "changes": "原作者四面采集视图转为 WebP，保留署名。"
-    },
-    {
-      "path": "assets/visitors-recast/ning/walking.bin",
-      "sha256": "c8a490f7220e4e1b11a97eeaae580bf0f49a28b2624d3094879afa5c1ae668e2",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "credit": "Digital Reality Lab / HumanScanRepository，ShiKu 改编",
-      "source": "assets/visitors-recast/ning/SOURCES.md",
-      "changes": "展厅模型的摄影纹理缩至 2048 像素后转为 WebP，封装为 gzip 压缩的 GLB。"
-    },
-    {
       "path": "assets/visitors-trousers/qing/gallery.glb",
       "sha256": "061aab26b84ff385c2d7d911f3101d26e2989a43ec7468a0292f3de292cf3f60",
+      "license": "CC BY 4.0",
+      "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
+      "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
+      "changes": "换装、绑定、纹理及鞋组件改作。鞋和衣物改作来源 https://huggingface.co/datasets/digitalrealitylab/HSRD-100/blob/9cc5e9c138dd310dc88c95c80e5db0a3ecb7971a/README.md 。详见 assets/visitors-trousers/qing/SOURCES.md。 依原扫描调整眉眼、唇色和深栗色及肩发，重做米白条纹上衣与墨靛色长裤，并为新发型和衣饰增加配件。",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "path": "assets/visitors-trousers/qing/portrait.glb",
+      "sha256": "3df2cc0c70e58a64d8fc178f06716177d40075e570c338f6864909d1f645a28e",
       "license": "CC BY 4.0",
       "credit": "Atelier Brown / ddd, Digital Reality Lab / HumanScanRepository",
       "source": "https://sketchfab.com/3d-models/free-018-kana-walk-f465652729944a66aed790cd88fa0b0f",
