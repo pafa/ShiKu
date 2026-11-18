@@ -31,6 +31,37 @@ async function readMesh(path,compressed){
   return scene;
 }
 
+// A sleeve welded to a passing hand or a trouser panel weighted to the
+// opposite leg can tear visibly even when the joint trajectories are correct.
+function surfaceCheck(body, label) {
+  const meshes = [];
+  body.traverse(mesh => {
+    if (!mesh.isSkinnedMesh) return;
+    const {position} = mesh.geometry.attributes;
+    const rest = Array.from({length: position.count}, (_, i) => new THREE.Vector3().fromBufferAttribute(position, i));
+    const posed = rest.map(() => new THREE.Vector3());
+    const indices = mesh.geometry.index?.array ?? rest.map((_, i) => i);
+    meshes.push({mesh, rest, posed, indices});
+  });
+  return () => {
+    body.updateWorldMatrix(true, true);
+    for (const {mesh, rest, posed, indices} of meshes) {
+      mesh.skeleton.update();
+      for (let i = 0; i < posed.length; i++) mesh.getVertexPosition(i, posed[i]);
+      for (let face = 0; face < indices.length; face += 3) {
+        for (let edge = 0; edge < 3; edge++) {
+          const a = indices[face + edge], b = indices[face + (edge + 1) % 3];
+          const original = rest[a].distanceTo(rest[b]);
+          const length = posed[a].distanceTo(posed[b]);
+          if (original >= .002 && length > original * 2.5 && length - original > .035) {
+            assert.fail(label + ' surface stretched at triangle ' + face / 3 + ' in ' + mesh.name);
+          }
+        }
+      }
+    }
+  };
+}
+
 for(const visitor of VISITORS){
   const rootGroup=new THREE.Group(),walker=makeWalker(flat),dt=1/60;
   const forward={x:0,z:-1},left={x:-1,z:0},right={x:1,z:0};
@@ -42,6 +73,16 @@ for(const visitor of VISITORS){
     rootGroup.position.set(0,0,0);rootGroup.rotation.y=0;rootGroup.updateMatrixWorld(true);
     walker.reset(0,0,0);
     const rig=makeWholeMotion(body,{id:visitor.id});
+    for(const side of ['Left','Right']){
+      const wrist=body.getObjectByName(side+'Hand').getWorldPosition(new THREE.Vector3());
+      const knuckles=['Index','Middle','Pinky'].map(finger=>{
+        const joint=body.getObjectByName(side+'Hand'+finger+'1');
+        assert(joint,visitor.label+' missing '+side+' '+finger+' palm landmark');
+        return joint.getWorldPosition(new THREE.Vector3());
+      });
+      const length=wrist.distanceTo(knuckles[1]),width=knuckles[0].distanceTo(knuckles[2]);
+      assert(length>.035&&length<.145&&width>.024&&width<.145,visitor.label+' palm landmarks are outside the hand');
+    }
     const feet=['LeftFoot','RightFoot'].map(name=>body.getObjectByName(name));
     const footPositions=()=>feet.map(bone=>bone.getWorldPosition(new THREE.Vector3()));
     function advance(seconds,input,pace=1,observe){
@@ -56,7 +97,11 @@ for(const visitor of VISITORS){
       }
     }
 
-    advance(.3,null);advance(3.14,forward);advance(1.4,null);advance(2.35,left);
+    const checkSurface = surfaceCheck(body, visitor.label);
+    let stepFrame = 0;
+    advance(.3,null);
+    advance(3.14,forward,1,() => { if (stepFrame++ % 12 === 0) checkSurface(); });
+    advance(1.4,null);advance(2.35,left);
     let pivots=0;
     advance(1.8,right,1,({wasBraking,state,travel})=>{
       if(!wasBraking||state.stopping||state.turnWeight<=0)return;

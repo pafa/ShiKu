@@ -3,12 +3,14 @@
 import * as T from 'three';
 import {acquireVisitorFigure} from './visitor-model.js';
 import {makeWholeMotion} from './whole-motion.js';
-import {VISITORS} from './visitor-roster.js';
 import {portraitLight} from './portrait-light.js';
 const $=s=>document.querySelector(s),canvas=$('canvas'),stage=$('#stage'),play=$('#play'),time=$('#time');
 async function study(){
   const response=await fetch('./assets/visitors-fitted/motion-study/kana-native.json');if(!response.ok)throw Error('clip');
-  const clip=await response.json(),spec=VISITORS.find(v=>v.id==='qing');
+  // This recorded clip was authored on Kana's skeleton. Keep the historical
+  // comparison bound to its original scan when the live gallery cast changes.
+  const clip=await response.json();
+  const spec={id:'qing',body:'assets/visitors-trousers/qing/gallery.glb',walkingBody:'assets/visitors-trousers/qing/walking.bin'};
   const renderer=new T.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;
   const scene=new T.Scene(),lights=portraitLight(scene,renderer);lights.focus('full');renderer.setScissorTest(true);
   const camera=new T.PerspectiveCamera(25,1,.05,20),road=new T.Group();scene.add(road);
